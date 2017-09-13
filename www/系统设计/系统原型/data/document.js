@@ -33,10 +33,6 @@
                 "type":"Wireframe",
                 "url":"采购申请.html"},
 {
-                "pageName":"采购下单",
-                "type":"Wireframe",
-                "url":"采购下单.html"},
-{
                 "pageName":"采购跟踪",
                 "type":"Wireframe",
                 "url":"采购跟踪.html"},
