@@ -1,10 +1,10 @@
 ﻿$axure.loadCurrentPage({
   "url":"操作日志.html",
-  "generationDate":new Date(1505361730445.63),
+  "generationDate":new Date(1505367471608),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
-    "packageId":"eb8a6b9140294b3882416e7fa5e84936",
+    "packageId":"3c360abfd0be42dfbf891af64de51e73",
     "type":"Axure:Page",
     "name":"操作日志",
     "notes":{
@@ -30,7 +30,7 @@
 },
     "diagram":{
       "objects":[{
-          "id":"6608c7830ffb473684fe16b5bfd5f2c3",
+          "id":"300bf3d672cd4744aad57373e32de089",
           "label":"导航栏",
           "type":"buttonShape",
           "styleType":"buttonShape",
@@ -45,7 +45,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"a879dbba0c034a069edf27430fa75a1e",
+              "id":"b32b88097fcf4a74acfb2664fd6c4324",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -63,7 +63,7 @@
           "images":{
             "normal~":"images/操作日志/regen/导航栏_u0.png"}},
 {
-          "id":"b04181e523884984aa2c2150a37eb6ea",
+          "id":"c171a6d973d1419fa2bb4b2d0fd65f63",
           "label":"",
           "type":"buttonShape",
           "styleType":"buttonShape",
@@ -75,7 +75,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"33f31d6978ea4471a15ebe46e3f17bcc",
+              "id":"062bcaea4d104308b9b7545fd09631a1",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -90,7 +90,7 @@
           "images":{
             "normal~":"images/操作日志/regen/u2.png"}},
 {
-          "id":"434a65ed88474cc3aded0bbbec2dd6c5",
+          "id":"e2fbf4c71b0e459e96f8369f9b49bda8",
           "label":"placeholder",
           "type":"buttonShape",
           "styleType":"buttonShape",
@@ -118,7 +118,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"24f342343e2a4b73ac98c6af03934efc",
+              "id":"245422d775fc49bc9cd17241409dca32",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -149,7 +149,7 @@
           "images":{
             "normal~":"images/操作日志/regen/placeholder_u4.png"}},
 {
-          "id":"506db3aecf7d4117992256e080f30125",
+          "id":"e9b59b4225d2464faffdb3cb3aa01660",
           "label":"",
           "type":"buttonShape",
           "styleType":"paragraph",
@@ -166,7 +166,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"a266a9660e444105a0bab0e7c8148691",
+              "id":"020ce043922240d0ad59e1abe38c744e",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -186,7 +186,7 @@
           "images":{
             "normal~":"resources/images/transparent.gif"}},
 {
-          "id":"af70d5c19991418aad1c166758f41f33",
+          "id":"17ead7c0310142bbb6ebfe97af7eecc3",
           "label":"消息按钮",
           "type":"imageBox",
           "styleType":"imageBox",
@@ -202,7 +202,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"bf222648dbb34624a4dfea1e18f9b1d5",
+              "id":"874aa04cd12943bda0e175f5e22f0160",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -228,7 +228,7 @@
                       "action":"fadeWidget",
                       "description":"切换 (形状) 淡入淡出 200 毫秒,<br>(形状) 淡入淡出 200 毫秒,<br>(形状) 淡入淡出 200 毫秒,<br>(横线) 淡入淡出 200 毫秒,<br>(形状) 淡入淡出 200 毫秒,<br>(形状) 淡入淡出 200 毫秒,<br>(形状) 淡入淡出 200 毫秒,<br>(横线) 淡入淡出 200 毫秒",
                       "objectsToFades":[{
-                          "objectPath":["ab698d703264460dab12290957e51447"],
+                          "objectPath":["1cb344357bf7440db73bfad88407c0f5"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -236,7 +236,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["d07c18028cff490ab32cd897de78cf08"],
+                          "objectPath":["017a599de049401a92f0d17f5b740d61"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -244,7 +244,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["6df1fdb7de514ccd9fb42fcbe4759e01"],
+                          "objectPath":["26388fad9f5a401db60766e4ccc164b7"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -252,7 +252,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["43ef04f00dfe4c0a818824ec4707429e"],
+                          "objectPath":["4e72c9bce7d944d5903a7e762a553552"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -260,7 +260,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["06361ae292be4b61ae7e1f2b6b926e69"],
+                          "objectPath":["adc91c54b1ec43fe8ba64b71079b93fe"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -268,7 +268,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["18758630bb9f484eb91c9660f52edac6"],
+                          "objectPath":["ded72dbee2064b2295e401a582a94969"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -276,7 +276,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["d123874dcf004865903dd0bc8a48f596"],
+                          "objectPath":["d74d654f96c7433bb62d524b47139ca3"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -284,7 +284,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["69bfdbe2de644b03bba30fe450982ee3"],
+                          "objectPath":["2cf4cd2b67774bb2a988b196c868a04b"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -295,7 +295,7 @@
           "images":{
             "normal~":"images/操作日志/regen/消息按钮_u8.png"}},
 {
-          "id":"1cc48cb9c44445aab6d2b5f37dedb030",
+          "id":"b025cd4681454c7b9c4033780054a0e6",
           "label":"用户名按钮",
           "type":"buttonShape",
           "styleType":"paragraph",
@@ -310,7 +310,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"61d569fb59ed47278248723cf6fb6cf5",
+              "id":"b61b26e68f964bf887e40b8ca00fc8e3",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -335,7 +335,7 @@
                       "action":"fadeWidget",
                       "description":"切换 用户信息弹出框 淡入淡出 200 毫秒,<br>退出系统按钮 淡入淡出 200 毫秒,<br>修改密码按钮 淡入淡出 200 毫秒",
                       "objectsToFades":[{
-                          "objectPath":["91ec42b699724b449ff152f06c4b79e5"],
+                          "objectPath":["bd7291057d3c4d69a5295ae6cf48743d"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -343,7 +343,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["8b358c82730a41aca19132995c639512"],
+                          "objectPath":["d9366b53b9d64febbb99faa2a11b2023"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -351,7 +351,7 @@
                               "duration":200,
                               "showType":"none"}}},
 {
-                          "objectPath":["afe7cb3df64f4f9384496de956ba0ce9"],
+                          "objectPath":["f4fd940a53434281be03a521cc72e2dc"],
                           "fadeInfo":{
                             "fadeType":"toggle",
                             "options":{
@@ -362,7 +362,7 @@
           "images":{
             "normal~":"resources/images/transparent.gif"}},
 {
-          "id":"628b0ce4e81c4bf6900ffd69ab6d4cac",
+          "id":"391244e6bf304a34891c346496ca1dca",
           "label":"全屏按钮",
           "type":"imageBox",
           "styleType":"imageBox",
@@ -378,7 +378,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"c38e6a3466b4427c92a16f85d4776609",
+              "id":"942696be25ef48e1acaf3f4f9aa77ec5",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -397,7 +397,7 @@
           "images":{
             "normal~":"images/操作日志/regen/全屏按钮_u12.png"}},
 {
-          "id":"541fd83e99cf4fbd9dc42b93892a1768",
+          "id":"d3e416b9901a4130b8284df69419688e",
           "label":"",
           "type":"buttonShape",
           "styleType":"buttonShape",
@@ -420,7 +420,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"cea3bbf77e434ce8a014848c19ea4174",
+              "id":"5b281926dfc04a7d92b6313ca988ad8b",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -446,7 +446,7 @@
           "images":{
             "normal~":"images/操作日志/regen/u14.png"}},
 {
-          "id":"5031cdc5d4ec4670bf7d926b5a808b66",
+          "id":"da2669da62944231831a1107e15068c2",
           "label":"导航栏宽度切换按钮",
           "type":"imageBox",
           "styleType":"imageBox",
@@ -462,7 +462,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"e362fb006b9248639f19b6542518b2a7",
+              "id":"fb16f52d62984c3f84eb08a086242c7b",
               "label":"",
               "isContained":true,
               "type":"richTextPanel",
@@ -481,718 +481,7 @@
           "images":{
             "normal~":"images/操作日志/regen/导航栏宽度切换按钮_u16.png"}},
 {
-          "id":"5a6258a04d3d4412a6afb9d5b046a455",
-          "label":"退出弹框",
-          "type":"imageBox",
-          "styleType":"imageBox",
-          "visible":false,
-          "style":{
-            "baseStyle":"627587b6038d43cca051c114ac41ad32",
-            "location":{
-              "x":508,
-              "y":230},
-            "size":{
-              "width":400,
-              "height":200},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"a9e86ea9e74a406fa760b73359769b47",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "baseStyle":"627587b6038d43cca051c114ac41ad32",
-                "location":{
-                  "x":508,
-                  "y":230},
-                "size":{
-                  "width":400,
-                  "height":200},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/操作日志/regen/退出弹框_u18.png"}},
-{
-          "id":"779774cc37fd46808964b1bd6fbfdaac",
-          "label":"关闭退出弹框按钮",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":872,
-              "y":239},
-            "size":{
-              "width":20,
-              "height":16},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"468779a109844d5ab2f4ef908b0b6f81",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":872,
-                  "y":239},
-                "size":{
-                  "width":20,
-                  "height":16},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "interactionMap":{
-            "onClick":{
-              "description":"OnClick",
-              "cases":[{
-                  "description":"关闭弹框×",
-                  "isNewIfGroup":false,
-                  "actions":[{
-                      "action":"fadeWidget",
-                      "description":"隐藏 关闭退出按钮,<br>确定退出按钮,<br>退出系统文字,<br>退出弹框title,<br>关闭退出弹框按钮,<br>退出弹框",
-                      "objectsToFades":[{
-                          "objectPath":["04c0c3505afa4dd5920455061e05123d"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["87c0e0a614de46f2aad543a3d9b1f94b"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["3d5816d6ed1f409f988a45e57f4c90ff"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["3a213f59b9564d6cbdc3d07c412919cb"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["779774cc37fd46808964b1bd6fbfdaac"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["5a6258a04d3d4412a6afb9d5b046a455"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}}]}]}]}},
-          "tabbable":true,
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"3a213f59b9564d6cbdc3d07c412919cb",
-          "label":"退出弹框title",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":false,
-          "style":{
-            "fontName":"'Arial Negreta', 'Arial'",
-            "fontSize":"12px",
-            "fontWeight":"bold",
-            "location":{
-              "x":524,
-              "y":239},
-            "size":{
-              "width":68,
-              "height":15},
-            "visible":false,
-            "rotation":"0",
-            "textRotation":"0"},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"d7dd250403fe4eef82d631680cbc9eda",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "fontName":"'Arial Negreta', 'Arial'",
-                "fontSize":"12px",
-                "fontWeight":"bold",
-                "location":{
-                  "x":524,
-                  "y":239},
-                "size":{
-                  "width":68,
-                  "height":15},
-                "visible":false,
-                "rotation":"0",
-                "textRotation":"0"},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"3d5816d6ed1f409f988a45e57f4c90ff",
-          "label":"退出系统文字",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":false,
-          "style":{
-            "fontSize":"18px",
-            "location":{
-              "x":555,
-              "y":314},
-            "size":{
-              "width":140,
-              "height":22},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"fe8ec8cf0f0e44929968bc7a5cbb22a7",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "fontSize":"18px",
-                "location":{
-                  "x":555,
-                  "y":314},
-                "size":{
-                  "width":140,
-                  "height":22},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"87c0e0a614de46f2aad543a3d9b1f94b",
-          "label":"确定退出按钮",
-          "type":"button",
-          "styleType":"button",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":743,
-              "y":391},
-            "size":{
-              "width":70,
-              "height":25},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "interactionMap":{
-            "onClick":{
-              "description":"OnClick",
-              "cases":[{
-                  "description":"确定退出系统",
-                  "isNewIfGroup":false,
-                  "actions":[{
-                      "action":"linkWindow",
-                      "description":"在 当前窗口 打开 登录.html",
-                      "target":{
-                        "targetType":"webUrl",
-                        "urlLiteral":{
-                          "exprType":"stringLiteral",
-                          "value":"登录.html",
-                          "stos":[]},
-                        "includeVariables":false},
-                      "linkType":"current"}]}]}},
-          "tabbable":true},
-{
-          "id":"04c0c3505afa4dd5920455061e05123d",
-          "label":"关闭退出按钮",
-          "type":"button",
-          "styleType":"button",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":823,
-              "y":391},
-            "size":{
-              "width":70,
-              "height":25},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "interactionMap":{
-            "onClick":{
-              "description":"OnClick",
-              "cases":[{
-                  "description":"关闭退出系统按钮",
-                  "isNewIfGroup":false,
-                  "actions":[{
-                      "action":"fadeWidget",
-                      "description":"隐藏 退出弹框,<br>关闭退出弹框按钮,<br>退出弹框title,<br>退出系统文字,<br>确定退出按钮,<br>关闭退出按钮",
-                      "objectsToFades":[{
-                          "objectPath":["5a6258a04d3d4412a6afb9d5b046a455"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["779774cc37fd46808964b1bd6fbfdaac"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["3a213f59b9564d6cbdc3d07c412919cb"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["3d5816d6ed1f409f988a45e57f4c90ff"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["87c0e0a614de46f2aad543a3d9b1f94b"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["04c0c3505afa4dd5920455061e05123d"],
-                          "fadeInfo":{
-                            "fadeType":"hide",
-                            "options":{
-                              "showType":"none"}}}]}]}]}},
-          "tabbable":true},
-{
-          "id":"ab698d703264460dab12290957e51447",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":1065,
-              "y":40},
-            "size":{
-              "width":200,
-              "height":181},
-            "borderWidth":"-1"},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"98ff84d7c74a4d0dabc7865ae6ef3813",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "location":{
-                  "x":1065,
-                  "y":40},
-                "size":{
-                  "width":200,
-                  "height":181},
-                "borderWidth":"-1"},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/操作日志/regen/u28.png"}},
-{
-          "id":"d07c18028cff490ab32cd897de78cf08",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "horizontalAlignment":"left",
-            "location":{
-              "x":1065,
-              "y":39},
-            "size":{
-              "width":200,
-              "height":39},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"f766207386904a1b8df486b3bebfb0ac",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "horizontalAlignment":"left",
-                "location":{
-                  "x":1065,
-                  "y":39},
-                "size":{
-                  "width":200,
-                  "height":39},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/操作日志/regen/u30.png"}},
-{
-          "id":"6df1fdb7de514ccd9fb42fcbe4759e01",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1065,
-              "y":77},
-            "size":{
-              "width":200,
-              "height":123},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"2bd9216664f84867b4a8e96ab88406a6",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1065,
-                  "y":77},
-                "size":{
-                  "width":200,
-                  "height":123},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/操作日志/regen/u32.png"}},
-{
-          "id":"43ef04f00dfe4c0a818824ec4707429e",
-          "label":"",
-          "type":"horizontalLine",
-          "styleType":"horizontalLine",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1075,
-              "y":113},
-            "size":{
-              "width":180,
-              "height":10},
-            "visible":false,
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF999999},
-            "linePattern":"dashed"},
-          "adaptiveStyles":{
-},
-          "images":{
-            "start~":"resources/images/transparent.gif",
-            "end~":"resources/images/transparent.gif",
-            "line~":"images/操作日志/regen/u34_line.png"}},
-{
-          "id":"06361ae292be4b61ae7e1f2b6b926e69",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1075,
-              "y":89},
-            "size":{
-              "width":170,
-              "height":16},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"93f94d821d9242fd844851db1a2f3052",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1075,
-                  "y":89},
-                "size":{
-                  "width":170,
-                  "height":16},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"18758630bb9f484eb91c9660f52edac6",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1075,
-              "y":133},
-            "size":{
-              "width":170,
-              "height":16},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"9e1349a235284bd58dffff99ac4b0346",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1075,
-                  "y":133},
-                "size":{
-                  "width":170,
-                  "height":16},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"d123874dcf004865903dd0bc8a48f596",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":false,
-          "style":{
-            "underline":true,
-            "location":{
-              "x":1208,
-              "y":174},
-            "size":{
-              "width":47,
-              "height":16},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"e9eeeae2eff34f8da5510b28a2aea2fc",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "underline":true,
-                "location":{
-                  "x":1208,
-                  "y":174},
-                "size":{
-                  "width":47,
-                  "height":16},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"69bfdbe2de644b03bba30fe450982ee3",
-          "label":"",
-          "type":"horizontalLine",
-          "styleType":"horizontalLine",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1075,
-              "y":159},
-            "size":{
-              "width":180,
-              "height":10},
-            "visible":false,
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF999999},
-            "linePattern":"dashed"},
-          "adaptiveStyles":{
-},
-          "images":{
-            "start~":"resources/images/transparent.gif",
-            "end~":"resources/images/transparent.gif",
-            "line~":"images/操作日志/regen/u34_line.png"}},
-{
-          "id":"91ec42b699724b449ff152f06c4b79e5",
-          "label":"用户信息弹出框",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1124,
-              "y":39},
-            "size":{
-              "width":206,
-              "height":101},
-            "visible":false,
-            "borderWidth":"-1"},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"318a8cac52fb40cc8b928a0179a782b6",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1124,
-                  "y":39},
-                "size":{
-                  "width":206,
-                  "height":101},
-                "visible":false,
-                "borderWidth":"-1"},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/操作日志/regen/用户信息弹出框_u42.png"}},
-{
-          "id":"8b358c82730a41aca19132995c639512",
-          "label":"退出系统按钮",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1124,
-              "y":78},
-            "size":{
-              "width":206,
-              "height":40},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"08d9c75be3a841ab8374d557014b9d78",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1124,
-                  "y":78},
-                "size":{
-                  "width":206,
-                  "height":40},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "interactionMap":{
-            "onClick":{
-              "description":"OnClick",
-              "cases":[{
-                  "description":"退出系统模态框",
-                  "isNewIfGroup":false,
-                  "actions":[{
-                      "action":"fadeWidget",
-                      "description":"显示 退出弹框,<br>关闭退出弹框按钮,<br>退出弹框title,<br>退出系统文字,<br>确定退出按钮,<br>关闭退出按钮",
-                      "objectsToFades":[{
-                          "objectPath":["5a6258a04d3d4412a6afb9d5b046a455"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["779774cc37fd46808964b1bd6fbfdaac"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["3a213f59b9564d6cbdc3d07c412919cb"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["3d5816d6ed1f409f988a45e57f4c90ff"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["87c0e0a614de46f2aad543a3d9b1f94b"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["04c0c3505afa4dd5920455061e05123d"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}}]}]}]}},
-          "tabbable":true,
-          "images":{
-            "normal~":"images/操作日志/regen/退出系统按钮_u44.png"}},
-{
-          "id":"afe7cb3df64f4f9384496de956ba0ce9",
-          "label":"修改密码按钮",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1124,
-              "y":39},
-            "size":{
-              "width":206,
-              "height":40},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"f67d35e041244dc8a63e979603ee238d",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1124,
-                  "y":39},
-                "size":{
-                  "width":206,
-                  "height":40},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/操作日志/regen/退出系统按钮_u44.png"}},
-{
-          "id":"afdf9fedd890423b899d2201d6cf2e23",
+          "id":"e7be183a3c43447b83dd1b950756f953",
           "label":"",
           "type":"treeNodeObject",
           "styleType":"treeNodeObject",
@@ -1207,7 +496,7 @@
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"efd1507390a34873bc7fe5be3c08d4f2",
+              "id":"fce5046cae32403ba8fe22c159655a28",
               "label":"",
               "type":"treeNodeObject",
               "styleType":"treeNodeObject",
@@ -1219,7 +508,7 @@
               "adaptiveStyles":{
 },
               "objects":[{
-                  "id":"3bd44152adbe47d88df62bdfdfb0c5ba",
+                  "id":"f0eb6efdd8cb471da45cee94f4d154f6",
                   "label":"",
                   "isContained":true,
                   "type":"buttonShape",
@@ -1232,7 +521,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"421efb3f613f458d9c9ac171101e624e",
+                      "id":"00dab0dbb2a249bbbe481c6d025f523b",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -1246,9 +535,9 @@
 }}],
                   "images":{
                     "normal~":"resources/images/transparent.gif"}}],
-              "buttonShapeId":"3bd44152adbe47d88df62bdfdfb0c5ba"}]},
+              "buttonShapeId":"f0eb6efdd8cb471da45cee94f4d154f6"}]},
 {
-          "id":"bf6978fad68e453a95f1b534ee2108a5",
+          "id":"126fa8feedba4c6497783672f7262446",
           "label":"",
           "type":"treeNodeObject",
           "styleType":"treeNodeObject",
@@ -1259,11 +548,11 @@
               "y":56},
             "size":{
               "width":100,
-              "height":380}},
+              "height":360}},
           "adaptiveStyles":{
 },
           "objects":[{
-              "id":"0918c99f77394508a823402f8acb627b",
+              "id":"6eb7a5d3cbec402385fe0bbc94d7bdfa",
               "label":"",
               "type":"treeNodeObject",
               "styleType":"treeNodeObject",
@@ -1278,7 +567,7 @@
               "adaptiveStyles":{
 },
               "objects":[{
-                  "id":"e1337e7c7e444d30a2f017fe80df3291",
+                  "id":"851a266f330b4147964eacea468e9af8",
                   "label":"",
                   "isContained":true,
                   "type":"buttonShape",
@@ -1294,7 +583,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"f42a18596f4e4af18b48e06abc230cc5",
+                      "id":"8bfbe5985fb548ea81408f0bd2185860",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -1312,7 +601,7 @@
                   "images":{
                     "normal~":"resources/images/transparent.gif"}},
 {
-                  "id":"9b647218109f4e649d1feca98d3a4218",
+                  "id":"e505868c38fa4972ba73abb0e3eee65f",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1327,7 +616,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"12e90bfae4ea4687b4da460cc8465cec",
+                      "id":"bcf77a05a11c41d0847bc5f2a86f5788",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1343,7 +632,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"db2f7fb2732d4fe6a5527f38facadb4c",
+                          "id":"4a138b18ae5a4bffb9e6387613f87116",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1378,9 +667,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"12e90bfae4ea4687b4da460cc8465cec"},
+                  "buttonShapeId":"bcf77a05a11c41d0847bc5f2a86f5788"},
 {
-                  "id":"36058f37d69544b8a830e420d1dfb670",
+                  "id":"b1a2e11ce11743d4883400ff7dda1fd3",
                   "label":"",
                   "type":"imageBox",
                   "styleType":"imageBox",
@@ -1398,7 +687,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"670c7cb35db54e03bf17636be3920e9a",
+                      "id":"48577dba8bab43578829d69a60116aa9",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -1417,10 +706,10 @@
                       "adaptiveStyles":{
 }}],
                   "images":{
-                    "normal~":"images/操作日志/regen/u57.png",
-                    "selected~":"images/操作日志/regen/u57_selected.png"}},
+                    "normal~":"images/操作日志/regen/u27.png",
+                    "selected~":"images/操作日志/regen/u27_selected.png"}},
 {
-                  "id":"46e791ec9e744d3ca871dee32c353047",
+                  "id":"19c021ab8a6d436599d1e539ba5fe813",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1435,7 +724,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"b6bf6abb46774b3fa76cd294c0691319",
+                      "id":"bd2d70054bc84eff8440c54697402ee4",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1451,7 +740,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"4daa450c0a4445469f4a0ebb7272fd3d",
+                          "id":"5adb2dbc04a6438ab55f2a30bc6fb0b3",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1486,9 +775,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"b6bf6abb46774b3fa76cd294c0691319"},
+                  "buttonShapeId":"bd2d70054bc84eff8440c54697402ee4"},
 {
-                  "id":"baae8d7268f043e3b75434200421df75",
+                  "id":"7abfc2f16ed2463fae01e5c9985d2027",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1503,7 +792,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"3dfaf25dc92841a884ff486e850fa058",
+                      "id":"30a83a7b08534ea5b03886bf2d78c988",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1519,7 +808,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"895a8248bc4742e7bc2f65e2cc0360f5",
+                          "id":"9da5a3d6cbd84c0ea753af7d0486b9af",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1554,9 +843,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"3dfaf25dc92841a884ff486e850fa058"},
+                  "buttonShapeId":"30a83a7b08534ea5b03886bf2d78c988"},
 {
-                  "id":"6849afbb365d4c0284a983210ee541e6",
+                  "id":"0b36031e5f2747eabd729d77f03e1795",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1571,7 +860,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"85023dbb0df041e7adc07293588a8ea1",
+                      "id":"121c3b4dc6c64bee8d27cffb159d6bc8",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1587,7 +876,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"6c1384c6429645b28c9ab72050e9b472",
+                          "id":"94610cdbdbff4fa29a29b44d7f7b55a8",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1622,10 +911,10 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"85023dbb0df041e7adc07293588a8ea1"}],
-              "buttonShapeId":"e1337e7c7e444d30a2f017fe80df3291"},
+                  "buttonShapeId":"121c3b4dc6c64bee8d27cffb159d6bc8"}],
+              "buttonShapeId":"851a266f330b4147964eacea468e9af8"},
 {
-              "id":"f70b2603858f438eb975fad9fdd95b56",
+              "id":"66a4af6830314c9f87e2d061bc5337ad",
               "label":"",
               "type":"treeNodeObject",
               "styleType":"treeNodeObject",
@@ -1640,7 +929,7 @@
               "adaptiveStyles":{
 },
               "objects":[{
-                  "id":"8ff51d3ddcae4f2f9e72bdd5735518eb",
+                  "id":"a94d0c10874443debcee7980dc11da0f",
                   "label":"",
                   "isContained":true,
                   "type":"buttonShape",
@@ -1656,7 +945,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"7ffd17476b1347d998839ad9a043a4d2",
+                      "id":"26dd93026a094c61adcb4a64853cb0c9",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -1674,7 +963,7 @@
                   "images":{
                     "normal~":"resources/images/transparent.gif"}},
 {
-                  "id":"f14f1ded84c44ee09acdf87ea6f7aaa3",
+                  "id":"53aae2ffccf94e0d98d953f6c937d20c",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1689,7 +978,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"290106864d5d4908bf1d94853d73817d",
+                      "id":"58b145295af04734bb981c133abd8968",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1705,7 +994,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"8dfd22ff1544498284c122bcb9dc1c10",
+                          "id":"4464abed0c3d4043a68525b7c7f38df1",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1740,9 +1029,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"290106864d5d4908bf1d94853d73817d"},
+                  "buttonShapeId":"58b145295af04734bb981c133abd8968"},
 {
-                  "id":"c647691000e24330b005aa67a2e933d0",
+                  "id":"c3d62f724c7c4ad3ae59178cbd0c2de7",
                   "label":"",
                   "type":"imageBox",
                   "styleType":"imageBox",
@@ -1760,7 +1049,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"a47549e031e041aaa373719178ca63d6",
+                      "id":"6905a35698dd49938ca8c5e2c5454f98",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -1779,10 +1068,10 @@
                       "adaptiveStyles":{
 }}],
                   "images":{
-                    "normal~":"images/操作日志/regen/u57.png",
-                    "selected~":"images/操作日志/regen/u57_selected.png"}},
+                    "normal~":"images/操作日志/regen/u27.png",
+                    "selected~":"images/操作日志/regen/u27_selected.png"}},
 {
-                  "id":"85a8923e13ea4d7f9b7a66dbb2ba7411",
+                  "id":"3f1f289846fe4f7b8222358d6631040c",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1797,7 +1086,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"7b3b6f6292684516a882ebe75d36cf8a",
+                      "id":"0a961785638747ef931b644a769ca87d",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1813,7 +1102,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"a561654f135345789c173f6b716c4eb3",
+                          "id":"007ed31c78f6494eb45a2a61838d1f24",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1848,9 +1137,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"7b3b6f6292684516a882ebe75d36cf8a"},
+                  "buttonShapeId":"0a961785638747ef931b644a769ca87d"},
 {
-                  "id":"32bbbce786c545ae81e808f3cf6b3e55",
+                  "id":"598ddb2ae3e04840a53a79a9b909c61d",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1865,7 +1154,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"d5968d3c9d5c4b9391a6ba6ee95d3b14",
+                      "id":"6388744299564e7a998783c015500b1f",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1881,7 +1170,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"aa028bd8a5e441e6ac0f69960ede2b07",
+                          "id":"84a137cf8e794222bd44347103a5cbf8",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1916,9 +1205,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"d5968d3c9d5c4b9391a6ba6ee95d3b14"},
+                  "buttonShapeId":"6388744299564e7a998783c015500b1f"},
 {
-                  "id":"67360826fa9544c091a61e06b2e58e33",
+                  "id":"52e3507f7545411682eea03e35b063ea",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -1933,7 +1222,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"2c0c627c33434e71a2a0eacb9a968001",
+                      "id":"848d03dddc4a4dff9f91397dfd0ef020",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -1949,7 +1238,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"8158937f3be14063b0194afb02fc0bb6",
+                          "id":"cdd5c85c96a242499e5876c1a89a5535",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -1984,75 +1273,10 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"2c0c627c33434e71a2a0eacb9a968001"},
+                  "buttonShapeId":"848d03dddc4a4dff9f91397dfd0ef020"}],
+              "buttonShapeId":"a94d0c10874443debcee7980dc11da0f"},
 {
-                  "id":"412f9ae6fa3b4f4da87ab92f79425e35",
-                  "label":"",
-                  "type":"treeNodeObject",
-                  "styleType":"treeNodeObject",
-                  "visible":true,
-                  "style":{
-                    "location":{
-                      "x":20,
-                      "y":100},
-                    "size":{
-                      "width":80,
-                      "height":20}},
-                  "adaptiveStyles":{
-},
-                  "objects":[{
-                      "id":"7f7150f655284417809a8be35c22a15a",
-                      "label":"",
-                      "isContained":true,
-                      "type":"buttonShape",
-                      "styleType":"buttonShape",
-                      "visible":true,
-                      "style":{
-                        "location":{
-                          "x":20,
-                          "y":100},
-                        "size":{
-                          "width":80,
-                          "height":20}},
-                      "adaptiveStyles":{
-},
-                      "objects":[{
-                          "id":"2e72a77f5490434e9e5a5389825d0dd3",
-                          "label":"",
-                          "isContained":true,
-                          "type":"richTextPanel",
-                          "styleType":"paragraph",
-                          "visible":true,
-                          "style":{
-                            "location":{
-                              "x":20,
-                              "y":100},
-                            "size":{
-                              "width":80,
-                              "height":20}},
-                          "adaptiveStyles":{
-}}],
-                      "images":{
-                        "normal~":"resources/images/transparent.gif"}}],
-                  "interactionMap":{
-                    "onClick":{
-                      "description":"OnClick",
-                      "cases":[{
-                          "description":"导航库管操作日志",
-                          "isNewIfGroup":false,
-                          "actions":[{
-                              "action":"linkWindow",
-                              "description":"在 当前窗口 打开 操作日志",
-                              "target":{
-                                "targetType":"page",
-                                "url":"操作日志.html",
-                                "includeVariables":true},
-                              "linkType":"current"}]}]}},
-                  "tabbable":true,
-                  "buttonShapeId":"7f7150f655284417809a8be35c22a15a"}],
-              "buttonShapeId":"8ff51d3ddcae4f2f9e72bdd5735518eb"},
-{
-              "id":"37599f84f8214d95beb41b1c4b75a047",
+              "id":"1d881e1f288d4968b01b613e04107bf5",
               "label":"",
               "type":"treeNodeObject",
               "styleType":"treeNodeObject",
@@ -2060,14 +1284,14 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":240},
+                  "y":220},
                 "size":{
                   "width":54,
                   "height":20}},
               "adaptiveStyles":{
 },
               "objects":[{
-                  "id":"e62d737e41194dbca6598d1e5062fe65",
+                  "id":"642200cc1bce4871a805e6d0b8275007",
                   "label":"",
                   "isContained":true,
                   "type":"buttonShape",
@@ -2076,14 +1300,14 @@
                   "style":{
                     "location":{
                       "x":0,
-                      "y":240},
+                      "y":220},
                     "size":{
                       "width":54,
                       "height":20}},
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"3a15f6e6f0d74e078b6fa70e88242c41",
+                      "id":"0642399a7fc2447c98bead5b630b52e1",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -2092,7 +1316,7 @@
                       "style":{
                         "location":{
                           "x":0,
-                          "y":240},
+                          "y":220},
                         "size":{
                           "width":54,
                           "height":20}},
@@ -2101,7 +1325,7 @@
                   "images":{
                     "normal~":"resources/images/transparent.gif"}},
 {
-                  "id":"63b4d6268c8b40999e54e07ea86b708f",
+                  "id":"cb49038a2e7d4789b9eefca86e2580de",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -2116,7 +1340,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"56c95174bf474d0d822d6441858d498e",
+                      "id":"32a9bb520f944cbfbbb6003b49ec9e7a",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -2132,7 +1356,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"81f13d3aca4a4f92a8c96b5cca413915",
+                          "id":"aa7645d33b70493bb16392e6bb93c6d4",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -2167,9 +1391,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"56c95174bf474d0d822d6441858d498e"},
+                  "buttonShapeId":"32a9bb520f944cbfbbb6003b49ec9e7a"},
 {
-                  "id":"87df2e3b146343bcb6a83f1a8588d5cd",
+                  "id":"9ac9b7ec96594e23a3941e51596dfc8b",
                   "label":"",
                   "type":"imageBox",
                   "styleType":"imageBox",
@@ -2187,7 +1411,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"a3846f80df354622bbbf49dbb16be97c",
+                      "id":"23ad006c3b7943848559bda218b75e3a",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -2206,10 +1430,10 @@
                       "adaptiveStyles":{
 }}],
                   "images":{
-                    "normal~":"images/操作日志/regen/u57.png",
-                    "selected~":"images/操作日志/regen/u57_selected.png"}},
+                    "normal~":"images/操作日志/regen/u27.png",
+                    "selected~":"images/操作日志/regen/u27_selected.png"}},
 {
-                  "id":"4730468df6c44a47a96387178611eb51",
+                  "id":"79e1d3624a544f1fab4d11f5a4949e29",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -2224,7 +1448,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"00e098615f504e55aac0fa4d7fea370b",
+                      "id":"f3f63f5855314f4d99139ac7e3a553b6",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -2240,7 +1464,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"ef1b61a53ada41b38ed8a003681ded1e",
+                          "id":"7b5dfe0534324feaaffc9b4d1a753a53",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -2275,9 +1499,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"00e098615f504e55aac0fa4d7fea370b"},
+                  "buttonShapeId":"f3f63f5855314f4d99139ac7e3a553b6"},
 {
-                  "id":"bf01124e671c4f58b922f23ee956c39c",
+                  "id":"7c0bbadd44974c168fa95242d948fb74",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -2292,7 +1516,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"3299f94cc81d416aa45ca80e9c6e2228",
+                      "id":"7d9faaa6e2004cddab11b5833db58698",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -2308,7 +1532,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"d0fac0ef00b042f68a81bc93690bb09b",
+                          "id":"2c26764a76c44007a4596cd445d3338c",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -2343,10 +1567,10 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"3299f94cc81d416aa45ca80e9c6e2228"}],
-              "buttonShapeId":"e62d737e41194dbca6598d1e5062fe65"},
+                  "buttonShapeId":"7d9faaa6e2004cddab11b5833db58698"}],
+              "buttonShapeId":"642200cc1bce4871a805e6d0b8275007"},
 {
-              "id":"2a2083876f22439e8a961a2c6eb938c3",
+              "id":"0868a5d1fbc847b58ffb4f259fca95f5",
               "label":"",
               "type":"treeNodeObject",
               "styleType":"treeNodeObject",
@@ -2354,14 +1578,14 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":320},
+                  "y":300},
                 "size":{
                   "width":80,
                   "height":20}},
               "adaptiveStyles":{
 },
               "objects":[{
-                  "id":"9c81f32b5928443691c9f62b8295f60a",
+                  "id":"a469310d1b824f9da482535f2a2f766f",
                   "label":"",
                   "isContained":true,
                   "type":"buttonShape",
@@ -2370,14 +1594,14 @@
                   "style":{
                     "location":{
                       "x":0,
-                      "y":320},
+                      "y":300},
                     "size":{
                       "width":80,
                       "height":20}},
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"fbfab2aa72d44c35ba12654e4461f900",
+                      "id":"f404631c458d481f8b54665152050229",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -2386,7 +1610,7 @@
                       "style":{
                         "location":{
                           "x":0,
-                          "y":320},
+                          "y":300},
                         "size":{
                           "width":80,
                           "height":20}},
@@ -2395,7 +1619,7 @@
                   "images":{
                     "normal~":"resources/images/transparent.gif"}},
 {
-                  "id":"bd5cd6516c7f4879b5067b100872efa2",
+                  "id":"d65982e63fc7431db94cfbb7472fd1f8",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -2410,7 +1634,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"8f9dc4c2ee6845c580effcab07e1a5a9",
+                      "id":"06d0dcdf32754e37b11a74dd6cd7c5f6",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -2426,7 +1650,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"7709d10966624b37881d08cb0ff4f8a6",
+                          "id":"8ff729b80c204aebab79f7bd5fa50d8d",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -2461,9 +1685,9 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"8f9dc4c2ee6845c580effcab07e1a5a9"},
+                  "buttonShapeId":"06d0dcdf32754e37b11a74dd6cd7c5f6"},
 {
-                  "id":"6a48ddc3c89445ba90d1fdda73f495eb",
+                  "id":"c92acd758f9341f49adccbbf2d186ed3",
                   "label":"",
                   "type":"imageBox",
                   "styleType":"imageBox",
@@ -2481,7 +1705,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"0a98765d7a51410180705997bfda1c93",
+                      "id":"a47f6f8c625b4d77a3215d48297a9820",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -2500,10 +1724,10 @@
                       "adaptiveStyles":{
 }}],
                   "images":{
-                    "normal~":"images/操作日志/regen/u57.png",
-                    "selected~":"images/操作日志/regen/u57_selected.png"}},
+                    "normal~":"images/操作日志/regen/u27.png",
+                    "selected~":"images/操作日志/regen/u27_selected.png"}},
 {
-                  "id":"44e84846196b409f94d2c49f3a731515",
+                  "id":"af3e6671a913425aa79f571c925f6ce2",
                   "label":"",
                   "type":"treeNodeObject",
                   "styleType":"treeNodeObject",
@@ -2518,7 +1742,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"f50a4944429646198816811d8935b7b7",
+                      "id":"aa01892a20e7498797d176489eaf9813",
                       "label":"",
                       "isContained":true,
                       "type":"buttonShape",
@@ -2534,7 +1758,7 @@
                       "adaptiveStyles":{
 },
                       "objects":[{
-                          "id":"6b1d46db8d2242cbb7024a66f6217832",
+                          "id":"9d79d1c01b3a47668263a124400bd05c",
                           "label":"",
                           "isContained":true,
                           "type":"richTextPanel",
@@ -2569,10 +1793,10 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"f50a4944429646198816811d8935b7b7"}],
-              "buttonShapeId":"9c81f32b5928443691c9f62b8295f60a"},
+                  "buttonShapeId":"aa01892a20e7498797d176489eaf9813"}],
+              "buttonShapeId":"a469310d1b824f9da482535f2a2f766f"},
 {
-              "id":"98465f6dd6d2417f8d2e26b595c55e59",
+              "id":"4411ba82f1ac42a7868ba3f66425ac35",
               "label":"",
               "type":"treeNodeObject",
               "styleType":"treeNodeObject",
@@ -2584,7 +1808,7 @@
               "adaptiveStyles":{
 },
               "objects":[{
-                  "id":"0e72fd00b5714389964c97f1b045add4",
+                  "id":"62b220318eaa4856bfb43798d6674f78",
                   "label":"",
                   "isContained":true,
                   "type":"buttonShape",
@@ -2597,7 +1821,7 @@
                   "adaptiveStyles":{
 },
                   "objects":[{
-                      "id":"3f69042d8445480d8ffeb0504e63bf9f",
+                      "id":"a48425cc1afe411ba320c218ee2153a7",
                       "label":"",
                       "isContained":true,
                       "type":"richTextPanel",
@@ -2629,243 +1853,2384 @@
                             "includeVariables":false},
                           "linkType":"current"}]}]}},
               "tabbable":true,
-              "buttonShapeId":"0e72fd00b5714389964c97f1b045add4"}]}]}},
+              "buttonShapeId":"62b220318eaa4856bfb43798d6674f78"}]},
+{
+          "id":"1654a7b8845c440a9d4c6c2142495899",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":160,
+              "y":50},
+            "size":{
+              "width":1170,
+              "height":610}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"edfbd478f9a949208895b6ab7f02b6ca",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":160,
+                  "y":50},
+                "size":{
+                  "width":1170,
+                  "height":610}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/u85.png"}},
+{
+          "id":"e3faab7c6b174a97bd09e02321251e14",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFCCCCCC,
+              "opacity":1},
+            "location":{
+              "x":1030,
+              "y":65},
+            "size":{
+              "width":189,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"aa64534c1076450999ff9db67f629308",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":345,
+              "y":65},
+            "size":{
+              "width":113,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"9220f2dd67014880aab8fdd55ffb0b9d",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":190,
+              "y":65},
+            "size":{
+              "width":124,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"ba8779802fc14df4ad3ab9e5e72b6941",
+          "label":"Styled Button",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fontName":"'Arial Negreta', 'Arial'",
+            "fontWeight":"bold",
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFFFFFFF,
+              "opacity":1},
+            "stateStyles":{
+              "mouseDown":{
+                "fill":{
+                  "fillType":"linearGradient",
+                  "colors":[{
+                      "color":0xFF0099FF},
+{
+                      "color":0xFF0099FF},
+{
+                      "color":0xFF006699},
+{
+                      "color":0xFF006699}]}},
+              "disabled":{
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFF666666,
+                  "opacity":1},
+                "fill":{
+                  "fillType":"linearGradient",
+                  "colors":[{
+                      "color":0xFFF2F2F2},
+{
+                      "color":0xFFF2F2F2},
+{
+                      "color":0xFF666666},
+{
+                      "color":0xFF666666}]},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFFC9C9C9}}},
+            "fill":{
+              "fillType":"linearGradient",
+              "colors":[{
+                  "color":0xFF99CCFF},
+{
+                  "color":0xFF99CCFF},
+{
+                  "color":0xFF0277BA},
+{
+                  "color":0xFF0277BA}]},
+            "location":{
+              "x":1219,
+              "y":65},
+            "size":{
+              "width":80,
+              "height":26},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF3399FF},
+            "cornerRadiusTopLeft":"4"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"d9e41ad714734bb7810f93e79f7ccf07",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'Arial Negreta', 'Arial'",
+                "fontWeight":"bold",
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFFFF,
+                  "opacity":1},
+                "stateStyles":{
+                  "mouseDown":{
+                    "fill":{
+                      "fillType":"linearGradient",
+                      "colors":[{
+                          "color":0xFF0099FF},
+{
+                          "color":0xFF0099FF},
+{
+                          "color":0xFF006699},
+{
+                          "color":0xFF006699}]}},
+                  "disabled":{
+                    "foreGroundFill":{
+                      "fillType":"solid",
+                      "color":0xFF666666,
+                      "opacity":1},
+                    "fill":{
+                      "fillType":"linearGradient",
+                      "colors":[{
+                          "color":0xFFF2F2F2},
+{
+                          "color":0xFFF2F2F2},
+{
+                          "color":0xFF666666},
+{
+                          "color":0xFF666666}]},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFFC9C9C9}}},
+                "fill":{
+                  "fillType":"linearGradient",
+                  "colors":[{
+                      "color":0xFF99CCFF},
+{
+                      "color":0xFF99CCFF},
+{
+                      "color":0xFF0277BA},
+{
+                      "color":0xFF0277BA}]},
+                "location":{
+                  "x":1219,
+                  "y":65},
+                "size":{
+                  "width":80,
+                  "height":26},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF3399FF},
+                "cornerRadiusTopLeft":"4"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/styled_button_u90.png",
+            "mouseDown~":"images/操作日志/regen/styled_button_u90_mouseDown.png",
+            "disabled~":"images/操作日志/regen/styled_button_u90_disabled.png"}},
+{
+          "id":"08808a29c70f410b8803b3b9f67218f4",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":324,
+              "y":70},
+            "size":{
+              "width":20,
+              "height":16}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"0a351d05ca6049409e71733bd9f73d34",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":324,
+                  "y":70},
+                "size":{
+                  "width":20,
+                  "height":16}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"b1066fd955234046a44c70e514268f35",
+          "label":"",
+          "type":"comboBox",
+          "styleType":"comboBox",
+          "visible":true,
+          "style":{
+            "baseStyle":"627587b6038d43cca051c114ac41ad32",
+            "location":{
+              "x":490,
+              "y":63},
+            "size":{
+              "width":123,
+              "height":30}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"996479e88d1e48008e794958b8d0c172",
+          "label":"",
+          "type":"table",
+          "styleType":"table",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":160,
+              "y":107},
+            "size":{
+              "width":1170,
+              "height":120}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"62069ae490ed4b8da51d7c7bbd00eebe",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"78a5be226d214b5abe816775d663f828",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"5c0436240b0e47e993519eec14fe837d",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":0,
+                  "y":30},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"ae03d10f779543d19faaa571faddcd9d",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":0,
+                      "y":30},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"7550eea037a84f9ea7b4943a79890a71",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":0,
+                  "y":60},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"232bdf5a8a114f838aa708ce940a93fb",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":0,
+                      "y":60},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"834585a2b31444b1ab9cb5572a748325",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":195,
+                  "y":0},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"6fc071bb4d004b21883ec62359a7821d",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":195,
+                      "y":0},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"cb50641dfa6f4142bda6e558a8d818eb",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":195,
+                  "y":30},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"0397c4d453ee49938f8e34d9f1f1de9b",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":195,
+                      "y":30},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"8c0834ae6e1848a9a3640b6e8e4db750",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":195,
+                  "y":60},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"9cf6118e6c564550bf8a5edbc45954c8",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":195,
+                      "y":60},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"e06eb199c1324794814dcc5cd472521a",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":390,
+                  "y":0},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"76384dcf7577412f906f242fa0b48421",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":390,
+                      "y":0},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"e58d521880704718967ff93c5eb67e0c",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":390,
+                  "y":30},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"fb4ed985483f45b99d3a2190c95b4422",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":390,
+                      "y":30},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"218182ba551942e49bbfdaec55a01c26",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":390,
+                  "y":60},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"086253f2b2784353901acbf8df7251e2",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":390,
+                      "y":60},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"7b1e5e5fe0f04f06a71ccf3521b60873",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":585,
+                  "y":0},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"8e6faa186b884648944356c57b3b8817",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":585,
+                      "y":0},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"ec4e95982c2246889ac7f4ba7ae07ce7",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":585,
+                  "y":30},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"e0f959a9614b41b99e6c53dd60b235ed",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":585,
+                      "y":30},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"027d0c9872634a9fa0298c67ba93ecc6",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":585,
+                  "y":60},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"ae189e09f5fd450f894c421e87fe9164",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":585,
+                      "y":60},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"a334ff422b2d4b6a8757b632889d7e44",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":780,
+                  "y":0},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"2417f86362394037b96574620de3f32e",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":780,
+                      "y":0},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"570fde562d4a444f81f73355a8b16ffc",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":780,
+                  "y":30},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"b696d4672c1d42cf96e32bfce7fcdb81",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":780,
+                      "y":30},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"ed3d2bc54fa54204b6694870faf4cc72",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":780,
+                  "y":60},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"1dede1f2f86a48a4aa60fe6528d38806",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":780,
+                      "y":60},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u96.png"}},
+{
+              "id":"c3e5a5d6127945edb2c028c09f25ae4d",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":975,
+                  "y":0},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"19e530c55848475fb28d777d76b9b949",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":975,
+                      "y":0},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u106.png"}},
+{
+              "id":"ad2499829286462796f06afbc4ebc922",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":975,
+                  "y":30},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"55e09eaff4c9461a850bcbf9c4585040",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":975,
+                      "y":30},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u106.png"}},
+{
+              "id":"3aa270e9298f41be9a9e0c73d0870c6c",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":975,
+                  "y":60},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"713078f0a9b249948482020517a5d562",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":975,
+                      "y":60},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u106.png"}},
+{
+              "id":"ececc2b66650445ca7f689122ad2664a",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":0,
+                  "y":90},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"6db4f2a8cea546dca821eface534ffc2",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":0,
+                      "y":90},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u132.png"}},
+{
+              "id":"2189bdf2619f4bc7939952a25c0c14b3",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":195,
+                  "y":90},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"991ba6e5e6d44b94b3265372d6ac8e11",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":195,
+                      "y":90},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u132.png"}},
+{
+              "id":"bf02c96a6f1742c498431ce1d884a64a",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":390,
+                  "y":90},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"4080ad67d1014c19a31ec95ebb99d5d0",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":390,
+                      "y":90},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u132.png"}},
+{
+              "id":"b160e9e9c4fd40fc8d24c7f63c0431e3",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":585,
+                  "y":90},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"f31aa77e47fb429b881436450d98690d",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":585,
+                      "y":90},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u132.png"}},
+{
+              "id":"f27e23363870415fa20d76773504d776",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":780,
+                  "y":90},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"6fdc8d5dfb064c66a27c7904652533cc",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":780,
+                      "y":90},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u132.png"}},
+{
+              "id":"10739d901ee84d9d8ffcb75b4789d643",
+              "label":"",
+              "type":"tableCell",
+              "styleType":"tableCell",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"center",
+                "verticalAlignment":"middle",
+                "location":{
+                  "x":975,
+                  "y":90},
+                "size":{
+                  "width":195,
+                  "height":30}},
+              "adaptiveStyles":{
+},
+              "objects":[{
+                  "id":"11c73f28475a42429195f8c205a6e2f0",
+                  "label":"",
+                  "isContained":true,
+                  "type":"richTextPanel",
+                  "styleType":"paragraph",
+                  "visible":true,
+                  "style":{
+                    "horizontalAlignment":"center",
+                    "verticalAlignment":"middle",
+                    "location":{
+                      "x":975,
+                      "y":90},
+                    "size":{
+                      "width":195,
+                      "height":30}},
+                  "adaptiveStyles":{
+}}],
+              "images":{
+                "normal~":"images/操作日志/regen/u142.png"}}]},
+{
+          "id":"361ed96e1d65471784bb80de2a43df31",
+          "label":"退出弹框",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":false,
+          "style":{
+            "baseStyle":"627587b6038d43cca051c114ac41ad32",
+            "location":{
+              "x":508,
+              "y":230},
+            "size":{
+              "width":400,
+              "height":200},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"59a0c67990ca486799cdcaf12733e3cd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "baseStyle":"627587b6038d43cca051c114ac41ad32",
+                "location":{
+                  "x":508,
+                  "y":230},
+                "size":{
+                  "width":400,
+                  "height":200},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/退出弹框_u144.png"}},
+{
+          "id":"fc097d0f2b954664b6bb8461c4066f45",
+          "label":"关闭退出弹框按钮",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":872,
+              "y":239},
+            "size":{
+              "width":20,
+              "height":16},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"405e132ca76743f292adf95711320819",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":872,
+                  "y":239},
+                "size":{
+                  "width":20,
+                  "height":16},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"关闭弹框×",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"隐藏 关闭退出按钮,<br>确定退出按钮,<br>退出系统文字,<br>退出弹框title,<br>关闭退出弹框按钮,<br>退出弹框",
+                      "objectsToFades":[{
+                          "objectPath":["d2555586931a4fd496e46ee4c286f446"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["08cc151356d541d7b455eabe26430c39"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ee3b1b708b044286942fda5de1fd3e8d"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["b41e4fae57254ed0bf68bb3884747374"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["fc097d0f2b954664b6bb8461c4066f45"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["361ed96e1d65471784bb80de2a43df31"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"b41e4fae57254ed0bf68bb3884747374",
+          "label":"退出弹框title",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":false,
+          "style":{
+            "fontName":"'Arial Negreta', 'Arial'",
+            "fontSize":"12px",
+            "fontWeight":"bold",
+            "location":{
+              "x":524,
+              "y":239},
+            "size":{
+              "width":68,
+              "height":15},
+            "visible":false,
+            "rotation":"0",
+            "textRotation":"0"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"4a1b1b450c8443b980e3414090af585a",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontName":"'Arial Negreta', 'Arial'",
+                "fontSize":"12px",
+                "fontWeight":"bold",
+                "location":{
+                  "x":524,
+                  "y":239},
+                "size":{
+                  "width":68,
+                  "height":15},
+                "visible":false,
+                "rotation":"0",
+                "textRotation":"0"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"ee3b1b708b044286942fda5de1fd3e8d",
+          "label":"退出系统文字",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":false,
+          "style":{
+            "fontSize":"18px",
+            "location":{
+              "x":555,
+              "y":314},
+            "size":{
+              "width":140,
+              "height":22},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"103ea56372d4420d9e0361e9337b91d1",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "fontSize":"18px",
+                "location":{
+                  "x":555,
+                  "y":314},
+                "size":{
+                  "width":140,
+                  "height":22},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"08cc151356d541d7b455eabe26430c39",
+          "label":"确定退出按钮",
+          "type":"button",
+          "styleType":"button",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":743,
+              "y":391},
+            "size":{
+              "width":70,
+              "height":25},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"确定退出系统",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"在 当前窗口 打开 登录.html",
+                      "target":{
+                        "targetType":"webUrl",
+                        "urlLiteral":{
+                          "exprType":"stringLiteral",
+                          "value":"登录.html",
+                          "stos":[]},
+                        "includeVariables":false},
+                      "linkType":"current"}]}]}},
+          "tabbable":true},
+{
+          "id":"d2555586931a4fd496e46ee4c286f446",
+          "label":"关闭退出按钮",
+          "type":"button",
+          "styleType":"button",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":823,
+              "y":391},
+            "size":{
+              "width":70,
+              "height":25},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"关闭退出系统按钮",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"隐藏 退出弹框,<br>关闭退出弹框按钮,<br>退出弹框title,<br>退出系统文字,<br>确定退出按钮,<br>关闭退出按钮",
+                      "objectsToFades":[{
+                          "objectPath":["361ed96e1d65471784bb80de2a43df31"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["fc097d0f2b954664b6bb8461c4066f45"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["b41e4fae57254ed0bf68bb3884747374"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ee3b1b708b044286942fda5de1fd3e8d"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["08cc151356d541d7b455eabe26430c39"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["d2555586931a4fd496e46ee4c286f446"],
+                          "fadeInfo":{
+                            "fadeType":"hide",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true},
+{
+          "id":"1cb344357bf7440db73bfad88407c0f5",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1065,
+              "y":40},
+            "size":{
+              "width":200,
+              "height":181},
+            "visible":false,
+            "borderWidth":"-1"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"57d8df0bb9a64fe08250887347a7c5b9",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1065,
+                  "y":40},
+                "size":{
+                  "width":200,
+                  "height":181},
+                "visible":false,
+                "borderWidth":"-1"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/u154.png"}},
+{
+          "id":"017a599de049401a92f0d17f5b740d61",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "horizontalAlignment":"left",
+            "location":{
+              "x":1065,
+              "y":39},
+            "size":{
+              "width":200,
+              "height":39},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"694c93aec00844b2b3b0832c29ccf45a",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "horizontalAlignment":"left",
+                "location":{
+                  "x":1065,
+                  "y":39},
+                "size":{
+                  "width":200,
+                  "height":39},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/u156.png"}},
+{
+          "id":"26388fad9f5a401db60766e4ccc164b7",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1065,
+              "y":77},
+            "size":{
+              "width":200,
+              "height":123},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"8013aab4885a40d39f18280e71126ad4",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1065,
+                  "y":77},
+                "size":{
+                  "width":200,
+                  "height":123},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/u158.png"}},
+{
+          "id":"4e72c9bce7d944d5903a7e762a553552",
+          "label":"",
+          "type":"horizontalLine",
+          "styleType":"horizontalLine",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1075,
+              "y":113},
+            "size":{
+              "width":180,
+              "height":10},
+            "visible":false,
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF999999},
+            "linePattern":"dashed"},
+          "adaptiveStyles":{
+},
+          "images":{
+            "start~":"resources/images/transparent.gif",
+            "end~":"resources/images/transparent.gif",
+            "line~":"images/操作日志/regen/u160_line.png"}},
+{
+          "id":"adc91c54b1ec43fe8ba64b71079b93fe",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1075,
+              "y":89},
+            "size":{
+              "width":170,
+              "height":16},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"6948f96f66c741bbbd404b21c51ff8dd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1075,
+                  "y":89},
+                "size":{
+                  "width":170,
+                  "height":16},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"ded72dbee2064b2295e401a582a94969",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1075,
+              "y":133},
+            "size":{
+              "width":170,
+              "height":16},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"2664dcc97d1c46b88cc5a2c202dd2575",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1075,
+                  "y":133},
+                "size":{
+                  "width":170,
+                  "height":16},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"d74d654f96c7433bb62d524b47139ca3",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":false,
+          "style":{
+            "underline":true,
+            "location":{
+              "x":1208,
+              "y":174},
+            "size":{
+              "width":47,
+              "height":16},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"937d8fa8de8b4f2dae49fc93196bf377",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "underline":true,
+                "location":{
+                  "x":1208,
+                  "y":174},
+                "size":{
+                  "width":47,
+                  "height":16},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"2cf4cd2b67774bb2a988b196c868a04b",
+          "label":"",
+          "type":"horizontalLine",
+          "styleType":"horizontalLine",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1075,
+              "y":159},
+            "size":{
+              "width":180,
+              "height":10},
+            "visible":false,
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF999999},
+            "linePattern":"dashed"},
+          "adaptiveStyles":{
+},
+          "images":{
+            "start~":"resources/images/transparent.gif",
+            "end~":"resources/images/transparent.gif",
+            "line~":"images/操作日志/regen/u160_line.png"}},
+{
+          "id":"bd7291057d3c4d69a5295ae6cf48743d",
+          "label":"用户信息弹出框",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1124,
+              "y":39},
+            "size":{
+              "width":206,
+              "height":101},
+            "visible":false,
+            "borderWidth":"-1"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"bcf3725fde3344daa00f13bf3a0546d0",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1124,
+                  "y":39},
+                "size":{
+                  "width":206,
+                  "height":101},
+                "visible":false,
+                "borderWidth":"-1"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/用户信息弹出框_u168.png"}},
+{
+          "id":"d9366b53b9d64febbb99faa2a11b2023",
+          "label":"退出系统按钮",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1124,
+              "y":78},
+            "size":{
+              "width":206,
+              "height":40},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e3e82f7fddf14d8ab6afda2f2c6eb3e3",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1124,
+                  "y":78},
+                "size":{
+                  "width":206,
+                  "height":40},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"退出系统模态框",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"显示 退出弹框,<br>关闭退出弹框按钮,<br>退出弹框title,<br>退出系统文字,<br>确定退出按钮,<br>关闭退出按钮",
+                      "objectsToFades":[{
+                          "objectPath":["361ed96e1d65471784bb80de2a43df31"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["fc097d0f2b954664b6bb8461c4066f45"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["b41e4fae57254ed0bf68bb3884747374"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ee3b1b708b044286942fda5de1fd3e8d"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["08cc151356d541d7b455eabe26430c39"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["d2555586931a4fd496e46ee4c286f446"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/操作日志/regen/退出系统按钮_u170.png"}},
+{
+          "id":"f4fd940a53434281be03a521cc72e2dc",
+          "label":"修改密码按钮",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1124,
+              "y":39},
+            "size":{
+              "width":206,
+              "height":40},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"587828e17bfb455083089bbfc349a7c4",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1124,
+                  "y":39},
+                "size":{
+                  "width":206,
+                  "height":40},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/退出系统按钮_u170.png"}},
+{
+          "id":"478c24e5ea3b45d3b90d16d298fef717",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "underline":true,
+            "horizontalAlignment":"center",
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFF0000FF,
+              "opacity":1},
+            "location":{
+              "x":1232,
+              "y":630},
+            "size":{
+              "width":10,
+              "height":16},
+            "rotation":"0",
+            "textRotation":"0"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"354338ddbe0046619ca055d39457037f",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "underline":true,
+                "horizontalAlignment":"center",
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFF0000FF,
+                  "opacity":1},
+                "location":{
+                  "x":1232,
+                  "y":630},
+                "size":{
+                  "width":10,
+                  "height":16},
+                "rotation":"0",
+                "textRotation":"0"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"207b202f6df048e091600e3808339bc2",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "baseStyle":"627587b6038d43cca051c114ac41ad32",
+            "fill":{
+              "fillType":"solid",
+              "color":0xFF000000},
+            "location":{
+              "x":1252,
+              "y":633},
+            "size":{
+              "width":10,
+              "height":10}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"1a8763ab83ff43a19a28acc34ae6a82b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "baseStyle":"627587b6038d43cca051c114ac41ad32",
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFF000000},
+                "location":{
+                  "x":1252,
+                  "y":633},
+                "size":{
+                  "width":10,
+                  "height":10}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/操作日志/regen/u176.png"}},
+{
+          "id":"d1ca84802d7b499880c76b2160ba3f22",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "fontName":"'Arial Negreta', 'Arial'",
+            "fontWeight":"bold",
+            "underline":true,
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFF0000FF,
+              "opacity":1},
+            "location":{
+              "x":1267,
+              "y":630},
+            "size":{
+              "width":46,
+              "height":16},
+            "rotation":"0",
+            "textRotation":"0"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"d51b502b31624327be35689ed5b916e9",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'Arial Negreta', 'Arial'",
+                "fontWeight":"bold",
+                "underline":true,
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFF0000FF,
+                  "opacity":1},
+                "location":{
+                  "x":1267,
+                  "y":630},
+                "size":{
+                  "width":46,
+                  "height":16},
+                "rotation":"0",
+                "textRotation":"0"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}}]}},
   "masters":{
 },
   "objectPaths":{
-    "6608c7830ffb473684fe16b5bfd5f2c3":{
+    "300bf3d672cd4744aad57373e32de089":{
       "scriptId":"u0"},
-    "a879dbba0c034a069edf27430fa75a1e":{
+    "b32b88097fcf4a74acfb2664fd6c4324":{
       "scriptId":"u1"},
-    "b04181e523884984aa2c2150a37eb6ea":{
+    "c171a6d973d1419fa2bb4b2d0fd65f63":{
       "scriptId":"u2"},
-    "33f31d6978ea4471a15ebe46e3f17bcc":{
+    "062bcaea4d104308b9b7545fd09631a1":{
       "scriptId":"u3"},
-    "434a65ed88474cc3aded0bbbec2dd6c5":{
+    "e2fbf4c71b0e459e96f8369f9b49bda8":{
       "scriptId":"u4"},
-    "24f342343e2a4b73ac98c6af03934efc":{
+    "245422d775fc49bc9cd17241409dca32":{
       "scriptId":"u5"},
-    "506db3aecf7d4117992256e080f30125":{
+    "e9b59b4225d2464faffdb3cb3aa01660":{
       "scriptId":"u6"},
-    "a266a9660e444105a0bab0e7c8148691":{
+    "020ce043922240d0ad59e1abe38c744e":{
       "scriptId":"u7"},
-    "af70d5c19991418aad1c166758f41f33":{
+    "17ead7c0310142bbb6ebfe97af7eecc3":{
       "scriptId":"u8"},
-    "bf222648dbb34624a4dfea1e18f9b1d5":{
+    "874aa04cd12943bda0e175f5e22f0160":{
       "scriptId":"u9"},
-    "1cc48cb9c44445aab6d2b5f37dedb030":{
+    "b025cd4681454c7b9c4033780054a0e6":{
       "scriptId":"u10"},
-    "61d569fb59ed47278248723cf6fb6cf5":{
+    "b61b26e68f964bf887e40b8ca00fc8e3":{
       "scriptId":"u11"},
-    "628b0ce4e81c4bf6900ffd69ab6d4cac":{
+    "391244e6bf304a34891c346496ca1dca":{
       "scriptId":"u12"},
-    "c38e6a3466b4427c92a16f85d4776609":{
+    "942696be25ef48e1acaf3f4f9aa77ec5":{
       "scriptId":"u13"},
-    "541fd83e99cf4fbd9dc42b93892a1768":{
+    "d3e416b9901a4130b8284df69419688e":{
       "scriptId":"u14"},
-    "cea3bbf77e434ce8a014848c19ea4174":{
+    "5b281926dfc04a7d92b6313ca988ad8b":{
       "scriptId":"u15"},
-    "5031cdc5d4ec4670bf7d926b5a808b66":{
+    "da2669da62944231831a1107e15068c2":{
       "scriptId":"u16"},
-    "e362fb006b9248639f19b6542518b2a7":{
+    "fb16f52d62984c3f84eb08a086242c7b":{
       "scriptId":"u17"},
-    "5a6258a04d3d4412a6afb9d5b046a455":{
+    "e7be183a3c43447b83dd1b950756f953":{
       "scriptId":"u18"},
-    "a9e86ea9e74a406fa760b73359769b47":{
+    "fce5046cae32403ba8fe22c159655a28":{
       "scriptId":"u19"},
-    "779774cc37fd46808964b1bd6fbfdaac":{
+    "f0eb6efdd8cb471da45cee94f4d154f6":{
       "scriptId":"u20"},
-    "468779a109844d5ab2f4ef908b0b6f81":{
+    "00dab0dbb2a249bbbe481c6d025f523b":{
       "scriptId":"u21"},
-    "3a213f59b9564d6cbdc3d07c412919cb":{
+    "126fa8feedba4c6497783672f7262446":{
       "scriptId":"u22"},
-    "d7dd250403fe4eef82d631680cbc9eda":{
+    "4411ba82f1ac42a7868ba3f66425ac35":{
       "scriptId":"u23"},
-    "3d5816d6ed1f409f988a45e57f4c90ff":{
+    "62b220318eaa4856bfb43798d6674f78":{
       "scriptId":"u24"},
-    "fe8ec8cf0f0e44929968bc7a5cbb22a7":{
+    "a48425cc1afe411ba320c218ee2153a7":{
       "scriptId":"u25"},
-    "87c0e0a614de46f2aad543a3d9b1f94b":{
+    "6eb7a5d3cbec402385fe0bbc94d7bdfa":{
       "scriptId":"u26"},
-    "04c0c3505afa4dd5920455061e05123d":{
+    "b1a2e11ce11743d4883400ff7dda1fd3":{
       "scriptId":"u27"},
-    "ab698d703264460dab12290957e51447":{
+    "48577dba8bab43578829d69a60116aa9":{
       "scriptId":"u28"},
-    "98ff84d7c74a4d0dabc7865ae6ef3813":{
+    "851a266f330b4147964eacea468e9af8":{
       "scriptId":"u29"},
-    "d07c18028cff490ab32cd897de78cf08":{
+    "8bfbe5985fb548ea81408f0bd2185860":{
       "scriptId":"u30"},
-    "f766207386904a1b8df486b3bebfb0ac":{
+    "e505868c38fa4972ba73abb0e3eee65f":{
       "scriptId":"u31"},
-    "6df1fdb7de514ccd9fb42fcbe4759e01":{
+    "bcf77a05a11c41d0847bc5f2a86f5788":{
       "scriptId":"u32"},
-    "2bd9216664f84867b4a8e96ab88406a6":{
+    "4a138b18ae5a4bffb9e6387613f87116":{
       "scriptId":"u33"},
-    "43ef04f00dfe4c0a818824ec4707429e":{
+    "19c021ab8a6d436599d1e539ba5fe813":{
       "scriptId":"u34"},
-    "06361ae292be4b61ae7e1f2b6b926e69":{
+    "bd2d70054bc84eff8440c54697402ee4":{
       "scriptId":"u35"},
-    "93f94d821d9242fd844851db1a2f3052":{
+    "5adb2dbc04a6438ab55f2a30bc6fb0b3":{
       "scriptId":"u36"},
-    "18758630bb9f484eb91c9660f52edac6":{
+    "7abfc2f16ed2463fae01e5c9985d2027":{
       "scriptId":"u37"},
-    "9e1349a235284bd58dffff99ac4b0346":{
+    "30a83a7b08534ea5b03886bf2d78c988":{
       "scriptId":"u38"},
-    "d123874dcf004865903dd0bc8a48f596":{
+    "9da5a3d6cbd84c0ea753af7d0486b9af":{
       "scriptId":"u39"},
-    "e9eeeae2eff34f8da5510b28a2aea2fc":{
+    "0b36031e5f2747eabd729d77f03e1795":{
       "scriptId":"u40"},
-    "69bfdbe2de644b03bba30fe450982ee3":{
+    "121c3b4dc6c64bee8d27cffb159d6bc8":{
       "scriptId":"u41"},
-    "91ec42b699724b449ff152f06c4b79e5":{
+    "94610cdbdbff4fa29a29b44d7f7b55a8":{
       "scriptId":"u42"},
-    "318a8cac52fb40cc8b928a0179a782b6":{
+    "66a4af6830314c9f87e2d061bc5337ad":{
       "scriptId":"u43"},
-    "8b358c82730a41aca19132995c639512":{
+    "c3d62f724c7c4ad3ae59178cbd0c2de7":{
       "scriptId":"u44"},
-    "08d9c75be3a841ab8374d557014b9d78":{
+    "6905a35698dd49938ca8c5e2c5454f98":{
       "scriptId":"u45"},
-    "afe7cb3df64f4f9384496de956ba0ce9":{
+    "a94d0c10874443debcee7980dc11da0f":{
       "scriptId":"u46"},
-    "f67d35e041244dc8a63e979603ee238d":{
+    "26dd93026a094c61adcb4a64853cb0c9":{
       "scriptId":"u47"},
-    "afdf9fedd890423b899d2201d6cf2e23":{
+    "53aae2ffccf94e0d98d953f6c937d20c":{
       "scriptId":"u48"},
-    "efd1507390a34873bc7fe5be3c08d4f2":{
+    "58b145295af04734bb981c133abd8968":{
       "scriptId":"u49"},
-    "3bd44152adbe47d88df62bdfdfb0c5ba":{
+    "4464abed0c3d4043a68525b7c7f38df1":{
       "scriptId":"u50"},
-    "421efb3f613f458d9c9ac171101e624e":{
+    "3f1f289846fe4f7b8222358d6631040c":{
       "scriptId":"u51"},
-    "bf6978fad68e453a95f1b534ee2108a5":{
+    "0a961785638747ef931b644a769ca87d":{
       "scriptId":"u52"},
-    "98465f6dd6d2417f8d2e26b595c55e59":{
+    "007ed31c78f6494eb45a2a61838d1f24":{
       "scriptId":"u53"},
-    "0e72fd00b5714389964c97f1b045add4":{
+    "598ddb2ae3e04840a53a79a9b909c61d":{
       "scriptId":"u54"},
-    "3f69042d8445480d8ffeb0504e63bf9f":{
+    "6388744299564e7a998783c015500b1f":{
       "scriptId":"u55"},
-    "0918c99f77394508a823402f8acb627b":{
+    "84a137cf8e794222bd44347103a5cbf8":{
       "scriptId":"u56"},
-    "36058f37d69544b8a830e420d1dfb670":{
+    "52e3507f7545411682eea03e35b063ea":{
       "scriptId":"u57"},
-    "670c7cb35db54e03bf17636be3920e9a":{
+    "848d03dddc4a4dff9f91397dfd0ef020":{
       "scriptId":"u58"},
-    "e1337e7c7e444d30a2f017fe80df3291":{
+    "cdd5c85c96a242499e5876c1a89a5535":{
       "scriptId":"u59"},
-    "f42a18596f4e4af18b48e06abc230cc5":{
+    "1d881e1f288d4968b01b613e04107bf5":{
       "scriptId":"u60"},
-    "9b647218109f4e649d1feca98d3a4218":{
+    "9ac9b7ec96594e23a3941e51596dfc8b":{
       "scriptId":"u61"},
-    "12e90bfae4ea4687b4da460cc8465cec":{
+    "23ad006c3b7943848559bda218b75e3a":{
       "scriptId":"u62"},
-    "db2f7fb2732d4fe6a5527f38facadb4c":{
+    "642200cc1bce4871a805e6d0b8275007":{
       "scriptId":"u63"},
-    "46e791ec9e744d3ca871dee32c353047":{
+    "0642399a7fc2447c98bead5b630b52e1":{
       "scriptId":"u64"},
-    "b6bf6abb46774b3fa76cd294c0691319":{
+    "cb49038a2e7d4789b9eefca86e2580de":{
       "scriptId":"u65"},
-    "4daa450c0a4445469f4a0ebb7272fd3d":{
+    "32a9bb520f944cbfbbb6003b49ec9e7a":{
       "scriptId":"u66"},
-    "baae8d7268f043e3b75434200421df75":{
+    "aa7645d33b70493bb16392e6bb93c6d4":{
       "scriptId":"u67"},
-    "3dfaf25dc92841a884ff486e850fa058":{
+    "79e1d3624a544f1fab4d11f5a4949e29":{
       "scriptId":"u68"},
-    "895a8248bc4742e7bc2f65e2cc0360f5":{
+    "f3f63f5855314f4d99139ac7e3a553b6":{
       "scriptId":"u69"},
-    "6849afbb365d4c0284a983210ee541e6":{
+    "7b5dfe0534324feaaffc9b4d1a753a53":{
       "scriptId":"u70"},
-    "85023dbb0df041e7adc07293588a8ea1":{
+    "7c0bbadd44974c168fa95242d948fb74":{
       "scriptId":"u71"},
-    "6c1384c6429645b28c9ab72050e9b472":{
+    "7d9faaa6e2004cddab11b5833db58698":{
       "scriptId":"u72"},
-    "f70b2603858f438eb975fad9fdd95b56":{
+    "2c26764a76c44007a4596cd445d3338c":{
       "scriptId":"u73"},
-    "c647691000e24330b005aa67a2e933d0":{
+    "0868a5d1fbc847b58ffb4f259fca95f5":{
       "scriptId":"u74"},
-    "a47549e031e041aaa373719178ca63d6":{
+    "c92acd758f9341f49adccbbf2d186ed3":{
       "scriptId":"u75"},
-    "8ff51d3ddcae4f2f9e72bdd5735518eb":{
+    "a47f6f8c625b4d77a3215d48297a9820":{
       "scriptId":"u76"},
-    "7ffd17476b1347d998839ad9a043a4d2":{
+    "a469310d1b824f9da482535f2a2f766f":{
       "scriptId":"u77"},
-    "f14f1ded84c44ee09acdf87ea6f7aaa3":{
+    "f404631c458d481f8b54665152050229":{
       "scriptId":"u78"},
-    "290106864d5d4908bf1d94853d73817d":{
+    "d65982e63fc7431db94cfbb7472fd1f8":{
       "scriptId":"u79"},
-    "8dfd22ff1544498284c122bcb9dc1c10":{
+    "06d0dcdf32754e37b11a74dd6cd7c5f6":{
       "scriptId":"u80"},
-    "85a8923e13ea4d7f9b7a66dbb2ba7411":{
+    "8ff729b80c204aebab79f7bd5fa50d8d":{
       "scriptId":"u81"},
-    "7b3b6f6292684516a882ebe75d36cf8a":{
+    "af3e6671a913425aa79f571c925f6ce2":{
       "scriptId":"u82"},
-    "a561654f135345789c173f6b716c4eb3":{
+    "aa01892a20e7498797d176489eaf9813":{
       "scriptId":"u83"},
-    "32bbbce786c545ae81e808f3cf6b3e55":{
+    "9d79d1c01b3a47668263a124400bd05c":{
       "scriptId":"u84"},
-    "d5968d3c9d5c4b9391a6ba6ee95d3b14":{
+    "1654a7b8845c440a9d4c6c2142495899":{
       "scriptId":"u85"},
-    "aa028bd8a5e441e6ac0f69960ede2b07":{
+    "edfbd478f9a949208895b6ab7f02b6ca":{
       "scriptId":"u86"},
-    "67360826fa9544c091a61e06b2e58e33":{
+    "e3faab7c6b174a97bd09e02321251e14":{
       "scriptId":"u87"},
-    "2c0c627c33434e71a2a0eacb9a968001":{
+    "aa64534c1076450999ff9db67f629308":{
       "scriptId":"u88"},
-    "8158937f3be14063b0194afb02fc0bb6":{
+    "9220f2dd67014880aab8fdd55ffb0b9d":{
       "scriptId":"u89"},
-    "412f9ae6fa3b4f4da87ab92f79425e35":{
+    "ba8779802fc14df4ad3ab9e5e72b6941":{
       "scriptId":"u90"},
-    "7f7150f655284417809a8be35c22a15a":{
+    "d9e41ad714734bb7810f93e79f7ccf07":{
       "scriptId":"u91"},
-    "2e72a77f5490434e9e5a5389825d0dd3":{
+    "08808a29c70f410b8803b3b9f67218f4":{
       "scriptId":"u92"},
-    "37599f84f8214d95beb41b1c4b75a047":{
+    "0a351d05ca6049409e71733bd9f73d34":{
       "scriptId":"u93"},
-    "87df2e3b146343bcb6a83f1a8588d5cd":{
+    "b1066fd955234046a44c70e514268f35":{
       "scriptId":"u94"},
-    "a3846f80df354622bbbf49dbb16be97c":{
+    "996479e88d1e48008e794958b8d0c172":{
       "scriptId":"u95"},
-    "e62d737e41194dbca6598d1e5062fe65":{
+    "62069ae490ed4b8da51d7c7bbd00eebe":{
       "scriptId":"u96"},
-    "3a15f6e6f0d74e078b6fa70e88242c41":{
+    "78a5be226d214b5abe816775d663f828":{
       "scriptId":"u97"},
-    "63b4d6268c8b40999e54e07ea86b708f":{
+    "834585a2b31444b1ab9cb5572a748325":{
       "scriptId":"u98"},
-    "56c95174bf474d0d822d6441858d498e":{
+    "6fc071bb4d004b21883ec62359a7821d":{
       "scriptId":"u99"},
-    "81f13d3aca4a4f92a8c96b5cca413915":{
+    "e06eb199c1324794814dcc5cd472521a":{
       "scriptId":"u100"},
-    "4730468df6c44a47a96387178611eb51":{
+    "76384dcf7577412f906f242fa0b48421":{
       "scriptId":"u101"},
-    "00e098615f504e55aac0fa4d7fea370b":{
+    "7b1e5e5fe0f04f06a71ccf3521b60873":{
       "scriptId":"u102"},
-    "ef1b61a53ada41b38ed8a003681ded1e":{
+    "8e6faa186b884648944356c57b3b8817":{
       "scriptId":"u103"},
-    "bf01124e671c4f58b922f23ee956c39c":{
+    "a334ff422b2d4b6a8757b632889d7e44":{
       "scriptId":"u104"},
-    "3299f94cc81d416aa45ca80e9c6e2228":{
+    "2417f86362394037b96574620de3f32e":{
       "scriptId":"u105"},
-    "d0fac0ef00b042f68a81bc93690bb09b":{
+    "c3e5a5d6127945edb2c028c09f25ae4d":{
       "scriptId":"u106"},
-    "2a2083876f22439e8a961a2c6eb938c3":{
+    "19e530c55848475fb28d777d76b9b949":{
       "scriptId":"u107"},
-    "6a48ddc3c89445ba90d1fdda73f495eb":{
+    "5c0436240b0e47e993519eec14fe837d":{
       "scriptId":"u108"},
-    "0a98765d7a51410180705997bfda1c93":{
+    "ae03d10f779543d19faaa571faddcd9d":{
       "scriptId":"u109"},
-    "9c81f32b5928443691c9f62b8295f60a":{
+    "cb50641dfa6f4142bda6e558a8d818eb":{
       "scriptId":"u110"},
-    "fbfab2aa72d44c35ba12654e4461f900":{
+    "0397c4d453ee49938f8e34d9f1f1de9b":{
       "scriptId":"u111"},
-    "bd5cd6516c7f4879b5067b100872efa2":{
+    "e58d521880704718967ff93c5eb67e0c":{
       "scriptId":"u112"},
-    "8f9dc4c2ee6845c580effcab07e1a5a9":{
+    "fb4ed985483f45b99d3a2190c95b4422":{
       "scriptId":"u113"},
-    "7709d10966624b37881d08cb0ff4f8a6":{
+    "ec4e95982c2246889ac7f4ba7ae07ce7":{
       "scriptId":"u114"},
-    "44e84846196b409f94d2c49f3a731515":{
+    "e0f959a9614b41b99e6c53dd60b235ed":{
       "scriptId":"u115"},
-    "f50a4944429646198816811d8935b7b7":{
+    "570fde562d4a444f81f73355a8b16ffc":{
       "scriptId":"u116"},
-    "6b1d46db8d2242cbb7024a66f6217832":{
-      "scriptId":"u117"}}});
+    "b696d4672c1d42cf96e32bfce7fcdb81":{
+      "scriptId":"u117"},
+    "ad2499829286462796f06afbc4ebc922":{
+      "scriptId":"u118"},
+    "55e09eaff4c9461a850bcbf9c4585040":{
+      "scriptId":"u119"},
+    "7550eea037a84f9ea7b4943a79890a71":{
+      "scriptId":"u120"},
+    "232bdf5a8a114f838aa708ce940a93fb":{
+      "scriptId":"u121"},
+    "8c0834ae6e1848a9a3640b6e8e4db750":{
+      "scriptId":"u122"},
+    "9cf6118e6c564550bf8a5edbc45954c8":{
+      "scriptId":"u123"},
+    "218182ba551942e49bbfdaec55a01c26":{
+      "scriptId":"u124"},
+    "086253f2b2784353901acbf8df7251e2":{
+      "scriptId":"u125"},
+    "027d0c9872634a9fa0298c67ba93ecc6":{
+      "scriptId":"u126"},
+    "ae189e09f5fd450f894c421e87fe9164":{
+      "scriptId":"u127"},
+    "ed3d2bc54fa54204b6694870faf4cc72":{
+      "scriptId":"u128"},
+    "1dede1f2f86a48a4aa60fe6528d38806":{
+      "scriptId":"u129"},
+    "3aa270e9298f41be9a9e0c73d0870c6c":{
+      "scriptId":"u130"},
+    "713078f0a9b249948482020517a5d562":{
+      "scriptId":"u131"},
+    "ececc2b66650445ca7f689122ad2664a":{
+      "scriptId":"u132"},
+    "6db4f2a8cea546dca821eface534ffc2":{
+      "scriptId":"u133"},
+    "2189bdf2619f4bc7939952a25c0c14b3":{
+      "scriptId":"u134"},
+    "991ba6e5e6d44b94b3265372d6ac8e11":{
+      "scriptId":"u135"},
+    "bf02c96a6f1742c498431ce1d884a64a":{
+      "scriptId":"u136"},
+    "4080ad67d1014c19a31ec95ebb99d5d0":{
+      "scriptId":"u137"},
+    "b160e9e9c4fd40fc8d24c7f63c0431e3":{
+      "scriptId":"u138"},
+    "f31aa77e47fb429b881436450d98690d":{
+      "scriptId":"u139"},
+    "f27e23363870415fa20d76773504d776":{
+      "scriptId":"u140"},
+    "6fdc8d5dfb064c66a27c7904652533cc":{
+      "scriptId":"u141"},
+    "10739d901ee84d9d8ffcb75b4789d643":{
+      "scriptId":"u142"},
+    "11c73f28475a42429195f8c205a6e2f0":{
+      "scriptId":"u143"},
+    "361ed96e1d65471784bb80de2a43df31":{
+      "scriptId":"u144"},
+    "59a0c67990ca486799cdcaf12733e3cd":{
+      "scriptId":"u145"},
+    "fc097d0f2b954664b6bb8461c4066f45":{
+      "scriptId":"u146"},
+    "405e132ca76743f292adf95711320819":{
+      "scriptId":"u147"},
+    "b41e4fae57254ed0bf68bb3884747374":{
+      "scriptId":"u148"},
+    "4a1b1b450c8443b980e3414090af585a":{
+      "scriptId":"u149"},
+    "ee3b1b708b044286942fda5de1fd3e8d":{
+      "scriptId":"u150"},
+    "103ea56372d4420d9e0361e9337b91d1":{
+      "scriptId":"u151"},
+    "08cc151356d541d7b455eabe26430c39":{
+      "scriptId":"u152"},
+    "d2555586931a4fd496e46ee4c286f446":{
+      "scriptId":"u153"},
+    "1cb344357bf7440db73bfad88407c0f5":{
+      "scriptId":"u154"},
+    "57d8df0bb9a64fe08250887347a7c5b9":{
+      "scriptId":"u155"},
+    "017a599de049401a92f0d17f5b740d61":{
+      "scriptId":"u156"},
+    "694c93aec00844b2b3b0832c29ccf45a":{
+      "scriptId":"u157"},
+    "26388fad9f5a401db60766e4ccc164b7":{
+      "scriptId":"u158"},
+    "8013aab4885a40d39f18280e71126ad4":{
+      "scriptId":"u159"},
+    "4e72c9bce7d944d5903a7e762a553552":{
+      "scriptId":"u160"},
+    "adc91c54b1ec43fe8ba64b71079b93fe":{
+      "scriptId":"u161"},
+    "6948f96f66c741bbbd404b21c51ff8dd":{
+      "scriptId":"u162"},
+    "ded72dbee2064b2295e401a582a94969":{
+      "scriptId":"u163"},
+    "2664dcc97d1c46b88cc5a2c202dd2575":{
+      "scriptId":"u164"},
+    "d74d654f96c7433bb62d524b47139ca3":{
+      "scriptId":"u165"},
+    "937d8fa8de8b4f2dae49fc93196bf377":{
+      "scriptId":"u166"},
+    "2cf4cd2b67774bb2a988b196c868a04b":{
+      "scriptId":"u167"},
+    "bd7291057d3c4d69a5295ae6cf48743d":{
+      "scriptId":"u168"},
+    "bcf3725fde3344daa00f13bf3a0546d0":{
+      "scriptId":"u169"},
+    "d9366b53b9d64febbb99faa2a11b2023":{
+      "scriptId":"u170"},
+    "e3e82f7fddf14d8ab6afda2f2c6eb3e3":{
+      "scriptId":"u171"},
+    "f4fd940a53434281be03a521cc72e2dc":{
+      "scriptId":"u172"},
+    "587828e17bfb455083089bbfc349a7c4":{
+      "scriptId":"u173"},
+    "478c24e5ea3b45d3b90d16d298fef717":{
+      "scriptId":"u174"},
+    "354338ddbe0046619ca055d39457037f":{
+      "scriptId":"u175"},
+    "207b202f6df048e091600e3808339bc2":{
+      "scriptId":"u176"},
+    "1a8763ab83ff43a19a28acc34ae6a82b":{
+      "scriptId":"u177"},
+    "d1ca84802d7b499880c76b2160ba3f22":{
+      "scriptId":"u178"},
+    "d51b502b31624327be35689ed5b916e9":{
+      "scriptId":"u179"}}});

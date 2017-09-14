@@ -17,6 +17,10 @@
         "type":"Folder",
         "url":"",
         "children":[{
+            "pageName":"版本记录",
+            "type":"Wireframe",
+            "url":"版本记录.html"},
+{
             "pageName":"登录",
             "type":"Wireframe",
             "url":"登录.html"},
@@ -63,11 +67,7 @@
 {
                 "pageName":"退料入库",
                 "type":"Wireframe",
-                "url":"退料入库.html"},
-{
-                "pageName":"操作日志",
-                "type":"Wireframe",
-                "url":"操作日志.html"}]},
+                "url":"退料入库.html"}]},
 {
             "pageName":"我的",
             "type":"Wireframe",
@@ -95,7 +95,11 @@
 {
                 "pageName":"操作日志",
                 "type":"Wireframe",
-                "url":"操作日志_1.html"}]}]}]},
+                "url":"操作日志.html"}]},
+{
+            "pageName":"单据数据流转状态说明",
+            "type":"Wireframe",
+            "url":"单据数据流转状态说明.html"}]}]},
   "globalVariables":{
     "onloadvariable":""},
   "defaultAdaptiveView":{
