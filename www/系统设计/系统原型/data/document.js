@@ -61,9 +61,9 @@
                 "type":"Wireframe",
                 "url":"领料出库.html"},
 {
-                "pageName":"退料审核",
+                "pageName":"退料入库",
                 "type":"Wireframe",
-                "url":"退料审核.html"},
+                "url":"退料入库.html"},
 {
                 "pageName":"操作日志",
                 "type":"Wireframe",
