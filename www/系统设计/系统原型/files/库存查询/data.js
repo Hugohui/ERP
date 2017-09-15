@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"库存查询.html",
-  "generationDate":new Date(1505440642455.4),
+  "generationDate":new Date(1505459449905.47),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1934,10 +1934,10 @@
               "color":0xFFCCCCCC,
               "opacity":1},
             "location":{
-              "x":1030,
+              "x":355,
               "y":110},
             "size":{
-              "width":189,
+              "width":139,
               "height":26}},
           "adaptiveStyles":{
 }},
@@ -2135,7 +2135,10 @@
                 "verticalAlignment":"middle",
                 "size":{
                   "width":84,
-                  "height":30}},
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000}},
               "adaptiveStyles":{
 },
               "objects":[{
@@ -2150,7 +2153,10 @@
                     "verticalAlignment":"middle",
                     "size":{
                       "width":84,
-                      "height":30}},
+                      "height":30},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFF000000}},
                   "adaptiveStyles":{
 }}],
               "images":{
@@ -2191,7 +2197,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u123.png"}},
 {
               "id":"515ded95ceb042f9bba87158a6eb40ac",
               "label":"",
@@ -2243,7 +2249,10 @@
                   "y":0},
                 "size":{
                   "width":84,
-                  "height":30}},
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000}},
               "adaptiveStyles":{
 },
               "objects":[{
@@ -2261,7 +2270,10 @@
                       "y":0},
                     "size":{
                       "width":84,
-                      "height":30}},
+                      "height":30},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFF000000}},
                   "adaptiveStyles":{
 }}],
               "images":{
@@ -2302,7 +2314,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u123.png"}},
 {
               "id":"f7e956d1a6444b1ba95b4f12897dab7e",
               "label":"",
@@ -2354,7 +2366,10 @@
                   "y":0},
                 "size":{
                   "width":84,
-                  "height":30}},
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000}},
               "adaptiveStyles":{
 },
               "objects":[{
@@ -2372,7 +2387,10 @@
                       "y":0},
                     "size":{
                       "width":84,
-                      "height":30}},
+                      "height":30},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFF000000}},
                   "adaptiveStyles":{
 }}],
               "images":{
@@ -2413,7 +2431,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u123.png"}},
 {
               "id":"c9d7a99bd34a4a57aee40d69d2d31655",
               "label":"",
@@ -2487,7 +2505,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u101.png"}},
 {
               "id":"ecbadffb072d4eeb929f2f4a1f2581d2",
               "label":"",
@@ -2524,7 +2542,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"d7fe993de824487684bbaa98c4cef6ee",
               "label":"",
@@ -2576,7 +2594,10 @@
                   "y":0},
                 "size":{
                   "width":84,
-                  "height":30}},
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000}},
               "adaptiveStyles":{
 },
               "objects":[{
@@ -2594,7 +2615,10 @@
                       "y":0},
                     "size":{
                       "width":84,
-                      "height":30}},
+                      "height":30},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFF000000}},
                   "adaptiveStyles":{
 }}],
               "images":{
@@ -2635,7 +2659,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u123.png"}},
 {
               "id":"13d20e262863495d90c6ee3c550d3d78",
               "label":"",
@@ -2709,7 +2733,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u101.png"}},
 {
               "id":"33d1a35f071f416d9b5074c7e2e848af",
               "label":"",
@@ -2746,7 +2770,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"5f18585f1ff04297a5a18b3065226928",
               "label":"",
@@ -2798,7 +2822,10 @@
                   "y":0},
                 "size":{
                   "width":84,
-                  "height":30}},
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000}},
               "adaptiveStyles":{
 },
               "objects":[{
@@ -2816,7 +2843,10 @@
                       "y":0},
                     "size":{
                       "width":84,
-                      "height":30}},
+                      "height":30},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFF000000}},
                   "adaptiveStyles":{
 }}],
               "images":{
@@ -2857,7 +2887,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u123.png"}},
 {
               "id":"a1e6cedca7eb43e2bbd3127bd787bc2a",
               "label":"",
@@ -2931,7 +2961,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u101.png"}},
 {
               "id":"45f9c9e950eb4706bc24586fa8fb345c",
               "label":"",
@@ -2968,7 +2998,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"b230bb7b57b94c7e949c9799eedf6455",
               "label":"",
@@ -3042,7 +3072,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"77e7b09347d54102abe063eaf0b5fcab",
               "label":"",
@@ -3079,7 +3109,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"b2219c229db745f2ad12d08b5f4ab4c5",
               "label":"",
@@ -3153,7 +3183,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"11a1fd4cc6b548518c54276fbc0f4e77",
               "label":"",
@@ -3190,7 +3220,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"3fd9874c5ad547b287069122c3e041a4",
               "label":"",
@@ -3264,7 +3294,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"3e29e4b8ec4a4ee1b25164d26c3c11d8",
               "label":"",
@@ -3301,7 +3331,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"5c5bf55bb7e545639ebdfcee069f594d",
               "label":"",
@@ -3353,7 +3383,10 @@
                   "y":0},
                 "size":{
                   "width":84,
-                  "height":30}},
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFF000000}},
               "adaptiveStyles":{
 },
               "objects":[{
@@ -3371,7 +3404,10 @@
                       "y":0},
                     "size":{
                       "width":84,
-                      "height":30}},
+                      "height":30},
+                    "borderFill":{
+                      "fillType":"solid",
+                      "color":0xFF000000}},
                   "adaptiveStyles":{
 }}],
               "images":{
@@ -3412,7 +3448,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u123.png"}},
 {
               "id":"efe8c65b8db54752aad08bbbb81ef9a3",
               "label":"",
@@ -3486,7 +3522,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u101.png"}},
 {
               "id":"2f9e44f1fbb94a099a5073c00c590ec7",
               "label":"",
@@ -3523,7 +3559,7 @@
                   "adaptiveStyles":{
 }}],
               "images":{
-                "normal~":"images/库存查询/regen/u95.png"}},
+                "normal~":"images/库存查询/regen/u111.png"}},
 {
               "id":"e48f01c1ed414bd8bab9a6e3e5502be4",
               "label":"",
@@ -4147,6 +4183,317 @@
           "images":{
             "normal~":"images/库存查询/regen/u195.png"}},
 {
+          "id":"2441a1a9cd324dd9a820b99138056c58",
+          "label":"用户信息弹出框",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1124,
+              "y":39},
+            "size":{
+              "width":206,
+              "height":101},
+            "visible":false,
+            "borderWidth":"-1"},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"cc3e7f62d0f840c7b10a3cda2a436d8a",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1124,
+                  "y":39},
+                "size":{
+                  "width":206,
+                  "height":101},
+                "visible":false,
+                "borderWidth":"-1"},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/库存查询/regen/用户信息弹出框_u197.png"}},
+{
+          "id":"188ee02ac60d411daa8d471e8e4739ff",
+          "label":"退出系统按钮",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1124,
+              "y":78},
+            "size":{
+              "width":206,
+              "height":40},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"8b2d66df4add458d84b820afd9e05d80",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1124,
+                  "y":78},
+                "size":{
+                  "width":206,
+                  "height":40},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"退出系统模态框",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"fadeWidget",
+                      "description":"显示 退出弹框,<br>关闭退出弹框按钮,<br>退出弹框title,<br>退出系统文字,<br>确定退出按钮,<br>关闭退出按钮",
+                      "objectsToFades":[{
+                          "objectPath":["ed5ebac2e42149e382a368798854cee7"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["013c339323e44ed48bdb1b6bdf0dedd0"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["d8b869c60caf4ecfbfb5606d67dc83cd"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["b2bfcf8d286a407697d09298bc2fa290"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["ae33dae11d094eeda7b3b7b93abba7c9"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}},
+{
+                          "objectPath":["04222525727748c4af873251d208a643"],
+                          "fadeInfo":{
+                            "fadeType":"show",
+                            "options":{
+                              "showType":"none"}}}]}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/库存查询/regen/退出系统按钮_u199.png"}},
+{
+          "id":"f81e39a323684e9484488a6db8adfbdf",
+          "label":"修改密码按钮",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":false,
+          "style":{
+            "location":{
+              "x":1124,
+              "y":39},
+            "size":{
+              "width":206,
+              "height":40},
+            "visible":false},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e237e890f04e401fb89db1cdc46bc536",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":false,
+              "style":{
+                "location":{
+                  "x":1124,
+                  "y":39},
+                "size":{
+                  "width":206,
+                  "height":40},
+                "visible":false},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/库存查询/regen/退出系统按钮_u199.png"}},
+{
+          "id":"ea9e68cedf6648f9b11086dd0077c174",
+          "label":"",
+          "type":"horizontalLine",
+          "styleType":"horizontalLine",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":1320,
+              "y":180},
+            "size":{
+              "width":70,
+              "height":10},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF0000FF}},
+          "adaptiveStyles":{
+},
+          "images":{
+            "start~":"resources/images/transparent.gif",
+            "end~":"resources/images/transparent.gif",
+            "line~":"images/库存查询/regen/u203_line.png"}},
+{
+          "id":"98c8434fc393439ebcf656735a703c15",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFF0000FF,
+              "opacity":1},
+            "location":{
+              "x":1400,
+              "y":180},
+            "size":{
+              "width":60,
+              "height":48}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a9bfe7d7f6494744b9a04e8737303f7d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFF0000FF,
+                  "opacity":1},
+                "location":{
+                  "x":1400,
+                  "y":180},
+                "size":{
+                  "width":60,
+                  "height":48}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"dea716a206a941a5b9883a325d14ceaf",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFCCCCCC,
+              "opacity":1},
+            "location":{
+              "x":201,
+              "y":110},
+            "size":{
+              "width":139,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"8c81ea1291ec4a34a0c28841a6200982",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFCCCCCC,
+              "opacity":1},
+            "location":{
+              "x":511,
+              "y":110},
+            "size":{
+              "width":139,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"2ed5c031c01d467588886fd50e439be2",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFCCCCCC,
+              "opacity":1},
+            "location":{
+              "x":821,
+              "y":110},
+            "size":{
+              "width":139,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"ee0dd1bf5aba4905beecd0e8ed5fd7e8",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFCCCCCC,
+              "opacity":1},
+            "location":{
+              "x":667,
+              "y":110},
+            "size":{
+              "width":139,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"4ed37ea6b7894ba2ba534801bbebd6a2",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFCCCCCC,
+              "opacity":1},
+            "location":{
+              "x":975,
+              "y":107},
+            "size":{
+              "width":139,
+              "height":26}},
+          "adaptiveStyles":{
+}},
+{
           "id":"a676caf02f324244827c810a2c73b296",
           "label":"",
           "type":"buttonShape",
@@ -4182,7 +4529,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/库存查询/regen/u197.png"}},
+            "normal~":"images/库存查询/regen/u211.png"}},
 {
           "id":"bba5cdb9cb1d41088f58729f33554ef3",
           "label":"",
@@ -4217,7 +4564,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/库存查询/regen/u199.png"}},
+            "normal~":"images/库存查询/regen/u213.png"}},
 {
           "id":"f2ad3b2e09ac4911829c2acfe0e8b2cc",
           "label":"",
@@ -4241,7 +4588,7 @@
           "images":{
             "start~":"resources/images/transparent.gif",
             "end~":"resources/images/transparent.gif",
-            "line~":"images/库存查询/regen/u201_line.png"}},
+            "line~":"images/库存查询/regen/u215_line.png"}},
 {
           "id":"59649d717f5f4937ba256a3ecf4a2f9f",
           "label":"",
@@ -4372,223 +4719,7 @@
           "images":{
             "start~":"resources/images/transparent.gif",
             "end~":"resources/images/transparent.gif",
-            "line~":"images/库存查询/regen/u201_line.png"}},
-{
-          "id":"2441a1a9cd324dd9a820b99138056c58",
-          "label":"用户信息弹出框",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1124,
-              "y":39},
-            "size":{
-              "width":206,
-              "height":101},
-            "visible":false,
-            "borderWidth":"-1"},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"cc3e7f62d0f840c7b10a3cda2a436d8a",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1124,
-                  "y":39},
-                "size":{
-                  "width":206,
-                  "height":101},
-                "visible":false,
-                "borderWidth":"-1"},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/库存查询/regen/用户信息弹出框_u209.png"}},
-{
-          "id":"188ee02ac60d411daa8d471e8e4739ff",
-          "label":"退出系统按钮",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1124,
-              "y":78},
-            "size":{
-              "width":206,
-              "height":40},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"8b2d66df4add458d84b820afd9e05d80",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1124,
-                  "y":78},
-                "size":{
-                  "width":206,
-                  "height":40},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "interactionMap":{
-            "onClick":{
-              "description":"OnClick",
-              "cases":[{
-                  "description":"退出系统模态框",
-                  "isNewIfGroup":false,
-                  "actions":[{
-                      "action":"fadeWidget",
-                      "description":"显示 退出弹框,<br>关闭退出弹框按钮,<br>退出弹框title,<br>退出系统文字,<br>确定退出按钮,<br>关闭退出按钮",
-                      "objectsToFades":[{
-                          "objectPath":["ed5ebac2e42149e382a368798854cee7"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["013c339323e44ed48bdb1b6bdf0dedd0"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["d8b869c60caf4ecfbfb5606d67dc83cd"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["b2bfcf8d286a407697d09298bc2fa290"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["ae33dae11d094eeda7b3b7b93abba7c9"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}},
-{
-                          "objectPath":["04222525727748c4af873251d208a643"],
-                          "fadeInfo":{
-                            "fadeType":"show",
-                            "options":{
-                              "showType":"none"}}}]}]}]}},
-          "tabbable":true,
-          "images":{
-            "normal~":"images/库存查询/regen/退出系统按钮_u211.png"}},
-{
-          "id":"f81e39a323684e9484488a6db8adfbdf",
-          "label":"修改密码按钮",
-          "type":"buttonShape",
-          "styleType":"buttonShape",
-          "visible":false,
-          "style":{
-            "location":{
-              "x":1124,
-              "y":39},
-            "size":{
-              "width":206,
-              "height":40},
-            "visible":false},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"e237e890f04e401fb89db1cdc46bc536",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":false,
-              "style":{
-                "location":{
-                  "x":1124,
-                  "y":39},
-                "size":{
-                  "width":206,
-                  "height":40},
-                "visible":false},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"images/库存查询/regen/退出系统按钮_u211.png"}},
-{
-          "id":"ea9e68cedf6648f9b11086dd0077c174",
-          "label":"",
-          "type":"horizontalLine",
-          "styleType":"horizontalLine",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":1320,
-              "y":180},
-            "size":{
-              "width":70,
-              "height":10},
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF0000FF}},
-          "adaptiveStyles":{
-},
-          "images":{
-            "start~":"resources/images/transparent.gif",
-            "end~":"resources/images/transparent.gif",
-            "line~":"images/库存查询/regen/u215_line.png"}},
-{
-          "id":"98c8434fc393439ebcf656735a703c15",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":true,
-          "style":{
-            "foreGroundFill":{
-              "fillType":"solid",
-              "color":0xFF0000FF,
-              "opacity":1},
-            "location":{
-              "x":1400,
-              "y":180},
-            "size":{
-              "width":60,
-              "height":48}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"a9bfe7d7f6494744b9a04e8737303f7d",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "foreGroundFill":{
-                  "fillType":"solid",
-                  "color":0xFF0000FF,
-                  "opacity":1},
-                "location":{
-                  "x":1400,
-                  "y":180},
-                "size":{
-                  "width":60,
-                  "height":48}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}}]}},
+            "line~":"images/库存查询/regen/u215_line.png"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -4986,45 +5117,55 @@
       "scriptId":"u195"},
     "037265fefb114b3a83960a4ee87db112":{
       "scriptId":"u196"},
-    "a676caf02f324244827c810a2c73b296":{
-      "scriptId":"u197"},
-    "3d60a0444de14ce9a7e1d0992c719f69":{
-      "scriptId":"u198"},
-    "bba5cdb9cb1d41088f58729f33554ef3":{
-      "scriptId":"u199"},
-    "49c30be4586d4bbcbe6e1f952ba56d23":{
-      "scriptId":"u200"},
-    "f2ad3b2e09ac4911829c2acfe0e8b2cc":{
-      "scriptId":"u201"},
-    "59649d717f5f4937ba256a3ecf4a2f9f":{
-      "scriptId":"u202"},
-    "950943fff2cd41a9a6a97d4153b50007":{
-      "scriptId":"u203"},
-    "c0c4566029294f698e2c5347569531c7":{
-      "scriptId":"u204"},
-    "8cdeb74bc852450981726849909cacef":{
-      "scriptId":"u205"},
-    "74d15c721bf347dbb4d8f00f06ec1b7b":{
-      "scriptId":"u206"},
-    "071b4bde23ea4c228a4814df08f5ca57":{
-      "scriptId":"u207"},
-    "7385cc1dbacd4acdb74807651bf8e08b":{
-      "scriptId":"u208"},
     "2441a1a9cd324dd9a820b99138056c58":{
-      "scriptId":"u209"},
+      "scriptId":"u197"},
     "cc3e7f62d0f840c7b10a3cda2a436d8a":{
-      "scriptId":"u210"},
+      "scriptId":"u198"},
     "188ee02ac60d411daa8d471e8e4739ff":{
-      "scriptId":"u211"},
+      "scriptId":"u199"},
     "8b2d66df4add458d84b820afd9e05d80":{
-      "scriptId":"u212"},
+      "scriptId":"u200"},
     "f81e39a323684e9484488a6db8adfbdf":{
-      "scriptId":"u213"},
+      "scriptId":"u201"},
     "e237e890f04e401fb89db1cdc46bc536":{
-      "scriptId":"u214"},
+      "scriptId":"u202"},
     "ea9e68cedf6648f9b11086dd0077c174":{
-      "scriptId":"u215"},
+      "scriptId":"u203"},
     "98c8434fc393439ebcf656735a703c15":{
-      "scriptId":"u216"},
+      "scriptId":"u204"},
     "a9bfe7d7f6494744b9a04e8737303f7d":{
-      "scriptId":"u217"}}});
+      "scriptId":"u205"},
+    "dea716a206a941a5b9883a325d14ceaf":{
+      "scriptId":"u206"},
+    "8c81ea1291ec4a34a0c28841a6200982":{
+      "scriptId":"u207"},
+    "2ed5c031c01d467588886fd50e439be2":{
+      "scriptId":"u208"},
+    "ee0dd1bf5aba4905beecd0e8ed5fd7e8":{
+      "scriptId":"u209"},
+    "4ed37ea6b7894ba2ba534801bbebd6a2":{
+      "scriptId":"u210"},
+    "a676caf02f324244827c810a2c73b296":{
+      "scriptId":"u211"},
+    "3d60a0444de14ce9a7e1d0992c719f69":{
+      "scriptId":"u212"},
+    "bba5cdb9cb1d41088f58729f33554ef3":{
+      "scriptId":"u213"},
+    "49c30be4586d4bbcbe6e1f952ba56d23":{
+      "scriptId":"u214"},
+    "f2ad3b2e09ac4911829c2acfe0e8b2cc":{
+      "scriptId":"u215"},
+    "59649d717f5f4937ba256a3ecf4a2f9f":{
+      "scriptId":"u216"},
+    "950943fff2cd41a9a6a97d4153b50007":{
+      "scriptId":"u217"},
+    "c0c4566029294f698e2c5347569531c7":{
+      "scriptId":"u218"},
+    "8cdeb74bc852450981726849909cacef":{
+      "scriptId":"u219"},
+    "74d15c721bf347dbb4d8f00f06ec1b7b":{
+      "scriptId":"u220"},
+    "071b4bde23ea4c228a4814df08f5ca57":{
+      "scriptId":"u221"},
+    "7385cc1dbacd4acdb74807651bf8e08b":{
+      "scriptId":"u222"}}});
