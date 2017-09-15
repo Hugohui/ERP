@@ -99,7 +99,11 @@
 {
             "pageName":"单据数据流转状态说明",
             "type":"Wireframe",
-            "url":"单据数据流转状态说明.html"}]}]},
+            "url":"单据数据流转状态说明.html"},
+{
+            "pageName":"单据编号命名规则",
+            "type":"Wireframe",
+            "url":"单据编号命名规则.html"}]}]},
   "globalVariables":{
     "onloadvariable":""},
   "defaultAdaptiveView":{

@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"首页.html",
-  "generationDate":new Date(1505278528952.05),
+  "generationDate":new Date(1505440616911.94),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -1259,7 +1259,7 @@
               "y":56},
             "size":{
               "width":100,
-              "height":400}},
+              "height":360}},
           "adaptiveStyles":{
 },
           "objects":[{
@@ -1428,7 +1428,7 @@
                   "style":{
                     "location":{
                       "x":20,
-                      "y":60},
+                      "y":40},
                     "size":{
                       "width":80,
                       "height":20}},
@@ -1444,7 +1444,7 @@
                       "style":{
                         "location":{
                           "x":20,
-                          "y":60},
+                          "y":40},
                         "size":{
                           "width":80,
                           "height":20}},
@@ -1460,7 +1460,7 @@
                           "style":{
                             "location":{
                               "x":20,
-                              "y":60},
+                              "y":40},
                             "size":{
                               "width":80,
                               "height":20}},
@@ -1496,7 +1496,7 @@
                   "style":{
                     "location":{
                       "x":20,
-                      "y":80},
+                      "y":60},
                     "size":{
                       "width":80,
                       "height":20}},
@@ -1512,7 +1512,7 @@
                       "style":{
                         "location":{
                           "x":20,
-                          "y":80},
+                          "y":60},
                         "size":{
                           "width":80,
                           "height":20}},
@@ -1528,7 +1528,7 @@
                           "style":{
                             "location":{
                               "x":20,
-                              "y":80},
+                              "y":60},
                             "size":{
                               "width":80,
                               "height":20}},
@@ -1564,7 +1564,7 @@
                   "style":{
                     "location":{
                       "x":20,
-                      "y":100},
+                      "y":80},
                     "size":{
                       "width":80,
                       "height":20}},
@@ -1580,7 +1580,7 @@
                       "style":{
                         "location":{
                           "x":20,
-                          "y":100},
+                          "y":80},
                         "size":{
                           "width":80,
                           "height":20}},
@@ -1596,7 +1596,7 @@
                           "style":{
                             "location":{
                               "x":20,
-                              "y":100},
+                              "y":80},
                             "size":{
                               "width":80,
                               "height":20}},
@@ -1622,75 +1622,7 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"070bf485848d423f91c7b3d6d0fb4c93"},
-{
-                  "id":"646fd76bd3d34c31836c78d7b1b8e27c",
-                  "label":"",
-                  "type":"treeNodeObject",
-                  "styleType":"treeNodeObject",
-                  "visible":true,
-                  "style":{
-                    "location":{
-                      "x":20,
-                      "y":40},
-                    "size":{
-                      "width":80,
-                      "height":20}},
-                  "adaptiveStyles":{
-},
-                  "objects":[{
-                      "id":"711ccda9c97647d8b31f70b088874031",
-                      "label":"",
-                      "isContained":true,
-                      "type":"buttonShape",
-                      "styleType":"buttonShape",
-                      "visible":true,
-                      "style":{
-                        "location":{
-                          "x":20,
-                          "y":40},
-                        "size":{
-                          "width":80,
-                          "height":20}},
-                      "adaptiveStyles":{
-},
-                      "objects":[{
-                          "id":"b1bd97ebb1504b2b83d06061769bec3b",
-                          "label":"",
-                          "isContained":true,
-                          "type":"richTextPanel",
-                          "styleType":"paragraph",
-                          "visible":true,
-                          "style":{
-                            "location":{
-                              "x":20,
-                              "y":40},
-                            "size":{
-                              "width":80,
-                              "height":20}},
-                          "adaptiveStyles":{
-}}],
-                      "images":{
-                        "normal~":"resources/images/transparent.gif"}}],
-                  "interactionMap":{
-                    "onClick":{
-                      "description":"OnClick",
-                      "cases":[{
-                          "description":"用例 1",
-                          "isNewIfGroup":false,
-                          "actions":[{
-                              "action":"linkWindow",
-                              "description":"在 当前窗口 打开 采购下单.html",
-                              "target":{
-                                "targetType":"webUrl",
-                                "urlLiteral":{
-                                  "exprType":"stringLiteral",
-                                  "value":"采购下单.html",
-                                  "stos":[]},
-                                "includeVariables":false},
-                              "linkType":"current"}]}]}},
-                  "tabbable":true,
-                  "buttonShapeId":"711ccda9c97647d8b31f70b088874031"}],
+                  "buttonShapeId":"070bf485848d423f91c7b3d6d0fb4c93"}],
               "buttonShapeId":"4d254e7481e9469bb0a65ba4630fb818"},
 {
               "id":"2156750583e64623bfcae2cb15181107",
@@ -1701,7 +1633,7 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":140},
+                  "y":120},
                 "size":{
                   "width":54,
                   "height":20}},
@@ -1717,7 +1649,7 @@
                   "style":{
                     "location":{
                       "x":0,
-                      "y":140},
+                      "y":120},
                     "size":{
                       "width":54,
                       "height":20}},
@@ -1733,7 +1665,7 @@
                       "style":{
                         "location":{
                           "x":0,
-                          "y":140},
+                          "y":120},
                         "size":{
                           "width":54,
                           "height":20}},
@@ -2052,72 +1984,7 @@
                                 "includeVariables":false},
                               "linkType":"current"}]}]}},
                   "tabbable":true,
-                  "buttonShapeId":"816c18be65954c95b797a91831b47c76"},
-{
-                  "id":"7360e9bcdfef473eb0e233aeee1d4966",
-                  "label":"",
-                  "type":"treeNodeObject",
-                  "styleType":"treeNodeObject",
-                  "visible":true,
-                  "style":{
-                    "location":{
-                      "x":20,
-                      "y":100},
-                    "size":{
-                      "width":80,
-                      "height":20}},
-                  "adaptiveStyles":{
-},
-                  "objects":[{
-                      "id":"1863e6a4505145f7a0ba20b1bae68cad",
-                      "label":"",
-                      "isContained":true,
-                      "type":"buttonShape",
-                      "styleType":"buttonShape",
-                      "visible":true,
-                      "style":{
-                        "location":{
-                          "x":20,
-                          "y":100},
-                        "size":{
-                          "width":80,
-                          "height":20}},
-                      "adaptiveStyles":{
-},
-                      "objects":[{
-                          "id":"850e0b8019264e0e9a3029cce812d0b8",
-                          "label":"",
-                          "isContained":true,
-                          "type":"richTextPanel",
-                          "styleType":"paragraph",
-                          "visible":true,
-                          "style":{
-                            "location":{
-                              "x":20,
-                              "y":100},
-                            "size":{
-                              "width":80,
-                              "height":20}},
-                          "adaptiveStyles":{
-}}],
-                      "images":{
-                        "normal~":"resources/images/transparent.gif"}}],
-                  "interactionMap":{
-                    "onClick":{
-                      "description":"OnClick",
-                      "cases":[{
-                          "description":"导航库管操作日志",
-                          "isNewIfGroup":false,
-                          "actions":[{
-                              "action":"linkWindow",
-                              "description":"在 当前窗口 打开 操作日志",
-                              "target":{
-                                "targetType":"page",
-                                "url":"操作日志.html",
-                                "includeVariables":true},
-                              "linkType":"current"}]}]}},
-                  "tabbable":true,
-                  "buttonShapeId":"1863e6a4505145f7a0ba20b1bae68cad"}],
+                  "buttonShapeId":"816c18be65954c95b797a91831b47c76"}],
               "buttonShapeId":"754f60df34aa463e9b7c05e8d4657b55"},
 {
               "id":"993c6ccb177647f6ae96385ae5420650",
@@ -2128,7 +1995,7 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":260},
+                  "y":220},
                 "size":{
                   "width":54,
                   "height":20}},
@@ -2144,7 +2011,7 @@
                   "style":{
                     "location":{
                       "x":0,
-                      "y":260},
+                      "y":220},
                     "size":{
                       "width":54,
                       "height":20}},
@@ -2160,7 +2027,7 @@
                       "style":{
                         "location":{
                           "x":0,
-                          "y":260},
+                          "y":220},
                         "size":{
                           "width":54,
                           "height":20}},
@@ -2422,7 +2289,7 @@
               "style":{
                 "location":{
                   "x":0,
-                  "y":340},
+                  "y":300},
                 "size":{
                   "width":80,
                   "height":20}},
@@ -2438,7 +2305,7 @@
                   "style":{
                     "location":{
                       "x":0,
-                      "y":340},
+                      "y":300},
                     "size":{
                       "width":80,
                       "height":20}},
@@ -2454,7 +2321,7 @@
                       "style":{
                         "location":{
                           "x":0,
-                          "y":340},
+                          "y":300},
                         "size":{
                           "width":80,
                           "height":20}},
@@ -2730,6 +2597,49 @@
               "adaptiveStyles":{
 }}],
           "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"0998fb4700c640faa84f8065cb4534a3",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "fontSize":"18px",
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFFFF0000,
+              "opacity":1},
+            "location":{
+              "x":610,
+              "y":640},
+            "size":{
+              "width":320,
+              "height":22}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"5c78f549cae3496e92092a70fc51f428",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontSize":"18px",
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFFFF0000,
+                  "opacity":1},
+                "location":{
+                  "x":610,
+                  "y":640},
+                "size":{
+                  "width":320,
+                  "height":22}},
+              "adaptiveStyles":{
+}}],
+          "images":{
             "normal~":"resources/images/transparent.gif"}}]}},
   "masters":{
 },
@@ -2862,121 +2772,113 @@
       "scriptId":"u62"},
     "7fa4a119ba3f4a45bf589dcbc0443b12":{
       "scriptId":"u63"},
-    "646fd76bd3d34c31836c78d7b1b8e27c":{
-      "scriptId":"u64"},
-    "711ccda9c97647d8b31f70b088874031":{
-      "scriptId":"u65"},
-    "b1bd97ebb1504b2b83d06061769bec3b":{
-      "scriptId":"u66"},
     "1eb7996620da48bcb7273f6f388066c5":{
-      "scriptId":"u67"},
+      "scriptId":"u64"},
     "2dff0b23f3ce49c9adc4abd21ce14388":{
-      "scriptId":"u68"},
+      "scriptId":"u65"},
     "744c923431244942a4b3ee40a4b6902c":{
-      "scriptId":"u69"},
+      "scriptId":"u66"},
     "40fa934618fb40f8b93c9844cb2933dc":{
-      "scriptId":"u70"},
+      "scriptId":"u67"},
     "94d36ace32cb47488f7241e3a221f179":{
-      "scriptId":"u71"},
+      "scriptId":"u68"},
     "5b9cbc8874f2495ca3b002926d6789d6":{
-      "scriptId":"u72"},
+      "scriptId":"u69"},
     "1864dc0bf97a4f459e78cb79a73a46bd":{
-      "scriptId":"u73"},
+      "scriptId":"u70"},
     "070bf485848d423f91c7b3d6d0fb4c93":{
-      "scriptId":"u74"},
+      "scriptId":"u71"},
     "7c9f94c32c0f4e1c8fe9df3336dab7e5":{
-      "scriptId":"u75"},
+      "scriptId":"u72"},
     "2156750583e64623bfcae2cb15181107":{
-      "scriptId":"u76"},
+      "scriptId":"u73"},
     "a8a170e183f54eb19582a37b61863202":{
-      "scriptId":"u77"},
+      "scriptId":"u74"},
     "5cbe342eca0a48d280076da23f939409":{
-      "scriptId":"u78"},
+      "scriptId":"u75"},
     "754f60df34aa463e9b7c05e8d4657b55":{
-      "scriptId":"u79"},
+      "scriptId":"u76"},
     "7045af8488fe4bea9ef0058f9032a68b":{
-      "scriptId":"u80"},
+      "scriptId":"u77"},
     "10680dd444b64080b347ad18b3a28ad9":{
-      "scriptId":"u81"},
+      "scriptId":"u78"},
     "8926b627122f4787b748a396ee92c684":{
-      "scriptId":"u82"},
+      "scriptId":"u79"},
     "9316125d4e8c453ea76466634688d303":{
-      "scriptId":"u83"},
+      "scriptId":"u80"},
     "00fdd7c1332f41808feeeb81ec807774":{
-      "scriptId":"u84"},
+      "scriptId":"u81"},
     "d6d9f77100294bf796b148dffe51bdb1":{
-      "scriptId":"u85"},
+      "scriptId":"u82"},
     "6b0a0fd9737d46ea97d0a3624ebb5e57":{
-      "scriptId":"u86"},
+      "scriptId":"u83"},
     "d71f65b64a614956a9c0623880bb6f4e":{
-      "scriptId":"u87"},
+      "scriptId":"u84"},
     "847e0fa43a3a4569b117fa9318397ba0":{
-      "scriptId":"u88"},
+      "scriptId":"u85"},
     "e314da18a4244852afd20c4924ed7a49":{
-      "scriptId":"u89"},
+      "scriptId":"u86"},
     "050a783ab1404b6287f834baa72945a9":{
-      "scriptId":"u90"},
+      "scriptId":"u87"},
     "816c18be65954c95b797a91831b47c76":{
-      "scriptId":"u91"},
+      "scriptId":"u88"},
     "2b6659ea956b4a10abf0850197aca51f":{
-      "scriptId":"u92"},
-    "7360e9bcdfef473eb0e233aeee1d4966":{
-      "scriptId":"u93"},
-    "1863e6a4505145f7a0ba20b1bae68cad":{
-      "scriptId":"u94"},
-    "850e0b8019264e0e9a3029cce812d0b8":{
-      "scriptId":"u95"},
+      "scriptId":"u89"},
     "993c6ccb177647f6ae96385ae5420650":{
-      "scriptId":"u96"},
+      "scriptId":"u90"},
     "6c5425fdf3af4a48a7e233b2d6c05991":{
-      "scriptId":"u97"},
+      "scriptId":"u91"},
     "fb6bb1821c2e44a3bf9f082f7c0f3d83":{
-      "scriptId":"u98"},
+      "scriptId":"u92"},
     "cf7101f526fb4c21bca78a4205ba0d0d":{
-      "scriptId":"u99"},
+      "scriptId":"u93"},
     "5c041d4aaa414aaea1014a9a00e2cb82":{
-      "scriptId":"u100"},
+      "scriptId":"u94"},
     "9b9fd5171cb44673a08ffc6a0433a8c1":{
-      "scriptId":"u101"},
+      "scriptId":"u95"},
     "ec55cb96446b445886577b2b143e714c":{
-      "scriptId":"u102"},
+      "scriptId":"u96"},
     "ca457994ce7749bb8b88da2de28dd006":{
-      "scriptId":"u103"},
+      "scriptId":"u97"},
     "e4beb2fa59764db280e690cb9040cc90":{
-      "scriptId":"u104"},
+      "scriptId":"u98"},
     "047bfbf10099413fb7dbc98359592105":{
-      "scriptId":"u105"},
+      "scriptId":"u99"},
     "a2402e5404d447f6a8e041a1039d94d4":{
-      "scriptId":"u106"},
+      "scriptId":"u100"},
     "5789bb94bda24fe897eae016fdba798b":{
-      "scriptId":"u107"},
+      "scriptId":"u101"},
     "b1faf2fc3e9046bf8d8f88eace8da46f":{
-      "scriptId":"u108"},
+      "scriptId":"u102"},
     "69b3f4c125db4046aba877d438837673":{
-      "scriptId":"u109"},
+      "scriptId":"u103"},
     "ebbcba14da184b7aab77015d3936ae56":{
-      "scriptId":"u110"},
+      "scriptId":"u104"},
     "ba4affed97f445c38a43bee439c21f08":{
-      "scriptId":"u111"},
+      "scriptId":"u105"},
     "9428e24dbd114cab8d03729e09d7ff6c":{
-      "scriptId":"u112"},
+      "scriptId":"u106"},
     "d6dffc1395f44921a0824dd3f939a67c":{
-      "scriptId":"u113"},
+      "scriptId":"u107"},
     "228ca215972845b89f21d043a35f021e":{
-      "scriptId":"u114"},
+      "scriptId":"u108"},
     "65f0eb5ec95d462f90d73338966fc905":{
-      "scriptId":"u115"},
+      "scriptId":"u109"},
     "5cfd034a662242f0a15945e52a4efcbf":{
-      "scriptId":"u116"},
+      "scriptId":"u110"},
     "c082aca3ab2a4497bcae8e1befe2cb60":{
-      "scriptId":"u117"},
+      "scriptId":"u111"},
     "60534be6977f41109bd0ab9719d2e99a":{
-      "scriptId":"u118"},
+      "scriptId":"u112"},
     "d74fc2a7d79e4568af94c005acbd37a3":{
-      "scriptId":"u119"},
+      "scriptId":"u113"},
     "e68f144ef812496cb98d35a7468b5100":{
-      "scriptId":"u120"},
+      "scriptId":"u114"},
     "cf6a5ba3bb3a4ed296399522f568373e":{
-      "scriptId":"u121"},
+      "scriptId":"u115"},
     "a5e2e3d773db4dff80e031a3f53edb2f":{
-      "scriptId":"u122"}}});
+      "scriptId":"u116"},
+    "0998fb4700c640faa84f8065cb4534a3":{
+      "scriptId":"u117"},
+    "5c78f549cae3496e92092a70fc51f428":{
+      "scriptId":"u118"}}});

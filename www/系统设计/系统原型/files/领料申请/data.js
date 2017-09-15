@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"领料申请.html",
-  "generationDate":new Date(1505367495800.38),
+  "generationDate":new Date(1505440662892.57),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -12026,7 +12026,40 @@
                   "fillType":"solid",
                   "color":0xFF0000FF}},
               "adaptiveStyles":{
-}}]}]}},
+}}]},
+{
+          "id":"a5b26e9de611471eb18c36a50f1049aa",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":1778,
+              "y":105},
+            "size":{
+              "width":222,
+              "height":16}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e2166195a0994bdd93397c2ccc8f9286",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":1778,
+                  "y":105},
+                "size":{
+                  "width":222,
+                  "height":16}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -13219,4 +13252,8 @@
     "a024311cef6f4e07b44c2bc370f187bb":{
       "scriptId":"u593"},
     "079757418d6a4f19926944784d695c44":{
-      "scriptId":"u594"}}});
+      "scriptId":"u594"},
+    "a5b26e9de611471eb18c36a50f1049aa":{
+      "scriptId":"u595"},
+    "e2166195a0994bdd93397c2ccc8f9286":{
+      "scriptId":"u596"}}});

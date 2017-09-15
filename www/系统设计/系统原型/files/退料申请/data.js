@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"退料申请.html",
-  "generationDate":new Date(1505367488463.97),
+  "generationDate":new Date(1505440669360.94),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

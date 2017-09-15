@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"领料出库.html",
-  "generationDate":new Date(1505367506199.98),
+  "generationDate":new Date(1505440652444.97),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{

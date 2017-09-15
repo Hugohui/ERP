@@ -3,7 +3,7 @@
   background-image:none;
   position:static;
   left:auto;
-  width:1359px;
+  width:1460px;
   margin-left:0;
   margin-right:0;
   text-align:left;
@@ -2436,5 +2436,55 @@
   left:2px;
   top:12px;
   width:202px;
+  word-wrap:break-word;
+}
+#u215 {
+  position:absolute;
+  left:1320px;
+  top:180px;
+  width:70px;
+  height:10px;
+}
+#u215_start {
+  position:absolute;
+  left:0px;
+  top:-5px;
+  width:18px;
+  height:20px;
+}
+#u215_end {
+  position:absolute;
+  left:53px;
+  top:-5px;
+  width:18px;
+  height:20px;
+}
+#u215_line {
+  position:absolute;
+  left:0px;
+  top:5px;
+  width:70px;
+  height:1px;
+}
+#u216 {
+  position:absolute;
+  left:1400px;
+  top:180px;
+  width:60px;
+  height:48px;
+  color:#0000FF;
+}
+#u216_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:60px;
+  height:48px;
+}
+#u217 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:60px;
   word-wrap:break-word;
 }

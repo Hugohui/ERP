@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"库存查询.html",
-  "generationDate":new Date(1505367516236.55),
+  "generationDate":new Date(1505440642455.4),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -4525,7 +4525,70 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"images/库存查询/regen/退出系统按钮_u211.png"}}]}},
+            "normal~":"images/库存查询/regen/退出系统按钮_u211.png"}},
+{
+          "id":"ea9e68cedf6648f9b11086dd0077c174",
+          "label":"",
+          "type":"horizontalLine",
+          "styleType":"horizontalLine",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":1320,
+              "y":180},
+            "size":{
+              "width":70,
+              "height":10},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFF0000FF}},
+          "adaptiveStyles":{
+},
+          "images":{
+            "start~":"resources/images/transparent.gif",
+            "end~":"resources/images/transparent.gif",
+            "line~":"images/库存查询/regen/u215_line.png"}},
+{
+          "id":"98c8434fc393439ebcf656735a703c15",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "foreGroundFill":{
+              "fillType":"solid",
+              "color":0xFF0000FF,
+              "opacity":1},
+            "location":{
+              "x":1400,
+              "y":180},
+            "size":{
+              "width":60,
+              "height":48}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a9bfe7d7f6494744b9a04e8737303f7d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "foreGroundFill":{
+                  "fillType":"solid",
+                  "color":0xFF0000FF,
+                  "opacity":1},
+                "location":{
+                  "x":1400,
+                  "y":180},
+                "size":{
+                  "width":60,
+                  "height":48}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -4958,4 +5021,10 @@
     "f81e39a323684e9484488a6db8adfbdf":{
       "scriptId":"u213"},
     "e237e890f04e401fb89db1cdc46bc536":{
-      "scriptId":"u214"}}});
+      "scriptId":"u214"},
+    "ea9e68cedf6648f9b11086dd0077c174":{
+      "scriptId":"u215"},
+    "98c8434fc393439ebcf656735a703c15":{
+      "scriptId":"u216"},
+    "a9bfe7d7f6494744b9a04e8737303f7d":{
+      "scriptId":"u217"}}});
