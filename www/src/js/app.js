@@ -1,5 +1,5 @@
 'use strict';
-/*дё©И╪сть*/
+/*Ф╗║Е²≈Е┼═Х╫╫*/
 angular.module('mainStart', [
     'ui.router',
     'ngStorage',

@@ -11,4 +11,4 @@ var mainStart = angular.module('mainStart')
             mainStart.service = $provide.service;
             mainStart.constant = $provide.constant;
         }
-    ])
+    ]);

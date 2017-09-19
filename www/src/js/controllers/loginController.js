@@ -10,6 +10,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
     $scope.loginOk = function(){
         if($scope.user.name == 'admin'&& $scope.user.pwd == 'admin'){
             $localStorage.roles = $scope.roles;
+            $localStorage.user = $scope.user;
             $state.go('index');
         }
     }
