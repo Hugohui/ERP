@@ -1,0 +1,12 @@
+<div ng-include="'tpl/blocks/header.html'"></div>
+<div ng-include="'tpl/blocks/nav.html'"></div>
+<div ng-include="'tpl/blocks/aside.html'"></div>
+<div ng-controller="indexController">
+    <ul>
+        <li ng-if="roles.mo1"><a href="#">模块1</a></li>
+        <li ng-if="roles.mo2"><a href="#">模块2</a></li>
+        <li ng-if="roles.mo3"><a href="#">模块3</a></li>
+    </ul>
+</div>
+<div ng-include="'tpl/blocks/footer.html'"></div>
+

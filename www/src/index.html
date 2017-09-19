@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="mainStart">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="description" content="智行者，ERP管理系统，智行者科技，无人配送，企业管理" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body ng-controller="appCtrl">
+<div ui-view></div>
+
+<!--jQuery-->
+<script src="framework/jQuery/jquery.min.js"></script>
+
+<!--angular-->
+<script src="framework/angular/angular.js"></script>
+<script src="framework/angular/angular-ui-router.js"></script>
+<script src="framework/angular/ngstorage/ngStorage.js"></script>
+
+<!--ocLazyLoad-->
+<script src="framework/angular/oclazyload/ocLazyLoad.js"></script>
+
+<!--App-->
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/config.router.js"></script>
+<script src="js/main.js"></script>
+<script src="js/services/ui-load.js"></script>
+
+</body>
+</html>
