@@ -1,0 +1,3 @@
+$(function(){
+    $.sidebarMenu($('.sidebar-menu'));
+});

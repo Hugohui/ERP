@@ -12,12 +12,11 @@ angular.module('mainStart')
                     event.preventDefault();
                     $state.go('login');
                 }
-
             });
         }])
     .config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider){
         $urlRouterProvider
-            .otherwise('/login');
+            .otherwise('/index');
         $stateProvider
             //登录页
             .state('login', {

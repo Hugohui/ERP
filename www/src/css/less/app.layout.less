@@ -1,0 +1,38 @@
+/*layout*/
+html, body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  overflow-x: hidden;
+}
+
+.bg-black {
+  color: #7793a7;
+  background-color: #1c2b36;
+}
+.bg-white-only {
+  background-color: #fff;
+}
+
+.navbar-header {
+  width: 200px;
+}
+// sm
+@media (min-width: 768px) and (max-width: 991px) {
+}
+// xs
+@media (max-width: 767px) {
+  .navbar-header {
+    width: 100%;
+    background-color: #1c2b36;
+    color: #fff;
+  }
+  .main-sidebar{
+    width: 0;
+    overflow: hidden;
+  }
+  .app-aside{
+    width: 75% !important;
+  }
+}

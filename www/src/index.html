@@ -2,15 +2,26 @@
 <html ng-app="mainStart">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>IDRIVER+ERP系统</title>
+    <title>IDRIVER+ERP管理系统</title>
+    <link rel="shortcut icon" href="imgs/favicon.ico" />
     <meta name="description" content="智行者，ERP管理系统，智行者科技，无人配送，企业管理" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="framework/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="framework/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/common/sidebar-menu.css"/>
+    <link rel="stylesheet" href="css/less/app.css"/>
+
+    <link rel="stylesheet/less" type="text/css" href="css/less/app.less" />
 </head>
 <body ng-controller="appCtrl">
 <div ui-view></div>
 
 <!--jQuery-->
 <script src="framework/jQuery/jquery.min.js"></script>
+
+<!--bootstrap-->
+<script src="framework/bootstrap/bootstrap.js"></script>
 
 <!--angular-->
 <script src="framework/angular/angular.js"></script>
@@ -26,6 +37,8 @@
 <script src="js/config.router.js"></script>
 <script src="js/main.js"></script>
 <script src="js/services/ui-load.js"></script>
+<script src="js/directives/ui-fullscreen.js"></script>
+<script src="js/common/sidebar-menu.js"></script>
 
 </body>
 </html>

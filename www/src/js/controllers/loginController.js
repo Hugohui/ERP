@@ -3,7 +3,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
     function($scope,$rootScope,$localStorage,$http,$state){
     $scope.user = {};
     $scope.roles = {
-        mo1:true,
+        mo1:false,
         mo2:false,
         mo3:true
     };
