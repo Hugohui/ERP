@@ -1,5 +1,8 @@
 'use strict';
 mainStart
     .controller('indexController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
-    $scope.roles = $localStorage.roles;
+        //获取角色权限
+        $scope.roles = $localStorage.roles;
+        //获取角色信息
+        $scope.user = $localStorage.user;
 }]);

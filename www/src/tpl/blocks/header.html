@@ -1,9 +1,9 @@
 <!--顶部导航左-->
 <div class="navbar-header {{app.settings.navbarHeaderColor}}">
-    <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
-        <i class="fa fa-cog"></i>
+    <button class="pull-right visible-xs dk" data-toggle="modal" data-target="#logout">
+        <i class="fa fa-sign-out"></i>
     </button>
-    <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+    <button class="pull-right visible-xs" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
         <i class="fa fa-bars"></i>
     </button>
     <a href="#/" class="navbar-brand text-lt">
@@ -14,11 +14,11 @@
 <!--顶部导航右-->
 <div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
     <!--切换按钮 -->
-    <div class="nav navbar-nav hidden-xs">
+    <!--<div class="nav navbar-nav hidden-xs">
         <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
             <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
         </a>
-    </div>
+    </div>-->
     <!--用户相关-->
     <ul class="nav navbar-nav navbar-right">
         <li class="hidden-xs">
@@ -46,17 +46,40 @@
         </li>
         <li class="dropdown">
             <a href class="dropdown-toggle" data-toggle="dropdown">
-                <span>Admin</span> <b class="caret"></b>
+                <span>{{user.name}}</span> <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu text-center">
                 <li>
-                    <a>修改密码</a>
+                    <a class="text-center">修改密码</a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                    <a>退出</a>
+                <li data-toggle="modal" data-target="#logout">
+                    <a class="text-center">
+                        <i class="fa fa-sign-out"></i>
+                    </a>
                 </li>
             </ul>
         </li>
     </ul>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">退出系统</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                确定退出系统？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="logout()">确定</button>
+            </div>
+        </div>
+    </div>
 </div>

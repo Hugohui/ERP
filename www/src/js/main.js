@@ -1,7 +1,7 @@
 'use strict';
 /*控制器*/
 angular.module('mainStart')
-    .controller('appCtrl', ['$scope',function($scope) {
+    .controller('appCtrl', ['$scope','$localStorage','$state',function($scope,$localStorage,$state) {
         // config
         $scope.app = {
             name: 'IDRIVER+ERP',
@@ -27,5 +27,9 @@ angular.module('mainStart')
                 asideDock: false,
                 container: false
             }
+        };
+        $scope.logout = function (){
+            $localStorage.user = '';
+            $state.go('login');
         }
     }]);

@@ -1,7 +1,12 @@
 .main-sidebar{
   width: 200px;
   height: 100%;
-  background-color: #1c2b36;
+  position: fixed;
+  transition: all .1s;
+  white-space: nowrap;
+}
+.main-sidebar.show{
+  width: 200px;
 }
 .main-sidebar:before {
   position: absolute;
@@ -17,7 +22,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: #222d32; }
+}
   .sidebar-menu > li {
     position: relative;
     margin: 0;

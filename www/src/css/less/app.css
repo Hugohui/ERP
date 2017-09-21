@@ -260,6 +260,17 @@ hr {
 .box-shadow {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 }
+/*��Ϣ����������ʾ*/
+.bg-danger {
+  color: #fff;
+  background-color: #f05050;
+}
+.badge.up {
+  position: relative;
+  top: -10px;
+  padding: 3px 6px;
+  margin-left: -10px;
+}
 /*layout*/
 html,
 body {
@@ -273,17 +284,31 @@ body {
   color: #7793a7;
   background-color: #1c2b36;
 }
+.bg-black i {
+  color: #fff;
+}
 .bg-white-only {
   background-color: #fff;
+  color: #444;
+}
+.bg-white-only a {
+  color: #000;
 }
 .navbar-header {
   width: 200px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+.text-active,
+.active > .text {
+  display: none !important;
+}
+.active .text-active,
+.active .auto .text-active {
+  display: inline-block !important;
 }
 @media (max-width: 767px) {
   .navbar-header {
     width: 100%;
-    background-color: #1c2b36;
-    color: #fff;
   }
   .main-sidebar {
     width: 0;

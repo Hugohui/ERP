@@ -9,8 +9,11 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
     };
     $scope.loginOk = function(){
         if($scope.user.name == 'admin'&& $scope.user.pwd == 'admin'){
+            //用户权限
             $localStorage.roles = $scope.roles;
+            //用户信息
             $localStorage.user = $scope.user;
+            //跳转到首页
             $state.go('index');
         }
     }
