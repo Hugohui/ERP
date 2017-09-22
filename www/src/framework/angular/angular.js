@@ -743,7 +743,7 @@
      *
      * @example
      <example module="copyExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <form novalidate class="simple-form">
      Name: <input type="text" ng-model="user.name" /><br />
@@ -1248,7 +1248,7 @@
      * `ngApp` is the easiest, and most common, way to bootstrap an application.
      *
      <example module="ngAppDemo">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ngAppDemoController">
      I can add: {{a}} + {{b}} =  {{ a+b }}
      </div>
@@ -1264,7 +1264,7 @@
      * Using `ngStrictDi`, you would see something like this:
      *
      <example ng-app-included="true">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-app="ngAppStrictDemo" ng-strict-di>
      <div ng-controller="GoodController1">
      I can add: {{a}} + {{b}} =  {{ a+b }}
@@ -4216,7 +4216,7 @@
          *
          * @example
          <example module="anchorScrollExample">
-         <file name="index.html">
+         <file name="app.html">
          <div id="scrollArea" ng-controller="ScrollController">
          <a ng-click="gotoBottom()">Go to bottom</a>
          <a id="bottom"></a> You're at the bottom!
@@ -4255,7 +4255,7 @@
          *
          * @example
          <example module="anchorScrollOffsetExample">
-         <file name="index.html">
+         <file name="app.html">
          <div class="fixed-header" ng-controller="headerCtrl">
          <a href="" ng-click="gotoAnchor(x)" ng-repeat="x in [1,2,3,4,5]">
          Go to anchor {{x}}
@@ -5288,7 +5288,7 @@
      *
      * @example
      <example module="cacheExampleApp">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="CacheController">
      <input ng-model="newCacheKey" placeholder="Key">
      <input ng-model="newCacheValue" placeholder="Value">
@@ -6215,7 +6215,7 @@
      * </div>
      *
      <example module="compileExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('compileExample', [], function($compileProvider) {
         // configure new 'compile' directive by passing a directive
@@ -8392,7 +8392,7 @@
      *
      * @example
      <example module="documentExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <p>$document title: <b ng-bind="title"></b></p>
      <p>window.document title: <b ng-bind="windowTitle"></b></p>
@@ -9085,7 +9085,7 @@
                  *
                  * @example
                  <example module="httpExample">
-                 <file name="index.html">
+                 <file name="app.html">
                  <div ng-controller="FetchController">
                  <select ng-model="method">
                  <option>GET</option>
@@ -9754,7 +9754,7 @@
      *
      * @example
      <example module="customInterpolationApp">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      var customInterpolationApp = angular.module('customInterpolationApp', []);
 
@@ -9895,7 +9895,7 @@
              * when otherwise untrusted data is used by a directive.
              *
              * <example>
-             *  <file name="index.html">
+             *  <file name="app.html">
              *    <div ng-init="username='A user'">
              *      <p ng-init="apptitle='Escaping demo'">{{apptitle}}: \{\{ username = "defaced value"; \}\}
              *        </p>
@@ -10130,7 +10130,7 @@
                  *
                  * @example
                  * <example module="intervalExample">
-                 * <file name="index.html">
+                 * <file name="app.html">
                  *   <script>
                  *     angular.module('intervalExample', [])
                  *       .controller('ExampleController', ['$scope', '$interval',
@@ -11254,7 +11254,7 @@
            $scope.message = 'Hello World!';
          }]);
      </file>
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="LogController">
      <p>Reload this page with open console, enter text and hit the log button...</p>
      Message:
@@ -15236,7 +15236,7 @@
      * ## Show me an example using SCE.
      *
      * <example module="mySceApp" deps="angular-sanitize.js">
-     * <file name="index.html">
+     * <file name="app.html">
      *   <div ng-controller="AppController as myCtrl">
      *     <i ng-bind-html="myCtrl.explicitlyTrustedHtml" id="explicitlyTrustedHtml"></i><br><br>
      *     <b>User comments</b><br>
@@ -16187,7 +16187,7 @@
      *
      * @example
      <example module="windowExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('windowExample', [])
      .controller('ExampleController', ['$scope', '$window', function($scope, $window) {
@@ -16291,7 +16291,7 @@
      * @return {Function} the filter function
      * @example
      <example name="$filter" module="filterExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="MainCtrl">
      <h3>{{ originalText }}</h3>
      <h3>{{ filteredText }}</h3>
@@ -16412,7 +16412,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <div ng-init="friends = [{name:'John', phone:'555-1276'},
      {name:'Mary', phone:'800-BIG-MARY'},
      {name:'Mike', phone:'555-4321'},
@@ -16601,7 +16601,7 @@
      *
      * @example
      <example module="currencyExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('currencyExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -16675,7 +16675,7 @@
      *
      * @example
      <example module="numberFilterExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('numberFilterExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -16975,7 +16975,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
      <span>{{1288323623006 | date:'medium'}}</span><br>
      <span ng-non-bindable>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>:
@@ -17092,7 +17092,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <pre>{{ {'name':'value'} | json }}</pre>
      </file>
      <file name="protractor.js" type="protractor">
@@ -17152,7 +17152,7 @@
      *
      * @example
      <example module="limitToExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('limitToExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -17298,7 +17298,7 @@
      *
      * @example
      <example module="orderByExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('orderByExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -17340,7 +17340,7 @@
      *
      * @example
      <example module="orderByExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <table class="friend">
      <tr>
@@ -17519,7 +17519,7 @@
      * This example shows various combinations of `href`, `ng-href` and `ng-click` attributes
      * in links and their different behaviors:
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input ng-model="value" /><br />
      <a id="link-1" href ng-click="value = 1">link 1</a> (link, don't reload)<br />
      <a id="link-2" href="" ng-click="value = 2">link 2</a> (link, don't reload)<br />
@@ -17664,7 +17664,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      Click me to toggle: <input type="checkbox" ng-model="checked"><br/>
      <button ng-model="button" ng-disabled="checked">Button</button>
      </file>
@@ -17699,7 +17699,7 @@
      * a permanent reliable place to store the binding information.
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      Check me to check both: <input type="checkbox" ng-model="master"><br/>
      <input id="checkSlave" type="checkbox" ng-checked="master">
      </file>
@@ -17734,7 +17734,7 @@
      * a permanent reliable place to store the binding information.
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      Check me to make text readonly: <input type="checkbox" ng-model="checked"><br/>
      <input type="text" ng-readonly="checked" value="I'm Angular"/>
      </file>
@@ -17770,7 +17770,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      Check me to select: <input type="checkbox" ng-model="selected"><br/>
      <select>
      <option>Hello!</option>
@@ -17807,7 +17807,7 @@
      * a permanent reliable place to store the binding information.
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      Check me check multiple: <input type="checkbox" ng-model="open"><br/>
      <details id="details" ng-open="open">
      <summary>Show/Hide me</summary>
@@ -18303,7 +18303,7 @@
      *
      * @example
      <example deps="angular-animate.js" animations="true" fixBase="true" module="formExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('formExample', [])
      .controller('FormController', ['$scope', function($scope) {
@@ -18483,7 +18483,7 @@
          *
          * @example
          <example name="text-input-directive" module="textInputExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('textInputExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
@@ -18567,7 +18567,7 @@
          *
          * @example
          <example name="date-input-directive" module="dateInputExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('dateInputExample', [])
          .controller('DateController', ['$scope', function($scope) {
@@ -18658,7 +18658,7 @@
          *
          * @example
          <example name="datetimelocal-input-directive" module="dateExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('dateExample', [])
          .controller('DateController', ['$scope', function($scope) {
@@ -18750,7 +18750,7 @@
          *
          * @example
          <example name="time-input-directive" module="timeExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('timeExample', [])
          .controller('DateController', ['$scope', function($scope) {
@@ -18841,7 +18841,7 @@
          *
          * @example
          <example name="week-input-directive" module="weekExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('weekExample', [])
          .controller('DateController', ['$scope', function($scope) {
@@ -18932,7 +18932,7 @@
          *
          * @example
          <example name="month-input-directive" module="monthExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('monthExample', [])
          .controller('DateController', ['$scope', function($scope) {
@@ -19023,7 +19023,7 @@
          *
          * @example
          <example name="number-input-directive" module="numberExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('numberExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
@@ -19105,7 +19105,7 @@
          *
          * @example
          <example name="url-input-directive" module="urlExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('urlExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
@@ -19188,7 +19188,7 @@
          *
          * @example
          <example name="email-input-directive" module="emailExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('emailExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
@@ -19255,7 +19255,7 @@
          *
          * @example
          <example name="radio-input-directive" module="radioExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('radioExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
@@ -19306,7 +19306,7 @@
          *
          * @example
          <example name="checkbox-input-directive" module="checkboxExample">
-         <file name="index.html">
+         <file name="app.html">
          <script>
          angular.module('checkboxExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
@@ -19824,7 +19824,7 @@
      *
      * @example
      <example name="input-directive" module="inputExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('inputExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -20089,7 +20089,7 @@
           };
         }]);
      </file>
-     <file name="index.html">
+     <file name="app.html">
      <form name="myForm">
      <div contenteditable
      name="myWidget" ng-model="userContent"
@@ -20349,7 +20349,7 @@
    *       };
    *     }]);
              *   </file>
-             *   <file name="index.html">
+             *   <file name="app.html">
              *     <div ng-controller="CancelUpdateController">
              *       <p>Try typing something in each input.  See that the model only updates when you
              *          blur off the input.
@@ -20769,7 +20769,7 @@
      *
      * @example
      * <example deps="angular-animate.js" animations="true" fixBase="true" module="inputExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('inputExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -20817,7 +20817,7 @@
      *
      * @example
      * <example name="ngModel-getter-setter" module="getterSetterExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <form name="userForm">
      Name:
@@ -20926,7 +20926,7 @@
      *
      * @example
      * <example name="ngChange-directive" module="changeExample">
-     *   <file name="index.html">
+     *   <file name="app.html">
      *     <script>
      *       angular.module('changeExample', [])
      *         .controller('ExampleController', ['$scope', function($scope) {
@@ -21094,7 +21094,7 @@
  *          $scope.names = ['morpheus', 'neo', 'trinity'];
  *        }]);
      *   </file>
-     *   <file name="index.html">
+     *   <file name="app.html">
      *    <form name="myForm" ng-controller="ExampleController">
      *      List: <input name="namesInput" ng-model="names" ng-list required>
      *      <span class="error" ng-show="myForm.namesInput.$error.required">
@@ -21132,7 +21132,7 @@
      *
      * ### Example - splitting on whitespace
      * <example name="ngList-directive-newlines">
-     *   <file name="index.html">
+     *   <file name="app.html">
      *    <textarea ng-model="list" ng-list="&#10;" ng-trim="false"></textarea>
      *    <pre>{{ list | json }}</pre>
      *   </file>
@@ -21218,7 +21218,7 @@
      *
      * @example
      <example name="ngValue-directive" module="valueExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('valueExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -21320,7 +21320,7 @@
      pressed while the input field is focused, the value is reset to the value in the current model.
 
      <example name="ngModelOptions-directive-blur" module="optionsExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <form name="userForm">
      Name:
@@ -21375,7 +21375,7 @@
      If the `Clear` button is pressed, any debounced action is canceled and the value becomes empty.
 
      <example name="ngModelOptions-directive-debounce" module="optionsExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <form name="userForm">
      Name:
@@ -21398,7 +21398,7 @@
      This one shows how to bind to getter/setters:
 
      <example name="ngModelOptions-directive-getter-setter" module="getterSetterExample">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <form name="userForm">
      Name:
@@ -21574,7 +21574,7 @@
      * @example
      * Enter a name in the Live Preview text box; the greeting below the text box changes instantly.
      <example module="bindExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('bindExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -21634,7 +21634,7 @@
      * @example
      * Try it here: enter text in text box and watch the greeting change.
      <example module="bindExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('bindExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -21708,7 +21708,7 @@
      * @example
 
      <example module="bindHtmlExample" deps="angular-sanitize.js">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <p ng-bind-html="myHTML"></p>
      </div>
@@ -21907,7 +21907,7 @@
      *
      * @example Example that demonstrates basic bindings via ngClass directive.
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
      <input type="checkbox" ng-model="deleted"> deleted (apply "strike" class)<br>
      <input type="checkbox" ng-model="important"> important (apply "bold" class)<br>
@@ -21969,7 +21969,7 @@
      The example below demonstrates how to perform animations using ngClass.
 
      <example module="ngAnimate" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      <input id="setbtn" type="button" value="set" ng-click="myVar='my-class'">
      <input id="clearbtn" type="button" value="clear" ng-click="myVar=''">
      <br>
@@ -22033,7 +22033,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
      <li ng-repeat="name in names">
      <span ng-class-odd="'odd'" ng-class-even="'even'">
@@ -22081,7 +22081,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
      <li ng-repeat="name in names">
      <span ng-class-odd="'odd'" ng-class-even="'even'">
@@ -22151,7 +22151,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <div id="template1" ng-cloak>{{ 'hello' }}</div>
      <div id="template2" ng-cloak class="ng-cloak">{{ 'hello IE7' }}</div>
      </file>
@@ -22235,7 +22235,7 @@
      * This example demonstrates the `controller as` syntax.
      *
      * <example name="ngControllerAs" module="controllerAsExample">
-     *   <file name="index.html">
+     *   <file name="app.html">
      *    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
      *      Name: <input type="text" ng-model="settings.name"/>
      *      [ <a href="" ng-click="settings.greet()">greet</a> ]<br/>
@@ -22318,7 +22318,7 @@
      * This example demonstrates the "attach to `$scope`" style of controller.
      *
      * <example name="ngController" module="controllerExample">
-     *  <file name="index.html">
+     *  <file name="app.html">
      *   <div id="ctrl-exmpl" ng-controller="SettingsController2">
      *     Name: <input type="text" ng-model="name"/>
      *     [ <a href="" ng-click="greet()">greet</a> ]<br/>
@@ -22461,7 +22461,7 @@
      // Note: the suffix `.csp` in the example name triggers
      // csp mode in our http server!
      <example name="example.csp" module="cspExample" ng-csp="true">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="MainController as ctrl">
      <div>
      <button ng-click="ctrl.inc()" id="inc">Increment</button>
@@ -22596,7 +22596,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-click="count = count + 1" ng-init="count=0">
      Increment
      </button>
@@ -22671,7 +22671,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-dblclick="count = count + 1" ng-init="count=0">
      Increment (on double click)
      </button>
@@ -22695,7 +22695,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-mousedown="count = count + 1" ng-init="count=0">
      Increment (on mouse down)
      </button>
@@ -22719,7 +22719,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-mouseup="count = count + 1" ng-init="count=0">
      Increment (on mouse up)
      </button>
@@ -22742,7 +22742,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-mouseover="count = count + 1" ng-init="count=0">
      Increment (when mouse is over)
      </button>
@@ -22766,7 +22766,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-mouseenter="count = count + 1" ng-init="count=0">
      Increment (when mouse enters)
      </button>
@@ -22790,7 +22790,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-mouseleave="count = count + 1" ng-init="count=0">
      Increment (when mouse leaves)
      </button>
@@ -22814,7 +22814,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <button ng-mousemove="count = count + 1" ng-init="count=0">
      Increment (when mouse moves)
      </button>
@@ -22838,7 +22838,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input ng-keydown="count = count + 1" ng-init="count=0">
      key down count: {{count}}
      </file>
@@ -22860,7 +22860,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <p>Typing in the input box below updates the key count</p>
      <input ng-keyup="count = count + 1" ng-init="count=0"> key up count: {{count}}
 
@@ -22887,7 +22887,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input ng-keypress="count = count + 1" ng-init="count=0">
      key press count: {{count}}
      </file>
@@ -22920,7 +22920,7 @@
      *
      * @example
      <example module="submitExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('submitExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -23016,7 +23016,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input ng-copy="copied=true" ng-init="copied=false; value='copy me'" ng-model="value">
      copied: {{copied}}
      </file>
@@ -23037,7 +23037,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input ng-cut="cut=true" ng-init="cut=false; value='cut me'" ng-model="value">
      cut: {{cut}}
      </file>
@@ -23058,7 +23058,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input ng-paste="paste=true" ng-init="paste=false" placeholder='paste here'>
      pasted: {{paste}}
      </file>
@@ -23110,7 +23110,7 @@
      *
      * @example
      <example module="ngAnimate" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br/>
      Show when checked:
      <span ng-if="checked" class="animate-if">
@@ -23233,7 +23233,7 @@
      *
      * @example
      <example module="includeExample" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <select ng-model="template" ng-options="t.name for t in templates">
      <option value="">(blank)</option>
@@ -23513,7 +23513,7 @@
      *
      * @example
      <example module="initExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('initExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -23570,7 +23570,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <div>Normal: {{1 + 2}}</div>
      <div ng-non-bindable>Ignored: {{1 + 2}}</div>
      </file>
@@ -23674,7 +23674,7 @@
      *
      * @example
      <example module="pluralizeExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('pluralizeExample', [])
      .controller('ExampleController', ['$scope', function($scope) {
@@ -23923,7 +23923,7 @@
      * This example initializes the scope to a list of names and
      * then uses `ngRepeat` to display every person:
      <example module="ngAnimate" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-init="friends = [
      {name:'John', age:25, gender:'boy'},
      {name:'Jessie', age:30, gender:'girl'},
@@ -24335,7 +24335,7 @@
      *
      * @example
      <example module="ngAnimate" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      Click me: <input type="checkbox" ng-model="checked"><br/>
      <div>
      Show:
@@ -24500,7 +24500,7 @@
      *
      * @example
      <example module="ngAnimate" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      Click me: <input type="checkbox" ng-model="checked"><br/>
      <div>
      Show:
@@ -24593,7 +24593,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <input type="button" value="set color" ng-click="myStyle={color:'red'}">
      <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
      <input type="button" value="clear" ng-click="myStyle={}">
@@ -24684,7 +24684,7 @@
      *
      * @example
      <example module="switchExample" deps="angular-animate.js" animations="true">
-     <file name="index.html">
+     <file name="app.html">
      <div ng-controller="ExampleController">
      <select ng-model="selection" ng-options="item for item in items">
      </select>
@@ -24847,7 +24847,7 @@
      *
      * @example
      <example module="transcludeExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('transcludeExample', [])
      .directive('pane', function(){
@@ -24922,7 +24922,7 @@
      *
      * @example
      <example>
-     <file name="index.html">
+     <file name="app.html">
      <script type="text/ng-template" id="/tpl.html">
      Content of the template.
      </script>
@@ -25051,7 +25051,7 @@
      *
      * @example
      <example module="selectExample">
-     <file name="index.html">
+     <file name="app.html">
      <script>
      angular.module('selectExample', [])
      .controller('ExampleController', ['$scope', function($scope) {

@@ -10,7 +10,7 @@ $.sidebarMenu = function(menu) {
             checkElement.slideUp(animationSpeed, function() {
                 checkElement.removeClass('menu-open');
             });
-            checkElement.parent("li").removeClass("active");
+            //checkElement.parent("li").removeClass("active");
         }
 
         //If the menu is not visible
@@ -28,7 +28,7 @@ $.sidebarMenu = function(menu) {
             checkElement.slideDown(animationSpeed, function() {
                 //Add the class active to the parent li
                 checkElement.addClass('menu-open');
-                parent.find('li.active').removeClass('active');
+                //parent.find('li.active').removeClass('active');
                 parent_li.addClass('active');
             });
         }else{

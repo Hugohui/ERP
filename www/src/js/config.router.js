@@ -16,7 +16,7 @@ angular.module('mainStart')
         }])
     .config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider){
         $urlRouterProvider
-            .otherwise('/index');
+            .otherwise('/app');
         $stateProvider
             //登录页
             .state('login', {
@@ -30,21 +30,69 @@ angular.module('mainStart')
                 },
                 data:{
                     pageTitle:'IDRIVER+ERP系统_登录'
-                }
+                },
+                controller:'loginController'
             })
 
             //首页
-            .state('index', {
-                url: '/index',
-                templateUrl: 'tpl/index.html',
+            .state('app', {
+                url: '/app',
+                templateUrl: 'tpl/app.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function( $ocLazyLoad ){
-                            return $ocLazyLoad.load(['js/controllers/indexController.js']);
+                            return $ocLazyLoad.load(['js/controllers/appController.js']);
                         }]
                 },
                 data:{
                     pageTitle:'IDRIVER+ERP系统_首页'
-                }
+                },
+                controller:'appController'
+            })
+
+            /*采购*/
+            .state('purchase',{
+                url:'/purchase',
+                template: '<div ui-view></div>'
+            })
+            .state('purchase.purchaseRequest',{//采购申请
+                url:'/purchaseRequest',
+                templateUrl:'tpl/purchase/purchaseRequest.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/purchase/purchaseRequestController.js']);
+                    }]
+                },
+                controller:'purchaseRequestController'
+            })
+            .state('purchase.purchaseTrack',{//采购跟踪
+                url:'/purchaseTrack',
+                templateUrl:'tpl/purchase/purchaseTrack.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/purchase/purchaseTrackController.js']);
+                    }]
+                },
+                controller:'purchaseTrackController'
+            })
+            .state('purchase.purchaseHistory',{//采购历史
+                url:'/purchaseHistory',
+                templateUrl:'tpl/purchase/purchaseHistory.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/purchase/purchaseHistoryController.js']);
+                    }]
+                },
+                controller:'purchaseHistoryController'
+            })
+            .state('purchase.purchaseCheck',{//采购审核
+                url:'/purchaseCheck',
+                templateUrl:'tpl/purchase/purchaseCheck.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/purchase/purchaseCheckController.js']);
+                    }]
+                },
+                controller:'purchaseCheckController'
             })
     }]);

@@ -14,7 +14,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
             //用户信息
             $localStorage.user = $scope.user;
             //跳转到首页
-            $state.go('index');
+            $state.go('app');
         }
     }
 }]);
