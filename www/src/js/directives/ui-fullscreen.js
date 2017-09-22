@@ -4,9 +4,6 @@ angular.module('mainStart')
             restrict: 'AC',
             template:'<i class="fa fa-expand fa-fw text"></i><i class="fa fa-compress fa-fw text-active"></i>',
             link: function(scope, el, attr) {
-
-                console.log(el);
-
                 el.addClass('hide');
                 uiLoad.load('framework/libs/screenfull.min.js').then(function(){
                     if (screenfull.enabled && !navigator.userAgent.match(/Trident.*rv:11\./)) {
