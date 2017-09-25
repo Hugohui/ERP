@@ -1,0 +1,72 @@
+<aside class="main-sidebar {{app.settings.asideColor}}" ng-class="{show:app.settings.asideFolded}">
+    <section class="sidebar">
+        <ul class="sidebar-menu {{app.settings.asideColor}}">
+            <li class="treeview" ng-class="{active:$state.includes('app')}">
+                <a href="#/">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="treeview" ng-class="{active:$state.includes('purchase')}">
+                <a>
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>采购</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('purchase')}">
+                    <li ng-class="{active:$state.includes('purchase.purchaseRequest')}">
+                        <a ui-sref="purchase.purchaseRequest"> 采购申请</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('purchase.purchaseTrack')}">
+                        <a ui-sref="purchase.purchaseTrack"> 采购跟踪</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('purchase.purchaseHistory')}">
+                        <a ui-sref="purchase.purchaseHistory"> 历史采购</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('purchase.purchaseCheck')}">
+                        <a ui-sref="purchase.purchaseCheck"> 采购审核</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#/orderManage">
+                    <i class="fa fa-inbox"></i>
+                    <span>库管</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"> 库存查询</a></li>
+                    <li><a href="#"> 采购入库</a></li>
+                    <li><a href="#"> 领料出库</a></li>
+                    <li><a href="#"> 退料审核</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#/carManage" class="carManageSideBtn">
+                    <i class="fa fa-user-o"></i>
+                    <span>我的</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" >
+                    <li><a href="#"> 领料申请</a></li>
+                    <li><a href="#"> 退料申请</a></li>
+                    <li><a href="#"> 信息维护</a></li>
+                </ul>
+            </li>
+            <li class="treeview"  ng-class="{active:$state.includes('systemManage')}">
+                <a>
+                    <i class="fa fa-cog"></i>
+                    <span>系统管理</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('systemManage')}">
+                    <li ng-class="{active:$state.includes('systemManage.userManage')}">
+                        <a ui-sref="systemManage.userManage"> 用户管理</a></li>
+                    <li ng-class="{active:$state.includes('systemManage.operationLog')}">
+                        <a ui-sref="systemManage.operationLog"> 操作日志</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</aside>
+<script src="../../src/js/common/initIndexAside.js"></script>
