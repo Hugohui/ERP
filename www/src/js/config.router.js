@@ -96,6 +96,88 @@ angular.module('mainStart')
                 controller:'purchaseCheckController'
             })
 
+            /*库管*/
+            .state('depotManagement',{
+                url:'/depotManagement',
+                template: '<div ui-view></div>'
+            })
+            .state('depotManagement.depotRequest',{//库存查询
+                url:'/purchaseRequest',
+                templateUrl:'tpl/depotManagement/depotRequest.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/depotManagement/depotRequestController.js']);
+                    }]
+                },
+                controller:'depotRequestController'
+            })
+            .state('depotManagement.depotInput',{//采购入库
+                url:'/depotInput',
+                templateUrl:'tpl/depotManagement/depotInput.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/depotManagement/depotInputController.js']);
+                    }]
+                },
+                controller:'depotInputController'
+            })
+            .state('depotManagement.depotOutput',{//领料出库
+                url:'/depotOutput',
+                templateUrl:'tpl/depotManagement/depotOutput.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/depotManagement/depotOutputController.js']);
+                    }]
+                },
+                controller:'depotOutputController'
+            })
+            .state('depotManagement.returnGoodsCheck',{//退料审核
+                url:'/returnGoodsCheck',
+                templateUrl:'tpl/depotManagement/returnGoodsCheck.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/depotManagement/returnGoodsCheckController.js']);
+                    }]
+                },
+                controller:'returnGoodsCheckController'
+            })
+
+            /*我的*/
+            .state('personal',{
+                url:'/personal',
+                template: '<div ui-view></div>'
+            })
+            .state('personal.pickGoodsCheck',{//领料申请
+                url:'/pickGoodsCheck',
+                templateUrl:'tpl/personal/pickGoodsCheck.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/personal/pickGoodsCheckController.js']);
+                    }]
+                },
+                controller:'pickGoodsCheckController'
+            })
+            .state('personal.returnGoodsCheck',{//退料申请
+                url:'/returnGoodsCheck',
+                templateUrl:'tpl/personal/returnGoodsCheck.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/personal/returnGoodsCheckController.js']);
+                    }]
+                },
+                controller:'returnGoodsCheckController'
+            })
+            .state('personal.infoMaintain',{//信息维护
+                url:'/infoMaintain',
+                templateUrl:'tpl/personal/infoMaintain.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/personal/infoMaintainController.js']);
+                    }]
+                },
+                controller:'infoMaintainController'
+            })
+
             /*系统管理*/
             .state('systemManage',{
                 url:'/systemManage',

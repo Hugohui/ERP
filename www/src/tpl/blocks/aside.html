@@ -28,29 +28,43 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#/orderManage">
+            <li ng-class="{active:$state.includes('depotManagement')}">
+                <a>
                     <i class="fa fa-inbox"></i>
                     <span>库管</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="#"> 库存查询</a></li>
-                    <li><a href="#"> 采购入库</a></li>
-                    <li><a href="#"> 领料出库</a></li>
-                    <li><a href="#"> 退料审核</a></li>
+                <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('depotManagement')}">
+                    <li ng-class="{active:$state.includes('depotManagement.depotRequest')}">
+                        <a ui-sref="depotManagement.depotRequest"> 库存查询</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('depotManagement.depotInput')}">
+                        <a ui-sref="depotManagement.depotInput"> 采购入库</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('depotManagement.depotOutput')}">
+                        <a ui-sref="depotManagement.depotOutput"> 领料出库</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('depotManagement.returnGoodsCheck')}">
+                        <a ui-sref="depotManagement.returnGoodsCheck"> 退料审核</a>
+                    </li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#/carManage" class="carManageSideBtn">
+            <li class="treeview" ng-class="{active:$state.includes('personal')}">
+                <a>
                     <i class="fa fa-user-o"></i>
                     <span>我的</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu" >
-                    <li><a href="#"> 领料申请</a></li>
-                    <li><a href="#"> 退料申请</a></li>
-                    <li><a href="#"> 信息维护</a></li>
+                <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('personal')}">
+                    <li ng-class="{active:$state.includes('personal.pickGoodsCheck')}">
+                        <a ui-sref="personal.pickGoodsCheck"> 领料申请</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('personal.returnGoodsCheck')}">
+                        <a ui-sref="personal.returnGoodsCheck"> 退料申请</a>
+                    </li>
+                    <li ng-class="{active:$state.includes('personal.infoMaintain')}">
+                        <a ui-sref="personal.infoMaintain"> 信息维护</a>
+                    </li>
                 </ul>
             </li>
             <li class="treeview"  ng-class="{active:$state.includes('systemManage')}">
