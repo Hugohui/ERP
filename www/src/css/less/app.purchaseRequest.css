@@ -1,0 +1,9 @@
+@media (max-width: 767px) {
+  .navbar-header {
+    width: 100%;
+  }
+  .main-sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+}

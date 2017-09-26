@@ -53,7 +53,7 @@ angular.module('mainStart')
             /*采购*/
             .state('purchase',{
                 url:'/purchase',
-                template: '<div ui-view></div>'
+                template: '<div ui-view class="app"></div>'
             })
             .state('purchase.purchaseRequest',{//采购申请
                 url:'/purchaseRequest',
