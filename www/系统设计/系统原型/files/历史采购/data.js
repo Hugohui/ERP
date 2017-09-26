@@ -1,6 +1,6 @@
 ﻿$axure.loadCurrentPage({
   "url":"历史采购.html",
-  "generationDate":new Date(1505440631942.8),
+  "generationDate":new Date(1506417664025.04),
   "isCanvasEnabled":false,
   "variables":["OnLoadVariable"],
   "page":{
@@ -5185,86 +5185,7 @@
               "adaptiveStyles":{
 }}],
           "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"422aa1bda831474ab5fd51f92cee0f35",
-          "label":"",
-          "type":"comboBox",
-          "styleType":"comboBox",
-          "visible":true,
-          "style":{
-            "baseStyle":"627587b6038d43cca051c114ac41ad32",
-            "location":{
-              "x":469,
-              "y":108},
-            "size":{
-              "width":123,
-              "height":30}},
-          "adaptiveStyles":{
-}},
-{
-          "id":"10d82269c6534241a4d17d2bcf3ad0b9",
-          "label":"",
-          "type":"buttonShape",
-          "styleType":"paragraph",
-          "visible":true,
-          "style":{
-            "foreGroundFill":{
-              "fillType":"solid",
-              "color":0xFF0000FF,
-              "opacity":1},
-            "location":{
-              "x":664,
-              "y":116},
-            "size":{
-              "width":80,
-              "height":16}},
-          "adaptiveStyles":{
-},
-          "objects":[{
-              "id":"d7b7d96579834553b0468e89d680f576",
-              "label":"",
-              "isContained":true,
-              "type":"richTextPanel",
-              "styleType":"paragraph",
-              "visible":true,
-              "style":{
-                "foreGroundFill":{
-                  "fillType":"solid",
-                  "color":0xFF0000FF,
-                  "opacity":1},
-                "location":{
-                  "x":664,
-                  "y":116},
-                "size":{
-                  "width":80,
-                  "height":16}},
-              "adaptiveStyles":{
-}}],
-          "images":{
-            "normal~":"resources/images/transparent.gif"}},
-{
-          "id":"60334fd0afd749a291bf780f108be993",
-          "label":"",
-          "type":"horizontalLine",
-          "styleType":"horizontalLine",
-          "visible":true,
-          "style":{
-            "location":{
-              "x":592,
-              "y":118},
-            "size":{
-              "width":68,
-              "height":10},
-            "borderFill":{
-              "fillType":"solid",
-              "color":0xFF0000FF}},
-          "adaptiveStyles":{
-},
-          "images":{
-            "start~":"resources/images/transparent.gif",
-            "end~":"resources/images/transparent.gif",
-            "line~":"images/历史采购/regen/u248_line.png"}}]}},
+            "normal~":"resources/images/transparent.gif"}}]}},
   "masters":{
 },
   "objectPaths":{
@@ -5757,12 +5678,4 @@
     "5b3e620a6ab7495490d03aa2d45b6ca1":{
       "scriptId":"u243"},
     "638d4745049947299fcc9c5ef3a7c7e3":{
-      "scriptId":"u244"},
-    "422aa1bda831474ab5fd51f92cee0f35":{
-      "scriptId":"u245"},
-    "10d82269c6534241a4d17d2bcf3ad0b9":{
-      "scriptId":"u246"},
-    "d7b7d96579834553b0468e89d680f576":{
-      "scriptId":"u247"},
-    "60334fd0afd749a291bf780f108be993":{
-      "scriptId":"u248"}}});
+      "scriptId":"u244"}}});
