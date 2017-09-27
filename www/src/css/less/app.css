@@ -454,7 +454,7 @@ body {
   }
 }
 /*�û�����*/
-.modal-content {
+#modal-content-userManage {
   width: 700px;
   position: absolute;
   left: 50%;
