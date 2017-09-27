@@ -38,7 +38,8 @@ body {
 }
 .mainView {
   padding: 60px 10px 10px 210px;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
 }
 .text-active,
 .active > .text {
@@ -57,11 +58,11 @@ body {
     overflow: hidden;
   }
   .mainView {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
   .aside {
-    width: 0;
+    width: auto;
     float: left;
-    padding-top: 0;
+    padding-top: 60px;
   }
 }

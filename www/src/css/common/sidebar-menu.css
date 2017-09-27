@@ -9,13 +9,14 @@
   width: 200px;
 }
 .main-sidebar:before {
-  position: absolute;
+  position: fixed;
   top: 50px;
   bottom: 0;
   width: inherit;
   background-color: inherit;
   border: inherit;
   content: "";
+  z-index: -1;
 }
 .sidebar-menu {
   list-style: none;
@@ -23,7 +24,6 @@
   padding: 0;
 }
   .sidebar-menu > li {
-    position: relative;
     margin: 0;
     padding: 0; }
     .sidebar-menu > li > a {
