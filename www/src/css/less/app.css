@@ -312,9 +312,10 @@ body {
   position: fixed;
 }
 .aside {
+  position: fixed;
   width: 200px;
-  float: left;
   padding-top: 50px;
+  z-index: -1;
 }
 .mainView {
   padding: 60px 10px 10px 210px;
@@ -347,6 +348,9 @@ body {
   }
 }
 /*�ɹ�*/
+.purchaseReqOrder {
+  height: 850px;
+}
 @media (max-width: 767px) {
   .navbar-header {
     width: 100%;
