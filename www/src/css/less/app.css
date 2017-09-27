@@ -313,10 +313,10 @@ body {
 }
 .aside {
   width: 200px;
-  float: left;
+  padding-top: 50px;
 }
 .mainView {
-  padding: 60px 10px 10px 210px;
+  padding: 10px 10px 10px 210px;
   height: 100%;
 }
 .text-active,
@@ -336,7 +336,11 @@ body {
     overflow: hidden;
   }
   .mainView {
-    padding: 10px 0;
+    padding: 60px 0;
+  }
+  .aside {
+    width: 0;
+    padding-top: 0;
   }
 }
 /*�ɹ�*/
