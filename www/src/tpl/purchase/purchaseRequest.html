@@ -2,8 +2,19 @@
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div class="mainView">
-        <div class="purchaseReqOrder"><h1>采购申请单</h1></div>
-        <div><h1>审批人</h1></div>
+        <div class="purchaseReqOrder">
+            <div class="title">采购申请单</div>
+            <p class="orderNum">
+                <span>采购申请单号：CGSQ201709271529</span>
+            </p>
+        </div>
+        <div class="checkPeopleDiv">
+            <div class="title">审批人</div>
+        </div>
+        <div class="submitDiv">
+            <span>“<s>*</s>”号项为必填项。</span>
+            <button class="btn btn-primary">提交</button>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>

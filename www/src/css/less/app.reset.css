@@ -1,5 +1,11 @@
 @charset "UTF-8";
 body,
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333333;
+}
+body,
 ul,
 ol,
 dl,
@@ -242,4 +248,7 @@ hr {
 }
 .clear {
   clear: both;
+}
+s {
+  text-decoration: none;
 }

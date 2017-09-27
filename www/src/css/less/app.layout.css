@@ -35,7 +35,6 @@ body {
   position: fixed;
   width: 200px;
   padding-top: 50px;
-  z-index: -1;
 }
 .mainView {
   padding: 60px 10px 10px 210px;
