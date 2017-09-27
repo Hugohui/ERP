@@ -453,3 +453,11 @@ body {
     overflow: hidden;
   }
 }
+/*�û�����*/
+.modal-content {
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  top: 240px;
+  transform: translate(-50%, -50%);
+}

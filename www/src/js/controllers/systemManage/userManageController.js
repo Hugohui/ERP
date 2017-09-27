@@ -1,8 +1,43 @@
 'use strict';
 mainStart
-    .controller('userManageController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
-        //获取角色权限
+    .controller('userManageController',['$scope','$rootScope','$localStorage','$http',function($scope,$rootScope,$localStorage,$http){
+        //鑾峰彇瑙掕壊鏉冮檺
         $scope.roles = $localStorage.roles;
-        //获取角色信息
+        //鑾峰彇瑙掕壊淇℃伅
         $scope.user = $localStorage.user;
+        //
+        $scope.modelTitle="";
+        $scope.okAdd=function(){
+            $http({
+                metnod:'POST',
+                url:'111.204.101.170:11115',
+                action:'addUser',
+                params:{
+                    userName: '',
+                    password:'',
+                    phone:'',
+                    system_permissions:'',
+                    group:'',
+                    data_permissions:{
+                        contract_number:'',
+                        unit_price:'',
+                        inventory_quantity:'',
+                        money:'',
+                        tax_rate:'',
+                        invoice:'',
+                        inventory_position:''
+                    }
+                }
+            }).success(function(data,header,config,status){
+                //鍝嶅簲鎴愬姛
+
+            }).error(function(data,header,config,status){
+                //澶勭悊鍝嶅簲澶辫触
+
+            });
+        }
+        $scope.okDelete=function(){
+
+        }
+
     }]);

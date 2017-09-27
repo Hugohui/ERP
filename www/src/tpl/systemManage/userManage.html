@@ -1,8 +1,106 @@
-<div ng-controller="userManageController">
-    <div ng-include="'tpl/blocks/header.html'"></div>
-    <div ng-include="'tpl/blocks/aside.html'"></div>
-    <div>
-        <h1>用户管理</h1>
+<div ng-controller="userManageController" class="app">
+    <div ng-include="'tpl/blocks/header.html'" class="header"></div>
+    <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
+    <div  class="mainView">
+        <div>
+            <div><h1>用户管理</h1></div>
+            <div>
+                <!-- 按钮触发模态框 -->
+                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='添加用户'">
+                    <i class="fa fa-check"></i> 添加
+                </button>
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='修改用户信息'" >
+                    <i class="fa fa-pencil-square-o"></i> 修改
+                </button>
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"  >
+                    <i class="fa fa-times"></i> 删除
+                </button>
+
+                <!-- 修改与添加，模态框（Modal） -->
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">  {{modelTitle}}</h4>
+                                <button  type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>基本信息</h5><br/>
+                                姓&nbsp名：<input type="text" ng-model="userName"/>
+                                密&nbsp码：<input type="text" ng-model="password"/>
+                                联系电话：<input type="text"  ng-model="phone"/><br/><br/>
+                                职&nbsp员：
+                                <select ng-model="permissions" ng-init="permissions='system_permissions'">
+                                    <option value="system_permissions">职员
+                                    <option value="group_leader">室组经理
+                                    <option value="department">部长
+                                    <option value="manager">总经理
+                                </select>
+                                组&nbsp&nbsp&nbsp&nbsp：
+                                <select ng-model="group" ng-init="group='no'">
+                                <option value="no">无
+                                <option value="group_leader">室组经理
+                                <option value="department">部长
+                                <option value="manager">总经理
+                            </select>
+                                <hr/>
+                                <h5>数据权限</h5><br/>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="contract_number"> 合同号
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="unit_price"> 单价
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="inventory_quantity"> 库存数量
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox4" value="option4" ng-model="money"> 金额
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox5" value="option5" ng-model="tax_rate"> 税率
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox6" value="option6" ng-model="invoice"> 发票
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox7" value="option7" ng-model="inventory_position"> 库存位置
+                                </label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" ng-click="okAdd()">确定</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <!--删除，模态框-->
+
+                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">删除用户</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                确定删除用户？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" ng-click="okdDelete()">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>
