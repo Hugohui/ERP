@@ -181,7 +181,7 @@ angular.module('mainStart')
             /*系统管理*/
             .state('systemManage',{
                 url:'/systemManage',
-                template: '<div ui-view></div>'
+                template: '<div ui-view class="app"></div>'
             })
             .state('systemManage.userManage',{//用户管理
                 url:'/userManage',
