@@ -9,6 +9,7 @@
   text-decoration: none;
   background-color: transparent;
   border: none;
+  outline: none;
 }
 .navbar-header a {
   color: #fff;

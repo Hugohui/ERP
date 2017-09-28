@@ -10,7 +10,7 @@ $.sidebarMenu = function(menu) {
             checkElement.slideUp(animationSpeed, function() {
                 checkElement.removeClass('menu-open');
             });
-            //checkElement.parent("li").removeClass("active");
+            checkElement.parent("li").removeClass("active");
         }
 
         //If the menu is not visible

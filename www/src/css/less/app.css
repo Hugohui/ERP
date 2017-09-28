@@ -163,6 +163,7 @@ a button,
 a small,
 a select {
   cursor: pointer;
+  outline: none;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -265,6 +266,7 @@ s {
   text-decoration: none;
   background-color: transparent;
   border: none;
+  outline: none;
 }
 .navbar-header a {
   color: #fff;
