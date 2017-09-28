@@ -1,6 +1,7 @@
 <div ng-controller="purchaseRequestController" class="app">
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
+    <div ng-include="'tpl/blocks/footer.html'"></div>
     <div class="mainView">
         <div class="purchaseReqOrder">
             <div class="title">
@@ -54,8 +55,6 @@
             <button class="btn btn-primary">提交</button>
         </div>
     </div>
-    <div ng-include="'tpl/blocks/footer.html'"></div>
-
     <!-- Modal -->
     <div class="modal fade" id="choseCheckPeopleModal" tabindex="-1" role="dialog" aria-labelledby="choseCheckPeopleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
