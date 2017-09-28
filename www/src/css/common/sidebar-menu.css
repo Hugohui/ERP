@@ -30,7 +30,9 @@
       padding: 12px 5px 12px 15px;
       display: block;
       border-left: 3px solid transparent;
-      color: #b8c7ce; }
+      color: #b8c7ce;
+      position: relative;
+    }
       .sidebar-menu > li > a > .fa {
         width: 20px; }
     .sidebar-menu > li:hover > a, .sidebar-menu > li.active > a {
@@ -54,7 +56,10 @@
     height: auto;
     padding: 0;
     margin-right: 10px;
-    margin-top: 3px; }
+    position: absolute;
+    top: 20px;
+    right: 0;
+  }
   .sidebar-menu li.active > a > .fa-angle-left {
     transform: rotate(-90deg); }
   .sidebar-menu li.active > .treeview-menu {
