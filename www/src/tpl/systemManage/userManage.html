@@ -7,7 +7,7 @@
             <div>
                 <!-- 按钮触发模态框 -->
                 <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='添加用户'">
-                    <i class="fa fa-check"></i> 添加
+                    <i class="fa fa-plus"></i> 添加
                 </button>
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='修改用户信息'" >
                     <i class="fa fa-pencil-square-o"></i> 修改
@@ -20,54 +20,57 @@
 
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content" id="modal-content-userManage">
+                        <div class="modal-content" id="modal-content-usermanage">
                             <div class="modal-header">
                                 <h4 class="modal-title" id="myModalLabel">  {{modelTitle}}</h4>
                                 <button  type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" >
                                 <h5>基本信息</h5><br/>
-                                姓&nbsp名：<input type="text" ng-model="userName"/>
-                                密&nbsp码：<input type="text" ng-model="password"/>
-                                联系电话：<input type="text"  ng-model="phone"/><br/><br/>
+                                姓&nbsp名：<input type="text" ng-model="userInfo.userName"/>
+                                密&nbsp码：<input type="text" ng-model="userInfo.password"/>
+                                联系电话：<input type="text"  ng-model="userInfo.phone"/><br/><br/>
                                 职&nbsp员：
-                                <select ng-model="permissions" ng-init="permissions='system_permissions'">
-                                    <option value="system_permissions">职员
-                                    <option value="group_leader">室组经理
-                                    <option value="department">部长
-                                    <option value="manager">总经理
+                                <select ng-model="userInfo.access" ng-init="access='system_permissions'">
+                                    <option value="1">admin
+                                    <option value="2">总经理
+                                    <option value="3">部长
+                                    <option value="4">库管
+                                    <option value="5">采购
+                                    <option value="6">室组经理
+                                    <option value="7">员工
                                 </select>
                                 组&nbsp&nbsp&nbsp&nbsp：
-                                <select ng-model="group" ng-init="group='no'">
+                                <select ng-model="userInfo.group" ng-init="group='no'">
                                 <option value="no">无
-                                <option value="group_leader">室组经理
-                                <option value="department">部长
-                                <option value="manager">总经理
+                                <option value="1">软件组
+                                <option value="2">硬件组
+                                <option value="3">技术研发部
                             </select>
                                 <hr/>
                                 <h5>数据权限</h5><br/>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="contract_number"> 合同号
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="userInfo.contract_number"> 合同号
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="unit_price"> 单价
+                                    <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="userInfo.unit_price"> 单价
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="inventory_quantity"> 库存数量
+                                    <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="userInfo.inventory_quantity"> 库存数量
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox4" value="option4" ng-model="money"> 金额
+                                    <input type="checkbox" id="inlineCheckbox4" value="option4" ng-model="userInfo.money"> 金额
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox5" value="option5" ng-model="tax_rate"> 税率
+                                    <input type="checkbox" id="inlineCheckbox5" value="option5" ng-model="userInfo.tax_rate"> 税率
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox6" value="option6" ng-model="invoice"> 发票
+                                    <input type="checkbox" id="inlineCheckbox6" value="option6" ng-model="userInfo.invoice"> 发票
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox7" value="option7" ng-model="inventory_position"> 库存位置
+                                    <input type="checkbox" id="inlineCheckbox7" value="option7" ng-model="userInfo.inventory_position"> 库存位置
                                 </label>
                             </div>
                             <div class="modal-footer">
@@ -99,6 +102,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="tableContent" ng-controller="userManageController">
+                <table id="userTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                    <thead>
+                    <tr style="" ng-repeat="x in names">
+                        <!--<td>{{ $index + 1 }}</td>
+                        <td>{{ x.userName }}</td>
+                        <td>{{ x.access }}</td>
+                        <td>{{ x.password }}</td>
+                        <td>{{ x.phone }}</td>-->
+                    </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
