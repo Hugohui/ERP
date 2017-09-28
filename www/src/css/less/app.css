@@ -398,10 +398,11 @@ body {
   height: auto;
   margin: 10px;
 }
-.purchaseReqOrder .materialDiv ul {
+.purchaseReqOrder .materialDiv > ul {
+  width: 100%;
   overflow: hidden;
 }
-.purchaseReqOrder .materialDiv ul li {
+.purchaseReqOrder .materialDiv > ul > li {
   width: 12.5%;
   height: 30px;
   line-height: 30px;
@@ -410,7 +411,7 @@ body {
   border: 1px solid #ccc;
   border-right: none;
 }
-.purchaseReqOrder .materialDiv ul li:last-child {
+.purchaseReqOrder .materialDiv > ul > li:last-child {
   border-right: 1px solid #ccc;
 }
 .purchaseReqOrder .materialDiv .materialListDiv {

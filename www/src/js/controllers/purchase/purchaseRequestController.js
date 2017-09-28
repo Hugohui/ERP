@@ -29,7 +29,7 @@ mainStart
             if($('.materialListDiv').length>1){
                 $($event.target).parent().remove();
             }else{
-                toastr.warning('至少保留一项物料！');
+                toastr.warning('至少申请一项物料！');
             }
         }
 
@@ -42,4 +42,30 @@ mainStart
         $scope.checkManager = function(){
             $scope.choseCheckPeopleTitle ="选择总经理";
         }
+
+        $scope.disabled = function (date, mode) {
+            return ( mode === 'day' && false);
+        };
+
+        $scope.toggleMin = function () {
+            $scope.minDate = $scope.minDate ? null : new Date();
+        };
+        $scope.toggleMin();
+
+        $scope.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.opened = true;
+        };
+
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1,
+            class: 'datepicker'
+        };
+
+        $scope.initDate = new Date('2016-15-20');
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
     }]);

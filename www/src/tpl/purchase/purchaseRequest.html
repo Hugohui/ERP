@@ -25,10 +25,17 @@
                         <div><input type="text"/></div>
                         <div><input type="text"/></div>
                         <div><input type="text"/></div>
-                        <div><input type="text"/></div>
+                        <div class="input-group">
+                            <input datepicker-popup type="text" class="input-xs" ng-model="dt"  ng-model-options="{updateOn:'blur'}" is-open="opened" min-date="minDate" weekStart="0" close-text="关闭" clear-text="清空" current-text="今天" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" readonly/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-xs" ng-click="open($event)">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
                         <div><input type="text"/></div>
                     </div>
-                    <div class="addMaterialListDiv" ng-click="addMaterialLine($event)">
+                    <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine($event)">
                         <span class="fa fa-plus"></span>
                     </div>
                 </div>
