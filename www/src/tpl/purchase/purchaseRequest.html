@@ -18,6 +18,7 @@
                         <li>备注</li>
                     </ul>
                     <div class="materialListDiv clearfix">
+                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
                         <div><input type="text"/></div>
                         <div><input type="text"/></div>
                         <div><input type="text"/></div>
@@ -27,18 +28,7 @@
                         <div><input type="text"/></div>
                         <div><input type="text"/></div>
                     </div>
-                    <div class="materialListDiv clearfix">
-                        <span class="deleteMaterial">×</span>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                    </div>
-                    <div class="addMaterialListDiv">
+                    <div class="addMaterialListDiv" ng-click="addMaterialLine($event)">
                         <span class="fa fa-plus"></span>
                     </div>
                 </div>
