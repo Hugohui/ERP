@@ -8,7 +8,33 @@ mainStart
         $scope.user = $localStorage.user;
         //
         $scope.modelTitle="";
-        $scope.okAdd=function(){
+
+        /*
+        *用户列表
+        */
+        $.ajax({
+            type:'POST',
+            url:'http://111.204.101.170:11115',
+            data:{
+                action:"usersList",
+                params:{
+                    limit:"10",
+                    start:"0",
+                    page:"1",
+                    queryData:""
+                }
+            },
+            dataType: 'jsonp',
+            jsonp : "callback",
+            success:function(data){
+              $scope.usersList=data.resData.data;
+            }
+        })
+        /*用户列表复选框*/
+
+
+        /*添加用户信息、修改用户信息*/
+        $scope.okAddAndUpdata=function(){
             $scope.data = {
                 action:'addUser',
                 params:{
@@ -16,7 +42,7 @@ mainStart
                     password: $scope.userInfo.password,
                     phone:$scope.userInfo.phone,
                     access:$scope.userInfo.access,
-                    group:$scope.userInfo.group,
+                    department:$scope.userInfo.department,
                     data_permissions:{
                         contract_number: $scope.userInfo.contract_number || false,
                         unit_price:$scope.userInfo.unit_price || false,
@@ -40,9 +66,28 @@ mainStart
                 }
             })
         }
-       
+
+
+        /*删除用户*/
         $scope.okDelete=function(){
 
+            $scope.data = {
+                action:'deleteUser',
+                params:{
+                    userName: $scope.userInfo.userName
+                }
+            }
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:$scope.data,
+                dataType: 'jsonp',
+                jsonp : "callback",
+                jsonpCallback:"success_jsonpCallback",
+                success:function(data){
+
+                }
+            })
         }
 
     }]);
