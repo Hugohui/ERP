@@ -7,7 +7,7 @@ mainStart
         $scope.user = $localStorage.user;
 
         //添加物料行
-        $scope.addMaterialLine = function($event){
+        $scope.addMaterialLine = function(){
             var lineHtml =
 '                   <div class="materialListDiv clearfix">'+
 '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
@@ -21,7 +21,7 @@ mainStart
 '                        <div><input type="text"/></div>'+
 '                    </div>';
             var $lineHtml = $compile(lineHtml)($scope);
-            $($event.target).before($lineHtml);
+            $('.addMaterialListDiv').before($lineHtml);
         }
 
         //删除物料行
@@ -33,6 +33,29 @@ mainStart
             }
         }
 
+        //时间选择
+        $scope.disabled = function (date, mode) {
+            return ( mode === 'day' && false);
+        };
+        $scope.toggleMin = function () {
+            $scope.minDate = $scope.minDate ? null : new Date();
+        };
+        $scope.toggleMin();
+        $scope.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.opened = true;
+        };
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1,
+            class: 'datepicker'
+        };
+        $scope.initDate = new Date('2016-15-20');
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
+
+        //审批人
         $scope.checkGroupLeader = function(){
             $scope.choseCheckPeopleTitle ="选择室组经理";
         }
@@ -43,29 +66,4 @@ mainStart
             $scope.choseCheckPeopleTitle ="选择总经理";
         }
 
-        $scope.disabled = function (date, mode) {
-            return ( mode === 'day' && false);
-        };
-
-        $scope.toggleMin = function () {
-            $scope.minDate = $scope.minDate ? null : new Date();
-        };
-        $scope.toggleMin();
-
-        $scope.open = function ($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
-            $scope.opened = true;
-        };
-
-        $scope.dateOptions = {
-            formatYear: 'yy',
-            startingDay: 1,
-            class: 'datepicker'
-        };
-
-        $scope.initDate = new Date('2016-15-20');
-        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-        $scope.format = $scope.formats[0];
     }]);
