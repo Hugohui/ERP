@@ -36,6 +36,14 @@ mainStart
         //审批人
         $scope.checkGroupLeader = function ($event) {
             $scope.choseCheckPeopleTitle = "选择室组经理";
+
+            $scope.checkPeopleList = [
+                {name:"张三",group:"软件室"},
+                {name:"李四",group:"硬件室"},
+                {name:"王五",group:"产品"},
+                {name:"马六",group:"空盒子组"}
+            ];
+
             $scope.ajaxData = {
                 action: "getApprover",
                 params: "group_leader"
@@ -46,14 +54,21 @@ mainStart
                 data: $scope.ajaxData,
                 dataType: 'jsonp',
                 jsonp: "callback",
-                jsonpCallback: "success_jsonpCallback",
                 success: function (data) {
-                    console.log(data)
+                    $scope.checkPeopleList = data.resData.data;
                 }
             })
         }
         $scope.checkMinister = function ($event) {
             $scope.choseCheckPeopleTitle = "选择室部长";
+
+            $scope.checkPeopleList = [
+                {name:"张三",group:"技术部"},
+                {name:"李四",group:"产品部"},
+                {name:"王五",group:"项目部"},
+                {name:"马六",group:"综合管理"}
+            ];
+
             $scope.ajaxData = {
                 action: "getApprover",
                 params: "department"
@@ -64,14 +79,18 @@ mainStart
                 data: $scope.ajaxData,
                 dataType: 'jsonp',
                 jsonp: "callback",
-                jsonpCallback: "success_jsonpCallback",
                 success: function (data) {
-                    console.log(data)
+                    $scope.checkPeopleList = data.resData.data;
                 }
             })
         }
         $scope.checkManager = function ($event) {
             $scope.choseCheckPeopleTitle = "选择总经理";
+
+            $scope.checkPeopleList = [
+                {name:"张德兆",group:"总经理"}
+            ];
+
             $scope.ajaxData = {
                 action: "getApprover",
                 params: "manager"
@@ -82,11 +101,25 @@ mainStart
                 data: $scope.ajaxData,
                 dataType: 'jsonp',
                 jsonp: "callback",
-                jsonpCallback: "success_jsonpCallback",
                 success: function (data) {
-                    console.log(data)
+                    $scope.checkPeopleList = data.resData.data;
                 }
             })
+        }
+
+        //选中审批人
+        $scope.selectPurchaseName = function($event){
+            if($scope.choseCheckPeopleTitle == "选择室组经理"){
+                $('.groupLeaderName').show().html($($event.target).find('.selectName').html()).siblings().remove();
+                $('.groupLeaderNameInp').val($($event.target).find('.selectName').html());
+            }else if($scope.choseCheckPeopleTitle == "选择室部长"){
+                $('.departmentName').show().html($($event.target).find('.selectName').html()).siblings().remove();
+                $('.departmentNameInp').val($($event.target).find('.selectName').html());
+            }else{
+                $('.managerName').html($($event.target).find('.selectName').html()).siblings().remove();
+                $('.managerNameInp').val($($event.target).find('.selectName').html());
+            }
+            $('#choseCheckPeopleModal').modal('hide');
         }
 
         //提交采购申请
@@ -109,12 +142,12 @@ mainStart
             $scope.submitData = {
                 action: "purchaseRequest",
                 params: {
-                    purchase_applicant_id: "CGSQ20170912001",
-                    applicant: "张三",
+                    purchase_applicant_id: $('.orderNum').html(),
+                    applicant: $scope.user.name,
                     approver: {
-                        group_leader: "张三",
-                        department: "李四",
-                        manager: "王五"
+                        group_leader: $('.groupLeaderNameInp').val(),
+                        department: $('.departmentNameInp').val(),
+                        manager: $('.managerNameInp').val()
                     },
                     materialList:$scope.materialListArr
                 }
@@ -125,7 +158,6 @@ mainStart
                 data: $scope.submitData,
                 dataType: 'jsonp',
                 jsonp: "callback",
-                jsonpCallback: "success_jsonpCallback",
                 success: function (data) {
                     console.log(data)
                 }

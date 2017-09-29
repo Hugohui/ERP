@@ -5,7 +5,7 @@
                 <div class="purchaseReqOrder">
                     <div class="title">
                         采购申请单
-                        <span>采购申请单号：CGSQ201709271529</span>
+                        <span>采购申请单号：<i class="orderNum">CGSQ201709271529</i></span>
                     </div>
                     <div class="materialDiv">
                         <ul>
@@ -22,9 +22,9 @@
                             <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
                             <div>
                                 <input type="text" class="material_name" name="materialName" required/>
-                                <span class="errorTip">
+                                <!--<span class="errorTip">
                                     <span>必填项。</span>
-                                </span>
+                                </span>-->
                             </div>
                             <div><input type="text" class="model" name="model" required/></div>
                             <div><input type="text" class="sn_num" name="sn_num"/></div>
@@ -45,8 +45,9 @@
                         <div class="addCheckPeopleDiv">
                             <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkGroupLeader($event)">
                                 <span class="fa fa-plus"></span>
-                                <!--<span class="groupLeaderName"></span>-->
+                                <span class="groupLeaderName hideName"></span>
                             </div>
+                            <input type="hidden" class="groupLeaderNameInp"/>
                             <div class="checkPeoplePosition">
                                 <s class="fa fa-asterisk redText"></s>室组经理
                             </div>
@@ -58,8 +59,9 @@
                         <div class="addCheckPeopleDiv">
                             <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkMinister($event)">
                                 <span class="fa fa-plus"></span>
-                                <!--<span class="departmentName"></span>-->
+                                <span class="departmentName hideName"></span>
                             </div>
+                            <input type="hidden" class="departmentNameInp"/>
                             <div class="checkPeoplePosition">
                                 <s class="fa fa-asterisk redText"></s>部长
                             </div>
@@ -72,6 +74,7 @@
                             <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkManager($event)">
                                 <span class="managerName">张德兆</span>
                             </div>
+                            <input type="hidden" class="managerNameInp"/>
                             <div class="checkPeoplePosition">
                                 <s class="fa fa-asterisk redText"></s>总经理
                             </div>
@@ -103,11 +106,9 @@
                 </div>
                 <div class="modal-body">
                     <ul>
-                        <li class="selectLi" ng-click="selectPurchaseName()">
-                            【<span class="selectName">张三</span>】 软件室
+                        <li class="selectLi" ng-click="selectPurchaseName($event)" ng-repeat="user in checkPeopleList">
+                            【<span class="selectName">{{user.name}}</span>】 {{user.group}}
                         </li>
-                        <li class="selectLi">【李四】 系统室</li>
-                        <li class="selectLi">【王五】 硬件室</li>
                     </ul>
                 </div>
             </div>

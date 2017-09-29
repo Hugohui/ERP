@@ -38,6 +38,9 @@
     z-index: 99;
   }
 }
+.selectLi{
+  cursor: pointer;
+}
 /*²É¹ºÉêÇëµ¥*/
 .purchaseReqOrder{
   border: 1px solid #ccc;
@@ -147,8 +150,11 @@
         border-radius: 50%;
         cursor: pointer;
         margin: 0 30px;
-        span{
+        &>span{
           font-size: 14px;
+        }
+        &>span.hideName{
+          display: none;
         }
       }
       .editCheckPeople{

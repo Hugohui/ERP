@@ -38,6 +38,9 @@
   transform: rotate(45deg);
   z-index: 99;
 }
+.selectLi {
+  cursor: pointer;
+}
 /*�ɹ����뵥*/
 .purchaseReqOrder {
   border: 1px solid #ccc;
@@ -149,8 +152,11 @@
   cursor: pointer;
   margin: 0 30px;
 }
-.checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv span {
+.checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span {
   font-size: 14px;
+}
+.checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName {
+  display: none;
 }
 .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople {
   position: absolute;
