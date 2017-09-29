@@ -1,36 +1,36 @@
 'use strict';
 mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$http','$state',
     function($scope,$rootScope,$localStorage,$http,$state){
-    $scope.user = {};
-    $scope.roles = {
-        mo1:false,
-        mo2:false,
-        mo3:true
-    };
-    $scope.loginOk = function(){
-        $scope.ajaxData = {
-            action: "erpLogin",
-            params: {
-                username:$scope.user.name,
-                password:$scope.user.pwd
-            }
-        }
-        $.ajax({
-            type: 'POST',
-            url: 'http://111.204.101.170:11115',
-            data: $scope.ajaxData,
-            dataType: 'jsonp',
-            jsonp: "callback",
-            success: function (data) {
-                if(data.resData.result == 0){
-                    //”√ªß»®œﬁ
-                    $localStorage.roles = jQuery.parseJSON(data.resData.access);
-                    //”√ªß–≈œ¢
-                    $localStorage.user = $scope.user;
-                    //Ã¯◊™µΩ ◊“≥
-                    $state.go('app');
+        $scope.user = {};
+        $scope.roles = {
+            mo1:false,
+            mo2:false,
+            mo3:true
+        };
+        $scope.loginOk = function(){
+            $scope.ajaxData = {
+                action: "erpLogin",
+                params: {
+                    userName:$scope.user.name,
+                    password:$scope.user.pwd
                 }
             }
-        })
-    }
-}]);
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: $scope.ajaxData,
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    if(data.resData.result == 0){
+                        //Áî®Êà∑ÊùÉÈôê
+                        $localStorage.roles = data.resData.access;
+                        //Áî®Êà∑‰ø°ÊÅØ
+                        $localStorage.user = $scope.user;
+                        //Ë∑≥ËΩ¨Âà∞È¶ñÈ°µ
+                        $state.go('app');
+                    }
+                }
+            })
+        }
+    }]);

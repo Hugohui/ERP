@@ -7,76 +7,76 @@
                     <span>首页</span>
                 </a>
             </li>
-            <li class="treeview" ng-class="{active:$state.includes('purchase')}">
+            <li class="treeview" ng-class="{active:$state.includes('purchase')}" ng-if="roles.purchase_request== 'true' || roles.purchase_track== 'true'||roles.purchase_history== 'true'||roles.purchase_audit== 'true'">
                 <a>
                     <i class="fa fa-shopping-cart"></i>
                     <span>采购</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('purchase')}">
-                    <li ng-class="{active:$state.includes('purchase.purchaseRequest')}">
+                    <li ng-class="{active:$state.includes('purchase.purchaseRequest')}" ng-if="roles.purchase_request== 'true'">
                         <a ui-sref="purchase.purchaseRequest"> 采购申请</a>
                     </li>
-                    <li ng-class="{active:$state.includes('purchase.purchaseTrack')}">
+                    <li ng-class="{active:$state.includes('purchase.purchaseTrack')}" ng-if="roles.purchase_track== 'true'">
                         <a ui-sref="purchase.purchaseTrack"> 采购跟踪</a>
                     </li>
-                    <li ng-class="{active:$state.includes('purchase.purchaseHistory')}">
+                    <li ng-class="{active:$state.includes('purchase.purchaseHistory')}" ng-if="roles.purchase_history== 'true'">
                         <a ui-sref="purchase.purchaseHistory"> 历史采购</a>
                     </li>
-                    <li ng-class="{active:$state.includes('purchase.purchaseCheck')}">
+                    <li ng-class="{active:$state.includes('purchase.purchaseCheck')}" ng-if="roles.purchase_audit == 'true'">
                         <a ui-sref="purchase.purchaseCheck"> 采购审核</a>
                     </li>
                 </ul>
             </li>
-            <li ng-class="{active:$state.includes('depotManagement')}">
+            <li ng-class="{active:$state.includes('depotManagement')}" ng-if="roles.stock_search== 'true'||roles.storage== 'true'||roles.delivery_storage== 'true'||roles.retirement_audit== 'true'">
                 <a>
                     <i class="fa fa-inbox"></i>
                     <span>库管</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('depotManagement')}">
-                    <li ng-class="{active:$state.includes('depotManagement.depotRequest')}">
+                    <li ng-class="{active:$state.includes('depotManagement.depotRequest')}" ng-if="roles.stock_search== 'true'">
                         <a ui-sref="depotManagement.depotRequest"> 库存查询</a>
                     </li>
-                    <li ng-class="{active:$state.includes('depotManagement.depotInput')}">
+                    <li ng-class="{active:$state.includes('depotManagement.depotInput')}" ng-if="roles.storage== 'true'">
                         <a ui-sref="depotManagement.depotInput"> 采购入库</a>
                     </li>
-                    <li ng-class="{active:$state.includes('depotManagement.depotOutput')}">
+                    <li ng-class="{active:$state.includes('depotManagement.depotOutput')}" ng-if="roles.delivery_storage== 'true'">
                         <a ui-sref="depotManagement.depotOutput"> 领料出库</a>
                     </li>
-                    <li ng-class="{active:$state.includes('depotManagement.returnGoodsCheck')}">
+                    <li ng-class="{active:$state.includes('depotManagement.returnGoodsCheck')}" ng-if="roles.retirement_audit== 'true'">
                         <a ui-sref="depotManagement.returnGoodsCheck"> 退料审核</a>
                     </li>
                 </ul>
             </li>
-            <li class="treeview" ng-class="{active:$state.includes('personal')}">
+            <li class="treeview" ng-class="{active:$state.includes('personal')}" ng-if="roles.material_application== 'true'||roles.retirement_application== 'true'||roles.information_maintenance== 'true'">
                 <a>
                     <i class="fa fa-user-o"></i>
                     <span>我的</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('personal')}">
-                    <li ng-class="{active:$state.includes('personal.pickGoodsCheck')}">
+                    <li ng-class="{active:$state.includes('personal.pickGoodsCheck')}" ng-if="roles.material_application== 'true'">
                         <a ui-sref="personal.pickGoodsCheck"> 领料申请</a>
                     </li>
-                    <li ng-class="{active:$state.includes('personal.returnGoodsCheck')}">
+                    <li ng-class="{active:$state.includes('personal.returnGoodsCheck')}" ng-if="roles.retirement_application== 'true'">
                         <a ui-sref="personal.returnGoodsCheck"> 退料申请</a>
                     </li>
-                    <li ng-class="{active:$state.includes('personal.infoMaintain')}">
+                    <li ng-class="{active:$state.includes('personal.infoMaintain')}" ng-if="roles.information_maintenance== 'true'">
                         <a ui-sref="personal.infoMaintain"> 信息维护</a>
                     </li>
                 </ul>
             </li>
-            <li class="treeview"  ng-class="{active:$state.includes('systemManage')}">
+            <li class="treeview"  ng-class="{active:$state.includes('systemManage')}" ng-if="roles.user_management== 'true'||roles.operation_log== 'true'">
                 <a>
                     <i class="fa fa-cog"></i>
                     <span>系统管理</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" ng-class="{'menu-open':$state.includes('systemManage')}">
-                    <li ng-class="{active:$state.includes('systemManage.userManage')}">
+                    <li ng-class="{active:$state.includes('systemManage.userManage')}" ng-if="roles.user_management== 'true'">
                         <a ui-sref="systemManage.userManage"> 用户管理</a></li>
-                    <li ng-class="{active:$state.includes('systemManage.operationLog')}">
+                    <li ng-class="{active:$state.includes('systemManage.operationLog')}" ng-if="roles.operation_log== 'true'">
                         <a ui-sref="systemManage.operationLog"> 操作日志</a></li>
                 </ul>
             </li>
