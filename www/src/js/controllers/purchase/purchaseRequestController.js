@@ -36,14 +36,6 @@ mainStart
         //审批人
         $scope.checkGroupLeader = function ($event) {
             $scope.choseCheckPeopleTitle = "选择室组经理";
-
-            $scope.checkPeopleList = [
-                {name:"张三",group:"软件室"},
-                {name:"李四",group:"硬件室"},
-                {name:"王五",group:"产品"},
-                {name:"马六",group:"空盒子组"}
-            ];
-
             $scope.ajaxData = {
                 action: "getApprover",
                 params: "group_leader"
@@ -55,20 +47,12 @@ mainStart
                 dataType: 'jsonp',
                 jsonp: "callback",
                 success: function (data) {
-                    $scope.checkPeopleList = data.resData.data;
+                    $scope.appendCheckPeopleHtmlModal(data.resData.data);
                 }
             })
         }
         $scope.checkMinister = function ($event) {
             $scope.choseCheckPeopleTitle = "选择室部长";
-
-            $scope.checkPeopleList = [
-                {name:"张三",group:"技术部"},
-                {name:"李四",group:"产品部"},
-                {name:"王五",group:"项目部"},
-                {name:"马六",group:"综合管理"}
-            ];
-
             $scope.ajaxData = {
                 action: "getApprover",
                 params: "department"
@@ -80,17 +64,12 @@ mainStart
                 dataType: 'jsonp',
                 jsonp: "callback",
                 success: function (data) {
-                    $scope.checkPeopleList = data.resData.data;
+                    $scope.appendCheckPeopleHtmlModal(data.resData.data);
                 }
             })
         }
         $scope.checkManager = function ($event) {
             $scope.choseCheckPeopleTitle = "选择总经理";
-
-            $scope.checkPeopleList = [
-                {name:"张德兆",group:"总经理"}
-            ];
-
             $scope.ajaxData = {
                 action: "getApprover",
                 params: "manager"
@@ -102,9 +81,23 @@ mainStart
                 dataType: 'jsonp',
                 jsonp: "callback",
                 success: function (data) {
-                    $scope.checkPeopleList = data.resData.data;
+                    $scope.appendCheckPeopleHtmlModal(data.resData.data);
                 }
             })
+        }
+
+        //模态框添加查询数据列
+        $scope.appendCheckPeopleHtmlModal = function(data){
+            var html = '';
+            $.each(data,function(index,val){
+                html+=
+'                           <li class="selectLi" ng-click="selectPurchaseName($event)">'+
+'                            【<span class="selectName">'+val.userName+'</span>】 '+val.department+
+'                           </li>';
+            });
+            var $html = $compile(html)($scope);
+            $('.selectCheckUl').empty().append($html);
+            $('#choseCheckPeopleModal').modal('show');
         }
 
         //选中审批人

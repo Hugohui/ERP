@@ -43,7 +43,7 @@
                     <div class="title">审批人</div>
                     <div class="checkPeopleMain">
                         <div class="addCheckPeopleDiv">
-                            <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkGroupLeader($event)">
+                            <div class="addCircleDiv" ng-click="checkGroupLeader($event)">
                                 <span class="fa fa-plus"></span>
                                 <span class="groupLeaderName hideName"></span>
                             </div>
@@ -57,7 +57,7 @@
                             <span class="fa fa-arrow-right"></span>
                         </div>
                         <div class="addCheckPeopleDiv">
-                            <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkMinister($event)">
+                            <div class="addCircleDiv" ng-click="checkMinister($event)">
                                 <span class="fa fa-plus"></span>
                                 <span class="departmentName hideName"></span>
                             </div>
@@ -71,7 +71,7 @@
                             <span class="fa fa-arrow-right"></span>
                         </div>
                         <div class="addCheckPeopleDiv">
-                            <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkManager($event)">
+                            <div class="addCircleDiv" ng-click="checkManager($event)">
                                 <span class="managerName">张德兆</span>
                             </div>
                             <input type="hidden" class="managerNameInp"/>
@@ -105,10 +105,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <ul>
-                        <li class="selectLi" ng-click="selectPurchaseName($event)" ng-repeat="user in checkPeopleList">
-                            【<span class="selectName">{{user.name}}</span>】 {{user.group}}
-                        </li>
+                    <ul class="selectCheckUl">
+                        <!--<li class="selectLi" ng-click="selectPurchaseName($event)">-->
+                            <!--【<span class="selectName">张三</span>】 总经理-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
