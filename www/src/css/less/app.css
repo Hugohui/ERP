@@ -430,6 +430,7 @@ body {
 }
 .purchaseReqOrder .materialDiv .materialListDiv > div input {
   width: 100%;
+  height: 26px;
   border: none;
 }
 .purchaseReqOrder .materialDiv .materialListDiv .deleteMaterial {

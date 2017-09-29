@@ -19,21 +19,14 @@
                     </ul>
                     <div class="materialListDiv clearfix">
                         <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div><input type="text"/></div>
-                        <div class="input-group">
-                            <input datepicker-popup type="text" class="input-xs" ng-model="dt"  ng-model-options="{updateOn:'blur'}" is-open="opened" min-date="minDate" weekStart="0" close-text="关闭" clear-text="清空" current-text="今天" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" readonly/>
-                            <span class="input-group-btn">
-                                <button class="btn btn-xs" ng-click="open($event)">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <div><input type="text"/></div>
+                        <div><input type="text" class="material_name"/></div>
+                        <div><input type="text" class="model"/></div>
+                        <div><input type="text" class="sn_num"/></div>
+                        <div><input type="text" class="project_num"/></div>
+                        <div><input type="text" class="unit"/></div>
+                        <div><input type="text" class="number"/></div>
+                        <div><input type="date" class="expected_date" ></div>
+                        <div><input type="text" class="remark"/></div>
                     </div>
                     <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
                         <span class="fa fa-plus"></span>
@@ -44,8 +37,9 @@
                 <div class="title">审批人</div>
                 <div class="checkPeopleMain">
                     <div class="addCheckPeopleDiv">
-                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkGroupLeader()">
+                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkGroupLeader($event)">
                             <span class="fa fa-plus"></span>
+                            <!--<span class="groupLeaderName"></span>-->
                         </div>
                         <div class="checkPeoplePosition">
                             <s class="fa fa-asterisk redText"></s>室组经理
@@ -56,8 +50,9 @@
                         <span class="fa fa-arrow-right"></span>
                     </div>
                     <div class="addCheckPeopleDiv">
-                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkMinister()">
+                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkMinister($event)">
                             <span class="fa fa-plus"></span>
+                            <!--<span class="departmentName"></span>-->
                         </div>
                         <div class="checkPeoplePosition">
                             <s class="fa fa-asterisk redText"></s>部长
@@ -68,8 +63,8 @@
                         <span class="fa fa-arrow-right"></span>
                     </div>
                     <div class="addCheckPeopleDiv">
-                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkManager()">
-                            <span>张德兆</span>
+                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkManager($event)">
+                            <span class="managerName">张德兆</span>
                         </div>
                         <div class="checkPeoplePosition">
                             <s class="fa fa-asterisk redText"></s>总经理
@@ -80,7 +75,7 @@
             </div>
             <div class="submitDiv">
                 <span>“<s class="fa fa-asterisk redText"></s>”号项为必填项。</span>
-                <button class="btn btn-primary">提交</button>
+                <button class="btn btn-primary" ng-click="submitPurchaseReq()">提交</button>
             </div>
         </div>
 
