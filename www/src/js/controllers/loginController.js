@@ -8,13 +8,29 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
         mo3:true
     };
     $scope.loginOk = function(){
-        if($scope.user.name == 'admin'&& $scope.user.pwd == 'admin'){
-            //用户权限
-            $localStorage.roles = $scope.roles;
-            //用户信息
-            $localStorage.user = $scope.user;
-            //跳转到首页
-            $state.go('app');
+        $scope.ajaxData = {
+            action: "erpLogin",
+            params: {
+                username:$scope.user.name,
+                password:$scope.user.pwd
+            }
         }
+        $.ajax({
+            type: 'POST',
+            url: 'http://111.204.101.170:11115',
+            data: $scope.ajaxData,
+            dataType: 'jsonp',
+            jsonp: "callback",
+            success: function (data) {
+                if(data.resData.result == 0){
+                    //用户权限
+                    $localStorage.roles = jQuery.parseJSON(data.resData.access);
+                    //用户信息
+                    $localStorage.user = $scope.user;
+                    //跳转到首页
+                    $state.go('app');
+                }
+            }
+        })
     }
 }]);

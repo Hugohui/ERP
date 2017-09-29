@@ -1,84 +1,90 @@
 <div ng-controller="purchaseRequestController" class="app">
     <div class="mainView" >
         <div class="mainViewBody">
-            <div class="purchaseReqOrder">
-                <div class="title">
-                    采购申请单
-                    <span>采购申请单号：CGSQ201709271529</span>
-                </div>
-                <div class="materialDiv">
-                    <ul>
-                        <li><s class="fa fa-asterisk redText"></s>名称</li>
-                        <li><s class="fa fa-asterisk redText"></s>型号</li>
-                        <li>sn号</li>
-                        <li>项目号</li>
-                        <li>单位</li>
-                        <li><s class="fa fa-asterisk redText"></s>数量</li>
-                        <li>期望交付日期</li>
-                        <li>备注</li>
-                    </ul>
-                    <div class="materialListDiv clearfix">
-                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
-                        <div><input type="text" class="material_name"/></div>
-                        <div><input type="text" class="model"/></div>
-                        <div><input type="text" class="sn_num"/></div>
-                        <div><input type="text" class="project_num"/></div>
-                        <div><input type="text" class="unit"/></div>
-                        <div><input type="text" class="number"/></div>
-                        <div><input type="date" class="expected_date" ></div>
-                        <div><input type="text" class="remark"/></div>
+            <form name="purchaseReqForm" novalidate>
+                <div class="purchaseReqOrder">
+                    <div class="title">
+                        采购申请单
+                        <span>采购申请单号：CGSQ201709271529</span>
                     </div>
-                    <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
-                        <span class="fa fa-plus"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="checkPeopleDiv">
-                <div class="title">审批人</div>
-                <div class="checkPeopleMain">
-                    <div class="addCheckPeopleDiv">
-                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkGroupLeader($event)">
+                    <div class="materialDiv">
+                        <ul>
+                            <li><s class="fa fa-asterisk redText"></s>名称</li>
+                            <li><s class="fa fa-asterisk redText"></s>型号</li>
+                            <li>sn号</li>
+                            <li>项目号</li>
+                            <li>单位</li>
+                            <li><s class="fa fa-asterisk redText"></s>数量</li>
+                            <li>期望交付日期</li>
+                            <li>备注</li>
+                        </ul>
+                        <div class="materialListDiv clearfix">
+                            <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
+                            <div>
+                                <input type="text" class="material_name" name="materialName" required/>
+                                <span class="errorTip">
+                                    <span>必填项。</span>
+                                </span>
+                            </div>
+                            <div><input type="text" class="model" name="model" required/></div>
+                            <div><input type="text" class="sn_num" name="sn_num"/></div>
+                            <div><input type="text" class="project_num" name="project_num"/></div>
+                            <div><input type="text" class="unit" name="unit"/></div>
+                            <div><input type="number" class="number" name="number" required/></div>
+                            <div><input type="date" class="expected_date" name="expected_date"/></div>
+                            <div><input type="text" class="remark" name="name"/></div>
+                        </div>
+                        <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
                             <span class="fa fa-plus"></span>
-                            <!--<span class="groupLeaderName"></span>-->
                         </div>
-                        <div class="checkPeoplePosition">
-                            <s class="fa fa-asterisk redText"></s>室组经理
-                        </div>
-                        <span class="editCheckPeople fa fa-edit"></span>
-                    </div>
-                    <div class="checkArrowDiv">
-                        <span class="fa fa-arrow-right"></span>
-                    </div>
-                    <div class="addCheckPeopleDiv">
-                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkMinister($event)">
-                            <span class="fa fa-plus"></span>
-                            <!--<span class="departmentName"></span>-->
-                        </div>
-                        <div class="checkPeoplePosition">
-                            <s class="fa fa-asterisk redText"></s>部长
-                        </div>
-                        <span class="editCheckPeople fa fa-edit"></span>
-                    </div>
-                    <div class="checkArrowDiv">
-                        <span class="fa fa-arrow-right"></span>
-                    </div>
-                    <div class="addCheckPeopleDiv">
-                        <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkManager($event)">
-                            <span class="managerName">张德兆</span>
-                        </div>
-                        <div class="checkPeoplePosition">
-                            <s class="fa fa-asterisk redText"></s>总经理
-                        </div>
-                        <span class="editCheckPeople fa fa-edit show"></span>
                     </div>
                 </div>
-            </div>
-            <div class="submitDiv">
-                <span>“<s class="fa fa-asterisk redText"></s>”号项为必填项。</span>
-                <button class="btn btn-primary" ng-click="submitPurchaseReq()">提交</button>
-            </div>
+                <div class="checkPeopleDiv">
+                    <div class="title">审批人</div>
+                    <div class="checkPeopleMain">
+                        <div class="addCheckPeopleDiv">
+                            <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkGroupLeader($event)">
+                                <span class="fa fa-plus"></span>
+                                <!--<span class="groupLeaderName"></span>-->
+                            </div>
+                            <div class="checkPeoplePosition">
+                                <s class="fa fa-asterisk redText"></s>室组经理
+                            </div>
+                            <span class="editCheckPeople fa fa-edit"></span>
+                        </div>
+                        <div class="checkArrowDiv">
+                            <span class="fa fa-arrow-right"></span>
+                        </div>
+                        <div class="addCheckPeopleDiv">
+                            <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkMinister($event)">
+                                <span class="fa fa-plus"></span>
+                                <!--<span class="departmentName"></span>-->
+                            </div>
+                            <div class="checkPeoplePosition">
+                                <s class="fa fa-asterisk redText"></s>部长
+                            </div>
+                            <span class="editCheckPeople fa fa-edit"></span>
+                        </div>
+                        <div class="checkArrowDiv">
+                            <span class="fa fa-arrow-right"></span>
+                        </div>
+                        <div class="addCheckPeopleDiv">
+                            <div class="addCircleDiv" data-toggle="modal" data-target="#choseCheckPeopleModal" ng-click="checkManager($event)">
+                                <span class="managerName">张德兆</span>
+                            </div>
+                            <div class="checkPeoplePosition">
+                                <s class="fa fa-asterisk redText"></s>总经理
+                            </div>
+                            <span class="editCheckPeople fa fa-edit show"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="submitDiv">
+                    <span>“<s class="fa fa-asterisk redText"></s>”号项为必填项。</span>
+                    <button class="btn btn-primary" ng-click="submitPurchaseReq()">提交</button>
+                </div>
+            </form>
         </div>
-
     </div>
 
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>

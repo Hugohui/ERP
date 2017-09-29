@@ -13,6 +13,31 @@
   color: #f05050;
   font-size: 12px;
 }
+.errorTip {
+  width: 80%;
+  min-height: 18px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: #030303;
+  opacity: .5;
+  color: #fff;
+  border-radius: 5px;
+  z-index: 100;
+}
+.errorTip:after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: -5px;
+  left: 50%;
+  background-color: #030303;
+  transform: rotate(45deg);
+  z-index: 99;
+}
 /*�ɹ����뵥*/
 .purchaseReqOrder {
   border: 1px solid #ccc;
@@ -56,6 +81,7 @@
   float: left;
   border: 1px solid #ccc;
   border-right: none;
+  position: relative;
 }
 .purchaseReqOrder .materialDiv .materialListDiv > div:last-child {
   border-right: 1px solid #ccc;
@@ -79,6 +105,7 @@
   border-radius: 50%;
   cursor: pointer;
   display: none;
+  z-index: 101;
 }
 .purchaseReqOrder .materialDiv .materialListDiv:hover > .deleteMaterial {
   display: block;
