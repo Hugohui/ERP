@@ -15,10 +15,13 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
             $scope.ajaxData = {
                 action: "erpLogin",
                 params: {
-                    userName:"admin",
-                    password:"admin"
+                    userName:$scope.user.name,
+                    password:$("#upwd").val()
                 }
             }
+
+            console.log($scope.ajaxData);
+
             $.ajax({
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
