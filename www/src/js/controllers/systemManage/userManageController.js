@@ -31,6 +31,64 @@ mainStart
             }
         })
         /*用户列表复选框*/
+        $scope.selectAll=false;
+        $scope.selectAllClick= function (sa) {
+            for(var i=0;i<$scope.usersList.length;i++){
+                $scope.usersList[i].checked=sa;
+            }
+        };
+
+
+        //删除选择用户
+        $scope.deleteProduct= function (index){
+            $scope.data = {
+                action:'deleteUser',
+                params:{
+                    userName: $scope.userInfo.userName
+                }
+            };
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:$scope.data,
+                dataType: 'jsonp',
+                jsonp : "callback",
+                jsonpCallback:"success_jsonpCallback",
+                success:function(data){
+                    $scope.echome=function(){
+                        var worker=$("#userTable").find("tr");
+                        var userNameArr=[];
+                        worker.echo(function () {
+                            var tds=$(this).find("td");
+                            if(tds===true){
+                                userName.push();
+                            }
+                        })
+                    }
+                }
+            })
+
+        };
+
+        /*全部勾选*/
+        /*$scope.selectAll=false;
+        $scope.selectAllClick= function (sa) {
+            for(var i=0;i<$scope.usersList.length;i++){
+                $scope.usersList[i].checked=sa;
+            }
+        };*/
+
+
+        $scope.selectAll=false;
+        $scope.all= function (m) {
+            for(var i=0;i<$scope.usersList.length;i++){
+                if(m===true){
+                    $scope.usersList[i].state=true;
+                }else {
+                    $scope.usersList[i].state=false;
+                }
+            }
+        };
 
 
         /*添加用户信息、修改用户信息*/
@@ -66,28 +124,4 @@ mainStart
                 }
             })
         }
-
-
-        /*删除用户*/
-        $scope.okDelete=function(){
-
-            $scope.data = {
-                action:'deleteUser',
-                params:{
-                    userName: $scope.userInfo.userName
-                }
-            }
-            $.ajax({
-                type:'POST',
-                url:'http://111.204.101.170:11115',
-                data:$scope.data,
-                dataType: 'jsonp',
-                jsonp : "callback",
-                jsonpCallback:"success_jsonpCallback",
-                success:function(data){
-
-                }
-            })
-        }
-
     }]);

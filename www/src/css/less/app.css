@@ -773,7 +773,10 @@ body {
 /*���ӡ��޸ġ�ɾ����ť*/
 .buttonGrop {
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
+}
+.buttonGrop button:not(:first-child) {
+  margin-left: 10px;
 }
 /*�û��б���ʽ*/
 .userTableDiv {
@@ -784,18 +787,23 @@ body {
 }
 .userTableDiv .btnGroup {
   position: absolute;
-  top: 50px;
+  top: 10px;
   right: 40px;
 }
-.queryInput ul li {
-  margin-right: 10px;
+.userTableDiv .btnGroup #queryUserInp {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.userTableDiv .btnGroup #userSearchButton {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .searchGroupDiv {
   width: 100%;
 }
 .tableContent {
   height: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 .userTableQuery {
   margin-top: 10px;
