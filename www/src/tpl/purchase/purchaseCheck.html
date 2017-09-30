@@ -1,8 +1,22 @@
-<div ng-controller="purchaseCheckController">
-    <div ng-include="'tpl/blocks/header.html'" class="header"></div>
-    <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
-    <div>
-        <h1>采购审核</h1>
+<div ng-controller="purchaseCheckController" class="app">
+    <div class="mainView">
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                <select class="selectCss">
+                    <option value="all" aria-checked="true">全部</option>
+                    <option value="0">未审核</option>
+                    <option value="1">已审核</option>
+                </select>
+                <div class="searchGroup">
+                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
+    <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>
