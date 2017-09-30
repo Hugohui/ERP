@@ -354,6 +354,42 @@ body {
 .active .auto .text-active {
   display: inline-block !important;
 }
+.queryDIv {
+  border: 1px solid #ccc;
+}
+.queryDIv .queryTitle {
+  height: 35px;
+  line-height: 35px;
+  padding-left: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+.queryDIv .queryBody {
+  padding: 10px;
+  position: relative;
+}
+.queryDIv .queryBody input {
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+}
+.queryDIv .queryBody .searchGroup {
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.queryDIv .queryBody .searchGroup input {
+  border-radius: 4px 0 0 4px;
+  width: 200px;
+}
+.queryDIv .queryBody .searchGroup .search {
+  color: #fff;
+  margin-left: -5px;
+  border-radius: 0 4px 4px 0;
+}
 @media (max-width: 767px) {
   .navbar-header {
     width: 100%;
@@ -372,9 +408,9 @@ body {
 /*�ɹ�*/
 /*����*/
 .title {
-  height: 40px;
-  line-height: 40px;
-  font-size: 16px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
   font-weight: 600;
   border-bottom: 1px solid #ccc;
   padding: 0 10px;
@@ -566,6 +602,94 @@ body {
     border: none;
     border-bottom: 1px solid #ccc;
   }
+}
+.purchaseReqSuccess {
+  background-color: #51A351 !important;
+}
+.purchaseFailure {
+  background-color: #f05050 !important;
+}
+.purchaseTrackBody {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.purchaseTrackBody .purchaseLine {
+  width: 100%;
+  position: relative;
+  padding: 35px 0 55px 0;
+}
+.purchaseTrackBody .purchaseLine .purchaseLineOrder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 5px;
+  background-color: #f0ad4e;
+  border-radius: 5px;
+  color: #333;
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl {
+  width: 100%;
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl li {
+  float: left;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #aaa;
+  font-size: 18px;
+  color: #fff;
+  margin: 0 50px;
+  position: relative;
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl li > span {
+  width: 52px;
+  height: 10px;
+  position: absolute;
+  background-color: #aaa;
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl li > span.nextFlowSpan {
+  top: 50%;
+  right: -51px;
+  transform: translateY(-50%);
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl li > span.preFlowSpan {
+  top: 50%;
+  left: -51px;
+  transform: translateY(-50%);
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl li > span.purchaseResult {
+  width: 160px;
+  height: 20px;
+  line-height: 20px;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+}
+.purchaseTrackBody .purchaseLine .purchaseLineUl li > span.purchaseDatetime {
+  width: 160px;
+  height: 20px;
+  line-height: 20px;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+}
+.purchaseTrackBody .splitLine {
+  width: 100%;
+  height: 0;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 10px;
 }
 /*�û�����*/
 #modal-content-usermanage {

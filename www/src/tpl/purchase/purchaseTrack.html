@@ -1,8 +1,146 @@
-<div ng-controller="purchaseTrackController">
+<div ng-controller="purchaseTrackController" class="app">
+    <div class="mainView">
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                    <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                <div class="searchGroup">
+                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                </div>
+            </div>
+        </div>
+        <div class="purchaseTrackBody">
+            <div class="purchaseLine">
+                <span class="purchaseLineOrder">订单编号：CGSQ201710101213</span>
+                <ul class="purchaseLineUl clearfix">
+                    <li class="purchaseReqSuccess">
+                        我
+                        <span class="nextFlowSpan purchaseReqSuccess"></span>
+                        <span class="purchaseResult">提交申请</span>
+                        <span class="purchaseDatetime">2017-10-11 15:12:30</span>
+                    </li>
+                    <li class="">
+                        室组经理
+                        <span class="preFlowSpan "></span>
+                        <span class="nextFlowSpan "></span>
+                    </li>
+                    <li>
+                        部长
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                    </li>
+                    <li>
+                        总经理
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                    </li>
+                    <li>
+                        采购
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                    </li>
+                    <li>
+                        库管
+                        <span class="preFlowSpan"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="splitLine"></div>
+            <div class="purchaseLine">
+                <span class="purchaseLineOrder">订单编号：CGSQ201710101214</span>
+                <ul class="purchaseLineUl clearfix">
+                    <li class="purchaseReqSuccess">
+                        我
+                        <span class="nextFlowSpan purchaseReqSuccess"></span>
+                        <span class="purchaseResult">提交申请</span>
+                        <span class="purchaseDatetime">2017-10-11 15:12:30</span>
+                    </li>
+                    <li class="purchaseReqSuccess">
+                        室组经理
+                        <span class="preFlowSpan purchaseReqSuccess"></span>
+                        <span class="nextFlowSpan purchaseReqSuccess"></span>
+                        <span class="purchaseResult">已同意</span>
+                        <span class="purchaseDatetime">2017-10-11 14:22:01</span>
+                    </li>
+                    <li>
+                        部长
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                    <li>
+                        总经理
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                    <li>
+                        采购
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                    <li>
+                        库管
+                        <span class="preFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="splitLine"></div>
+            <div class="purchaseLine">
+                <span class="purchaseLineOrder">订单编号：CGSQ201710101215</span>
+                <ul class="purchaseLineUl clearfix">
+                    <li class="purchaseReqSuccess">
+                        我
+                        <span class="nextFlowSpan purchaseReqSuccess"></span>
+                        <span class="purchaseResult">提交申请</span>
+                        <span class="purchaseDatetime">2017-10-11 15:12:30</span>
+                    </li>
+                    <li class="purchaseReqSuccess">
+                        室组经理
+                        <span class="preFlowSpan purchaseReqSuccess"></span>
+                        <span class="nextFlowSpan purchaseReqSuccess"></span>
+                        <span class="purchaseResult">已同意</span>
+                        <span class="purchaseDatetime">2017-10-11 14:22:01</span>
+                    </li>
+                    <li class="purchaseFailure">
+                        部长
+                        <span class="preFlowSpan purchaseFailure"></span>
+                        <span class="nextFlowSpan purchaseFailure"></span>
+                        <span class="purchaseResult">拒绝申请</span>
+                        <span class="purchaseDatetime">2017-10-11 14:25:11</span>
+                    </li>
+                    <li>
+                        总经理
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                    <li>
+                        采购
+                        <span class="preFlowSpan"></span>
+                        <span class="nextFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                    <li>
+                        库管
+                        <span class="preFlowSpan"></span>
+                        <span class="purchaseResult"></span>
+                        <span class="purchaseDatetime"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
-    <div>
-        <h1>采购跟踪</h1>
-    </div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>

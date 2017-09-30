@@ -1,0 +1,98 @@
+@borderColor:#ccc;
+@orderColor:#f0ad4e;
+
+//Ä¬ÈÏ×´Ì¬
+@peopleLiDefaultColor:#aaa;
+
+//ÉóºË³É¹¦×´Ì¬
+.purchaseReqSuccess{
+  background-color: #51A351 !important;
+}
+
+//ÉóºËÊ§°Ü×´Ì¬
+.purchaseFailure{
+  background-color: #f05050 !important;
+}
+
+.purchaseTrackBody{
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid @borderColor;
+  padding: 10px;
+  .purchaseLine{
+    width: 100%;
+    position: relative;
+    padding: 35px 0 55px 0;
+    .purchaseLineOrder{
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 5px;
+      background-color: @orderColor;
+      border-radius: 5px;
+      color: #333;
+    }
+    .purchaseLineUl{
+      width: 100%;
+      li{
+        float: left;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: @peopleLiDefaultColor;
+        font-size: 18px;
+        color: #fff;
+        margin: 0 50px;
+        position: relative;
+        &>span{
+          width: 52px;
+          height: 10px;
+          position: absolute;
+          background-color: @peopleLiDefaultColor;
+        }
+        &>span.nextFlowSpan{
+          top: 50%;
+          right: -51px;
+          transform: translateY(-50%);
+        }
+        &>span.preFlowSpan{
+          top: 50%;
+          left: -51px;
+          transform: translateY(-50%);
+        }
+        &>span.purchaseResult{
+          width: 160px;
+          height: 20px;
+          line-height: 20px;
+          bottom: -25px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff;
+          color: #000;
+          font-size: 14px;
+          font-weight: normal;
+        }
+        &>span.purchaseDatetime{
+          width: 160px;
+          height: 20px;
+          line-height: 20px;
+          bottom: -50px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff;
+          color: #000;
+          font-size: 14px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  .splitLine{
+    width: 100%;
+    height: 0;
+    border-bottom: 1px dashed @borderColor;
+    margin-bottom: 10px;
+  }
+}
