@@ -8,6 +8,9 @@ mainStart
         //获取角色信息
         $scope.user = $localStorage.user;
 
+        //生成订单编号
+        $('.orderNum').html(billFormat("CGSQ",new Date()));
+
         //添加物料行
         $scope.addMaterialLine = function () {
             var lineHtml =
