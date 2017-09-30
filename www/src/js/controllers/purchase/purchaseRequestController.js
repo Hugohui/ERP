@@ -158,6 +158,9 @@ mainStart
                 jsonp: "callback",
                 success: function (data) {
                     console.log(data)
+                    if(data.resData.result == 0){
+                        toastr.success('物料申请提交成功！');
+                    }
                 }
             });
         }
