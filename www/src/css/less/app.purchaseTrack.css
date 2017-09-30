@@ -91,13 +91,63 @@
     padding-bottom: 0;
   }
   .purchaseTrackBody .purchaseLine .purchaseLineUl li {
-    margin: 0 50px 50px 45px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    margin: 0 30px 50px 30px;
+  }
+  .purchaseTrackBody .purchaseLine .purchaseLineUl li > span {
+    width: 32px;
+    height: 10px;
+    position: absolute;
+    background-color: #aaa;
+  }
+  .purchaseTrackBody .purchaseLine .purchaseLineUl li > span.nextFlowSpan {
+    top: 50%;
+    right: -31px;
+    transform: translateY(-50%);
+  }
+  .purchaseTrackBody .purchaseLine .purchaseLineUl li > span.preFlowSpan {
+    top: 50%;
+    left: -31px;
+    transform: translateY(-50%);
+  }
+  .purchaseTrackBody .purchaseLine .purchaseLineUl li > span.purchaseResult {
+    width: 160px;
+    height: 20px;
+    line-height: 20px;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .purchaseTrackBody .purchaseLine .purchaseLineUl li > span.purchaseDatetime {
+    width: 160px;
+    height: 20px;
+    line-height: 20px;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .queryBody {
+    padding: 10px 5px !important;
   }
   .queryBody > input {
-    width: 95px !important;
+    width: 75px !important;
     padding: 0 !important;
   }
   .queryBody .placeholderOrderNum {
-    width: 90px !important;
+    width: 80px !important;
+  }
+  .queryBody .searchGroup {
+    right: 5px !important;
   }
 }
