@@ -8,7 +8,10 @@
 /*添加、修改、删除按钮*/
 .buttonGrop{
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
+  button:not(:first-child){
+    margin-left: 10px;
+  }
 }
 /*用户列表样式*/
 .userTableDiv{
@@ -18,19 +21,24 @@
   overflow: hidden;
   .btnGroup{
     position: absolute;
-    top:50px;
+    top:10px;
     right: 40px;
+    #queryUserInp{
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    #userSearchButton{
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
   }
-}
-.queryInput ul li{
-  margin-right: 10px;
 }
 .searchGroupDiv{
   width: 100%;
 }
 .tableContent{
   height: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 .userTableQuery{
   margin-top: 10px;
