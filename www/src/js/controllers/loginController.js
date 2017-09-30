@@ -25,6 +25,8 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                     if(data.resData.result == 0){
                         //用户权限
                         $localStorage.roles = data.resData.access;
+                        //消息推送
+                        $localStorage.sendMessage = data.resData.sendMessage;
                         //用户信息
                         $localStorage.user = $scope.user;
                         //跳转到首页
