@@ -698,6 +698,13 @@ body {
   .purchaseTrackBody .purchaseLine .purchaseLineUl li {
     margin: 0 50px 50px 45px;
   }
+  .queryBody > input {
+    width: 95px !important;
+    padding: 0 !important;
+  }
+  .queryBody .placeholderOrderNum {
+    width: 90px !important;
+  }
 }
 /*�û�����*/
 #modal-content-usermanage {
