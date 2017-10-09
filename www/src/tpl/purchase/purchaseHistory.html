@@ -10,6 +10,32 @@
                 </div>
             </div>
         </div>
+        <div class="purchaseHistoryBody">
+            <table class=" table-bordered table-condensed" cellspacing="0" width="100%">
+                <tr >
+                    <td>编号</td>
+                    <td>名称</td>
+                    <td>型号</td>
+                    <td>项目号</td>
+                    <td>数量</td>
+                    <td>申请时间</td>
+                    <td>到货时间</td>
+                    <td>货物状态</td>
+                    <td ng-if="roles.role_id!=7">申请人</td>
+                </tr>
+                <tr>
+                    <td>CGSQ2017001</td>
+                    <td>大大</td>
+                    <td>发到付</td>
+                    <td>d</td>
+                    <td>a</td>
+                    <td>df</td>
+                    <td>fa</td>
+                    <td>da</td>
+                    <td ng-if="roles.role_id!=7">张三</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>

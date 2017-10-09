@@ -762,6 +762,12 @@ body {
     right: 5px !important;
   }
 }
+.purchaseHistoryBody {
+  margin-top: 10px;
+}
+.purchaseHistoryBody table {
+  text-align: center;
+}
 /*�û�����*/
 #modal-content-usermanage {
   width: 700px;
