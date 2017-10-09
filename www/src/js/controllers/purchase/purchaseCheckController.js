@@ -117,7 +117,7 @@ mainStart
                 data:{
                     action:"getPurchaseListCheck",
                     params:{
-                        "userName":"张三",
+                        userName:$scope.user.name,
                         limit:"10",
                         start:"0",
                         page:"1",

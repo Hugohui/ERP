@@ -99,7 +99,7 @@ angular.module('mainStart')
             /*库管*/
             .state('depotManagement',{
                 url:'/depotManagement',
-                template: '<div ui-view></div>'
+                template: '<div ui-view class="app"></div>'
             })
             .state('depotManagement.depotRequest',{//库存查询
                 url:'/purchaseRequest',
