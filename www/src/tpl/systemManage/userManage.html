@@ -98,6 +98,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu()" id="okdeleteBtn">确定</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu($index)">确定</button>
                             </div>
                         </div>
                     </div>
@@ -126,6 +127,7 @@
                     </tr>
                     <tr ng-repeat="user in usersList">
                         <td><input type="checkbox" ng-checked="selectAll"  ng-click="isSelected()" access="{{user.access}}" data_permissions="{{user.data_permissions}}"></td>
+			<td><input type="checkbox" ng-checked="selectAll"  value="{{user.userName}}" ng-click="isSelected(user)" ></td> 
                         <td>{{$index+1}}</td>
                         <td class="userName">{{user.userName}}</td>
                         <td >{{user.password}}</td>

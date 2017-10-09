@@ -9,6 +9,17 @@
                 <div class="searchGroup">
                     <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
                     <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
+                <select class="selectCss">
+                    <option value="all" aria-checked="true">所有用户</option>
+                    <option value="2">总经理
+                    <option value="3">部长
+                    <option value="4">库管
+                    <option value="5">采购
+                    <option value="6">室组经理
+                    <option value="7">员工
+                </select>
+                <div class="searchGroup">
+                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
                     <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>

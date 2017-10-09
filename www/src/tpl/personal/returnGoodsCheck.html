@@ -15,6 +15,22 @@
                         <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
                         <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                     </div>
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                <div class="searchGroup">
+                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
+                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
+                <select class="selectCss">
+                    <option value="all" aria-checked="true">全部</option>
+                    <option value="0">未审核</option>
+                    <option value="1">已审核</option>
+                </select>
+                <div class="searchGroup">
+                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
+
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
             <div class="tableContentDiv" >

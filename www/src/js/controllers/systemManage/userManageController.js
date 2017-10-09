@@ -10,8 +10,71 @@ mainStart
         //
         $scope.modelTitle="";
 
-
         //获取用户列表
+        /*
+        *用户列表
+        */
+        $.ajax({
+            type:'POST',
+            url:'http://111.204.101.170:11115',
+            data:{
+                action:"usersList",
+                params:{
+                    limit:"10",
+                    start:"0",
+                    page:"1",
+                    queryData:""
+                }
+            },
+            dataType: 'jsonp',
+            jsonp : "callback",
+            success:function(data){
+              $scope.usersList=data.resData.data;
+            }
+        })
+
+
+        /*用户列表复选框*/
+        $scope.selectAll=false;
+        $scope.selectAllClick= function (sa) {
+            for(var i=0;i<$scope.usersList.length;i++){
+                $scope.usersList[i].checked=sa;
+            }
+        };
+        //删除选择用户
+ $scope.deleteStu= function (){
+     //获取勾选行信息
+     var userArr = [];
+     $("#userTable").find("tr").each(function($index, value){
+         if($(this).find('input').is(':checked')){
+             var userName=$(this).find("td.userName").html();
+             userArr.push(userName);
+         }else{
+
+         }
+     })
+
+     console.log(userArr);
+
+     $scope.data = {
+         action:'deleteUser',
+         params:{
+             userNameArr:userArr
+         }
+     };
+     $.ajax({
+         type:'POST',
+         url:'http://111.204.101.170:11115',
+         data:$scope.data,
+         dataType: 'jsonp',
+         jsonp : "callback",
+         jsonpCallback:"success_jsonpCallback",
+         success:function(data){
+
+         }
+     })
+
+ };
 
         update();
         //封装刷新页面的方法
@@ -38,7 +101,6 @@ mainStart
                }
            })
        }
-
         var userTable;
         function initUsersTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
@@ -67,6 +129,16 @@ mainStart
                     "sSortDescending": ": 以降序排列此列"
                 }
             };
+      /*  $scope.selectAll=false;
+         $scope.all= function (m) {
+         for(var i=0;i<$scope.usersList.length;i++){
+         if(m===true){
+         $scope.usersList[i].state=true;
+         }else {
+         $scope.usersList[i].state=false;
+         }
+         }
+         };*/
 
             //初始化表格
             userTable = $("#userTable").dataTable({
