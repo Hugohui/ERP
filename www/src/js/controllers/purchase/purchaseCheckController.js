@@ -15,7 +15,7 @@ mainStart
         $scope.viewOrCheck = function(billNum,status){
 
             $('#billNum').val(billNum);
-            status == 1?$('.checkBody').hide():$('.checkBody').show();
+            status != 0?$('.checkBody').hide():$('.checkBody').show();//当订单为已审核（通过或者拒绝），不再显示审核按钮
             $('#purchaseCheckModal').modal('show');
             //获取订单的详细物料数据
             $.ajax({
@@ -100,6 +100,11 @@ mainStart
                         toastr.success('提交成功');
                         $('#purchaseCheckModal').modal('hide');
                         loadCheckList();//重新加载数据表
+
+                        //重新设置信息的值
+                        //?后台给当前用户新的消息数据
+                        $localStorage.sendMessage = [];
+                        $scope.sendMessage = [];
                     }else{
                         toastr.error(data.resData.msg);
                     }
