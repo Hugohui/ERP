@@ -10,13 +10,93 @@
                     <option value="1">已审核</option>
                 </select>
                 <div class="searchGroup">
-                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
+                    <input type="text" placeholder="申请人" class="placeholderOrderNum"/>
                     <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
+        </div>
+        <div class="purchaseCheckBody">
+            <table class="table-bordered table-condensed" cellspacing="0" width="100%">
+                <tr >
+                    <td>编号</td>
+                    <td>申请人</td>
+                    <td>申请时间</td>
+                    <td>期望交付日期</td>
+                    <td>状态</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>CGSQ2017001</td>
+                    <td>大大</td>
+                    <td>发到付</td>
+                    <td>d</td>
+                    <td>a</td>
+                    <td><a href="javascript:;" class="btn btn-default btn-sm" ng-click="viewOrCheck('CGSQ2017001')">查看/审核</a></td>
+                </tr>
+                <tr>
+                    <td>CGSQ2017001</td>
+                    <td>大大</td>
+                    <td>发到付</td>
+                    <td>d</td>
+                    <td>c</td>
+                    <td><a href="javascript:;" class="btn btn-default btn-sm">采购下单</a></td>
+                </tr>
+            </table>
         </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+
+    <!--采购审核modal-->
+    <div class="modal fade" id="purchaseCheckModal" tabindex="-1" role="dialog" aria-labelledby="purchaseCheckModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseCheckModalLabel">采购审核</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="billNum"/>
+                    <table class="table-bordered table-condensed" cellspacing="0" width="100%">
+                        <tr >
+                            <td>名称</td>
+                            <td>型号</td>
+                            <td>项目号</td>
+                            <td>单位</td>
+                            <td>数量</td>
+                            <td>期望交付日期</td>
+                            <td>备注</td>
+                        </tr>
+                        <tr>
+                            <td>电脑</td>
+                            <td>001</td>
+                            <td>001</td>
+                            <td>台</td>
+                            <td>1</td>
+                            <td>20171012</td>
+                            <td>无</td>
+                        </tr>
+                    </table>
+                    <div class="checkBody">
+                        <div class="radioDiv">
+                            <input type="radio" name="check" id="passCheck" checked checkValue="1"/>
+                            审核通过
+                            <input type="radio" name="check" id="failureCheck" checkValue="-1"/>
+                            拒绝申请
+                        </div>
+                        <div class="reasonDiv">
+                            <textarea id="reasonText"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="checkOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

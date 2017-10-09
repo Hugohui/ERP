@@ -1,0 +1,24 @@
+.purchaseCheckBody {
+  margin-top: 10px;
+}
+.purchaseCheckBody table {
+  text-align: center;
+}
+#purchaseCheckModal .modal-dialog {
+  width: 860px;
+}
+#purchaseCheckModal .modal-dialog table {
+  text-align: center;
+}
+#purchaseCheckModal .modal-dialog .checkBody {
+  margin-top: 10px;
+}
+#purchaseCheckModal .modal-dialog .checkBody input {
+  margin: 0;
+}
+#purchaseCheckModal .modal-dialog .checkBody .reasonDiv {
+  display: none;
+}
+#purchaseCheckModal .modal-dialog .checkBody .reasonDiv textarea {
+  width: 100%;
+}
