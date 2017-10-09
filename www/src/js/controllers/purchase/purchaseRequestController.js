@@ -21,7 +21,7 @@ mainStart
                 '                        <div><input type="text" class="sn_num"/></div>'+
                 '                        <div><input type="text" class="project_num"/></div>'+
                 '                        <div><input type="text" class="unit"/></div>'+
-                '                        <div><input type="text" class="number"/></div>'+
+                '                        <div><input type="number" class="number"/></div>'+
                 '                        <div><input type="date" class="expected_date" ></div>'+
                 '                        <div><input type="text" class="remark"/></div>'+
                 '                    </div>';
