@@ -1,47 +1,73 @@
 'use strict';
 mainStart
-    .controller('purchaseCheckController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
-        //»ñÈ¡½ÇÉ«È¨ÏŞ
+    .controller('purchaseCheckController',['$scope','$rootScope','$localStorage','toastr',function($scope,$rootScope,$localStorage,toastr){
+        //è·å–è§’è‰²æƒé™
         $scope.roles = $localStorage.roles;
-        //ÏûÏ¢ÍÆËÍ
+        //æ¶ˆæ¯æ¨é€
         $scope.sendMessage = $localStorage.sendMessage;
-        //»ñÈ¡½ÇÉ«ĞÅÏ¢
+        //è·å–è§’è‰²ä¿¡æ¯
         $scope.user = $localStorage.user;
 
-        /*¼ÓÔØ²É¹ºÉêÇëÁĞ±í*/
-        /*$.ajax({
-            type:'POST',
-            url:'http://111.204.101.170:11115',
-            data:{
-                action:"getPurchaseListCheck",
-                params:{
-                    "userName":"ÕÅÈı",
-                    limit:"10",
-                    start:"0",
-                    page:"1",
-                    queryData:{
-                        startDate:"2017-10-11",
-                        endDate:"2017-10-11",
-                        status:"0",
-                        purchase_applicant_id:"CGSQ20170912001",
-                        queryApplicant:"ÕÅÈı"
-                    }
-                }
-            },
-            dataType: 'jsonp',
-            jsonp : "callback",
-            success:function(data){
-                $scope.purchaseList=data.resData.data;
-            }
-        })*/
+        //åŠ è½½é‡‡è´­å®¡æ ¸åˆ—è¡¨
+        loadCheckList();
 
-        //²é¿´ºÍÉóºË
-        $scope.viewOrCheck = function(billNum){
+        //æŸ¥çœ‹å’Œå®¡æ ¸
+        $scope.viewOrCheck = function(billNum,status){
+
             $('#billNum').val(billNum);
+            status == 1?$('.checkBody').hide():$('.checkBody').show();
             $('#purchaseCheckModal').modal('show');
+            //è·å–è®¢å•çš„è¯¦ç»†ç‰©æ–™æ•°æ®
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"getMaterialList",
+                    params:{
+                        userName:$scope.user.name,
+                        purchase_applicant_id:$('#billNum').val()
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    $scope.materialList=data.resData.data;
+                    $scope.$apply();
+                }
+            })
         }
 
-        //ÉóºË½á¹û¾Ü¾øÀíÓÉÊäÈë¿ò
+        //é‡‡è´­ä¸‹å•
+        $scope.purchaseOrder = function(purchaseBillNum){
+            $('#purchaseBillNum').val(purchaseBillNum);
+
+            //ç”Ÿæˆè®¢å•ç¼–å·
+            $('.orderNum').html(billFormat("CGDD",new Date()));
+
+            //é‡‡è´­ç”³è¯·å•å·
+            $('.purchaseOrderNum').html($('#purchaseBillNum').val());
+
+            $('#purchaseModal').modal('show');
+            //è·å–è®¢å•çš„è¯¦ç»†ç‰©æ–™æ•°æ®
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"getMaterialList",
+                    params:{
+                        userName:"å¼ ä¸‰",
+                        purchase_applicant_id:$('#purchaseBillNum').val()
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    $scope.materialList=data.resData.materialList;
+                }
+            })
+        }
+
+        //å®¡æ ¸ç»“æœæ‹’ç»ç†ç”±è¾“å…¥æ¡†
         $('.radioDiv input').click(function(){
             if($(this).attr('checkValue') == 1){
                 $('.reasonDiv').hide();
@@ -50,11 +76,67 @@ mainStart
             }
         });
 
-        //È·¶¨ÉóºË
+        //ç¡®å®šå®¡æ ¸
         $scope.checkOk = function(){
             var billNum,reason;
             billNum = $('#billNum').val();
             reason = $('#reasonText').is(':visible')?$('#reasonText').val():'';
-            console.log(reason);
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"checkMaterial",
+                    params:{
+                        userName:$scope.user.name,
+                        purchase_applicant_id:$('#billNum').val(),
+                        result:$('.radioDiv input:checked').attr('checkValue'),
+                        reason:reason
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        toastr.success('æäº¤æˆåŠŸ');
+                        $('#purchaseCheckModal').modal('hide');
+                        loadCheckList();//é‡æ–°åŠ è½½æ•°æ®è¡¨
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
+
+        /**
+         * åŠ è½½é‡‡è´­ç”³è¯·åˆ—è¡¨
+         */
+        function loadCheckList(){
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"getPurchaseListCheck",
+                    params:{
+                        "userName":"å¼ ä¸‰",
+                        limit:"10",
+                        start:"0",
+                        page:"1",
+                        /*queryData:{
+                         startDate:"2017-10-11",
+                         endDate:"2017-10-11",
+                         status:"0",
+                         purchase_applicant_id:"CGSQ20170912001",
+                         queryApplicant:"å¼ ä¸‰"
+                         }*/
+                        queryData:""
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    $scope.purchaseList=data.resData.data;
+                    $scope.$apply();
+                }
+            })
         }
     }]);

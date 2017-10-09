@@ -10,6 +10,7 @@ mainStart
 
         //查看未读信息
         $rootScope.viewMessage = function(bill){
+            $('#purchaseCheckModal').modal();
             console.log(bill);
         }
 }]);

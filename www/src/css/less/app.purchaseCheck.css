@@ -4,21 +4,65 @@
 .purchaseCheckBody table {
   text-align: center;
 }
-#purchaseCheckModal .modal-dialog {
-  width: 860px;
+#purchaseCheckModal .modal-dialog,
+#purchaseModal .modal-dialog {
+  width: 1200px;
 }
-#purchaseCheckModal .modal-dialog table {
+#purchaseCheckModal .modal-dialog .tableDiv,
+#purchaseModal .modal-dialog .tableDiv {
+  max-height: 400px;
+  overflow-y: auto;
+}
+#purchaseCheckModal .modal-dialog .tableDiv table,
+#purchaseModal .modal-dialog .tableDiv table {
   text-align: center;
 }
-#purchaseCheckModal .modal-dialog .checkBody {
+#purchaseCheckModal .modal-dialog .tableDiv table input,
+#purchaseModal .modal-dialog .tableDiv table input {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+#purchaseCheckModal .modal-dialog .tableDiv table td,
+#purchaseModal .modal-dialog .tableDiv table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#purchaseCheckModal .modal-dialog .tableDiv .tableInfoDiv,
+#purchaseModal .modal-dialog .tableDiv .tableInfoDiv {
+  margin-bottom: 10px;
+}
+#purchaseCheckModal .modal-dialog .tableDiv .tableInfoDiv .tableInfoUl,
+#purchaseModal .modal-dialog .tableDiv .tableInfoDiv .tableInfoUl {
+  padding-left: 35px;
+  overflow: hidden;
+  display: flex;
+}
+#purchaseCheckModal .modal-dialog .tableDiv .tableInfoDiv .tableInfoUl > li,
+#purchaseModal .modal-dialog .tableDiv .tableInfoDiv .tableInfoUl > li {
+  float: left;
+  flex: 1;
+}
+#purchaseCheckModal .modal-dialog .tableDiv .tableInfoDiv .tableInfoUl > li input,
+#purchaseModal .modal-dialog .tableDiv .tableInfoDiv .tableInfoUl > li input {
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+#purchaseCheckModal .modal-dialog .checkBody,
+#purchaseModal .modal-dialog .checkBody {
   margin-top: 10px;
 }
-#purchaseCheckModal .modal-dialog .checkBody input {
+#purchaseCheckModal .modal-dialog .checkBody input,
+#purchaseModal .modal-dialog .checkBody input {
   margin: 0;
 }
-#purchaseCheckModal .modal-dialog .checkBody .reasonDiv {
+#purchaseCheckModal .modal-dialog .checkBody .reasonDiv,
+#purchaseModal .modal-dialog .checkBody .reasonDiv {
   display: none;
 }
-#purchaseCheckModal .modal-dialog .checkBody .reasonDiv textarea {
+#purchaseCheckModal .modal-dialog .checkBody .reasonDiv textarea,
+#purchaseModal .modal-dialog .checkBody .reasonDiv textarea {
   width: 100%;
 }
