@@ -11,7 +11,7 @@ mainStart
         //加载采购审核列表
         loadCheckList();
 
-        //查看和审核
+        /*查看和审核*/
         $scope.viewOrCheck = function(billNum,status){
 
             $('#billNum').val(billNum);
@@ -37,7 +37,7 @@ mainStart
             })
         }
 
-        //采购下单
+        /*获取采购单数据填写*/
         $scope.purchaseOrder = function(purchaseBillNum){
             $('#purchaseBillNum').val(purchaseBillNum);
 
@@ -47,6 +47,9 @@ mainStart
             //采购申请单号
             $('.purchaseOrderNum').html($('#purchaseBillNum').val());
 
+            //下单日期
+            $('.orderDatetime').html(new Date().format("yyyy-MM-dd"));
+
             $('#purchaseModal').modal('show');
             //获取订单的详细物料数据
             $.ajax({
@@ -55,19 +58,68 @@ mainStart
                 data:{
                     action:"getMaterialList",
                     params:{
-                        userName:"张三",
                         purchase_applicant_id:$('#purchaseBillNum').val()
                     }
                 },
                 dataType: 'jsonp',
                 jsonp : "callback",
                 success:function(data){
-                    $scope.materialList=data.resData.materialList;
+                    $scope.materialList=data.resData.data;
+                    $scope.$apply();
                 }
             })
         }
 
-        //审核结果拒绝理由输入框
+        /*确定采购下单*/
+        $scope.purchaseOk = function(){
+            var materialListArr = [];
+            $('#purchaseModal table tr').not('.tableHeadTr').each(function(index,value){
+                materialListArr.push(
+                    {
+                        material_code:$(value).find('.material_code').val(),
+                        material_name:$(value).find('.material_name').html(),
+                        model:$(value).find('.model').html(),
+                        sn_num:$(value).find('.sn_num').html(),
+                        supplier_num:$(value).find('.supplier_num').val(),
+                        supplier:$(value).find('.supplier').val(),
+                        project_num:$(value).find('.project_num').html(),
+                        unit:$(value).find('.unit').html(),
+                        unit_price:$(value).find('.unit_price').val(),
+                        number:$(value).find('.number').html(),
+                        total_price:$(value).find('.total_price').val(),
+                        rate:$(value).find('.rate').val(),
+                        invoice:$(value).find('.invoice').val(),
+                        remark:$(value).find('.remark').html(),
+                        batch:$(value).find('.batch').val()
+                    }
+                );
+            });
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"commitOrder",
+                    params:{
+                        created_on:$('.orderDatetime').html(),
+                        contract_num:$('.contract_num').val(),
+                        purchase_applicant_id:$('#purchaseBillNum').val(),
+                        purchase_order_id:$('.orderNum').html(),
+                        materialList:materialListArr
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        toastr.success(data.resData.msg);
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
+
+        /*审核结果拒绝理由输入框*/
         $('.radioDiv input').click(function(){
             if($(this).attr('checkValue') == 1){
                 $('.reasonDiv').hide();
@@ -76,7 +128,7 @@ mainStart
             }
         });
 
-        //确定审核
+        /*确定审核*/
         $scope.checkOk = function(){
             var billNum,reason;
             billNum = $('#billNum').val();
