@@ -97,14 +97,12 @@ mainStart
                 jsonp : "callback",
                 success:function(data){
                     if(data.resData.result == 0){
-                        toastr.success('提交成功');
+                        toastr.success(data.resData.msg);
                         $('#purchaseCheckModal').modal('hide');
                         loadCheckList();//重新加载数据表
-
-                        //重新设置信息的值
-                        //?后台给当前用户新的消息数据
-                        $localStorage.sendMessage = [];
-                        $scope.sendMessage = [];
+                        //重新设置当前用户其他未审核信息
+                        $localStorage.sendMessage = data.resData.sendMessage;
+                        $scope.sendMessage = data.resData.sendMessage;
                     }else{
                         toastr.error(data.resData.msg);
                     }
