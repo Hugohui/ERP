@@ -33,6 +33,69 @@ mainStart
             }
         })
 
+        /*添加用户信息、修改用户信息*/
+        $scope.okAddAndUpdata=function(){
+           //添加用户
+            $scope.data = {
+                action:'addUser',
+                params:{
+                    userName: $scope.userInfo.userName,
+                    password: $scope.userInfo.password,
+                    phone:$scope.userInfo.phone,
+                    access:$scope.userInfo.access,
+                    department:$scope.userInfo.department,
+                    data_permissions:{
+                        contract_number: $scope.userInfo.contract_number || false,
+                        unit_price:$scope.userInfo.unit_price || false,
+                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
+                        money:$scope.userInfo.money || false,
+                        tax_rate:$scope.userInfo.tax_rate|| false,
+                        invoice:$scope.userInfo.invoice|| false,
+                        inventory_position:$scope.userInfo.inventory_position|| false
+                    }
+                }
+            }
+            //修改用户
+            var userName;
+            $("#userTable").find("tr").each(function($index, value){
+                if($(this).find('input').is(':checked')){
+                    var userNames=$(this).find("td.userName").html();
+                        userName.push(userNames)
+                }else{
+
+                }
+            })
+            $scope.data = {
+                action:'updataUser',
+                params:{
+                    userName: userName,
+                    password: $scope.userInfo.password,
+                    phone:$scope.userInfo.phone,
+                    access:$scope.userInfo.access,
+                    department:$scope.userInfo.department,
+                    data_permissions:{
+                        contract_number: $scope.userInfo.contract_number || false,
+                        unit_price:$scope.userInfo.unit_price || false,
+                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
+                        money:$scope.userInfo.money || false,
+                        tax_rate:$scope.userInfo.tax_rate|| false,
+                        invoice:$scope.userInfo.invoice|| false,
+                        inventory_position:$scope.userInfo.inventory_position|| false
+                    }
+                }
+            }
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:$scope.data,
+                dataType: 'jsonp',
+                jsonp : "callback",
+                jsonpCallback:"success_jsonpCallback",
+                success:function(data){
+                    console.log(data)
+                }
+            })
+        }
 
         /*用户列表复选框*/
         $scope.selectAll=false;
@@ -41,6 +104,8 @@ mainStart
                 $scope.usersList[i].checked=sa;
             }
         };
+
+
         //删除选择用户
  $scope.deleteStu= function (){
      //获取勾选行信息
@@ -75,7 +140,6 @@ mainStart
      })
 
  };
-
         update();
         //封装刷新页面的方法
         function update(){
@@ -345,5 +409,4 @@ mainStart
                 $scope.usersList[i].checked=sa;
             }
         };
-
     }]);
