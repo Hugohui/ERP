@@ -30,8 +30,7 @@ angular.module('mainStart')
                 },
                 data:{
                     pageTitle:'IDRIVER+ERP系统_登录'
-                },
-                controller:'loginController'
+                }
             })
 
             //首页
@@ -46,8 +45,7 @@ angular.module('mainStart')
                 },
                 data:{
                     pageTitle:'IDRIVER+ERP系统_首页'
-                },
-                controller:'appController'
+                }
             })
 
             /*采购*/
@@ -62,8 +60,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/purchase/purchaseRequestController.js']);
                     }]
-                },
-                controller:'purchaseRequestController'
+                }
             })
             .state('purchase.purchaseTrack',{//采购跟踪
                 url:'/purchaseTrack',
@@ -72,8 +69,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/purchase/purchaseTrackController.js']);
                     }]
-                },
-                controller:'purchaseTrackController'
+                }
             })
             .state('purchase.purchaseHistory',{//采购历史
                 url:'/purchaseHistory',
@@ -82,8 +78,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/purchase/purchaseHistoryController.js']);
                     }]
-                },
-                controller:'purchaseHistoryController'
+                }
             })
             .state('purchase.purchaseCheck',{//采购审核
                 url:'/purchaseCheck',
@@ -92,8 +87,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/purchase/purchaseCheckController.js']);
                     }]
-                },
-                controller:'purchaseCheckController'
+                }
             })
 
             /*库管*/
@@ -108,8 +102,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/depotManagement/depotRequestController.js']);
                     }]
-                },
-                controller:'depotRequestController'
+                }
             })
             .state('depotManagement.depotInput',{//采购入库
                 url:'/depotInput',
@@ -118,8 +111,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/depotManagement/depotInputController.js']);
                     }]
-                },
-                controller:'depotInputController'
+                }
             })
             .state('depotManagement.depotOutput',{//领料出库
                 url:'/depotOutput',
@@ -128,8 +120,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/depotManagement/depotOutputController.js']);
                     }]
-                },
-                controller:'depotOutputController'
+                }
             })
             .state('depotManagement.returnGoodsCheck',{//退料审核
                 url:'/returnGoodsCheck',
@@ -138,8 +129,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/depotManagement/returnGoodsCheckController.js']);
                     }]
-                },
-                controller:'returnGoodsCheckController'
+                }
             })
 
             /*我的*/
@@ -154,8 +144,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/personal/pickGoodsCheckController.js']);
                     }]
-                },
-                controller:'pickGoodsCheckController'
+                }
             })
             .state('personal.returnGoodsCheck',{//退料申请
                 url:'/returnGoodsCheck',
@@ -164,8 +153,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/personal/returnGoodsCheckController.js']);
                     }]
-                },
-                controller:'returnGoodsCheckController'
+                }
             })
             .state('personal.infoMaintain',{//信息维护
                 url:'/infoMaintain',
@@ -174,8 +162,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/personal/infoMaintainController.js']);
                     }]
-                },
-                controller:'infoMaintainController'
+                }
             })
 
             /*系统管理*/
@@ -190,8 +177,7 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/systemManage/userManageController.js']);
                     }]
-                },
-                controller:'userManageController'
+                }
             })
             .state('systemManage.operationLog',{//操作日志
                 url:'/operationLog',
@@ -200,7 +186,6 @@ angular.module('mainStart')
                     deps:['$ocLazyLoad',function($ocLazyLoad){
                         return $ocLazyLoad.load(['js/controllers/systemManage/operationLogController.js']);
                     }]
-                },
-                controller:'operationLogController'
+                }
             })
     }]);

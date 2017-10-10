@@ -768,6 +768,10 @@ body {
 .purchaseHistoryBody table {
   text-align: center;
 }
+.purchaseHistoryBody table s {
+  margin-left: 15px;
+  cursor: pointer;
+}
 .purchaseCheckBody {
   margin-top: 10px;
 }
@@ -836,6 +840,13 @@ body {
 #purchaseCheckModal .modal-dialog .checkBody .reasonDiv textarea,
 #purchaseModal .modal-dialog .checkBody .reasonDiv textarea {
   width: 100%;
+}
+/*����*/
+.depotInputBody {
+  margin-top: 10px;
+}
+.depotInputBody table {
+  text-align: center;
 }
 /*�û�����*/
 #modal-content-usermanage {

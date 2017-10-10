@@ -4,3 +4,7 @@
 .purchaseHistoryBody table {
   text-align: center;
 }
+.purchaseHistoryBody table s {
+  margin-left: 15px;
+  cursor: pointer;
+}

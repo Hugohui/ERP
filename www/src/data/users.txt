@@ -1,0 +1,6 @@
+{
+    "total":1,
+    "data":[
+        {"userName":"张三","userPwd":"zhangsan","userPhone":"13355122523","userRegisterTime":"2017-9-5"}
+    ]
+}

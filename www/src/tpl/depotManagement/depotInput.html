@@ -1,6 +1,35 @@
 <div ng-controller="depotInputController" class="app">
     <div class="mainView">
-        <h1>采购入库</h1>
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                <select class="selectCss">
+                    <option value="all" aria-checked="true">全部</option>
+                    <option value="0">待收料</option>
+                    <option value="1">已收料</option>
+                </select>
+                <div class="searchGroup">
+                    <input type="text" placeholder="采购订单编号/申请人" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                </div>
+            </div>
+        </div>
+        <div class="depotInputBody">
+            <div class="depotInputTableDiv">
+                <table class="table-bordered table-condensed" cellspacing="0" width="100%">
+                    <tr >
+                        <td><input type="checkbox"/></td>
+                        <td>采购申请编号</td>
+                        <td>采购订单号</td>
+                        <td>合同号</td>
+                        <td>申请人</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>

@@ -1,0 +1,25 @@
+{
+    "total":20,
+    "page":5,
+    "limit":10,
+    "data":[
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"},
+        {"managerName":"张三","managerPwd":"zhangsan","managerPhone":"12234543832","managerMark":"新用户"}
+    ]
+}

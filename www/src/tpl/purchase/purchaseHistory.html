@@ -5,13 +5,14 @@
             <div class="queryBody">
                 <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
                 <div class="searchGroup">
-                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
+                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
+                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
                     <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
         </div>
         <div class="purchaseHistoryBody">
-            <table class=" table-bordered table-condensed" cellspacing="0" width="100%">
+            <!--<table class=" table-bordered table-condensed" cellspacing="0" width="100%">
                 <tr >
                     <td>编号</td>
                     <td>名称</td>
@@ -23,18 +24,31 @@
                     <td>货物状态</td>
                     <td ng-if="roles.role_id!=7">申请人</td>
                 </tr>
-                <tr>
-                    <td>CGSQ2017001</td>
-                    <td>大大</td>
-                    <td>发到付</td>
-                    <td>d</td>
-                    <td>a</td>
-                    <td>df</td>
-                    <td>fa</td>
-                    <td>da</td>
-                    <td ng-if="roles.role_id!=7">张三</td>
+                <tr ng-repeat="material in purchaseHistoryList">
+                    <td>{{material.purchase_applicant_id}}</td>
+                    <td>{{material}}</td>
+                    <td>{{material}}</td>
+                    <td>{{material}}</td>
+                    <td>{{material}}</td>
+                    <td>{{material}}</td>
+                    <td>{{material}}</td>
+                    <td>{{material}}</td>
+                    <td ng-if="roles.role_id!=7">{{material}}</td>
                 </tr>
+            </table>-->
+            <table id="purchaseHistoryTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>联系电话</th>
+                    <th>注册时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
             </table>
+            <div id="purchaseHistoryPager"></div>
         </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
