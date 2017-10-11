@@ -69,19 +69,22 @@ mainStart
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
+                    param.applicant = $scope.user.name;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
-                        url:'data/users.txt',
-                        //url:'http://111.204.101.170:11115',
+                        //url:'data/users.txt',
+                        url:'http://111.204.101.170:11115',
                         data: {
-                            action:"usersManage",
+                            action:"purchaseHistory",
                             params:param
                         },
-                        dataType: 'json',
-                        //dataType: 'jsonp',
-                        //jsonp: "callback",
+                        dataType: 'jsonp',
+                        jsonp: "callback",
                         success: function (result) {
+
+                            console.log(result);
+
                             //封装返回数据
                             var returnData = {};
                             returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
