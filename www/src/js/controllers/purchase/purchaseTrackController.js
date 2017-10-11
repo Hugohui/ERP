@@ -19,6 +19,17 @@ mainStart
 
         loadPurchaseTrack();
 
+        //美化滚动条
+        $('.purchaseTrackBody').niceScroll({
+            cursorcolor: "#ccc",//#CC0071 光标颜色
+            cursoropacitymax: 1, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+            touchbehavior: false, //使光标拖动滚动像在台式电脑触摸设备
+            cursorwidth: "5px", //像素光标的宽度
+            cursorborder: "0", // 游标边框css定义
+            cursorborderradius: "5px",//以像素为光标边界半径
+            autohidemode: false //是否隐藏滚动条
+        });
+
         $('.purchaseTrackBody').scroll(function(){
             stopLoadFlag = true;
             var nScrollTop=$(this)[0].scrollTop;//滚动条距顶部的高度
@@ -37,9 +48,9 @@ mainStart
          * 请求采购跟踪数据
          */
         function loadPurchaseTrack(){
-            var classObj ={//类名
-                "-1":"purchaseFailure",
-                "1":"purchaseReqSuccess",
+            var classObj ={//审核结果类名
+             "-1":"purchaseFailure",//拒绝
+                "1":"purchaseReqSuccess",//通过
                 },
                 resultStr ={//订单结果
                 "-1":"拒绝申请",
