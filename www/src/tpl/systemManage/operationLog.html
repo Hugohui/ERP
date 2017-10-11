@@ -2,7 +2,35 @@
     <div ng-include="'tpl/blocks/header.html'"class="header"></div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
     <div  class="mainView">
-        <h1>操作日志</h1>
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                <div class="searchGroup">
+                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
+                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                </div>
+            </div>
+            <div class="tableContent" >
+                <table id="userTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                    <tr >
+                        <td>序号</td>
+                        <td>日期</td>
+                        <td class="userName">姓名</td>
+                        <td >操作类型</td>
+                        <td >IP</td>
+                    </tr>
+                    <tr ng-repeat="days in daysList">
+                        <td>{{$index+1}}</td>
+                        <td >{{days.operateDate}}</td>
+                        <td >{{days.operator}}</td>
+                        <td >{{days.type}}</td>
+                        <td >{{days.ip}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>

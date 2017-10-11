@@ -96,8 +96,6 @@ mainStart
             $scope.userInfo.phone = tr.find('td').eq(4).text();
             $scope.userInfo.department = tr.find('td').eq(5).text();
             $scope.userInfo.access = tr.find('td').eq(6).text();
-            $scope.userInfo.contract_number = true;
-
 
 
         })
