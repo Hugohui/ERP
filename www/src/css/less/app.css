@@ -616,10 +616,38 @@ body {
   background-color: #f05050 !important;
 }
 .purchaseTrackBody {
+  overflow: auto;
   width: 100%;
   margin-top: 10px;
   border: 1px solid #ccc;
   padding: 10px;
+  position: relative;
+}
+.purchaseTrackBody .loadingDiv {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: .6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.purchaseTrackBody .loadingDiv .loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.purchaseTrackBody .loadingDiv .loading img {
+  width: 60px;
+  height: 60px;
+}
+.purchaseTrackBody .loadingDiv .loading span {
+  display: block;
+  margin-top: 10px;
+  color: #000;
 }
 .purchaseTrackBody .purchaseLine {
   width: 100%;
