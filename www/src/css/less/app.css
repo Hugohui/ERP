@@ -877,7 +877,7 @@ body {
 .userTableDiv .btnGroup {
   position: absolute;
   top: 10px;
-  right: 40px;
+  right: 30px;
 }
 .userTableDiv .btnGroup #queryUserInp {
   border-top-left-radius: 4px;
@@ -893,6 +893,12 @@ body {
 .tableContent {
   height: 100%;
   padding-top: 10px;
+}
+.tableContent #userTable tr td:first-child {
+  width: 60px;
+}
+.tableContent td {
+  text-align: center;
 }
 .userTableQuery {
   margin-top: 10px;

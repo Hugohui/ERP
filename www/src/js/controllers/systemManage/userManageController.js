@@ -37,8 +37,6 @@ mainStart
                 $scope.usersList[i].checked=sa;
             }
         };
-
-
         //删除选择用户
         $scope.deleteProduct= function (index){
             $scope.data = {
