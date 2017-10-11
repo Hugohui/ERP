@@ -54,26 +54,6 @@ mainStart
                     }
                 }
             }
-            //修改用户
-            $scope.data = {
-                action:'updateUser',
-                params:{
-                    userName: $scope.userInfo.userName,
-                    password: $scope.userInfo.password,
-                    phone:$scope.userInfo.phone,
-                    access:$scope.userInfo.access,
-                    department:$scope.userInfo.department,
-                    data_permissions:{
-                        contract_number: $scope.userInfo.contract_number || false,
-                        unit_price:$scope.userInfo.unit_price || false,
-                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
-                        money:$scope.userInfo.money || false,
-                        tax_rate:$scope.userInfo.tax_rate|| false,
-                        invoice:$scope.userInfo.invoice|| false,
-                        inventory_position:$scope.userInfo.inventory_position|| false
-                    }
-                }
-            }
 
             $.ajax({
                 type:'POST',
@@ -95,9 +75,10 @@ mainStart
             $scope.userInfo.password = tr.find('td').eq(3).text();
             $scope.userInfo.phone = tr.find('td').eq(4).text();
             $scope.userInfo.department = tr.find('td').eq(5).text();
-            $scope.userInfo.access = tr.find('td').eq(6).text();
+            $scope.userInfo.access = tr.find('td input').attr("access");
+            $scope.userInfo.data_permissions = $.parseJSON(tr.find('td input').attr("data_permissions"));
 
-
+            console.log($scope.userInfo.data_permissions )
         })
 
 
@@ -122,7 +103,6 @@ mainStart
 
              }
          })
-
 
          console.log(userArr);
 
