@@ -12,7 +12,7 @@
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='修改用户信息'" id="update" >
                     <i class="fa fa-pencil-square-o"></i> 修改
                 </button>
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete">
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"  id="deleteBtn" >
                     <i class="fa fa-times"></i> 删除
                 </button>
                 </div>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="modal-body" >
                                 <h5>基本信息</h5><br/>
-                                姓&nbsp名：<input type="text" ng-model="userInfo.userName"/>
+                                姓&nbsp名：<input type="text" id="userName" ng-model="userInfo.userName"/>
                                 密&nbsp码：<input type="text" ng-model="userInfo.password"/>
                                 联系电话：<input type="text"  ng-model="userInfo.phone"/><br/><br/>
                                 职&nbsp员：
@@ -97,7 +97,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteProduct($index)">确定</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu($index)">确定</button>
                             </div>
                         </div>
                     </div>
@@ -116,24 +116,24 @@
             </div>
             <div class="tableContent" >
                 <table id="userTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
-                    <thead>
                     <tr >
-                        <td><input type="checkbox" ng-model="selectAll"  ng-click="all(selectAll)"></td>
+                        <td><input type="checkbox" ng-model="selectAll" id="ck_all" ></td>
                         <td>序号</td>
-                        <td>用户名</td>
+                        <td class="userName">用户名</td>
                         <td >密码</td>
                         <td >电话</td>
                         <td >组</td>
                     </tr>
                     <tr ng-repeat="user in usersList">
-                        <td><input type="checkbox" ng-checked="selectAll" ng-model="user.state" ng-click="echome()" ></td>
+                        <td><input type="checkbox" ng-checked="selectAll"  ng-click="isSelected()"></td>
                         <td>{{$index+1}}</td>
-                        <td>{{user.userName}}</td>
+                        <td class="userName">{{user.userName}}</td>
                         <td >{{user.password}}</td>
                         <td >{{user.phone}}</td>
                         <td >{{user.department}}</td>
+                        <td style="display: none">{{user.access}}</td>
+                     
                     </tr>
-                    </thead>
                 </table>
             </div>
            </div>
