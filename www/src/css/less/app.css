@@ -769,8 +769,11 @@ body {
   text-align: center;
 }
 .purchaseHistoryBody table s {
-  margin-left: 15px;
   cursor: pointer;
+  color: green;
+}
+.purchaseHistoryBody table s.red {
+  color: #cd0a0a;
 }
 .purchaseCheckBody {
   margin-top: 10px;

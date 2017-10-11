@@ -5,6 +5,9 @@
   text-align: center;
 }
 .purchaseHistoryBody table s {
-  margin-left: 15px;
   cursor: pointer;
+  color: green;
+}
+.purchaseHistoryBody table s.red {
+  color: #cd0a0a;
 }

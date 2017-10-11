@@ -16,7 +16,7 @@ mainStart
          */
         var userTable;
         function initUsersTable() {
-            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 130;
+            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
             var lang = {
                 "sProcessing": "处理中...",
                 "sLengthMenu": "每页 _MENU_ 项",
@@ -48,6 +48,7 @@ mainStart
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
+                lengthMenu : [20, 40, 60], //更改显示记录数选项
                 stripeClasses: ["odd", "even"],  //为奇偶行加上样式，兼容不支持CSS伪类的场合
                 processing: true,  //隐藏加载提示,自行处理
                 serverSide: true,  //启用服务器端分页
@@ -96,10 +97,11 @@ mainStart
                     {
                         "data": null,
                         "sClass": "text-center",
-                        "render": function () {
-                            var html = '<input type="checkbox"/><s class="fa fa-plus-square details-control"></s>';
+                        "render": function (data) {
+                            var html = '<s class="fa fa-plus-square details-control" materialList = "'+data.materialList+'"></s>';
                             return html;
-                        }
+                        },
+                        "width":50
                     },
                     {
                         "data": "userName",
@@ -110,19 +112,11 @@ mainStart
                         "sClass": "text-center"
                     },
                     {
-                        "data": "userPhone",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "userRegisterTime",
-                        "sClass": "text-center"
-                    },{
                         "data": "userRegisterTime",
                         "sClass": "text-center"
                     }
                 ]
             }).api();
-            //此处需调用api()方法,否则返回的是JQuery对象而不是DataTables的API对象
         }
 
         $('#purchaseHistoryTable tbody').on('click', '.details-control', function () {
@@ -130,29 +124,48 @@ mainStart
             var row = userTable.row( tr );
             if ( row.child.isShown() ) {
                 row.child.hide();
-                $(this).removeClass('fa-minus-square').addClass('fa-plus-square');//按钮变化
+                $(this).removeClass('fa-minus-square  red').addClass('fa-plus-square');//按钮变化
                 tr.removeClass('shown');
             } else {
                 row.child( format(row.data()) ).show();
                 tr.addClass('shown');
-                $(this).removeClass('fa-plus-square').addClass('fa-minus-square');
+                $(this).removeClass('fa-plus-square').addClass('fa-minus-square red');
             }
         })
 
         function format ( d ) {
-            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+            var trStr = '';
+            var statusStr = {
+                "-1":"未通过",
+                "1":"待审批",
+                "2":"待下单",
+                "3":"已下单",
+                "4":"已到货",
+                "5":"已领料"
+            }
+            $.each(d.materialList,function(index,value){
+                trStr+='<tr>'+
+                    '<td>'+value.material_name+'</td>'+
+                    '<td>'+value.model+'</td>'+
+                    '<td>'+value.sn_num+'</td>'+
+                    '<td>'+value.project_num+'</td>'+
+                    '<td>'+value.number+'</td>'+
+                    '<td>'+value.applicant_date+'</td>'+
+                    '<td>'+value.arrived_on+'</td>'+
+                    '<td>'+statusStr[value.status]+'</td>'+
+                    '</tr>';
+            });
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered">'+
                 '<tr>'+
-                '<td>Full name:</td>'+
-                '<td>'+d.userName+'</td>'+
-                '</tr>'+
-                '<tr>'+
-                '<td>Extension number:</td>'+
-                '<td>'+d.userPhone+'</td>'+
-                '</tr>'+
-                '<tr>'+
-                '<td>Extra info:</td>'+
-                '<td>And any further details here (images etc)...</td>'+
-                '</tr>'+
+                '<td>名称</td>'+
+                '<td>型号</td>'+
+                '<td>sn号</td>'+
+                '<td>项目号</td>'+
+                '<td>数量</td>'+
+                '<td>申请日期</td>'+
+                '<td>到货日期</td>'+
+                '<td>状态</td>'+
+                '</tr>'+trStr+
                 '</table>';
         }
 
