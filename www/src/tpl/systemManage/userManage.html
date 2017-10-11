@@ -12,7 +12,11 @@
                 <button  class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='修改用户信息'" id="updateBtn" style="display: none">
                     <i class="fa fa-pencil-square-o"></i> 修改
                 </button>
+
                 <button  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"  id="deleteBtn" style="display: none">
+
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"  id="deleteBtn" >
+
                     <i class="fa fa-times"></i> 删除
                 </button>
                 </div>
@@ -126,8 +130,12 @@
                         <td >组</td>
                     </tr>
                     <tr ng-repeat="user in usersList">
+
                         <td><input type="checkbox" ng-checked="selectAll"  ng-click="isSelected()" access="{{user.access}}" data_permissions="{{user.data_permissions}}"></td>
 			<td><input type="checkbox" ng-checked="selectAll"  value="{{user.userName}}" ng-click="isSelected(user)" ></td> 
+
+                        <td><input type="checkbox" ng-checked="selectAll"  ng-click="isSelected()" ></td>
+
                         <td>{{$index+1}}</td>
                         <td class="userName">{{user.userName}}</td>
                         <td >{{user.password}}</td>
