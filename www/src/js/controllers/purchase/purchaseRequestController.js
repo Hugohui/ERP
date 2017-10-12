@@ -11,22 +11,30 @@ mainStart
         //生成订单编号
         $('.orderNum').html(billFormat("CGSQ",new Date()));
 
+        //初始化验证
+        $.fn.InitValidator('purchaseReqForm');
+
         //添加物料行
         $scope.addMaterialLine = function () {
             var lineHtml =
                 '<div class="materialListDiv clearfix">'+
                 '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
-                '                        <div><input type="text" class="material_name"/></div>'+
-                '                        <div><input type="text" class="model"/></div>'+
+                '                        <div><input type="text" class="material_name" valType="请输入名称" /></div>'+
+                '                        <div><input type="text" class="model" valType msg="型号不能为空"/></div>'+
                 '                        <div><input type="text" class="sn_num"/></div>'+
                 '                        <div><input type="text" class="project_num"/></div>'+
                 '                        <div><input type="text" class="unit"/></div>'+
-                '                        <div><input type="number" class="number"/></div>'+
+                '                        <div><input type="number" class="number" valType msg="数量不能为空"/></div>'+
                 '                        <div><input type="date" class="expected_date" ></div>'+
                 '                        <div><input type="text" class="remark"/></div>'+
                 '                    </div>';
             var $lineHtml = $compile(lineHtml)($scope);
             $('.addMaterialListDiv').before($lineHtml);
+
+            //清除已有的验证提示信息
+            $('#purchaseReqForm [valType]').hideValidate();
+            //初始化验证
+            $.fn.InitValidator('purchaseReqForm');
         }
 
         //删除物料行
@@ -123,6 +131,12 @@ mainStart
 
         //提交采购申请
         $scope.submitPurchaseReq = function () {
+            var isValidate = beforeSubmit("purchaseReqForm");
+            if(!isValidate){
+                console.log('no');
+                return;
+            }
+            return;
             $scope.materialListArr = [];
             angular.forEach($('.materialListDiv'),function(data){
                 $scope.materialListArr.push(

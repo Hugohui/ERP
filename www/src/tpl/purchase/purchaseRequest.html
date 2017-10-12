@@ -1,7 +1,7 @@
 <div ng-controller="purchaseRequestController" class="app">
     <div class="mainView" >
         <div class="mainViewBody">
-            <form name="purchaseReqForm" novalidate>
+            <div id="purchaseReqForm">
                 <div class="purchaseReqOrder">
                     <div class="title">
                         采购申请单
@@ -21,16 +21,13 @@
                         <div class="materialListDiv clearfix">
                             <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
                             <div>
-                                <input type="text" class="material_name" name="materialName" required/>
-                                <!--<span class="errorTip">
-                                    <span>必填项。</span>
-                                </span>-->
+                                <input type="text" class="material_name" name="materialName" valType="" msg="请输入名称"/>
                             </div>
-                            <div><input type="text" class="model" name="model" required/></div>
+                            <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
                             <div><input type="text" class="sn_num" name="sn_num"/></div>
                             <div><input type="text" class="project_num" name="project_num"/></div>
                             <div><input type="text" class="unit" name="unit"/></div>
-                            <div><input type="number" class="number" name="number" required/></div>
+                            <div><input type="number" class="number" name="number" valType="zNum" msg="数量不能为空"/></div>
                             <div><input type="date" class="expected_date" name="expected_date"/></div>
                             <div><input type="text" class="remark" name="name"/></div>
                         </div>
@@ -86,7 +83,8 @@
                     <span>“<s class="fa fa-asterisk redText"></s>”号项为必填项。</span>
                     <button class="btn btn-primary" ng-click="submitPurchaseReq()">提交</button>
                 </div>
-            </form>
+            </div>
+
         </div>
     </div>
 
