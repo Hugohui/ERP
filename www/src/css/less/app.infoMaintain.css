@@ -1,0 +1,14 @@
+.infoMaintain {
+  width: 100%;
+  border: 1px solid #ccc ;
+  height: 100%;
+}
+.infoMaintain h1 {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.infoMaintain ul {
+  margin-left: 60px;
+  font-size: 20px;
+}

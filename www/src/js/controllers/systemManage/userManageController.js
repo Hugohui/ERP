@@ -11,7 +11,8 @@ mainStart
         //
         $scope.modelTitle="";
 
-        //获取用户列表
+
+            //获取用户列表
         $.ajax({
             type:'POST',
             url:'http://111.204.101.170:11115',
@@ -54,7 +55,25 @@ mainStart
                     }
                 }
             }
-
+            $scope.data = {
+                action:'updateUser',
+                params:{
+                    userName: $scope.userInfo.userName,
+                    password: $scope.userInfo.password,
+                    phone:$scope.userInfo.phone,
+                    access:$scope.userInfo.access,
+                    department:$scope.userInfo.department,
+                    data_permissions:{
+                        contract_number: $scope.userInfo.contract_number || false,
+                        unit_price:$scope.userInfo.unit_price || false,
+                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
+                        money:$scope.userInfo.money || false,
+                        tax_rate:$scope.userInfo.tax_rate|| false,
+                        invoice:$scope.userInfo.invoice|| false,
+                        inventory_position:$scope.userInfo.inventory_position|| false
+                    }
+                }
+            }
             $.ajax({
                 type:'POST',
                 url:'http://111.204.101.170:11115',
@@ -78,6 +97,7 @@ mainStart
             $scope.userInfo.department = tr.find('td').eq(5).text();
             $scope.userInfo.access = tr.find('td input').attr("access");
             $scope.userInfo.data_permissions = $.parseJSON(tr.find('td input').attr("data_permissions"));
+
         });
 
 
