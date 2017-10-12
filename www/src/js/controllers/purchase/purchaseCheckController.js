@@ -45,7 +45,7 @@ mainStart
             $('.purchaseOrderNum').html($('#purchaseBillNum').val());
 
             if(status>1){
-                $('.modal-footer').hide()
+                $('#purchaseModalFooter').hide()
 
                 //获取订单的详细物料数据
                 $.ajax({
@@ -72,7 +72,7 @@ mainStart
                 //下单日期
                 $('.orderDatetime').html(new Date().format("yyyy-MM-dd"));
 
-                $('.modal-footer').show()
+                $('#purchaseModalFooter').show()
 
                 //获取订单的详细物料数据
                 $.ajax({
