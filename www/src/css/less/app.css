@@ -679,6 +679,25 @@ body {
   margin: 0 50px;
   position: relative;
 }
+.purchaseTrackBody .purchaseLine .purchaseLineUl li > .showReasonDiv {
+  display: none;
+  width: 130px;
+  height: 60px;
+  background-color: #fff;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 100;
+  padding: 5px;
+  color: #444;
+  line-height: 16px;
+  font-size: 14px;
+  word-wrap: break-word;
+  text-align: left;
+}
 .purchaseTrackBody .purchaseLine .purchaseLineUl li > span {
   width: 52px;
   height: 10px;

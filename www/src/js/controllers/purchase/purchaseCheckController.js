@@ -44,7 +44,7 @@ mainStart
             //采购申请单号
             $('.purchaseOrderNum').html($('#purchaseBillNum').val());
 
-            if(status>1){
+            if(status>2){
                 $('#purchaseModalFooter').hide()
 
                 //获取订单的详细物料数据

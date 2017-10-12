@@ -29,11 +29,11 @@
                     <td>{{material.applicant}}</td>
                     <td>{{material.created_on}}</td>
                     <td ng-if="roles.role_id<4 || roles.role_id==6">{{material.status == 0?"待审核":material.status == 1?"审核通过":"拒绝申请"}}</td>
-                    <td ng-if="roles.role_id==4 ||roles.role_id==5">{{material.status == 0?"待审批":material.status == 1?"待下单":material.status == 2?"已下单":material.status == 3?"待领料":material.status == 4?"已领料":"已完成"}}</td>
+                    <td ng-if="roles.role_id==4 ||roles.role_id==5">{{material.status == 0?"待审批":material.status == 2?"待下单":material.status == 3?"已下单":material.status == 4?"待领料":material.status == 5?"已领料":"已完成"}}</td>
                     <td>
                         <a href="javascript:;" ng-if="roles.role_id<4 || roles.role_id==6" class="btn btn-default btn-sm" ng-click="viewOrCheck(material.purchase_applicant_id,material.status)">查看/审核</a>
-                        <a href="javascript:;" class="btn btn-default btn-sm" ng-if="roles.role_id==5 && material.status == 1" ng-click="purchaseOrder(material.purchase_applicant_id)">采购下单</a>
-                        <a href="javascript:;" class="btn btn-default btn-sm" ng-if="roles.role_id==5 && material.status > 1" ng-click="purchaseOrder(material.purchase_applicant_id,material.status)">查看</a>
+                        <a href="javascript:;" class="btn btn-default btn-sm" ng-if="roles.role_id==5 && material.status == 2" ng-click="purchaseOrder(material.purchase_applicant_id)">采购下单</a>
+                        <a href="javascript:;" class="btn btn-default btn-sm" ng-if="roles.role_id==5 && material.status > 2" ng-click="purchaseOrder(material.purchase_applicant_id,material.status)">查看</a>
                     </td>
                 </tr>
             </table>

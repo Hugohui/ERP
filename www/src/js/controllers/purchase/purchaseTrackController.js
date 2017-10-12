@@ -12,6 +12,9 @@ mainStart
         var maxScrollHeight = $(window).height() - $('.queryDIv').height()-82;
         $('.purchaseTrackBody').css({height:maxScrollHeight+'px'});
 
+        //绑定时间
+        bendEvents();
+
         //加载初始数据
         var pageNum = 1,//滚动加载自动更新页码
             limitNum = 6,//每次加载的数量
@@ -49,8 +52,12 @@ mainStart
          */
         function loadPurchaseTrack(){
             var classObj ={//审核结果类名
-             "-1":"purchaseFailure",//拒绝
+                "-1":"purchaseFailure",//拒绝
                 "1":"purchaseReqSuccess",//通过
+                "2":"purchaseReqSuccess",//通过
+                "3":"purchaseReqSuccess",//通过
+                "4":"purchaseReqSuccess",//通过
+                "5":"purchaseReqSuccess"//通过
                 },
                 resultStr ={//订单结果
                 "-1":"拒绝申请",
@@ -96,6 +103,7 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.personal.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.group_leader.status]+'">'+
+                                    '                        <p class="showReasonDiv">拒绝理由：'+value.group_leader.reason+'</p>'+
                                     '                        室组经理'+
                                     '                        <span class="preFlowSpan '+classObj[value.group_leader.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.group_leader.status]+'"></span>'+
@@ -103,6 +111,7 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.group_leader.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.department.status]+'">'+
+                                    '                        <p class="showReasonDiv">拒绝理由：'+value.department.reason+'</p>'+
                                     '                        部长'+
                                     '                        <span class="preFlowSpan '+classObj[value.department.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.department.status]+'"></span>'+
@@ -110,6 +119,7 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.department.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.manager.status]+'">'+
+                                    '                        <p class="showReasonDiv">拒绝理由：'+value.manager.reason+'</p>'+
                                     '                        总经理'+
                                     '                        <span class="preFlowSpan '+classObj[value.manager.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.manager.status]+'"></span>'+
@@ -141,5 +151,19 @@ mainStart
                     }
                 }
             })
+        }
+
+        /**
+         * 时间绑定
+         */
+        function bendEvents(){
+            $('.purchaseTrackBody').on('mouseenter','li',function(){
+                if($(this).hasClass('purchaseFailure')){
+                    $(this).find('.showReasonDiv').show();
+                }
+            });
+            $('.purchaseTrackBody').on('mouseleave','li',function(){
+                    $(this).find('.showReasonDiv').hide();
+            });
         }
     }]);
