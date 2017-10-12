@@ -12,24 +12,22 @@
                     <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
-            <div class="tableContent" >
-                <table id="userTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
-                    <tr >
-                        <td>序号</td>
-                        <td>日期</td>
-                        <td class="userName">姓名</td>
-                        <td >操作类型</td>
-                        <td >IP</td>
-                    </tr>
-                    <tr ng-repeat="days in daysList">
-                        <td>{{$index+1}}</td>
-                        <td >{{days.operateDate}}</td>
-                        <td >{{days.operator}}</td>
-                        <td >{{days.type}}</td>
-                        <td >{{days.ip}}</td>
-                    </tr>
-                </table>
-            </div>
+        </div>
+        <div class="tableContent" >
+            <table id="operationTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                <tr >
+                    <td>日期</td>
+                    <td>姓名</td>
+                    <td>操作类型</td>
+                    <td>IP</td>
+                </tr>
+                <tr ng-repeat="days in daysList">
+                    <td >{{days.operateDate}}</td>
+                    <td >{{days.operator}}</td>
+                    <td >{{days.type}}</td>
+                    <td >{{days.ip}}</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div ng-include="'tpl/blocks/footer.html'"></div>

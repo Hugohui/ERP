@@ -2,7 +2,34 @@
     <div ng-include="'tpl/blocks/header.html'"class="header"></div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
     <div class="mainView">
-        <h1>退料申请</h1>
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                <div class="searchGroup">
+                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
+                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                </div>
+            </div>
+        </div>
+        <div class="tableContent" >
+            <table id="returnGoodsTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                <tr >
+                    <td>退料申请单号</td>
+                    <td>申请人</td>
+                    <td>申请时间</td>
+                    <td>状态</td>
+                    <td>操作</td>
+                </tr>
+                <tr ng-repeat="returns in returnsList">
+                    <td >{{returns.material_requisition_id}}</td>
+                    <td >{{returns.applicant}}</td>
+                    <td >{{returns.applicant_date}}</td>
+                    <td ><button type="button" class="btn btn-default btn-xs ">查看/打印</button></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>
