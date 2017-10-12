@@ -2,9 +2,6 @@
 <div ng-controller="loginController">
     <form novalidate name="loginForm">
         <input type="text" ng-model="user.name" name="inpName" required/>
-        <div ng-message="required">
-            必填
-        </div>
         <input type="text" ng-model="user.pwd" name="inpPwd"/>
         <input type="button" ng-click="loginOk()" value="登录"/>
     </form>

@@ -2,8 +2,7 @@
 mainStart
     .controller('userManageController',['$scope','$rootScope','$localStorage','$http',function($scope,$rootScope,$localStorage,$http){
         $scope.userInfo={};
-        $scope.isUpdateShow = false;
-        $scope.isDeleteShow = false;
+
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //获取角色信息
@@ -12,7 +11,7 @@ mainStart
         $scope.modelTitle="";
 
 
-            //获取用户列表
+        //获取用户列表
         $.ajax({
             type:'POST',
             url:'http://111.204.101.170:11115',
@@ -28,10 +27,35 @@ mainStart
             dataType: 'jsonp',
             jsonp : "callback",
             success:function(data){
-              $scope.usersList=data.resData.data;
+                $scope.usersList=data.resData.data;
                 console.log(data);
+                $scope.$apply();
             }
         })
+
+        //封装刷新页面的方法
+        function update(){
+           $.ajax({
+               type:'POST',
+               url:'http://111.204.101.170:11115',
+               data:{
+                   action:"usersList",
+                   params:{
+                       limit:"10",
+                       start:"0",
+                       page:"1",
+                       queryData:""
+                   }
+               },
+               dataType: 'jsonp',
+               jsonp : "callback",
+               success:function(data){
+                   $scope.usersList=data.resData.data;
+                   console.log(data);
+                   $scope.$apply();
+               }
+           })
+       }
 
         /*添加用户信息、修改用户信息*/
         $scope.okAddAndUpdata=function(){
@@ -55,25 +79,7 @@ mainStart
                     }
                 }
             }
-            $scope.data = {
-                action:'updateUser',
-                params:{
-                    userName: $scope.userInfo.userName,
-                    password: $scope.userInfo.password,
-                    phone:$scope.userInfo.phone,
-                    access:$scope.userInfo.access,
-                    department:$scope.userInfo.department,
-                    data_permissions:{
-                        contract_number: $scope.userInfo.contract_number || false,
-                        unit_price:$scope.userInfo.unit_price || false,
-                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
-                        money:$scope.userInfo.money || false,
-                        tax_rate:$scope.userInfo.tax_rate|| false,
-                        invoice:$scope.userInfo.invoice|| false,
-                        inventory_position:$scope.userInfo.inventory_position|| false
-                    }
-                }
-            }
+
             $.ajax({
                 type:'POST',
                 url:'http://111.204.101.170:11115',
@@ -82,10 +88,11 @@ mainStart
                 jsonp : "callback",
                 jsonpCallback:"success_jsonpCallback",
                 success:function(data){
-                    console.log(data)
+                    console.log(data);
+                    update();
                 }
             })
-            window.location.reload()
+
         };
 
         //修改用户
@@ -97,6 +104,39 @@ mainStart
             $scope.userInfo.department = tr.find('td').eq(5).text();
             $scope.userInfo.access = tr.find('td input').attr("access");
             $scope.userInfo.data_permissions = $.parseJSON(tr.find('td input').attr("data_permissions"));
+            $scope.okAddAndUpdata=function(){
+                $scope.data = {
+                    action:'updateUser',
+                    params:{
+                        userName: $scope.userInfo.userName,
+                        password: $scope.userInfo.password,
+                        phone:$scope.userInfo.phone,
+                        access:$scope.userInfo.access,
+                        department:$scope.userInfo.department,
+                        data_permissions:{
+                            contract_number: $scope.userInfo.contract_number || false,
+                            unit_price:$scope.userInfo.unit_price || false,
+                            inventory_quantity:$scope.userInfo.inventory_quantity || false,
+                            money:$scope.userInfo.money || false,
+                            tax_rate:$scope.userInfo.tax_rate|| false,
+                            invoice:$scope.userInfo.invoice|| false,
+                            inventory_position:$scope.userInfo.inventory_position|| false
+                        }
+                    }
+                }
+                $.ajax({
+                    type:'POST',
+                    url:'http://111.204.101.170:11115',
+                    data:$scope.data,
+                    dataType: 'jsonp',
+                    jsonp : "callback",
+                    jsonpCallback:"success_jsonpCallback",
+                    success:function(data){
+                        console.log(data)
+                        update();
+                    }
+                })
+            }
 
         });
 
@@ -113,7 +153,6 @@ mainStart
 
              }
          })
-             window.location.reload()
 
          console.log(userArr);
 
@@ -131,7 +170,7 @@ mainStart
              jsonp : "callback",
              jsonpCallback:"success_jsonpCallback",
              success:function(data){
-
+                 update();
              }
          })
 

@@ -5,20 +5,20 @@ mainStart
         $scope.roles = $localStorage.roles;
         //获取角色信息
         $scope.user = $localStorage.user;
-        $.ajax({
-            type:'POST',
-            url:'http://111.204.101.170:11115',
-            data:{
-                action:"operationLog",
-                params:{
-                    queryData:""
-                }
-            },
-            dataType: 'jsonp',
-            jsonp : "callback",
-            success:function(data){
-                $scope.daysList=data.resData.data;
-                console.log(data);
-            }
-        })
+        //$.ajax({
+        //    type:'POST',
+        //    url:'http://111.204.101.170:11115',
+        //    data:{
+        //        action:"operationLog",
+        //        params:{
+        //            queryData:""
+        //        }
+        //    },
+        //    dataType: 'jsonp',
+        //    jsonp : "callback",
+        //    success:function(data){
+        //        $scope.daysList=data.resData.data;
+        //        console.log(data);
+        //    }
+        //})
     }]);
