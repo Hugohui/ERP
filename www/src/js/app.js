@@ -7,5 +7,6 @@ angular.module('mainStart', [
     'ui.load',
     'ui.bootstrap',
     'oc.lazyLoad',
-    'toastr'
+    'toastr',
+    'ngMessages'
 ]);
