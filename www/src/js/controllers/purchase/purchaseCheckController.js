@@ -125,6 +125,7 @@ mainStart
                 data:{
                     action:"commitOrder",
                     params:{
+                        userName:$scope.user.name,
                         created_on:$('.orderDatetime').html(),
                         contract_num:$('.contract_num').val(),
                         purchase_applicant_id:$('#purchaseBillNum').val(),
@@ -139,6 +140,10 @@ mainStart
                         toastr.success(data.resData.msg);
                         loadCheckList();//重新加载数据
                         $('#purchaseModal').hide();//隐藏模态框
+
+                        //重新设置当前用户其他未审核信息
+                        $localStorage.sendMessage = data.resData.sendMessage;
+                        $scope.sendMessage = data.resData.sendMessage;
                     }else{
                         toastr.error(data.resData.msg);
                     }

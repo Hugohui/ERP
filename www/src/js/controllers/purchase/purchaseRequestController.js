@@ -108,14 +108,15 @@ mainStart
         //选中审批人
         $scope.selectPurchaseName = function($event){
             if($scope.choseCheckPeopleTitle == "选择室组经理"){
-                $('.groupLeaderName').show().html($($event.target).find('.selectName').html()).siblings().remove();
-                $('.groupLeaderNameInp').val($($event.target).find('.selectName').html());
+                console.log($($event.currentTarget).find('.selectName').html());
+                $('.groupLeaderName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                $('.groupLeaderNameInp').val($($event.currentTarget).find('.selectName').html());
             }else if($scope.choseCheckPeopleTitle == "选择室部长"){
-                $('.departmentName').show().html($($event.target).find('.selectName').html()).siblings().remove();
-                $('.departmentNameInp').val($($event.target).find('.selectName').html());
+                $('.departmentName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                $('.departmentNameInp').val($($event.currentTarget).find('.selectName').html());
             }else{
-                $('.managerName').html($($event.target).find('.selectName').html()).siblings().remove();
-                $('.managerNameInp').val($($event.target).find('.selectName').html());
+                $('.managerName').html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                $('.managerNameInp').val($($event.currentTarget).find('.selectName').html());
             }
             $('#choseCheckPeopleModal').modal('hide');
         }

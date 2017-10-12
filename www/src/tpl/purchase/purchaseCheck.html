@@ -142,7 +142,7 @@
                             </tr>
                             <tr ng-repeat="material in materialList">
                                 <td>
-                                    <input ng-if="material.material_code == undefined" type="text" required class="material_code" placeholder="必填项"/>
+                                    <input ng-if="material.material_code == undefined" type="text" required class="material_code" placeholder="必填"/>
                                     <span ng-if="material.material_code != undefined">{{material.material_code}}</span>
                                 </td>
                                 <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
