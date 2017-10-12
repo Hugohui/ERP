@@ -132,7 +132,12 @@ mainStart
         $scope.checkOk = function(){
             var billNum,reason;
             billNum = $('#billNum').val();
-            reason = $('#reasonText').is(':visible')?$('#reasonText').val():'';
+            //拒绝理由不能为空
+            if($('#reasonText').is(':visible') && $('#reasonText').val().trim() == ''){
+                toastr.warning('请填写拒绝申请理由！');
+                return;
+            }
+            reason = $('#reasonText').val();
             $.ajax({
                 type:'POST',
                 url:'http://111.204.101.170:11115',
