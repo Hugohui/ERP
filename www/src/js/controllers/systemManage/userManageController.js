@@ -2,6 +2,8 @@
 mainStart
     .controller('userManageController',['$scope','$rootScope','$localStorage','$http',function($scope,$rootScope,$localStorage,$http){
         $scope.userInfo={};
+        $scope.isUpdateShow = false;
+        $scope.isDeleteShow = false;
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //获取角色信息
@@ -9,9 +11,7 @@ mainStart
         //
         $scope.modelTitle="";
 
-        /*
-        *用户列表
-        */
+        //获取用户列表
         $.ajax({
             type:'POST',
             url:'http://111.204.101.170:11115',
@@ -66,30 +66,20 @@ mainStart
                     console.log(data)
                 }
             })
+            window.location.reload()
         };
 
         //修改用户
-        $("#update").click(function(){
-            var  tr = $("#userTable").find("input:checked").parent().parent();
+        $("#updateBtn").click(function(){
+            var tr = $("#userTable").find("input:checked").parent().parent();
             $scope.userInfo.userName = tr.find('td').eq(2).text();
             $scope.userInfo.password = tr.find('td').eq(3).text();
             $scope.userInfo.phone = tr.find('td').eq(4).text();
             $scope.userInfo.department = tr.find('td').eq(5).text();
             $scope.userInfo.access = tr.find('td input').attr("access");
             $scope.userInfo.data_permissions = $.parseJSON(tr.find('td input').attr("data_permissions"));
+        });
 
-            console.log($scope.userInfo.data_permissions )
-        })
-
-
-
-        /*用户列表复选框*/
-        $scope.selectAll=false;
-        $scope.selectAllClick= function (sa) {
-            for(var i=0;i<$scope.usersList.length;i++){
-                $scope.usersList[i].checked=sa;
-            }
-        };
 
         //删除选择用户
          $scope.deleteStu= function (){
@@ -103,6 +93,7 @@ mainStart
 
              }
          })
+             window.location.reload()
 
          console.log(userArr);
 
@@ -125,7 +116,27 @@ mainStart
          })
 
      };
-        //按钮的显示与隐藏
 
+
+        //按钮的显示与隐藏
+        $scope.isSelected=function(){
+            var arr = []
+            $('#userTable input[type="checkbox"]').each(function(i, v) {
+                if($(v).is(':checked')) {
+                    arr.push('')
+                }
+            });
+            $scope.isDeleteShow = arr.length > 0;
+            $scope.isUpdateShow = arr.length === 1;
+
+        };
+
+        //用户列表复选框
+        $scope.selectAll=false;
+        $scope.selectAllClick= function (sa) {
+            for(var i=0;i<$scope.usersList.length;i++){
+                $scope.usersList[i].checked=sa;
+            }
+        };
 
     }]);

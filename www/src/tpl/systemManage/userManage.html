@@ -9,10 +9,10 @@
                 <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='添加用户'">
                     <i class="fa fa-plus"></i> 添加
                 </button>
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='修改用户信息'" id="update" >
+                <button ng-show="isUpdateShow" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ng-click="modelTitle='修改用户信息'" id="updateBtn" >
                     <i class="fa fa-pencil-square-o"></i> 修改
                 </button>
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"  id="deleteBtn" >
+                <button ng-show="isDeleteShow" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"  id="deleteBtn" >
                     <i class="fa fa-times"></i> 删除
                 </button>
                 </div>
@@ -52,25 +52,25 @@
                                 <hr/>
                                 <h5>数据权限</h5><br/>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox1" value="option1"  ng-checked="userInfo.data_permissions.contract_number == 'true'"> 合同号
+                                       <input type="checkbox" id="inlineCheckbox1" value="option1"  ng-checked="userInfo.data_permissions.contract_number == 'true'" ng-model="userInfo.contract_number"> 合同号
                                    </label>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox2" value="option2"  ng-checked="userInfo.data_permissions.unit_price== 'true'"> 单价
+                                       <input type="checkbox" id="inlineCheckbox2" value="option2"  ng-checked="userInfo.data_permissions.unit_price== 'true'" ng-model="userInfo.unit_price"> 单价
                                    </label>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox3" value="option3"  ng-checked="userInfo.data_permissions.inventory_quantity== 'true'"> 库存数量
+                                       <input type="checkbox" id="inlineCheckbox3" value="option3"  ng-checked="userInfo.data_permissions.inventory_quantity== 'true'" ng-model="userInfo.inventory_quantity"> 库存数量
                                    </label>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox4" value="option4"  ng-checked="userInfo.data_permissions.money== 'true'"> 金额
+                                       <input type="checkbox" id="inlineCheckbox4" value="option4"  ng-checked="userInfo.data_permissions.money== 'true'" ng-model="userInfo.money"> 金额
                                    </label>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox5" value="option5"  ng-checked="userInfo.data_permissions.tax_rate== 'true'"> 税率
+                                       <input type="checkbox" id="inlineCheckbox5" value="option5"  ng-checked="userInfo.data_permissions.tax_rate== 'true'" ng-model="userInfo.tax_rate"> 税率
                                    </label>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox6" value="option6"  ng-checked="userInfo.data_permissions.invoice== 'true'"> 发票
+                                       <input type="checkbox" id="inlineCheckbox6" value="option6"  ng-checked="userInfo.data_permissions.invoice== 'true'" ng-model="userInfo.invoice"> 发票
                                    </label>
                                    <label class="checkbox-inline">
-                                       <input type="checkbox" id="inlineCheckbox7" value="option7"  ng-checked="userInfo.data_permissions.inventory_position== 'true'"> 库存位置
+                                       <input type="checkbox" id="inlineCheckbox7" value="option7"  ng-checked="userInfo.data_permissions.inventory_position== 'true'" ng-model="userInfo.inventory_position"> 库存位置
                                    </label>
                             </div>
                             <div class="modal-footer">
@@ -97,7 +97,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu()">确定</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu()" id="okdeleteBtn">确定</button>
                             </div>
                         </div>
                     </div>
