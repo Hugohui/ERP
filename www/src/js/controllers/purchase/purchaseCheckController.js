@@ -38,36 +38,61 @@ mainStart
         }
 
         /*获取采购单数据填写*/
-        $scope.purchaseOrder = function(purchaseBillNum){
+        $scope.purchaseOrder = function(purchaseBillNum,status){
+            //保存采购申请单号
             $('#purchaseBillNum').val(purchaseBillNum);
-
-            //生成订单编号
-            $('.orderNum').html(billFormat("CGDD",new Date()));
-
             //采购申请单号
             $('.purchaseOrderNum').html($('#purchaseBillNum').val());
 
-            //下单日期
-            $('.orderDatetime').html(new Date().format("yyyy-MM-dd"));
+            if(status>1){
+                $('.modal-footer').hide()
 
-            $('#purchaseModal').modal('show');
-            //获取订单的详细物料数据
-            $.ajax({
-                type:'POST',
-                url:'http://111.204.101.170:11115',
-                data:{
-                    action:"getMaterialList",
-                    params:{
-                        purchase_applicant_id:$('#purchaseBillNum').val()
+                //获取订单的详细物料数据
+                $.ajax({
+                    type:'POST',
+                    url:'http://111.204.101.170:11115',
+                    data:{
+                        action:"viewMaterialList",
+                        params:{
+                            purchase_applicant_id:$('#purchaseBillNum').val()
+                        }
+                    },
+                    dataType: 'jsonp',
+                    jsonp : "callback",
+                    success:function(data){
+                        $scope.orderInfo = data.resData.data[0];
+                        $scope.materialList=data.resData.data.materialList;
+                        $scope.$apply();
                     }
-                },
-                dataType: 'jsonp',
-                jsonp : "callback",
-                success:function(data){
-                    $scope.materialList=data.resData.data;
-                    $scope.$apply();
-                }
-            })
+                })
+            }else{
+                //生成订单编号
+                $('.orderNum').html(billFormat("CGDD",new Date()));
+
+                //下单日期
+                $('.orderDatetime').html(new Date().format("yyyy-MM-dd"));
+
+                $('.modal-footer').show()
+
+                //获取订单的详细物料数据
+                $.ajax({
+                    type:'POST',
+                    url:'http://111.204.101.170:11115',
+                    data:{
+                        action:"getMaterialList",
+                        params:{
+                            purchase_applicant_id:$('#purchaseBillNum').val()
+                        }
+                    },
+                    dataType: 'jsonp',
+                    jsonp : "callback",
+                    success:function(data){
+                        $scope.materialList=data.resData.data;
+                        $scope.$apply();
+                    }
+                })
+            }
+            $('#purchaseModal').modal('show');
         }
 
         /*确定采购下单*/
@@ -112,6 +137,8 @@ mainStart
                 success:function(data){
                     if(data.resData.result == 0){
                         toastr.success(data.resData.msg);
+                        loadCheckList();//重新加载数据
+                        $('#purchaseModal').hide();//隐藏模态框
                     }else{
                         toastr.error(data.resData.msg);
                     }
@@ -194,6 +221,7 @@ mainStart
                 dataType: 'jsonp',
                 jsonp : "callback",
                 success:function(data){
+                    console.log(data);
                     $scope.purchaseList=data.resData.data;
                     $scope.$apply();
                 }

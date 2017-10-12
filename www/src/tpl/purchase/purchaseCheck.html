@@ -33,6 +33,7 @@
                     <td>
                         <a href="javascript:;" ng-if="roles.role_id<4 || roles.role_id==6" class="btn btn-default btn-sm" ng-click="viewOrCheck(material.purchase_applicant_id,material.status)">查看/审核</a>
                         <a href="javascript:;" class="btn btn-default btn-sm" ng-if="roles.role_id==5 && material.status == 1" ng-click="purchaseOrder(material.purchase_applicant_id)">采购下单</a>
+                        <a href="javascript:;" class="btn btn-default btn-sm" ng-if="roles.role_id==5 && material.status > 1" ng-click="purchaseOrder(material.purchase_applicant_id,material.status)">查看</a>
                     </td>
                 </tr>
             </table>
@@ -112,10 +113,13 @@
                     <div class="tableDiv">
                         <div class="tableInfoDiv">
                             <ul class="tableInfoUl">
-                                <li>下单日期：<span class="orderDatetime"></span></li>
-                                <li>合同号：<input type="text" class="contract_num"/></li>
+                                <li>下单日期：<span class="orderDatetime">{{orderInfo.created_on.split(' ')[0]}}</span></li>
+                                <li>合同号：
+                                    <input ng-if="orderInfo == undefined" type="text" class="contract_num"/>
+                                    <span>{{orderInfo.contract_num}}</span>
+                                </li>
                                 <li>采购申请单号：<span class="purchaseOrderNum"></span></li>
-                                <li>订单编号：<span class="orderNum"></span></li>
+                                <li>订单编号：<span class="orderNum">{{orderInfo.purchase_order_id}}</span></li>
                             </ul>
                         </div>
                         <table class="table-bordered table-condensed" cellspacing="0" width="100%">
@@ -138,22 +142,44 @@
                             </tr>
                             <tr ng-repeat="material in materialList">
                                 <td>
-                                    <input type="text" required class="material_code"/>
+                                    <input ng-if="material.material_code == undefined" type="text" required class="material_code" placeholder="必填项"/>
+                                    <span ng-if="material.material_code != undefined">{{material.material_code}}</span>
                                 </td>
-                                <td title="0011231245" class="material_name">{{material.material_name}}</td>
-                                <td title="123456" class="model">{{material.model}}</td>
-                                <td title="123456" class="sn_num">{{material.sn_num}}</td>
-                                <td><input type="text" class="supplier_num"/></td>
-                                <td><input type="text" class="supplier"/></td>
-                                <td title="123456" class="project_num">{{material.project_num}}</td>
-                                <td title="123456" class="unit">{{material.unit}}</td>
-                                <td><input type="text" class="unit_price"/></td>
+                                <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
+                                <td title="{{material.model}}" class="model">{{material.model}}</td>
+                                <td title="{{material.sn_num}}" class="sn_num">{{material.sn_num}}</td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="supplier_num"/>
+                                    <span ng-if="material.material_code != undefined">{{material.supplier_num}}</span>
+                                </td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="supplier"/>
+                                    <span ng-if="material.material_code != undefined">{{material.supplier}}</span>
+                                </td>
+                                <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
+                                <td title="{{material.unit}}" class="unit">{{material.unit}}</td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="unit_price"/>
+                                    <span ng-if="material.material_code != undefined">{{material.unit_price}}</span>
+                                </td>
                                 <td title="{{material.number}}" class="number">{{material.number}}</td>
-                                <td><input type="text" class="total_price"/></td>
-                                <td><input type="text" class="rate"/></td>
-                                <td><input type="text" class="invoice"/></td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="total_price"/>
+                                    <span ng-if="material.material_code != undefined">{{material.total_price}}</span>
+                                </td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="rate"/>
+                                    <span ng-if="material.material_code != undefined">{{material.rate}}</span>
+                                </td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="invoice"/>
+                                    <span ng-if="material.material_code != undefined">{{material.invoice}}</span>
+                                </td>
                                 <td title="{{material.remark}}" class="remark">{{material.remark}}</td>
-                                <td><input type="text" class="batch"/></td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="batch"/>
+                                    <span ng-if="material.material_code != undefined">{{material.batch}}</span>
+                                </td>
                             </tr>
                         </table>
                     </div>
