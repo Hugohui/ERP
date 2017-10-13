@@ -19,7 +19,7 @@ mainStart
             var lineHtml =
                 '<div class="materialListDiv clearfix">'+
                 '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
-                '                        <div><input type="text" class="material_name" valType="请输入名称" /></div>'+
+                '                        <div><input type="text" class="material_name" valType msg="请输入名称"/></div>'+
                 '                        <div><input type="text" class="model" valType msg="型号不能为空"/></div>'+
                 '                        <div><input type="text" class="sn_num"/></div>'+
                 '                        <div><input type="text" class="project_num"/></div>'+
