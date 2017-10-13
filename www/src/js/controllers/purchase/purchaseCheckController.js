@@ -111,6 +111,8 @@ mainStart
                         unit:$(value).find('.unit').html(),
                         unit_price:$(value).find('.unit_price').val(),
                         number:$(value).find('.number').html(),
+                        brand:$(value).find('.brand').val(),
+                        manufactor:$(value).find('.manufactor').val(),
                         total_price:$(value).find('.total_price').val(),
                         rate:$(value).find('.rate').val(),
                         invoice:$(value).find('.invoice').val(),

@@ -9,13 +9,13 @@ mainStart
         $scope.user = $localStorage.user;
 
         //加载采购历史数据
-        initUsersTable();
+        initPurchaseHistoryTable();
 
         /**
          * 采购历史数据
          */
-        var userTable;
-        function initUsersTable() {
+        var purchaseHistoryTable;
+        function initPurchaseHistoryTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
             var lang = {
                 "sProcessing": "处理中...",
@@ -44,7 +44,7 @@ mainStart
             };
 
             //初始化表格
-            userTable = $("#purchaseHistoryTable").dataTable({
+            purchaseHistoryTable = $("#purchaseHistoryTable").dataTable({
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
@@ -121,7 +121,7 @@ mainStart
 
         $('#purchaseHistoryTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
-            var row = userTable.row( tr );
+            var row = purchaseHistoryTable.row( tr );
             if ( row.child.isShown() ) {
                 row.child.hide();
                 $(this).removeClass('fa-minus-square  red').addClass('fa-plus-square');//按钮变化
