@@ -1,6 +1,11 @@
 $.sidebarMenu = function(menu) {
     var animationSpeed = 300;
     $(menu).on('click', 'li a', function(e) {
+
+        //隐藏验证的信息提示
+        $('.tip-yellowsimple') && $('.tip-yellowsimple').hide();
+        $('[valType]') && $('[valType]').hasClass('wrong-msg')&&$('[valType]').removeClass('wrong-msg');
+
         //被点击的a
         var $this = $(this);
         //同级ul
