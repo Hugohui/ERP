@@ -133,10 +133,17 @@ mainStart
         $scope.submitPurchaseReq = function () {
             var isValidate = beforeSubmit("purchaseReqForm");
             if(!isValidate){
-                console.log('no');
+                return;
+            }else if($('.groupLeaderNameInp').val() == ''){
+                toastr.warning('请选择室组经理！');
+                return;
+            }else if($('.departmentNameInp').val() == ''){
+                toastr.warning('请选择部长！');
+                return;
+            }else if($('.managerNameInp').val() == ''){
+                toastr.warning('请选择总经理！');
                 return;
             }
-            return;
             $scope.materialListArr = [];
             angular.forEach($('.materialListDiv'),function(data){
                 $scope.materialListArr.push(
@@ -179,6 +186,4 @@ mainStart
                 }
             });
         }
-
-    }])
-;
+    }]);
