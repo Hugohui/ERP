@@ -12,6 +12,8 @@ mainStart
         $('.orderNum').html(billFormat("CGSQ",new Date()));
 
         //初始化验证
+        //清除已有的验证提示信息
+        $('#purchaseReqForm [valType]').hideValidate();
         $.fn.InitValidator('purchaseReqForm');
 
         //添加物料行
