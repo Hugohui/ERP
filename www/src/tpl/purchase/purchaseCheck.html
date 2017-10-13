@@ -134,6 +134,8 @@
                                 <td>单位</td>
                                 <td>单价</td>
                                 <td>数量</td>
+                                <td>品牌</td>
+                                <td>厂家</td>
                                 <td>金额</td>
                                 <td>税率</td>
                                 <td>发票</td>
@@ -163,6 +165,14 @@
                                     <span ng-if="material.material_code != undefined">{{material.unit_price}}</span>
                                 </td>
                                 <td title="{{material.number}}" class="number">{{material.number}}</td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="brand"/>
+                                    <span ng-if="material.material_code != undefined">{{material.brand}}</span>
+                                </td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="manufactor"/>
+                                    <span ng-if="material.material_code != undefined">{{material.manufactor}}</span>
+                                </td>
                                 <td>
                                     <input ng-if="material.material_code == undefined" type="text" class="total_price"/>
                                     <span ng-if="material.material_code != undefined">{{material.total_price}}</span>

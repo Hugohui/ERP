@@ -1,6 +1,33 @@
 .depotInputBody{
   margin-top: 10px;
-  table{
-    text-align: center;
+  .depotInputTableDiv{
+    position: relative;
+    table{
+      text-align: center;
+      input[type="text"]{
+        width: 100%;
+        border: none;
+      }
+      .topCheckInput{
+        margin-left: 10px;
+      }
+      s {
+        cursor: pointer;
+        color: green;
+        &.red {
+          color: #cd0a0a;
+        }
+      }
+    }
+    .handleDepotDiv{
+      z-index: 100;
+      position: absolute;
+      top: -5px;
+      right: 0;
+      padding-right: 10px;
+      button{
+        font-weight: 700;
+      }
+    }
   }
 }

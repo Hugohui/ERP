@@ -1,8 +1,8 @@
 {
     "total":1,
     "data":[
-        {"userName":"CGSQ201710101015","userPwd":"CGDD201710121012","userRegisterTime":"张三","materialList":[{"material_name":"电脑","model":"dn001","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"2"},{"material_name":"电脑","model":"dn002","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"3"}]},
-        {"userName":"CGSQ201710101016","userPwd":"CGDD201710121012","userRegisterTime":"李四","materialList":[{"material_name":"电脑","model":"dn001","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"2"}]},
-        {"userName":"CGSQ201710101017","userPwd":"CGDD201710121012","userRegisterTime":"王五","materialList":[{"material_name":"电脑","model":"dn001","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"2"}]}
+        {"userName":"CGSQ201710101015","userPwd":"CGDD201710121012","ht":"CGDD201710121012","userRegisterTime":"张三","materialList":[{"material_name":"电脑","model":"dn001","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"2"},{"material_name":"电脑","model":"dn002","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"3"}]},
+        {"userName":"CGSQ201710101016","userPwd":"CGDD201710121012","ht":"CGDD201710121012","userRegisterTime":"李四","materialList":[{"material_name":"电脑","model":"dn001","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"2"}]},
+        {"userName":"CGSQ201710101017","userPwd":"CGDD201710121012","ht":"CGDD201710121012","userRegisterTime":"王五","materialList":[{"material_name":"电脑","model":"dn001","sn_num":"001","project_num":"001","number":"12","applicant_date":"2017-10-12","arrived_on":"2017-10-13","status":"2"}]}
     ]
 }

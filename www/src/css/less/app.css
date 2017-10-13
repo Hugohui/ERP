@@ -895,8 +895,35 @@ body {
 .depotInputBody {
   margin-top: 10px;
 }
-.depotInputBody table {
+.depotInputBody .depotInputTableDiv {
+  position: relative;
+}
+.depotInputBody .depotInputTableDiv table {
   text-align: center;
+}
+.depotInputBody .depotInputTableDiv table input[type="text"] {
+  width: 100%;
+  border: none;
+}
+.depotInputBody .depotInputTableDiv table .topCheckInput {
+  margin-left: 10px;
+}
+.depotInputBody .depotInputTableDiv table s {
+  cursor: pointer;
+  color: green;
+}
+.depotInputBody .depotInputTableDiv table s.red {
+  color: #cd0a0a;
+}
+.depotInputBody .depotInputTableDiv .handleDepotDiv {
+  z-index: 100;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  padding-right: 10px;
+}
+.depotInputBody .depotInputTableDiv .handleDepotDiv button {
+  font-weight: 700;
 }
 /*ϵͳ����*/
 #modal-content-usermanage {
