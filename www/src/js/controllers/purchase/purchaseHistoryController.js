@@ -82,15 +82,12 @@ mainStart
                         dataType: 'jsonp',
                         jsonp: "callback",
                         success: function (result) {
-
-                            console.log(result);
-
                             //封装返回数据
                             var returnData = {};
                             returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
-                            returnData.recordsTotal = result.total;//返回数据全部记录
-                            returnData.recordsFiltered = result.total;//后台不实现过滤功能，每次查询均视作全部结果
-                            returnData.data = result.data;//返回的数据列表
+                            returnData.recordsTotal = result.resData.total;//返回数据全部记录
+                            returnData.recordsFiltered = result.resData.total;//后台不实现过滤功能，每次查询均视作全部结果
+                            returnData.data = result.resData.data;//返回的数据列表
                             callback(returnData);
                         }
                     });
@@ -107,15 +104,15 @@ mainStart
                         "width":50
                     },
                     {
-                        "data": "userName",
+                        "data": "purchase_applicant_id",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "userPwd",
+                        "data": "purchase_order_id",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "userRegisterTime",
+                        "data": "applicant",
                         "sClass": "text-center"
                     }
                 ]
@@ -147,15 +144,21 @@ mainStart
                 "5":"已领料"
             }
             $.each(d.materialList,function(index,value){
-                trStr+='<tr>'+
+
+                //到货日期
+                var arrived_on = value.arrived_on?value.arrived_on:'';
+                //货物状态
+                var status =statusStr[value.status]?statusStr[value.status]:'';
+
+                    trStr+='<tr>'+
                     '<td>'+value.material_name+'</td>'+
                     '<td>'+value.model+'</td>'+
                     '<td>'+value.sn_num+'</td>'+
                     '<td>'+value.project_num+'</td>'+
                     '<td>'+value.number+'</td>'+
-                    '<td>'+value.applicant_date+'</td>'+
-                    '<td>'+value.arrived_on+'</td>'+
-                    '<td>'+statusStr[value.status]+'</td>'+
+                    '<td>'+value.expected_date+'</td>'+
+                    '<td>'+arrived_on+'</td>'+
+                    '<td>'+status+'</td>'+
                     '</tr>';
             });
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered">'+
