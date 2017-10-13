@@ -8,10 +8,13 @@ mainStart
         //获取角色信息
         $scope.user = $localStorage.user;
 
+        //获取采购入库列表
        initDepotInputTable();
 
+        $.fn.InitValidator('depotInputTableDiv');
+
         /**
-         * 采购历史数据
+         * 采购入库列表
          */
         var depotInputTable;
         function initDepotInputTable() {
@@ -58,7 +61,7 @@ mainStart
                 pagingType: "full_numbers",  //分页样式：simple,simple_numbers,full,full_numbers
                 columnDefs: [
                     {
-                        "targets": [0, 1, 2, 3],
+                        "targets": [0, 1, 2, 3,4],
                         "orderable": false
                     }
                 ],
@@ -135,6 +138,13 @@ mainStart
                 tr.addClass('shown');
                 $(this).removeClass('fa-plus-square').addClass('fa-minus-square red');
             }
+
+            //当前行input所对应的状态
+            if($(this).siblings('input').is(':checked')){
+                //子表格的状态
+                tr.next().find('input.checkMaterial').prop('checked',true);
+            }
+
         })
 
         function format ( d ) {
@@ -149,7 +159,7 @@ mainStart
             }
             $.each(d.materialList,function(index,value){
                 trStr+='<tr>'+
-                    '<td><input type="checkbox"/></td>'+
+                    '<td><input type="checkbox" class="checkMaterial"/></td>'+
                     '<td>'+value.material_code+'</td>'+
                     '<td>'+value.material_name+'</td>'+
                     '<td>'+value.model+'</td>'+
@@ -163,13 +173,13 @@ mainStart
                     '<td>'+value.brand+'</td>'+
                     '<td>'+value.manufactor+'</td>'+
                     '<td>'+value.unit_price+'</td>'+
-                    '<td><input type="text"></td>'+
+                    '<td><input type="text" valType msg="库存位置不能为空"></td>'+
                     '<td>'+value.remark+'</td>'+
                     '</tr>';
             });
-            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered">'+
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">'+
                 '<tr>'+
-                '<td><input type="checkbox"/></td>'+
+                '<td></td>'+
                 '<td>物料编码</td>'+
                 '<td>名称</td>'+
                 '<td>型号</td>'+
@@ -189,5 +199,50 @@ mainStart
                 '</table>';
         }
 
+        //父表格中的选择
+        $('#depotInputTable tbody').on('change', '.topCheckInput', function () {
+            var tr = $(this).closest('tr');
+            var row = depotInputTable.row( tr );
+            if($(this).is(':checked')){
+                if ( !row.child.isShown() ) {
+                    row.child( format(row.data()) ).show();
+                    tr.addClass('shown');
+                    $(this).siblings('s').removeClass('fa-plus-square').addClass('fa-minus-square red');
+                }
+                //全选子行
+                tr.next().find('.checkMaterial').prop('checked',true);
+
+            }else{
+                //子行取消全选
+                tr.next().find('.checkMaterial').prop('checked',false);
+            }
+        })
+
+        //子表格中的选择
+        $(document).on('change', 'table.sonTable tbody .checkMaterial', function () {
+            var tr = $(this).closest('table').closest('tr');
+            if($(this).is(':checked')){
+                //判断子表格未选中项的个数，个数为0，则全选的按钮被选中
+                if($(this).closest('table').find('.checkMaterial:not(:checked)').length == 0){
+                    //选中全选按钮
+                    tr.prev().find('.topCheckInput').prop('checked',true);
+                }
+            }else{
+                //取消全选按钮
+                tr.prev().find('.topCheckInput').prop('checked',false);
+            }
+        })
+
+        //确认收料
+        $scope.commitDepotInput = function(){
+            /*var isValidate = beforeSubmit("depotInputTableDiv");
+            if(!isValidate){
+                return;
+            }*/
+
+            console.log($('table.sonTable'));
+
+
+        }
 
     }]);
