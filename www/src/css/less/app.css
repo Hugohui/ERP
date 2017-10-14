@@ -396,6 +396,10 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.redText {
+  color: #f05050 !important;
+  font-size: 12px;
+}
 @media (max-width: 767px) {
   .navbar-header {
     width: 100%;
@@ -916,7 +920,6 @@ body {
   color: #cd0a0a;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv {
-  z-index: 100;
   position: absolute;
   top: -5px;
   right: 0;

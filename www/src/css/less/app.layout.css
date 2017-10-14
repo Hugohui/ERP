@@ -104,6 +104,10 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.redText {
+  color: #f05050 !important;
+  font-size: 12px;
+}
 @media (max-width: 767px) {
   .navbar-header {
     width: 100%;

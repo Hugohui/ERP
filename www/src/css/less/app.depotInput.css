@@ -22,7 +22,6 @@
   color: #cd0a0a;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv {
-  z-index: 100;
   position: absolute;
   top: -5px;
   right: 0;
