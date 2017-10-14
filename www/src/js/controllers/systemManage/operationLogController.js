@@ -19,6 +19,7 @@ mainStart
             success:function(data){
                 $scope.daysList=data.resData.data;
                 console.log(data);
+                $scope.$apply();
             }
         })
     }]);
