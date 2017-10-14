@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('depotInputController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
+    .controller('depotInputController', ['$scope', '$rootScope', '$localStorage','toastr', function ($scope, $rootScope, $localStorage,toastr) {
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -9,7 +9,7 @@ mainStart
         $scope.user = $localStorage.user;
 
         //获取采购入库列表
-       initDepotInputTable();
+        initDepotInputTable();
 
         $.fn.InitValidator('depotInputTableDiv');
 
@@ -17,6 +17,7 @@ mainStart
          * 采购入库列表
          */
         var depotInputTable;
+
         function initDepotInputTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
             var lang = {
@@ -50,7 +51,7 @@ mainStart
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
-                lengthMenu : [20, 40, 60], //更改显示记录数选项
+                lengthMenu: [20, 40, 60], //更改显示记录数选项
                 stripeClasses: ["odd", "even"],  //为奇偶行加上样式，兼容不支持CSS伪类的场合
                 processing: true,  //隐藏加载提示,自行处理
                 serverSide: true,  //启用服务器端分页
@@ -61,7 +62,7 @@ mainStart
                 pagingType: "full_numbers",  //分页样式：simple,simple_numbers,full,full_numbers
                 columnDefs: [
                     {
-                        "targets": [0, 1, 2, 3,4],
+                        "targets": [0, 1, 2, 3, 4],
                         "orderable": false
                     }
                 ],
@@ -76,10 +77,10 @@ mainStart
                     $.ajax({
                         type: 'POST',
                         //url:'data/users.txt',
-                        url:'http://111.204.101.170:11115',
+                        url: 'http://111.204.101.170:11115',
                         data: {
-                            action:"depotInputList",
-                            params:param
+                            action: "depotInputList",
+                            params: param
                         },
                         //dataType:'json',
                         dataType: 'jsonp',
@@ -101,10 +102,10 @@ mainStart
                         "data": null,
                         "sClass": "text-center",
                         "render": function (data) {
-                            var html = '<s class="fa fa-plus-square details-control" materialList = "'+data.materialList+'"></s><input class="topCheckInput" type="checkbox"/>';
+                            var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s><input class="topCheckInput" type="checkbox"/>';
                             return html;
                         },
-                        "width":50
+                        "width": 50
                     },
                     {
                         "data": "purchase_applicant_id",
@@ -128,121 +129,242 @@ mainStart
 
         $('#depotInputTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
-            var row = depotInputTable.row( tr );
-            if ( row.child.isShown() ) {
+            var row = depotInputTable.row(tr);
+            var sonTrs = tr.next().find('.sonTable tr:not(:first-child)');
+            if (row.child.isShown()) {
+                //保存库存位置
+                var stockPositionArr = [];
+                $.each(sonTrs,function(index,value){
+                    stockPositionArr.push($(value).find('.stock_position').val());
+                })
+                tr.data('stockPositionArr',stockPositionArr);
+
                 row.child.hide();
                 $(this).removeClass('fa-minus-square  red').addClass('fa-plus-square');//按钮变化
                 tr.removeClass('shown');
             } else {
-                row.child( format(row.data()) ).show();
+                row.child(format(row.data(),tr.data('stockPositionArr'),tr.data('inputCheckedArr'))).show();
                 tr.addClass('shown');
                 $(this).removeClass('fa-plus-square').addClass('fa-minus-square red');
+
+                //设置库存位置
+                $.each(sonTrs,function(index,value){
+
+                });
+            }
+            //当前行input所对应的状态
+            if ($(this).siblings('input').is(':checked')) {
+                //子表格的状态
+                tr.next().find('input.checkMaterial').prop('checked', true);
             }
 
-            //当前行input所对应的状态
-            if($(this).siblings('input').is(':checked')){
-                //子表格的状态
-                tr.next().find('input.checkMaterial').prop('checked',true);
-            }
+            //验证
+            $.fn.InitValidator('depotInputTableDiv');
+            $('#depotInputTableDiv [valType]').hideValidate();
 
         })
 
-        function format ( d ) {
+        function format(d,positionArr,inputCheckedArr) {
+            var positionArr = positionArr == undefined?[]:positionArr;
+            var inputCheckedArr = inputCheckedArr == undefined?[]:inputCheckedArr;
             var trStr = '';
-            var statusStr = {
-                "-1":"未通过",
-                "1":"待审批",
-                "2":"待下单",
-                "3":"已下单",
-                "4":"已到货",
-                "5":"已领料"
-            }
-            $.each(d.materialList,function(index,value){
-                trStr+='<tr>'+
-                    '<td><input type="checkbox" class="checkMaterial"/></td>'+
-                    '<td>'+value.material_code+'</td>'+
-                    '<td>'+value.material_name+'</td>'+
-                    '<td>'+value.model+'</td>'+
-                    '<td>'+value.sn_num+'</td>'+
-                    '<td>'+value.supplier_num+'</td>'+
-                    '<td>'+value.supplier+'</td>'+
-                    '<td>'+value.project_num+'</td>'+
-                    '<td>'+value.unit+'</td>'+
-                    '<td>'+value.number+'</td>'+
-                    '<td>'+value.batch+'</td>'+
-                    '<td>'+value.brand+'</td>'+
-                    '<td>'+value.manufactor+'</td>'+
-                    '<td>'+value.unit_price+'</td>'+
-                    '<td><input type="text" valType msg="库存位置不能为空"></td>'+
-                    '<td>'+value.remark+'</td>'+
+            $.each(d.materialList, function (index, value) {
+                var positionStr = positionArr.length == 0?"":positionArr[index];
+                var inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>';
+                trStr += '<tr>' +
+                    '<td>'+inputStr+'</td>' +
+                    '<td class="material_code">' + value.material_code + '</td>' +
+                    '<td>' + value.material_name + '</td>' +
+                    '<td>' + value.model + '</td>' +
+                    '<td>' + value.sn_num + '</td>' +
+                    '<td>' + value.supplier_num + '</td>' +
+                    '<td>' + value.supplier + '</td>' +
+                    '<td>' + value.project_num + '</td>' +
+                    '<td>' + value.unit + '</td>' +
+                    '<td>' + value.number + '</td>' +
+                    '<td>' + value.batch + '</td>' +
+                    '<td>' + value.brand + '</td>' +
+                    '<td>' + value.manufactor + '</td>' +
+                    '<td>' + value.unit_price + '</td>'+
+                    '<td><input class="stock_position" type="text" msg="库存位置不能为空" value="'+positionStr+'"></td>'+
+                    '<td>' + value.remark + '</td>' +
                     '</tr>';
             });
-            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">'+
-                '<tr>'+
-                '<td></td>'+
-                '<td>物料编码</td>'+
-                '<td>名称</td>'+
-                '<td>型号</td>'+
-                '<td>sn号</td>'+
-                '<td>供应商编号</td>'+
-                '<td>供应商名称</td>'+
-                '<td>项目号</td>'+
-                '<td>单位</td>'+
-                '<td>数量</td>'+
-                '<td>批次</td>'+
-                '<td>品牌</td>'+
-                '<td>厂家</td>'+
-                '<td>单价</td>'+
-                '<td>库存位置</td>'+
-                '<td>备注</td>'+
-                '</tr>'+trStr+
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">' +
+                '<tr class="trHead">' +
+                '<td></td>' +
+                '<td>物料编码</td>' +
+                '<td>名称</td>' +
+                '<td>型号</td>' +
+                '<td>sn号</td>' +
+                '<td>供应商编号</td>' +
+                '<td>供应商名称</td>' +
+                '<td>项目号</td>' +
+                '<td>单位</td>' +
+                '<td>数量</td>' +
+                '<td>批次</td>' +
+                '<td>品牌</td>' +
+                '<td>厂家</td>' +
+                '<td>单价</td>' +
+                '<td><s class="fa fa-asterisk redText"></s>库存位置</td>' +
+                '<td>备注</td>' +
+                '</tr>' + trStr +
                 '</table>';
         }
 
+        //给后台的收料数据数组
+        var depotArr = [];
         //父表格中的选择
         $('#depotInputTable tbody').on('change', '.topCheckInput', function () {
             var tr = $(this).closest('tr');
-            var row = depotInputTable.row( tr );
-            if($(this).is(':checked')){
-                if ( !row.child.isShown() ) {
-                    row.child( format(row.data()) ).show();
+            var row = depotInputTable.row(tr);
+            if ($(this).is(':checked')) {
+                if (!row.child.isShown()) {
+                    row.child(format(row.data(),tr.data('stockPositionArr'))).show();
                     tr.addClass('shown');
                     $(this).siblings('s').removeClass('fa-plus-square').addClass('fa-minus-square red');
                 }
                 //全选子行
-                tr.next().find('.checkMaterial').prop('checked',true);
+                tr.next().find('.checkMaterial').prop('checked', true);
+                tr.next().find('.stock_position').attr('valType');
+                $(this).siblings('s').hide();
 
-            }else{
+                //将子表格中的数据暂存到数组中
+                var stockArr  = tr.data('stockPositionArr') == undefined?[]:tr.data('stockPositionArr');
+                $.each(row.data().materialList,function(index,value){
+                    var obj = stockArr.length == 0?{material_code: value.material_code, stock_position:""}:{material_code: value.material_code, stock_position: stockArr[index]};
+                    if(objinArrar(depotArr,obj,'material_code')  == -1){
+                        depotArr.push(obj);
+                    }
+                });
+            } else {
                 //子行取消全选
-                tr.next().find('.checkMaterial').prop('checked',false);
-            }
-        })
+                tr.next().find('.checkMaterial').prop('checked', false);
+                tr.next().find('.stock_position').removeAttr('valType');
+                $(this).siblings('s').show();
 
+                //更新选中状态
+                var inputCheckedArr = [];
+                $.each(tr.next().find('.checkMaterial'),function(){
+                    inputCheckedArr.push(false);
+                })
+                tr.data('inputCheckedArr',inputCheckedArr);
+
+                //将子表格中的数据从数组中删除
+                $.each(row.data().materialList,function(index,value){
+                    var stockArr  = tr.data('stockPositionArr') == undefined?[]:tr.data('stockPositionArr');
+                    var obj = stockArr.length == 0?{material_code: value.material_code, stock_position:""}:{material_code: value.material_code, stock_position: stockArr[index]};
+                    if(objinArrar(depotArr,obj,'material_code')  != -1){
+                        depotArr.splice(objinArrar(depotArr,obj,'material_code'),1);
+                    }
+                });
+            }
+
+            //验证
+            $.fn.InitValidator('depotInputTableDiv');
+            $('#depotInputTableDiv [valType]').hideValidate();
+        })
         //子表格中的选择
         $(document).on('change', 'table.sonTable tbody .checkMaterial', function () {
             var tr = $(this).closest('table').closest('tr');
-            if($(this).is(':checked')){
+            var sonTrs = $(this).closest('table').find('tr:not(:first-child)');
+            var material_code = $(this).closest('tr').find('.material_code').html();//物料编码
+            var stock_position = $(this).closest('tr').find('.stock_position').val();//库存位置
+            if ($(this).is(':checked')) {
+                $(this).attr('valType');
                 //判断子表格未选中项的个数，个数为0，则全选的按钮被选中
-                if($(this).closest('table').find('.checkMaterial:not(:checked)').length == 0){
+                if ($(this).closest('table').find('.checkMaterial:not(:checked)').length == 0) {
                     //选中全选按钮
-                    tr.prev().find('.topCheckInput').prop('checked',true);
+                    tr.prev().find('.topCheckInput').prop('checked', true);
+                    tr.prev().find('.topCheckInput').siblings('s').hide();
+                    //保存当前数据到数组中
+                    depotArr.push({material_code: material_code, stock_position: $(this).closest('tr').find('.stock_position').val()});
                 }
-            }else{
+            } else {
+                $(this).removeAttr('valType');
                 //取消全选按钮
-                tr.prev().find('.topCheckInput').prop('checked',false);
+                tr.prev().find('.topCheckInput').prop('checked', false);
+                if($(this).closest('table').find('.checkMaterial:checked').length == 0){
+                    tr.prev().find('.topCheckInput').siblings('s').show();
+                }
+                //从数组中删除当前数据
+                depotArr.splice(objinArrar(depotArr,{material_code: material_code, stock_position: ""},'material_code'),1);
             }
+            //给父级表格保存选中情况
+            var inputCheckedArr = [];
+            $.each(sonTrs,function(index,value){
+                inputCheckedArr.push($(value).find('input.checkMaterial').prop("checked"));
+            });
+            tr.prev().data('inputCheckedArr',inputCheckedArr);
+
+            //验证
+            $.fn.InitValidator('depotInputTableDiv');
+            $('#depotInputTableDiv [valType]').hideValidate();
         })
 
         //确认收料
-        $scope.commitDepotInput = function(){
-            /*var isValidate = beforeSubmit("depotInputTableDiv");
+        $scope.commitDepotInput = function () {
+            var commitDataArr = [];
+            $.each($('.sonTable tr:not(".trHead")'),function(index,value){
+                if($(this).find('.checkMaterial').is(':checked')){
+                    commitDataArr.push({material_code: $(this).find('.material_code').html(), stock_position: $(this).find('.stock_position').val()})
+                }
+            });
+
+            //判断是否选择物料
+            if(commitDataArr.length == 0){
+                toastr.warning('请选择物料！');
+                return;
+            }
+
+            //验证
+            var isValidate = beforeSubmit("depotInputTableDiv");
             if(!isValidate){
                 return;
-            }*/
+            }
 
-            console.log($('table.sonTable'));
+            //提交数据
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data:{
+                    action:"commitDepotInput",
+                    params:{
+                        materialList:commitDataArr
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    //重新加载数据表
+                    depotInputTable.ajax.reload();
+                }
+            })
 
+        }
 
+        /**
+         * 判断对象是否在数组中
+         * @param arr 数组
+         * @param check 对象
+         * @param keyOne
+         * @returns {number}    返回-1，不存在
+         */
+        function objinArrar(arr,check,keyOne){
+            var isExisted = false;
+            var index = -1;
+            for(var i=0;i<arr.length;i++){
+                if (arr[i][keyOne] == check[keyOne]) {
+                    isExisted = true;
+                    index = i;
+                    return i;
+                }
+            }
+            if (!isExisted) {
+                return -1;
+            }else{
+                return index;
+            }
         }
 
     }]);
