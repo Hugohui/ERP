@@ -928,7 +928,6 @@ body {
 /*ϵͳ����*/
 #modal-content-usermanage {
   width: 700px;
-  position: absolute;
   left: 50%;
   top: 240px;
   transform: translate(-50%, -50%);
@@ -941,7 +940,6 @@ body {
 .buttonGrop button:not(:first-child) {
   margin-left: 10px;
 }
-/*�û��б���ʽ*/
 .userTableDiv {
   height: 100%;
   width: 100%;
@@ -954,13 +952,16 @@ body {
   right: 30px;
 }
 .userTableDiv .btnGroup #queryUserInp {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  border: 1px solid #ccc;
+  width: 120px;
 }
 .userTableDiv .btnGroup #userSearchButton {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+/*�û��б���ʽ*/
 .searchGroupDiv {
   width: 100%;
 }
@@ -976,6 +977,15 @@ body {
 }
 .userTableQuery {
   margin-top: 10px;
+}
+@media (max-width: 767px) {
+  #modal-content-usermanage {
+    width: 175px ;
+    position: absolute;
+    left: 50%;
+    top: 310px;
+    transform: translate(-50%, -50%);
+  }
 }
 /*�ҵ�*/
 .infoMaintain {

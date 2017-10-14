@@ -1,9 +1,9 @@
 #modal-content-usermanage{
   width: 700px;;
-  position: absolute;
-  left: 50%;
-  top: 240px;
-  transform: translate(-50%,-50%);
+
+left: 50%;
+top: 240px;
+transform: translate(-50%,-50%);
 }
 /*添加、修改、删除按钮*/
 .buttonGrop{
@@ -13,19 +13,21 @@
     margin-left: 10px;
   }
 }
-/*用户列表样式*/
+
 .userTableDiv{
   height: 100%;
   width: 100%;
   padding: 0 20px;
   overflow: hidden;
   .btnGroup{
-    position: absolute;
+position: absolute;
     top:10px;
     right: 30px;
     #queryUserInp{
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      border: 1px solid #ccc;
+      width: 120px;;
     }
     #userSearchButton{
       border-top-left-radius: 0px;
@@ -33,6 +35,7 @@
     }
   }
 }
+/*用户列表样式*/
 .searchGroupDiv{
   width: 100%;
 }
@@ -49,4 +52,20 @@
 }
 .userTableQuery{
   margin-top: 10px;
+}
+
+// 平板
+@media (min-width: 768px) and (max-width: 991px) {
+}
+// 手机
+@media (max-width: 767px) {
+  #modal-content-usermanage{
+    width: 175px ;;
+    position: absolute;
+    left: 50%;
+    top: 310px;
+    transform: translate(-50%,-50%);
+  }
+
+
 }

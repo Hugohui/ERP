@@ -12,27 +12,8 @@ mainStart
 
 
         //获取用户列表
-        $.ajax({
-            type:'POST',
-            url:'http://111.204.101.170:11115',
-            data:{
-                action:"usersList",
-                params:{
-                    limit:"10",
-                    start:"0",
-                    page:"1",
-                    queryData:""
-                }
-            },
-            dataType: 'jsonp',
-            jsonp : "callback",
-            success:function(data){
-                $scope.usersList=data.resData.data;
-                console.log(data);
-                $scope.$apply();
-            }
-        })
 
+        update();
         //封装刷新页面的方法
         function update(){
            $.ajax({
@@ -97,6 +78,7 @@ mainStart
 
         //修改用户
         $("#updateBtn").click(function(){
+            $('#userName').attr("disabled",true);
             var tr = $("#userTable").find("input:checked").parent().parent();
             $scope.userInfo.userName = tr.find('td').eq(2).text();
             $scope.userInfo.password = tr.find('td').eq(3).text();
@@ -114,13 +96,13 @@ mainStart
                         access:$scope.userInfo.access,
                         department:$scope.userInfo.department,
                         data_permissions:{
-                            contract_number: $scope.userInfo.contract_number || false,
-                            unit_price:$scope.userInfo.unit_price || false,
-                            inventory_quantity:$scope.userInfo.inventory_quantity || false,
-                            money:$scope.userInfo.money || false,
-                            tax_rate:$scope.userInfo.tax_rate|| false,
-                            invoice:$scope.userInfo.invoice|| false,
-                            inventory_position:$scope.userInfo.inventory_position|| false
+                            contract_number: $("#inlineCheckbox1").is(':checked') ,
+                            unit_price: $("#inlineCheckbox2").is(':checked'),
+                            inventory_quantity: $("#inlineCheckbox3").is(':checked'),
+                            money: $("#inlineCheckbox4").is(':checked'),
+                            tax_rate: $("#inlineCheckbox5").is(':checked'),
+                            invoice: $("#inlineCheckbox6").is(':checked'),
+                            inventory_position: $("#inlineCheckbox7").is(':checked')
                         }
                     }
                 }
@@ -185,8 +167,20 @@ mainStart
                     arr.push('')
                 }
             });
-            $scope.isDeleteShow = arr.length > 0;
-            $scope.isUpdateShow = arr.length === 1;
+            if(arr.length===1){
+                $('#updateBtn').css('display','inline-block');
+
+            }else{
+                $('#updateBtn').css('display','none')
+            }
+            if(arr.length>0){
+                $('#deleteBtn').css('display','inline-block')
+            }else{
+                $('#deleteBtn').css('display','none')
+            }
+
+            //$scope.isDeleteShow = arr.length > 0;
+            //$scope.isUpdateShow = arr.length === 1;
 
         };
 
