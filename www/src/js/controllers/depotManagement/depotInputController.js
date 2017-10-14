@@ -105,27 +105,27 @@ mainStart
                             var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s><input class="topCheckInput" type="checkbox"/>';
                             return html;
                         },
-                        "width": 50
-                    },
-                    {
-                        "data": "purchase_applicant_id",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "purchase_order_id",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "contract_num",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    }
-                ]
-            }).api();
-        }
+                "width": 50
+            },
+            {
+                "data": "purchase_applicant_id",
+                "sClass": "text-center"
+            },
+            {
+                "data": "purchase_order_id",
+                "sClass": "text-center"
+            },
+            {
+                "data": "contract_num",
+                "sClass": "text-center"
+            },
+            {
+                "data": "applicant",
+                "sClass": "text-center"
+            }
+            ]
+        }).api();
+    }
 
         $('#depotInputTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
@@ -226,7 +226,7 @@ mainStart
                 }
                 //全选子行
                 tr.next().find('.checkMaterial').prop('checked', true);
-                tr.next().find('.stock_position').attr('valType');
+                tr.next().find('.stock_position').attr('valType',' ');
                 $(this).siblings('s').hide();
 
                 //将子表格中的数据暂存到数组中
@@ -240,7 +240,7 @@ mainStart
             } else {
                 //子行取消全选
                 tr.next().find('.checkMaterial').prop('checked', false);
-                tr.next().find('.stock_position').removeAttr('valType');
+                tr.next().find('.stock_position').removeAttr('valType',' ');
                 $(this).siblings('s').show();
 
                 //更新选中状态
@@ -271,7 +271,7 @@ mainStart
             var material_code = $(this).closest('tr').find('.material_code').html();//物料编码
             var stock_position = $(this).closest('tr').find('.stock_position').val();//库存位置
             if ($(this).is(':checked')) {
-                $(this).attr('valType');
+                $(this).closest('tr').find('.stock_position').attr('valType',' ');
                 //判断子表格未选中项的个数，个数为0，则全选的按钮被选中
                 if ($(this).closest('table').find('.checkMaterial:not(:checked)').length == 0) {
                     //选中全选按钮
@@ -281,7 +281,7 @@ mainStart
                     depotArr.push({material_code: material_code, stock_position: $(this).closest('tr').find('.stock_position').val()});
                 }
             } else {
-                $(this).removeAttr('valType');
+                $(this).closest('tr').find('.stock_position').removeAttr('valType',' ');
                 //取消全选按钮
                 tr.prev().find('.topCheckInput').prop('checked', false);
                 if($(this).closest('table').find('.checkMaterial:checked').length == 0){
