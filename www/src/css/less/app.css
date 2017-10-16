@@ -1010,58 +1010,58 @@ body {
 .pickGoodsBody .tableContentDiv span.viewPickPurchaseOrder {
   cursor: pointer;
 }
-#addPickGooodsPurchaseModal .modal-dialog {
+.pickGoodsDiv .modal-dialog {
   width: 1200px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body {
+.pickGoodsDiv .modal-dialog .modal-body {
   width: 100%;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv table {
   text-align: center;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table s {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv table s {
   cursor: pointer;
   color: green;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table s.red {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv table s.red {
   color: #cd0a0a;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table input[type="number"] {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv table input[type="number"] {
   width: 100%;
   border: none;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner {
   width: 100% !important;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table {
   width: 100% !important;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollBody {
+.pickGoodsDiv .modal-dialog .modal-body .tableDiv .dataTables_scrollBody {
   border-bottom: none;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body h4 {
+.pickGoodsDiv .modal-dialog .modal-body h4 {
   padding: 0 0 5px 20px;
   font-size: 14px;
   font-weight: 700;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .splitLine {
+.pickGoodsDiv .modal-dialog .modal-body .splitLine {
   width: 100%;
   height: 0;
   border-bottom: 1px dashed #ccc;
   margin: 10px 0;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv {
   min-height: 50px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv {
   height: auto;
   margin: 10px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul {
   width: 100%;
   overflow: hidden;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li {
   width: 12.5%;
   height: 30px;
   line-height: 30px;
@@ -1070,14 +1070,14 @@ body {
   border: 1px solid #ccc;
   border-right: none;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li:last-child {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li:last-child {
   border-right: 1px solid #ccc;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv {
   position: relative;
   margin-top: 5px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div {
   width: 12.5%;
   padding: 0 2px;
   float: left;
@@ -1085,15 +1085,15 @@ body {
   border-right: none;
   position: relative;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div:last-child {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div:last-child {
   border-right: 1px solid #ccc;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div input {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div input {
   width: 100%;
   height: 26px;
   border: none;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv .deleteMaterial {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv .deleteMaterial {
   position: absolute;
   top: -4px;
   right: -4px;
@@ -1109,10 +1109,10 @@ body {
   display: none;
   z-index: 101;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv:hover > .deleteMaterial {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv:hover > .deleteMaterial {
   display: block;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .addMaterialListDiv {
+.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .addMaterialListDiv {
   height: 30px;
   line-height: 30px;
   text-align: center;
@@ -1120,26 +1120,26 @@ body {
   margin-top: 5px;
   cursor: pointer;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv {
   border: none;
   height: 70px;
   margin: 0;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain {
   height: 80px;
   overflow: hidden;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain > div {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain > div {
   float: left;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv {
   width: 110px;
   height: 70px;
   text-align: center;
   position: relative;
   padding-top: 5px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv {
   height: 50px;
   width: 50px;
   line-height: 45px;
@@ -1150,23 +1150,23 @@ body {
   cursor: pointer;
   margin: 0 30px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span {
   font-size: 14px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName {
   display: none;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople {
   position: absolute;
   top: 8px;
   right: 26px;
   display: none;
 }
-#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .checkArrowDiv {
+.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .checkArrowDiv {
   height: 70px;
   line-height: 70px;
 }
-#addPickGooodsPurchaseModal .modal-dialog .topCheckInput {
+.pickGoodsDiv .modal-dialog .topCheckInput {
   margin-left: 10px;
 }
 .infoMaintain {

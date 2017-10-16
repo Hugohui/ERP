@@ -43,26 +43,24 @@ mainStart
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
-                    param.applicant = $scope.user.name;
+                    param.userName = $scope.user.name;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
-                        url:'data/users.txt',
-                        //url: 'http://111.204.101.170:11115',
+                        url: 'http://111.204.101.170:11115',
                         data: {
-                            action: "depotInputList",
+                            action: "getPickGoodsList",
                             params: param
                         },
-                        dataType:'json',
-                        /*dataType: 'jsonp',
-                         jsonp: "callback",*/
+                        dataType: 'jsonp',
+                         jsonp: "callback",
                         success: function (result) {
                             //封装返回数据
                             var returnData = {};
                             returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
-                            returnData.recordsTotal = result.total;//返回数据全部记录
-                            returnData.recordsFiltered = result.total;//后台不实现过滤功能，每次查询均视作全部结果
-                            returnData.data = result.data;//返回的数据列表
+                            returnData.recordsTotal = result.resData.total;//返回数据全部记录
+                            returnData.recordsFiltered = result.resData.total;//后台不实现过滤功能，每次查询均视作全部结果
+                            returnData.data = result.resData.data;//返回的数据列表
                             callback(returnData);
                         }
                     });
@@ -70,31 +68,34 @@ mainStart
                 //列表表头字段
                 columns: [
                     {
-                        "data": "userName",
-                        //"data": "purchase_applicant_id",
+                        "data": "material_requisition_id",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "userPwd",
-                        //"data": "purchase_order_id",
+                        "data": "applicant",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "ht",
-                        //"data": "contract_num",
+                        "data": "applicant_date",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "userRegisterTime",
-                        //"data": "applicant",
-                        "sClass": "text-center"
+                        "data": "status",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            var statusStr = {
+                                0:"待审核",
+                                1:"已审核"
+                            }
+                            return statusStr[data];
+                        }
                     },
                     {
                         "data": null,
                         //"data": "applicant",
                         "sClass": "text-center",
-                        render:function(){
-                            return '<span class="btn btn-default btn-sm viewPickPurchaseOrder">查看/打印</span>';
+                        render:function(data){
+                            return '<span class="btn btn-default btn-sm viewPickPurchase" pickPurchaseOrder="'+data.userName+'">查看/打印</span>';
                         }
                     }
                 ]
@@ -209,6 +210,8 @@ mainStart
                 tr.next().find('input.checkMaterial').prop('checked', true);
             }
 
+            $.fn.InitValidator('addPickGooodsPurchaseModal');
+            $('#addPickGooodsPurchaseModal [valType]').hideValidate();
         })
 
         function format(d,inputCheckedArr) {
@@ -229,7 +232,7 @@ mainStart
                     '<td class="sn_num">' + value.sn_num + '</td>' +
                     '<td class="project_num">' + value.project_num + '</td>' +
                     '<td class="unit">' + value.unit + '</td>' +
-                    '<td><input class="number" type="number" min="1" max="'+value.number+'" value="'+value.number+'"/></td>' +
+                    '<td><input class="number" valType="zNum" msg="" type="number" min="1" max="'+value.number+'" value="'+value.number+'"/></td>' +
                     '<td>' + materialStatusStr[value.materialStatus]+ '</td>' +
                     '<td class="remark">' + value.remark + '</td>' +
                     '</tr>';
@@ -261,12 +264,12 @@ mainStart
                 }
                 //全选子行
                 tr.next().find('.checkMaterial').prop('checked', true);
-                tr.next().find('.stock_position').attr('valType',' ');
+                tr.next().find('.number').attr('valType','zNum');
                 $(this).siblings('s').hide();
             } else {
                 //子行取消全选
                 tr.next().find('.checkMaterial').prop('checked', false);
-                tr.next().find('.stock_position').removeAttr('valType',' ');
+                tr.next().find('.number').removeAttr('valType','zNum');
                 $(this).siblings('s').show();
 
                 //更新选中状态
@@ -276,13 +279,16 @@ mainStart
                 })
                 tr.data('inputCheckedArr',inputCheckedArr);
             }
+
+            $.fn.InitValidator('addPickGooodsPurchaseModal');
+            $('#addPickGooodsPurchaseModal [valType]').hideValidate();
         })
         //子表格中的选择
         $(document).on('change', 'table.sonTable tbody .checkMaterial', function () {
             var tr = $(this).closest('table').closest('tr');
             var sonTrs = $(this).closest('table').find('tr:not(:first-child)');
             if ($(this).is(':checked')) {
-                $(this).closest('tr').find('.stock_position').attr('valType',' ');
+                $(this).closest('tr').find('.number').attr('valType','zNum');
                 //判断子表格未选中项的个数，个数为0，则全选的按钮被选中
                 if ($(this).closest('table').find('.checkMaterial:not(:checked)').length == 0) {
                     //选中全选按钮
@@ -290,7 +296,7 @@ mainStart
                     tr.prev().find('.topCheckInput').siblings('s').hide();
                 }
             } else {
-                $(this).closest('tr').find('.stock_position').removeAttr('valType',' ');
+                $(this).closest('tr').find('.number').removeAttr('valType','zNum');
                 //取消全选按钮
                 tr.prev().find('.topCheckInput').prop('checked', false);
                 if($(this).closest('table').find('.checkMaterial:checked').length == 0){
@@ -303,6 +309,9 @@ mainStart
                 inputCheckedArr.push($(value).find('input.checkMaterial').prop("checked"));
             });
             tr.prev().data('inputCheckedArr',inputCheckedArr);
+
+            $.fn.InitValidator('addPickGooodsPurchaseModal');
+            $('#addPickGooodsPurchaseModal [valType]').hideValidate();
         })
 
         //审批人
@@ -357,7 +366,6 @@ mainStart
         //选中审批人
         $scope.selectPurchaseName = function($event){
             if($scope.choseCheckPeopleTitle == "选择室组经理"){
-                console.log($($event.currentTarget).find('.selectName').html());
                 $('.groupLeaderName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
                 $('.groupLeaderNameInp').val($($event.currentTarget).find('.selectName').html());
             }else if($scope.choseCheckPeopleTitle == "选择室部长"){
@@ -370,17 +378,8 @@ mainStart
             $('#choseCheckPeopleModal').modal('hide');
         }
 
-        //确认添加物料申请
+        /*确认添加物料申请*/
         $scope.addPurchaseOk = function(){
-
-            if($('.groupLeaderNameInp').val() == ''){
-                toastr.warning('请选择室组经理！');
-                return;
-            }else if($('.departmentNameInp').val() == ''){
-                toastr.warning('请选择部长！');
-                return;
-            }
-
             //数据数组
             var materialListArr = [];
             $.each($('.sonTable tr:not(".trHead")'),function(){
@@ -399,6 +398,25 @@ mainStart
                     )
                 }
             });
+
+            if(materialListArr.length == 0){
+                toastr.warning('请选择物料');
+                return;
+            }
+
+            //验证
+            var isValidate = beforeSubmit("addPickGooodsPurchaseModal");
+            if(!isValidate){
+                return;
+            }
+
+            if($('.groupLeaderNameInp').val() == ''){
+                toastr.warning('请选择室组经理！');
+                return;
+            }else if($('.departmentNameInp').val() == ''){
+                toastr.warning('请选择部长！');
+                return;
+            }
 
             //生成申请单号
             var material_requisition_id = billFormat('LLSQ',new Date());
@@ -427,4 +445,13 @@ mainStart
                 }
             });
         }
+
+        /*查看/打印/审核*/
+        $(document).on('click','.viewPickPurchase',function(){
+            var pickpurchaseorder = $(this).attr('pickpurchaseorder');
+            
+
+
+            $('#viewPickPurchaseModal').modal('show');
+        })
     }]);
