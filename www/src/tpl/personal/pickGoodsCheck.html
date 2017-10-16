@@ -174,8 +174,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="billNum"/>
                     <div class="tableDiv">
+                        <input type="hidden" id="billNum"/>
                         <table class="table-bordered table-condensed" cellspacing="0" width="100%">
                             <tr >
                                 <td>名称</td>
@@ -183,7 +183,6 @@
                                 <td>项目号</td>
                                 <td>单位</td>
                                 <td>数量</td>
-                                <td>期望交付日期</td>
                                 <td>备注</td>
                             </tr>
                             <tr ng-repeat="materia in materialList">
@@ -192,13 +191,11 @@
                                 <td>{{materia.project_num}}</td>
                                 <td>{{materia.unit}}</td>
                                 <td>{{materia.sn_num}}</td>
-                                <td>{{materia.expected_date}}</td>
                                 <td>{{materia.remark}}</td>
                             </tr>
                         </table>
                     </div>
-
-                    <div class="checkBody">
+                    <div class="checkBody" ng-if="roles.role_id == 7|| roles.role_id == 3">
                         <div class="radioDiv">
                             <input type="radio" name="check" id="passCheck" checked checkValue="1"/>
                             审核通过
@@ -212,62 +209,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" ng-click="checkOk()">确定</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--审核-->
-    <div class="modal fade" id="checkPickPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="checkPickPurchaseModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="checkPickPurchaseModalLabel">采购审核</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id=""/>
-                    <div class="tableDiv">
-                        <table class="table-bordered table-condensed" cellspacing="0" width="100%">
-                            <tr >
-                                <td>名称</td>
-                                <td>型号</td>
-                                <td>项目号</td>
-                                <td>单位</td>
-                                <td>数量</td>
-                                <td>期望交付日期</td>
-                                <td>备注</td>
-                            </tr>
-                            <tr ng-repeat="materia in materialList">
-                                <td>{{materia.material_name}}</td>
-                                <td>{{materia.model}}</td>
-                                <td>{{materia.project_num}}</td>
-                                <td>{{materia.unit}}</td>
-                                <td>{{materia.sn_num}}</td>
-                                <td>{{materia.expected_date}}</td>
-                                <td>{{materia.remark}}</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="checkBody">
-                        <div class="radioDiv">
-                            <input type="radio" name="check" id="passCheck" checked checkValue="1"/>
-                            审核通过
-                            <input type="radio" name="check" id="failureCheck" checkValue="-1"/>
-                            拒绝申请
-                        </div>
-                        <div class="reasonDiv">
-                            <textarea id="reasonText" placeholder="拒绝理由不能为空哦~"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" ng-click="checkOk()">确定</button>
+                    <button type="button" class="btn btn-primary checkPurchaseOk" ng-click="checkPurchaseOk()" ng-if="roles.role_id == 7|| roles.role_id == 3">审核</button>
+                    <button type="button" class="btn btn-warning" ng-click="printPurchase()"><s class="fa fa-print"></s> 打印</button>
                 </div>
             </div>
         </div>

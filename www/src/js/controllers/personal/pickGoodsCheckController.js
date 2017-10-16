@@ -95,7 +95,12 @@ mainStart
                         //"data": "applicant",
                         "sClass": "text-center",
                         render:function(data){
-                            return '<span class="btn btn-default btn-sm viewPickPurchase" pickPurchaseOrder="'+data.userName+'">查看/打印</span>';
+                            console.log();
+                            if($scope.roles.role_id == 6||$scope.roles.role_id==3){
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印/审核</span>';
+                            }else{
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印</span>';
+                            }
                         }
                     }
                 ]
@@ -448,10 +453,86 @@ mainStart
 
         /*查看/打印/审核*/
         $(document).on('click','.viewPickPurchase',function(){
-            var pickpurchaseorder = $(this).attr('pickpurchaseorder');
-            
+            var pickPurchaseOrder = $(this).attr('pickPurchaseOrder');
+            $('#billNum').val(pickPurchaseOrder);
+            var status = $(this).attr('status');
 
-
-            $('#viewPickPurchaseModal').modal('show');
+            //审核框的隐现
+            if(status == 1){
+                $('.checkBody').hide();
+                $('.checkPurchaseOk').hide();//审核按钮
+            }else{
+                $('.checkBody').show();
+                $('.checkPurchaseOk').show();
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: {
+                    action:"viewReqMaterial",
+                    params:{
+                        userName:$scope.user.name,
+                        material_requisition_id:pickPurchaseOrder
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    if(data.resData.result == 0){
+                        $scope.materialList = data.resData.data;
+                        $scope.$apply();
+                        $('#viewPickPurchaseModal').modal('show');
+                    }
+                }
+            });
         })
+
+        /*审核结果拒绝理由输入框*/
+        $('#viewPickPurchaseModal').on('click','.radioDiv input',function(){
+            if($(this).attr('checkValue') == 1){
+                $('.reasonDiv').hide();
+            }else{
+                $('.reasonDiv').show();
+            }
+        })
+
+        /*确认审核*/
+        $scope.checkPurchaseOk = function(){
+            var billNum,reason;
+            billNum = $('#billNum').val();
+            //拒绝理由不能为空
+            if($('#reasonText').is(':visible') && $('#reasonText').val().trim() == ''){
+                toastr.warning('请填写拒绝申请理由！');
+                return;
+            }
+            reason = $('#reasonText').is(':visible')?$('#reasonText').val():'';
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"checkReqMaterial",
+                    params:{
+                        userName:$scope.user.name,
+                        material_requisition_id:$('#billNum').val(),
+                        result:$('.radioDiv input:checked').attr('checkValue'),
+                        reason:reason
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        toastr.success(data.resData.msg);
+                        $('#viewPickPurchaseModal').modal('hide');
+                        //重新加载列表
+                        addPickPurchaseTable.ajax.reload();
+                        //重新设置当前用户其他未审核信息
+                        /*$localStorage.sendMessage = data.resData.sendMessage;
+                        $scope.sendMessage = data.resData.sendMessage;*/
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
     }]);

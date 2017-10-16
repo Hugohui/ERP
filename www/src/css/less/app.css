@@ -1169,6 +1169,18 @@ body {
 .pickGoodsDiv .modal-dialog .topCheckInput {
   margin-left: 10px;
 }
+.checkBody {
+  margin-top: 10px;
+}
+.checkBody input {
+  margin: 0;
+}
+.checkBody .reasonDiv {
+  display: none;
+}
+.checkBody .reasonDiv textarea {
+  width: 100%;
+}
 .infoMaintain {
   width: 100%;
   border: 1px solid #ccc ;
