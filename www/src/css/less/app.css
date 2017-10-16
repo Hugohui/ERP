@@ -931,3 +931,26 @@ body {
 .infoMaintain ul li span {
   padding-left: 10px;
 }
+.infoMaintain ul #phoneEditbtn {
+  display: none;
+}
+.infoMaintain ul #phoneUpdateBtn {
+  color: green;
+}
+.infoMaintain ul #phoneSaveBtn {
+  color: green;
+  display: none;
+}
+.infoMaintain ul #phoneDisBtn {
+  color: green;
+  display: none;
+}
+.infoMaintain #gitUl {
+  float: left;
+  margin-top: -120px;
+  margin-left: 170px;
+}
+.infoMaintain #gitUl #phoneEditInput {
+  height: 25px;
+  width: 180px;
+}

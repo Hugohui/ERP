@@ -10,18 +10,20 @@
                 <li>密码：</li>
                 <li>部门：</li>
             </ul>
-            <ul style="float: left;margin-top: -120px;margin-left:170px;"ng-repeat="person in personsList">
+            <ul id="gitUl" ng-repeat="person in personsList">
                 <li>{{person.phone}}
-                     <span id="phoneUpdateBtn"><i class="fa fa-pencil-square-o" style="color: #BE7134"></i>
-                     <span id="disPhone" style="display: none">联系电话：<input type="text"/></span>
-                    </span></li>
+                     <span><i class="fa fa-pencil-square-o" id="phoneUpdateBtn" ng-click="phoneUpdateBtn()"></i></span>
+                     <span id="phoneEditbtn">联系电话：<input type="text" id="phoneEditInput" style="display: inline-block "/></span>
+                     <span> <i class="fa fa-check" id="phoneSaveBtn" ng-click="phoneSaveBtn()"></i></span>
+                    <span> <i class="fa fa-close" id="phoneDisBtn"style="color: red" ng-click="phoneDisBtn()"></i></span>
+                </li>
                 <li>{{person.password}}
-                    <span id="pwdUpdateBtn"  data-toggle="modal" data-target="#infoUpdata" ><i class="fa fa-pencil-square-o" style="color: #BE7134"></i>
+                    <span id="pwdUpdateBtn"  data-toggle="modal" data-target="#infoUpdata" ><i class="fa fa-pencil-square-o" style="color: green"></i>
                     </span></li>
                 <li>{{person.department}}</li>
             </ul>
+            <div style="float: none"></div>
         </div>
-
 
         <!--修改密码，模态框-->
         <div class="modal fade" id="infoUpdata" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
