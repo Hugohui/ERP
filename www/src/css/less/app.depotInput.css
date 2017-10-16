@@ -30,3 +30,6 @@
 .depotInputBody .depotInputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
+.depotInputBody .depotInputTableDiv .dataTables_wrapper {
+  z-index: -1;
+}

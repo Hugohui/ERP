@@ -928,6 +928,9 @@ body {
 .depotInputBody .depotInputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
+.depotInputBody .depotInputTableDiv .dataTables_wrapper {
+  z-index: -1;
+}
 /*ϵͳ����*/
 #modal-content-usermanage {
   width: 700px;
