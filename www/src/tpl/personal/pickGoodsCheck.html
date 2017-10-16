@@ -52,6 +52,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <h4>领用采购申请物料：</h4>
                     <div class="tableDiv">
                         <table class="display table-striped table-bordered table-hover" id="addPickPurchaseTable" cellspacing="0" width="100%">
                             <thead>
@@ -65,13 +66,101 @@
                             </thead>
                         </table>
                     </div>
+<!--                    <div class="splitLine"></div>
+                    <h4>领用非采购申请物料：</h4>
+                    <div class="addNotPurchaseGoodsDiv">
+                        <div class="materialDiv">
+                            <ul>
+                                <li>物料编码</li>
+                                <li>名称</li>
+                                <li>型号</li>
+                                <li>sn号</li>
+                                <li>项目号</li>
+                                <li>单位</li>
+                                <li><s class="fa fa-asterisk redText"></s>数量</li>
+                                <li>备注</li>
+                            </ul>
+                            <div class="materialListDiv clearfix">
+                                <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
+                                <div>
+                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
+                                </div>
+                                <div>
+                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
+                                </div>
+                                <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
+                                <div><input type="text" class="sn_num" name="sn_num"/></div>
+                                <div><input type="text" class="project_num" name="project_num"/></div>
+                                <div><input type="text" class="unit" name="unit"/></div>
+                                <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>
+                                <div><input type="text" class="remark" name="name"/></div>
+                            </div>
+                            <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
+                                <span class="fa fa-plus"></span>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="splitLine"></div>
+                    <h4>选择审批人：</h4>
+                    <div class="choseCheckPeopleDiv">
+                        <div class="checkPeopleDiv">
+                            <div class="checkPeopleMain">
+                                <div class="addCheckPeopleDiv">
+                                    <div class="addCircleDiv" ng-click="checkGroupLeader($event)">
+                                        <span class="fa fa-plus"></span>
+                                        <span class="groupLeaderName hideName"></span>
+                                    </div>
+                                    <input type="hidden" class="groupLeaderNameInp"/>
+                                    <div class="checkPeoplePosition">
+                                        <s class="fa fa-asterisk redText"></s>室组经理
+                                    </div>
+                                    <span class="editCheckPeople fa fa-edit"></span>
+                                </div>
+                                <div class="checkArrowDiv">
+                                    <span class="fa fa-arrow-right"></span>
+                                </div>
+                                <div class="addCheckPeopleDiv">
+                                    <div class="addCircleDiv" ng-click="checkMinister($event)">
+                                        <span class="fa fa-plus"></span>
+                                        <span class="departmentName hideName"></span>
+                                    </div>
+                                    <input type="hidden" class="departmentNameInp"/>
+                                    <div class="checkPeoplePosition">
+                                        <s class="fa fa-asterisk redText"></s>部长
+                                    </div>
+                                    <span class="editCheckPeople fa fa-edit"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" ng-click="addOk()">确定</button>
+                    <button type="button" class="btn btn-primary" ng-click="addPurchaseOk()">确定</button>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="choseCheckPeopleModal" tabindex="-1" role="dialog" aria-labelledby="choseCheckPeopleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="choseCheckPeopleModalLabel">{{choseCheckPeopleTitle}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="selectCheckUl">
+                        <!--<li class="selectLi" ng-click="selectPurchaseName($event)">-->
+                        <!--【<span class="selectName">张三</span>】 总经理-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

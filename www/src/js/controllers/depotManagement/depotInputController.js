@@ -330,6 +330,7 @@ mainStart
                 data:{
                     action:"commitDepotInput",
                     params:{
+                        userName:$scope.user.name,
                         materialList:commitDataArr
                     }
                 },

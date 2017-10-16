@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('pickGoodsCheckController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
+    .controller('pickGoodsCheckController',['$scope','$rootScope','$localStorage','$compile','toastr',function($scope,$rootScope,$localStorage,$compile,toastr){
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -111,7 +111,7 @@ mainStart
                 addPickPurchaseTable = $("#addPickPurchaseTable").dataTable({
                     language: lang,  //提示信息
                     autoWidth: true,  //禁用自动调整列宽
-                    scrollY: 200,
+                    scrollY: 150,
                     processing: true,  //隐藏加载提示,自行处理
                     serverSide: true,  //启用服务器端分页
                     searching: false,  //禁用原生搜索
@@ -219,18 +219,19 @@ mainStart
                 1:"已到货",
             }
             $.each(d.materialList, function (index, value) {
-                var inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>';
+                var inputStr = '';
+                value.materialStatus == 1?(inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>'):inputStr='<input type="checkbox" class="checkMaterial" style="display: none"/>';
                 trStr += '<tr>' +
                     '<td>'+inputStr+'</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
-                    '<td>' + value.material_name + '</td>' +
-                    '<td>' + value.model + '</td>' +
-                    '<td>' + value.sn_num + '</td>' +
-                    '<td>' + value.project_num + '</td>' +
-                    '<td>' + value.unit + '</td>' +
-                    '<td>' + value.number + '</td>' +
+                    '<td class="material_name">' + value.material_name + '</td>' +
+                    '<td class="model">' + value.model + '</td>' +
+                    '<td class="sn_num">' + value.sn_num + '</td>' +
+                    '<td class="project_num">' + value.project_num + '</td>' +
+                    '<td class="unit">' + value.unit + '</td>' +
+                    '<td><input class="number" type="number" min="1" max="'+value.number+'" value="'+value.number+'"/></td>' +
                     '<td>' + materialStatusStr[value.materialStatus]+ '</td>' +
-                    '<td>' + value.remark + '</td>' +
+                    '<td class="remark">' + value.remark + '</td>' +
                     '</tr>';
             });
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">' +
@@ -303,4 +304,127 @@ mainStart
             });
             tr.prev().data('inputCheckedArr',inputCheckedArr);
         })
+
+        //审批人
+        $scope.checkGroupLeader = function ($event) {
+            $scope.choseCheckPeopleTitle = "选择室组经理";
+            $scope.ajaxData = {
+                action: "getApprover",
+                params: "group_leader"
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: $scope.ajaxData,
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    $scope.appendCheckPeopleHtmlModal(data.resData.data);
+                }
+            })
+        }
+        $scope.checkMinister = function ($event) {
+            $scope.choseCheckPeopleTitle = "选择室部长";
+            $scope.ajaxData = {
+                action: "getApprover",
+                params: "department"
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: $scope.ajaxData,
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    $scope.appendCheckPeopleHtmlModal(data.resData.data);
+                }
+            })
+        }
+        //模态框添加查询数据列
+        $scope.appendCheckPeopleHtmlModal = function(data){
+            var html = '';
+            $.each(data,function(index,val){
+                html+=
+                    '                           <li class="selectLi" ng-click="selectPurchaseName($event)">'+
+                    '                            【<span class="selectName">'+val.userName+'</span>】 '+val.department+
+                    '                           </li>';
+            });
+            var $html = $compile(html)($scope);
+            $('.selectCheckUl').empty().append($html);
+            $('#choseCheckPeopleModal').modal('show');
+        }
+
+        //选中审批人
+        $scope.selectPurchaseName = function($event){
+            if($scope.choseCheckPeopleTitle == "选择室组经理"){
+                console.log($($event.currentTarget).find('.selectName').html());
+                $('.groupLeaderName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                $('.groupLeaderNameInp').val($($event.currentTarget).find('.selectName').html());
+            }else if($scope.choseCheckPeopleTitle == "选择室部长"){
+                $('.departmentName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                $('.departmentNameInp').val($($event.currentTarget).find('.selectName').html());
+            }else{
+                $('.managerName').html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                $('.managerNameInp').val($($event.currentTarget).find('.selectName').html());
+            }
+            $('#choseCheckPeopleModal').modal('hide');
+        }
+
+        //确认添加物料申请
+        $scope.addPurchaseOk = function(){
+
+            if($('.groupLeaderNameInp').val() == ''){
+                toastr.warning('请选择室组经理！');
+                return;
+            }else if($('.departmentNameInp').val() == ''){
+                toastr.warning('请选择部长！');
+                return;
+            }
+
+            //数据数组
+            var materialListArr = [];
+            $.each($('.sonTable tr:not(".trHead")'),function(){
+                if($(this).find('.checkMaterial').is(':checked')){
+                    materialListArr.push(
+                        {
+                            material_code: $(this).find('.material_code').html(),
+                            material_name:$(this).find('.material_name').html(),
+                            model:$(this).find('.model').html(),
+                            sn_num:$(this).find('.sn_num').html(),
+                            project_num:$(this).find('.project_num').html(),
+                            unit:$(this).find('.unit').html(),
+                            number:$(this).find('.number').val(),
+                            remark:$(this).find('.remark').html()
+                        }
+                    )
+                }
+            });
+
+            //生成申请单号
+            var material_requisition_id = billFormat('LLSQ',new Date());
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: {
+                    action:"createPickReqOrder",
+                    params:{
+                        userName:$scope.user.name,
+                        material_requisition_id:material_requisition_id,
+                        approver:{
+                            group_leader:$('.groupLeaderNameInp').val(),
+                            department:$('.departmentNameInp').val()
+                        },
+                        materialList:materialListArr
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    if(data.resData.result == 0){
+                        toastr.success('领料申请提交成功！');
+                        $('#addPickGooodsPurchaseModal').modal('hide');
+                    }
+                }
+            });
+        }
     }]);

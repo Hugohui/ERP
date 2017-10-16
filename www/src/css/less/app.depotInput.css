@@ -26,10 +26,8 @@
   top: -5px;
   right: 0;
   padding-right: 10px;
+  z-index: 1;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv button {
   font-weight: 700;
-}
-.depotInputBody .depotInputTableDiv .dataTables_wrapper {
-  z-index: -1;
 }
