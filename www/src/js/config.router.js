@@ -135,7 +135,7 @@ angular.module('mainStart')
             /*我的*/
             .state('personal',{
                 url:'/personal',
-                template: '<div ui-view></div>'
+                template: '<div ui-view class="app"></div>'
             })
             .state('personal.pickGoodsCheck',{//领料申请
                 url:'/pickGoodsCheck',

@@ -1,35 +1,42 @@
-<div ng-controller="pickGoodsCheckController">
-    <div ng-include="'tpl/blocks/header.html'"class="header"></div>
-    <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
+<div ng-controller="pickGoodsCheckController" class="app">
     <div class="mainView">
-        <div class="queryDIv">
-            <div class="queryTitle bg-black">条件查询</div>
-            <div class="queryBody">
-                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
-                <div class="searchGroup">
-                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
-                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
-                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+        <div class="pickGoodsBody">
+            <div class="queryDIv">
+                <div class="queryTitle bg-black">条件查询</div>
+                <div class="queryBody">
+                    <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
+                    <select class="selectCss">
+                        <option value="all" aria-checked="true">全部</option>
+                        <option value="0">未审核</option>
+                        <option value="1">已审核</option>
+                    </select>
+                    <div class="searchGroup">
+                        <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
+                        <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
+                        <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                    </div>
                 </div>
             </div>
+            <div class="tableContentDiv" >
+                <div class="addPickPurchaseDiv">
+                    <button class="btn btn-warning btn-sm" ng-click="addPickGooodsPurchase()">新增领料申请</button>
+                </div>
+                <table id="pickGoodsTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                    <thead>
+                    <tr >
+                        <td>领料申请单号</td>
+                        <td>申请人</td>
+                        <td>申请时间</td>
+                        <td>状态</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
-        <div class="tableContent" >
-            <table id="pickGoodsTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
-                <tr >
-                    <td>领料申请单号</td>
-                    <td>申请人</td>
-                    <td>申请时间</td>
-                    <td>状态</td>
-                    <td>操作</td>
-                </tr>
-                <tr ng-repeat="picks in picksList">
-                    <td >{{picks.material_requisition_id}}</td>
-                    <td >{{picks.applicant}}</td>
-                    <td >{{picks.applicant_date}}</td>
-                    <td ><button type="button" class="btn btn-default btn-xs ">查看/打印</button></td>
-                </tr>
-            </table>
-        </div>
+
     </div>
+    <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
+    <div ng-include="'tpl/blocks/header.html'"class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>
