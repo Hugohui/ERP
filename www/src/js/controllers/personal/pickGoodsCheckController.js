@@ -16,33 +16,7 @@ mainStart
         var pickGoodsTable;
 
         function initPickGoodsTable() {
-            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
-            var lang = {
-                "sProcessing": "处理中...",
-                "sLengthMenu": "每页 _MENU_ 项",
-                "sZeroRecords": "没有匹配结果",
-                "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
-                "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
-                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix": "",
-                "sSearch": "搜索:",
-                "sUrl": "",
-                "sEmptyTable": "表中数据为空",
-                "sLoadingRecords": "载入中...",
-                "sInfoThousands": ",",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上页",
-                    "sNext": "下页",
-                    "sLast": "末页",
-                    "sJump": "跳转"
-                },
-                "oAria": {
-                    "sSortAscending": ": 以升序排列此列",
-                    "sSortDescending": ": 以降序排列此列"
-                }
-            };
-
+            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 130;
             //初始化表格
             pickGoodsTable = $("#pickGoodsTable").dataTable({
                 language: lang,  //提示信息
@@ -120,12 +94,213 @@ mainStart
                         //"data": "applicant",
                         "sClass": "text-center",
                         render:function(){
-                            return '<span class="btn btn-default btn-sm">查看/打印</span>';
+                            return '<span class="btn btn-default btn-sm viewPickPurchaseOrder">查看/打印</span>';
                         }
                     }
                 ]
             }).api();
         }
 
+        var addPickPurchaseTable;
+        /*新增领料申请*/
+        $scope.addPickGooodsPurchase = function(){
+            //加载数据
+            if(addPickPurchaseTable){
+                addPickPurchaseTable.ajax.reload();
+            }else{
+                addPickPurchaseTable = $("#addPickPurchaseTable").dataTable({
+                    language: lang,  //提示信息
+                    autoWidth: true,  //禁用自动调整列宽
+                    scrollY: 200,
+                    processing: true,  //隐藏加载提示,自行处理
+                    serverSide: true,  //启用服务器端分页
+                    searching: false,  //禁用原生搜索
+                    orderMulti: false,  //启用多列排序
+                    order: [],  //取消默认排序查询,否则复选框一列会出现小箭头
+                    renderer: "Bootstrap",  //渲染样式：Bootstrap和jquery-ui
+                    bPaginate:false,
+                    bInfo:false,
+                    columnDefs: [
+                        {
+                            "targets": [1, 2, 3],
+                            "orderable": false
+                        }
+                    ],
+                    ajax: function (data, callback, settings) {
+                        //封装请求参数
+                        var param = {};
+                        param.userName = $scope.user.name;
+                        //ajax请求数据
+                        $.ajax({
+                            type: 'POST',
+                            //url:'data/users.txt',
+                            url: 'http://111.204.101.170:11115',
+                            data: {
+                                action: "loadPurchaseReqList",
+                                params: param
+                            },
+                            //dataType:'json',
+                            dataType: 'jsonp',
+                            jsonp: "callback",
+                            success: function (result) {
+                                var returnData = {};
+                                returnData.draw = data.draw;
+                                returnData.data = result.resData.data;
+                                callback(returnData);
+                            }
+                        });
+                    },
+                    columns: [
+                        {
+                            "data": null,
+                            "sClass": "text-center",
+                            render:function(data){
+                                return '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s><input class="topCheckInput" type="checkbox"/>'
+                            },
+                            "width":50
+                        },
+                        {
+                            "data": "purchase_applicant_id",
+                            "sClass": "text-center",
+                        },
+                        {
+                            "data": "purchase_order_id",
+                            "sClass": "text-center"
+                        },
+                        {
+                            "data": "contract_num",
+                            "sClass": "text-center"
+                        },
+                        {
+                            "data": "orderStatus",
+                            "sClass": "text-center",
+                            "render":function(data){
+                                var orderStatusStr = {
+                                    0:"未到货",
+                                    1:"已到货",
+                                    2:"部分到货"
+                                    };
+                                return orderStatusStr[data];
+                            }
+                        }
+                    ]
+                }).api();
+            }
+            //模态框显示
+            $('#addPickGooodsPurchaseModal').modal('show');
+        }
 
+        $('#addPickPurchaseTable').on('click', 'tbody .details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = addPickPurchaseTable.row(tr);
+            if (row.child.isShown()) {
+                tr.data('stockPositionArr');
+                row.child.hide();
+                $(this).removeClass('fa-minus-square  red').addClass('fa-plus-square');//按钮变化
+                tr.removeClass('shown');
+            } else {
+                row.child(format(row.data(),tr.data('stockPositionArr'),tr.data('inputCheckedArr'))).show();
+                tr.addClass('shown');
+                $(this).removeClass('fa-plus-square').addClass('fa-minus-square red');
+            }
+            //当前行input所对应的状态
+            if ($(this).siblings('input').is(':checked')) {
+                //子表格的状态
+                tr.next().find('input.checkMaterial').prop('checked', true);
+            }
+
+        })
+
+        function format(d,inputCheckedArr) {
+            var inputCheckedArr = inputCheckedArr == undefined?[]:inputCheckedArr;
+            var trStr = '';
+            var materialStatusStr = {
+                0:"未到货",
+                1:"已到货",
+            }
+            $.each(d.materialList, function (index, value) {
+                var inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>';
+                trStr += '<tr>' +
+                    '<td>'+inputStr+'</td>' +
+                    '<td class="material_code">' + value.material_code + '</td>' +
+                    '<td>' + value.material_name + '</td>' +
+                    '<td>' + value.model + '</td>' +
+                    '<td>' + value.sn_num + '</td>' +
+                    '<td>' + value.project_num + '</td>' +
+                    '<td>' + value.unit + '</td>' +
+                    '<td>' + value.number + '</td>' +
+                    '<td>' + materialStatusStr[value.materialStatus]+ '</td>' +
+                    '<td>' + value.remark + '</td>' +
+                    '</tr>';
+            });
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">' +
+                '<tr class="trHead">' +
+                '<td></td>' +
+                '<td>物料编码</td>' +
+                '<td>名称</td>' +
+                '<td>型号</td>' +
+                '<td>sn号</td>' +
+                '<td>项目号</td>' +
+                '<td>单位</td>' +
+                '<td>数量</td>' +
+                '<td>状态</td>' +
+                '<td>备注</td>' +
+                '</tr>' + trStr +
+                '</table>';
+        }
+        //父表格中的选择
+        $('#addPickPurchaseTable').on('change', 'tbody .topCheckInput', function () {
+            var tr = $(this).closest('tr');
+            var row = addPickPurchaseTable.row(tr);
+            if ($(this).is(':checked')) {
+                if (!row.child.isShown()) {
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                    $(this).siblings('s').removeClass('fa-plus-square').addClass('fa-minus-square red');
+                }
+                //全选子行
+                tr.next().find('.checkMaterial').prop('checked', true);
+                tr.next().find('.stock_position').attr('valType',' ');
+                $(this).siblings('s').hide();
+            } else {
+                //子行取消全选
+                tr.next().find('.checkMaterial').prop('checked', false);
+                tr.next().find('.stock_position').removeAttr('valType',' ');
+                $(this).siblings('s').show();
+
+                //更新选中状态
+                var inputCheckedArr = [];
+                $.each(tr.next().find('.checkMaterial'),function(){
+                    inputCheckedArr.push(false);
+                })
+                tr.data('inputCheckedArr',inputCheckedArr);
+            }
+        })
+        //子表格中的选择
+        $(document).on('change', 'table.sonTable tbody .checkMaterial', function () {
+            var tr = $(this).closest('table').closest('tr');
+            var sonTrs = $(this).closest('table').find('tr:not(:first-child)');
+            if ($(this).is(':checked')) {
+                $(this).closest('tr').find('.stock_position').attr('valType',' ');
+                //判断子表格未选中项的个数，个数为0，则全选的按钮被选中
+                if ($(this).closest('table').find('.checkMaterial:not(:checked)').length == 0) {
+                    //选中全选按钮
+                    tr.prev().find('.topCheckInput').prop('checked', true);
+                    tr.prev().find('.topCheckInput').siblings('s').hide();
+                }
+            } else {
+                $(this).closest('tr').find('.stock_position').removeAttr('valType',' ');
+                //取消全选按钮
+                tr.prev().find('.topCheckInput').prop('checked', false);
+                if($(this).closest('table').find('.checkMaterial:checked').length == 0){
+                    tr.prev().find('.topCheckInput').siblings('s').show();
+                }
+            }
+            //给父级表格保存选中情况
+            var inputCheckedArr = [];
+            $.each(sonTrs,function(index,value){
+                inputCheckedArr.push($(value).find('input.checkMaterial').prop("checked"));
+            });
+            tr.prev().data('inputCheckedArr',inputCheckedArr);
+        })
     }]);

@@ -19,7 +19,7 @@
             </div>
             <div class="tableContentDiv" >
                 <div class="addPickPurchaseDiv">
-                    <button class="btn btn-warning btn-sm" ng-click="addPickGooodsPurchase()">新增领料申请</button>
+                    <button class="btn btn-success btn-sm" ng-click="addPickGooodsPurchase()"><s class="fa fa-plus"></s> 新增领料申请</button>
                 </div>
                 <table id="pickGoodsTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
                     <thead>
@@ -39,4 +39,39 @@
     <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
     <div ng-include="'tpl/blocks/header.html'"class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+
+    <!--S = modal-->
+    <!--新增领料申请-->
+    <div class="modal fade" id="addPickGooodsPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="addPickGooodsPurchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPickGooodsPurchaseModalLabel">新增领料申请</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="tableDiv">
+                        <table class="display table-striped table-bordered table-hover" id="addPickPurchaseTable" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>采购申请单号</td>
+                                    <td>采购订单号</td>
+                                    <td>合同号</td>
+                                    <td>状态</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="addOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

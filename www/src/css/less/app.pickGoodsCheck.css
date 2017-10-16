@@ -1,3 +1,44 @@
+.pickGoodsBody .tableContentDiv {
+  margin-top: 5px;
+}
+.pickGoodsBody .tableContentDiv .addPickPurchaseDiv {
+  margin-bottom: -25px;
+  padding-left: 100px;
+}
 .pickGoodsBody .tableContentDiv .addPickPurchaseDiv button {
   font-weight: 700;
+}
+.pickGoodsBody .tableContentDiv .dataTables_wrapper {
+  z-index: -1;
+}
+.pickGoodsBody .tableContentDiv span.viewPickPurchaseOrder {
+  cursor: pointer;
+}
+#addPickGooodsPurchaseModal .modal-dialog {
+  width: 1200px;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body {
+  width: 100%;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table {
+  text-align: center;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table s {
+  cursor: pointer;
+  color: green;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table s.red {
+  color: #cd0a0a;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner {
+  width: 100% !important;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table {
+  width: 100% !important;
+}
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollBody {
+  border-bottom: none;
+}
+#addPickGooodsPurchaseModal .modal-dialog .topCheckInput {
+  margin-left: 10px;
 }

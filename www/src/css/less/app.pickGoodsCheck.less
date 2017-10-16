@@ -1,9 +1,50 @@
 .pickGoodsBody{
   .tableContentDiv{
+    margin-top: 5px;
     .addPickPurchaseDiv{
+      margin-bottom: -25px;
+      padding-left: 100px;
       button{
         font-weight: 700;
       }
     }
+    .dataTables_wrapper{
+      z-index: -1;
+    }
+    span.viewPickPurchaseOrder{
+      cursor: pointer;
+    }
+  }
+}
+
+#addPickGooodsPurchaseModal .modal-dialog{
+  width: 1200px;
+  .modal-body{
+    width: 100%;
+    .tableDiv{
+      table{
+        text-align: center;
+        s {
+          cursor: pointer;
+          color: green;
+          &.red {
+            color: #cd0a0a;
+          }
+        }
+      }
+      .dataTables_scrollHeadInner{
+        width: 100% !important;
+        &>table{
+          width: 100% !important;
+        }
+      }
+      .dataTables_scrollBody{
+        border-bottom: none;
+      }
+
+    }
+  }
+  .topCheckInput{
+    margin-left: 10px;
   }
 }
