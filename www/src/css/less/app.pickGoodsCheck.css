@@ -2,72 +2,99 @@
   margin-top: 10px;
   position: relative;
 }
-.pickGoodsBody .tableContentDiv .addPickPurchaseDiv {
-  margin-bottom: -25px;
-  padding-left: 100px;
-  z-index: 1;
-  position: absolute;
-  top: -5px;
-  left: 0;
-}
-.pickGoodsBody .tableContentDiv .addPickPurchaseDiv button {
-  font-weight: 700;
-}
 .pickGoodsBody .tableContentDiv span.viewPickPurchaseOrder {
   cursor: pointer;
 }
-.pickGoodsDiv .modal-dialog {
+.addPickPurchaseDiv {
+  margin-bottom: -47px;
+  margin-top: 15px;
+  padding-left: 100px;
+}
+.addPickPurchaseDiv button {
+  font-weight: 700;
+}
+#addPickGooodsPurchaseModal .modal-dialog,
+#choseCheckPeopleModal .modal-dialog,
+#viewPickPurchaseModal .modal-dialog {
   width: 1200px;
 }
-.pickGoodsDiv .modal-dialog .modal-body {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body,
+#choseCheckPeopleModal .modal-dialog .modal-body,
+#viewPickPurchaseModal .modal-dialog .modal-body {
   width: 100%;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv table {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table,
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv table,
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv table {
   text-align: center;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv table s {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table s,
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv table s,
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv table s {
   cursor: pointer;
   color: green;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv table s.red {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table s.red,
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv table s.red,
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv table s.red {
   color: #cd0a0a;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv table input[type="number"] {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv table input[type="number"],
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv table input[type="number"],
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv table input[type="number"] {
   width: 100%;
   border: none;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner,
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner,
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner {
   width: 100% !important;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table,
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table,
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollHeadInner > table {
   width: 100% !important;
 }
-.pickGoodsDiv .modal-dialog .modal-body .tableDiv .dataTables_scrollBody {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollBody,
+#choseCheckPeopleModal .modal-dialog .modal-body .tableDiv .dataTables_scrollBody,
+#viewPickPurchaseModal .modal-dialog .modal-body .tableDiv .dataTables_scrollBody {
   border-bottom: none;
 }
-.pickGoodsDiv .modal-dialog .modal-body h4 {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body h4,
+#choseCheckPeopleModal .modal-dialog .modal-body h4,
+#viewPickPurchaseModal .modal-dialog .modal-body h4 {
   padding: 0 0 5px 20px;
   font-size: 14px;
   font-weight: 700;
 }
-.pickGoodsDiv .modal-dialog .modal-body .splitLine {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .splitLine,
+#choseCheckPeopleModal .modal-dialog .modal-body .splitLine,
+#viewPickPurchaseModal .modal-dialog .modal-body .splitLine {
   width: 100%;
   height: 0;
   border-bottom: 1px dashed #ccc;
   margin: 10px 0;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv {
   min-height: 50px;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv {
   height: auto;
   margin: 10px;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul {
   width: 100%;
   overflow: hidden;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li {
   width: 12.5%;
   height: 30px;
   line-height: 30px;
@@ -76,14 +103,20 @@
   border: 1px solid #ccc;
   border-right: none;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li:last-child {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li:last-child,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li:last-child,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv > ul > li:last-child {
   border-right: 1px solid #ccc;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv {
   position: relative;
   margin-top: 5px;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div {
   width: 12.5%;
   padding: 0 2px;
   float: left;
@@ -91,15 +124,21 @@
   border-right: none;
   position: relative;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div:last-child {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div:last-child,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div:last-child,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div:last-child {
   border-right: 1px solid #ccc;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div input {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div input,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div input,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv > div input {
   width: 100%;
   height: 26px;
   border: none;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv .deleteMaterial {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv .deleteMaterial,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv .deleteMaterial,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv .deleteMaterial {
   position: absolute;
   top: -4px;
   right: -4px;
@@ -115,10 +154,14 @@
   display: none;
   z-index: 101;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv:hover > .deleteMaterial {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv:hover > .deleteMaterial,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv:hover > .deleteMaterial,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .materialListDiv:hover > .deleteMaterial {
   display: block;
 }
-.pickGoodsDiv .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .addMaterialListDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .addMaterialListDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .addMaterialListDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .addNotPurchaseGoodsDiv .materialDiv .addMaterialListDiv {
   height: 30px;
   line-height: 30px;
   text-align: center;
@@ -126,26 +169,36 @@
   margin-top: 5px;
   cursor: pointer;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv {
   border: none;
   height: 70px;
   margin: 0;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain {
   height: 80px;
   overflow: hidden;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain > div {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain > div,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain > div,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain > div {
   float: left;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv {
   width: 110px;
   height: 70px;
   text-align: center;
   position: relative;
   padding-top: 5px;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv {
   height: 50px;
   width: 50px;
   line-height: 45px;
@@ -156,23 +209,33 @@
   cursor: pointer;
   margin: 0 30px;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span {
   font-size: 14px;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .addCircleDiv > span.hideName {
   display: none;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .addCheckPeopleDiv .editCheckPeople {
   position: absolute;
   top: 8px;
   right: 26px;
   display: none;
 }
-.pickGoodsDiv .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .checkArrowDiv {
+#addPickGooodsPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .checkArrowDiv,
+#choseCheckPeopleModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .checkArrowDiv,
+#viewPickPurchaseModal .modal-dialog .modal-body .choseCheckPeopleDiv .checkPeopleDiv .checkPeopleMain .checkArrowDiv {
   height: 70px;
   line-height: 70px;
 }
-.pickGoodsDiv .modal-dialog .topCheckInput {
+#addPickGooodsPurchaseModal .modal-dialog .topCheckInput,
+#choseCheckPeopleModal .modal-dialog .topCheckInput,
+#viewPickPurchaseModal .modal-dialog .topCheckInput {
   margin-left: 10px;
 }
 .checkBody {
