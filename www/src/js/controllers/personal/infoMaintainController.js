@@ -28,6 +28,53 @@ mainStart
             })
         }
 
+        //修改；联系电话
+        //点击编辑按钮，编辑联系电话部分消失隐藏
+        $scope.phoneUpdateBtn=function(){
+            $('#phoneEditbtn').toggle();
+            $("#phoneSaveBtn").toggle();
+            $("#phoneDisBtn").toggle();
+        }
+        //点击“X"，编辑联系电话部分消失隐藏
+        $scope.phoneDisBtn=function(){
+            $('#phoneEditbtn').css('display','none');
+            $("#phoneSaveBtn").css('display','none');
+            $("#phoneDisBtn").css('display','none');
+        }
+
+        //点击“√”，保存修改
+        $scope.phoneSaveBtn=function(){
+            $scope.data = {
+                action:'updateUserPhone',
+                params:{
+                    userName:$scope.user.name,
+                    newPhone:$("#phoneEditInput").val()
+                }
+            };
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:$scope.data,
+                dataType: 'jsonp',
+                jsonp : "callback",
+                jsonpCallback:"success_jsonpCallback",
+                success:function(data){
+                    $('#phoneEditbtn').css('display','none');
+                    $("#phoneSaveBtn").css('display','none');
+                    $("#phoneDisBtn").css('display','none');
+                    console.log(data);
+                    personUpdate();
+                }
+            })
+        }
+        
+        //鼠标移入移出，箭头变成小手
+        //$(".fa-pencil-square-o").mouseover(function (){
+        //    $(".fa-pencil-square-o").css('cursor','pointer');
+        //}).mouseout(function (){
+        //    $(".fa-pencil-square-o").css();
+        //});
+
         //修改密码
         $scope.personUpdate=function(){
             if("$(#newpwd1).val==$(#newpwd2).val"){
@@ -52,7 +99,7 @@ mainStart
                     }
                 })
             }else{
-                    alert(222222)
+
             }
 
                 }
