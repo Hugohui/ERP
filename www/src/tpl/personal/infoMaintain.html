@@ -11,11 +11,10 @@
                 <li>部门：</li>
             </ul>
             <ul id="gitUl" ng-repeat="person in personsList">
-                <li>{{person.phone}}
+                <li><input type="text" id="phoneEditInput"  value="{{person.phone}}" disabled="disabled" style="border: none" >
                      <span><i class="fa fa-pencil-square-o" id="phoneUpdateBtn" ng-click="phoneUpdateBtn()"></i></span>
-                     <span id="phoneEditbtn">联系电话：<input type="text" id="phoneEditInput" style="display: inline-block "/></span>
                      <span> <i class="fa fa-check" id="phoneSaveBtn" ng-click="phoneSaveBtn()"></i></span>
-                    <span> <i class="fa fa-close" id="phoneDisBtn"style="color: red" ng-click="phoneDisBtn()"></i></span>
+                    <span> <i class="fa fa-close" id="phoneDisBtn"style="color: red" ng-click="phoneDisBtn()" ></i></span>
                 </li>
                 <li>{{person.password}}
                     <span id="pwdUpdateBtn"  data-toggle="modal" data-target="#infoUpdata" ><i class="fa fa-pencil-square-o" style="color: green"></i>

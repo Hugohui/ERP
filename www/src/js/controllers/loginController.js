@@ -7,12 +7,16 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
             mo2:false,
             mo3:true
         };
+        //重置
+        $scope.reset=function(){
+            $("#loginForm")[0].reset();
+        }
         $scope.loginOk = function(){
             $scope.ajaxData = {
                 action: "erpLogin",
                 params: {
-                    userName:$scope.user.name,
-                    password:$scope.user.pwd
+                    userName:"admin",
+                    password:"admin"
                 }
             }
             $.ajax({
@@ -31,6 +35,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                         $localStorage.user = $scope.user;
                         //跳转到首页
                         $state.go('app');
+
                     }
                 }
             })

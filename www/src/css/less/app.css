@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*ҳ����ʼ��*/
+/*页面初始化*/
 body,
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -255,7 +255,7 @@ hr {
 s {
   text-decoration: none;
 }
-/*����*/
+/*导航*/
 .navbar-header {
   width: 200px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
@@ -289,7 +289,7 @@ s {
   padding: 3px 6px;
   margin-left: -10px;
 }
-/*ҳ�沼��*/
+/*页面布局*/
 /*layout*/
 html,
 body {
@@ -415,7 +415,47 @@ body {
     width: auto;
   }
 }
-/*�ɹ�*/
+/*登录*/
+body {
+  /*background: url() no-repeat;*/
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+body .content {
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 70px auto 0;
+  text-align: center;
+}
+body .content .content-logo {
+  width: 68px;
+  height: 68px;
+}
+body .content body .content .content-title {
+  margin: 10px 0 25px 0;
+  font-size: 1.8em;
+  color: #747474;
+  font-weight: normal;
+  height: 30px;
+  border-radius: 7px;
+}
+body .content img {
+  margin-top: 10px;
+}
+body .content h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+body .content #uname {
+  width: 180px;
+}
+body .content #upwd {
+  width: 180px;
+}
+/*采购*/
 /*����*/
 .title {
   height: 35px;
@@ -895,7 +935,7 @@ body {
 #purchaseModal .modal-dialog .checkBody .reasonDiv textarea {
   width: 100%;
 }
-/*����*/
+/*���*/
 .depotInputBody {
   margin-top: 10px;
 }
@@ -964,7 +1004,8 @@ body {
 .depotOutputBody .depotOutputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
-/*ϵͳ����*/
+/*库管*/
+/*系统管理*/
 #modal-content-usermanage {
   width: 700px;
   left: 50%;
@@ -1248,9 +1289,9 @@ body {
 .checkBody .reasonDiv textarea {
   width: 100%;
 }
+/*我的*/
 .infoMaintain {
   width: 100%;
-  border: 1px solid #ccc ;
   height: 100%;
 }
 .infoMaintain h1 {
@@ -1262,22 +1303,23 @@ body {
   margin-left: 60px;
   font-size: 20px;
 }
-.infoMaintain ul li span {
-  padding-left: 10px;
-}
 .infoMaintain ul #phoneEditbtn {
   display: none;
+  cursor: pointer;
 }
 .infoMaintain ul #phoneUpdateBtn {
   color: green;
+  cursor: pointer;
 }
 .infoMaintain ul #phoneSaveBtn {
   color: green;
   display: none;
+  cursor: pointer;
 }
 .infoMaintain ul #phoneDisBtn {
   color: green;
   display: none;
+  cursor: pointer;
 }
 .infoMaintain #gitUl {
   float: left;
@@ -1285,6 +1327,6 @@ body {
   margin-left: 170px;
 }
 .infoMaintain #gitUl #phoneEditInput {
-  height: 25px;
-  width: 180px;
+  height: 27px;
+  width: 130px;
 }

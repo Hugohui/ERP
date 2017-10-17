@@ -1,6 +1,5 @@
 .infoMaintain {
   width: 100%;
-  border: 1px solid #ccc ;
   height: 100%;
 }
 .infoMaintain h1 {
@@ -12,22 +11,23 @@
   margin-left: 60px;
   font-size: 20px;
 }
-.infoMaintain ul li span {
-  padding-left: 10px;
-}
 .infoMaintain ul #phoneEditbtn {
   display: none;
+  cursor: pointer;
 }
 .infoMaintain ul #phoneUpdateBtn {
   color: green;
+  cursor: pointer;
 }
 .infoMaintain ul #phoneSaveBtn {
   color: green;
   display: none;
+  cursor: pointer;
 }
 .infoMaintain ul #phoneDisBtn {
   color: green;
   display: none;
+  cursor: pointer;
 }
 .infoMaintain #gitUl {
   float: left;
@@ -35,6 +35,6 @@
   margin-left: 170px;
 }
 .infoMaintain #gitUl #phoneEditInput {
-  height: 25px;
-  width: 180px;
+  height: 27px;
+  width: 130px;
 }

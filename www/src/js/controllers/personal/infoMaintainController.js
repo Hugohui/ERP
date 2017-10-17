@@ -34,12 +34,17 @@ mainStart
             $('#phoneEditbtn').toggle();
             $("#phoneSaveBtn").toggle();
             $("#phoneDisBtn").toggle();
+            $("#phoneUpdateBtn").css('display','none');
+            $("#phoneEditInput").removeAttr('disabled')
+            $("#phoneEditInput").css("border","")
         }
         //点击“X"，编辑联系电话部分消失隐藏
         $scope.phoneDisBtn=function(){
             $('#phoneEditbtn').css('display','none');
             $("#phoneSaveBtn").css('display','none');
             $("#phoneDisBtn").css('display','none');
+            $("#phoneUpdateBtn").css('display','inline-block');
+            $("#phoneEditInput").css("border","none");
         }
 
         //点击“√”，保存修改
@@ -62,18 +67,13 @@ mainStart
                     $('#phoneEditbtn').css('display','none');
                     $("#phoneSaveBtn").css('display','none');
                     $("#phoneDisBtn").css('display','none');
+                    $("#phoneUpdateBtn").css('display','inline-block');
+                    $("#phoneEditInput").css("border","none")
                     console.log(data);
                     personUpdate();
                 }
             })
         }
-        
-        //鼠标移入移出，箭头变成小手
-        //$(".fa-pencil-square-o").mouseover(function (){
-        //    $(".fa-pencil-square-o").css('cursor','pointer');
-        //}).mouseout(function (){
-        //    $(".fa-pencil-square-o").css();
-        //});
 
         //修改密码
         $scope.personUpdate=function(){
