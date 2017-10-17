@@ -172,11 +172,11 @@ mainStart
                         {
                             "data": "purchase_order_id",
                             "sClass": "text-center"
-                        },
+                        }/*,
                         {
                             "data": "contract_num",
                             "sClass": "text-center"
-                        },
+                        }*/,
                         {
                             "data": "orderStatus",
                             "sClass": "text-center",
@@ -509,6 +509,7 @@ mainStart
                 return;
             }
             reason = $('#reasonText').is(':visible')?$('#reasonText').val():'';
+
             $.ajax({
                 type:'POST',
                 url:'http://111.204.101.170:11115',
@@ -516,7 +517,7 @@ mainStart
                     action:"checkReqMaterial",
                     params:{
                         userName:$scope.user.name,
-                        material_requisition_id:$('#billNum').val(),
+                        material_requisition_id:billNum,
                         result:$('.radioDiv input:checked').attr('checkValue'),
                         reason:reason
                     }

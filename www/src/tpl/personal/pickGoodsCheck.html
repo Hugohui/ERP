@@ -5,7 +5,7 @@
                 <div class="queryTitle bg-black">条件查询</div>
                 <div class="queryBody">
                     <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
-                    <select class="selectCss">
+                    <select class="selectCss" ng-if="roles.role_id!=7">
                         <option value="all" aria-checked="true">全部</option>
                         <option value="0">未审核</option>
                         <option value="1">已审核</option>
@@ -60,7 +60,7 @@
                                     <td></td>
                                     <td>采购申请单号</td>
                                     <td>采购订单号</td>
-                                    <td>合同号</td>
+                                    <!--<td>合同号</td>-->
                                     <td>状态</td>
                                 </tr>
                             </thead>
