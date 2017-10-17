@@ -190,12 +190,12 @@
                                 <td>{{materia.model}}</td>
                                 <td>{{materia.project_num}}</td>
                                 <td>{{materia.unit}}</td>
-                                <td>{{materia.sn_num}}</td>
+                                <td>{{materia.number}}</td>
                                 <td>{{materia.remark}}</td>
                             </tr>
                         </table>
                     </div>
-                    <div class="checkBody" ng-if="roles.role_id == 7|| roles.role_id == 3">
+                    <div class="checkBody" ng-if="roles.role_id == 6|| roles.role_id == 3">
                         <div class="radioDiv">
                             <input type="radio" name="check" id="passCheck" checked checkValue="1"/>
                             审核通过
@@ -209,7 +209,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary checkPurchaseOk" ng-click="checkPurchaseOk()" ng-if="roles.role_id == 7|| roles.role_id == 3">审核</button>
+                    <button type="button" class="btn btn-primary checkPurchaseOk" ng-click="checkPurchaseOk()" ng-if="roles.role_id == 6|| roles.role_id == 3">审核</button>
                     <button type="button" class="btn btn-warning" ng-click="printPurchase()"><s class="fa fa-print"></s> 打印</button>
                 </div>
             </div>

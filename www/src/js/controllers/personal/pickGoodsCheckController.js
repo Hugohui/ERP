@@ -445,7 +445,10 @@ mainStart
                 success: function (data) {
                     if(data.resData.result == 0){
                         toastr.success('领料申请提交成功！');
+                        addPickPurchaseTable.ajax.reload();
                         $('#addPickGooodsPurchaseModal').modal('hide');
+                    }else{
+                        toastr.error(data.resData.msg);
                     }
                 }
             });

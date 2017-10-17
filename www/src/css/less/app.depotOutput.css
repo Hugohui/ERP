@@ -1,0 +1,34 @@
+.depotOutputBody {
+  margin-top: 10px;
+}
+.depotOutputBody .depotOutputTableDiv {
+  position: relative;
+}
+.depotOutputBody .depotOutputTableDiv table {
+  text-align: center;
+}
+.depotOutputBody .depotOutputTableDiv table input.number {
+  width: 100%;
+  border: none;
+}
+.depotOutputBody .depotOutputTableDiv table .topCheckInput {
+  margin-left: 10px;
+}
+.depotOutputBody .depotOutputTableDiv table s {
+  cursor: pointer;
+  color: green;
+}
+.depotOutputBody .depotOutputTableDiv table s.red {
+  color: #cd0a0a;
+}
+.depotOutputBody .depotOutputTableDiv .handleDepotDiv {
+  width: 400px;
+  padding-left: 100px;
+  margin-top: -5px;
+  margin-bottom: -25px;
+  z-index: 1;
+  position: absolute;
+}
+.depotOutputBody .depotOutputTableDiv .handleDepotDiv button {
+  font-weight: 700;
+}

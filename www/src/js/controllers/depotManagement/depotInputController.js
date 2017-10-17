@@ -124,6 +124,10 @@ mainStart
                     {
                         "data": "applicant",
                         "sClass": "text-center"
+                    },
+                    {
+                        "data": "applicant",
+                        "sClass": "text-center"
                     }
                 ]
             }).api();
