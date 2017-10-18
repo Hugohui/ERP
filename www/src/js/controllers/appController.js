@@ -8,9 +8,9 @@ mainStart
         //获取角色信息
         $scope.user = $localStorage.user;
 
-        //查看未读信息
+/*        //查看未读信息
         $rootScope.viewMessage = function(bill){
             $('#purchaseCheckModal').modal();
             console.log(bill);
-        }
+        }*/
 }]);
