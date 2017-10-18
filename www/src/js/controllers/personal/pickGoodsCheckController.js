@@ -445,7 +445,7 @@ mainStart
                 success: function (data) {
                     if(data.resData.result == 0){
                         toastr.success('领料申请提交成功！');
-                        addPickPurchaseTable.ajax.reload();
+                        pickGoodsTable.ajax.reload();
                         $('#addPickGooodsPurchaseModal').modal('hide');
                     }else{
                         toastr.error(data.resData.msg);
@@ -529,7 +529,7 @@ mainStart
                         toastr.success(data.resData.msg);
                         $('#viewPickPurchaseModal').modal('hide');
                         //重新加载列表
-                        addPickPurchaseTable.ajax.reload();
+                        pickGoodsTable.ajax.reload();
                         //重新设置当前用户其他未审核信息
                         /*$localStorage.sendMessage = data.resData.sendMessage;
                         $scope.sendMessage = data.resData.sendMessage;*/
