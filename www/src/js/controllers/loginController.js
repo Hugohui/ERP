@@ -39,8 +39,6 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                         //跳转到首页
                         $state.go('app');
 
-                        console.log(888)
-
                     }
                 }
             })
