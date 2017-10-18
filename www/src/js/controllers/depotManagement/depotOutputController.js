@@ -62,7 +62,7 @@ mainStart
                 pagingType: "full_numbers",  //分页样式：simple,simple_numbers,full,full_numbers
                 columnDefs: [
                     {
-                        "targets": [0, 1, 2, 3, 4],
+                        "targets": [0, 1, 2],
                         "orderable": false
                     }
                 ],
@@ -101,31 +101,41 @@ mainStart
                         "sClass": "text-center",
                         "render": function (data) {
                             //未领料和部分领料的显示选择框
-                            var inputStr = data.orderStatus == 0 || data.orderStatus == 2 ? '<input class="topCheckInput" type="checkbox"/>' : '';
+                            var inputStr = data.status == 0 || data.status == 2 ? '<input class="topCheckInput" type="checkbox"/>' : '';
                             var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s>' + inputStr;
                             return html;
                         },
                         "width": 50
                     },
                     {
-                        "data": "purchase_applicant_id",
-                        "sClass": "text-center"
+                        "data": "material_requisition_id",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return '<span class="material_requisition_id">'+data+'</span>'
+                        }
                     },
-                    {
+                     /*{
                         "data": "purchase_order_id",
                         "sClass": "text-center"
                     },
                     {
                         "data": "contract_num",
                         "sClass": "text-center"
-                    },
+                    },*/
                     {
                         "data": "applicant",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "applicant",
-                        "sClass": "text-center"
+                        "data": "status",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            var statusStr = {
+                                0:"未领料",
+                                1:"已领料"
+                            };
+                            return statusStr[data];
+                        }
                     }
                 ]
             }).api();
@@ -152,7 +162,7 @@ mainStart
                 $(this).removeClass('fa-minus-square  red').addClass('fa-plus-square');//按钮变化
                 tr.removeClass('shown');
             } else {
-                row.child(format(row.data(), tr.data('stockPositionArr'), tr.data('inputCheckedArr'))).show();
+                row.child(format(row.data(),tr.data('inputCheckedArr'))).show();
                 tr.addClass('shown');
                 $(this).removeClass('fa-plus-square').addClass('fa-minus-square red');
             }
@@ -168,7 +178,7 @@ mainStart
 
         })
 
-        function format(d, positionArr, inputCheckedArr) {
+        function format(d, inputCheckedArr) {
             var positionArr = positionArr == undefined ? [] : positionArr;
             var inputCheckedArr = inputCheckedArr == undefined ? [] : inputCheckedArr;
             var trStr = '';
@@ -185,7 +195,8 @@ mainStart
                     '<td>' + value.sn_num + '</td>' +
                     '<td>' + value.project_num + '</td>' +
                     '<td>' + value.unit + '</td>' +
-                    '<td><input class="number" min="1" max="' + value.number + '" value="' + value.number + '"/></td>' +
+                    '<td>' + value.number + '</td>' +
+                    //'<td><input class="number" min="1" max="' + value.number + '" value="' + value.number + '"/></td>' +
                     '<td>' + value.remark + '</td>' +
                     '</tr>';
             });
@@ -198,7 +209,8 @@ mainStart
                 '<td>sn号</td>' +
                 '<td>项目号</td>' +
                 '<td>单位</td>' +
-                '<td><s class="fa fa-asterisk redText"></s>数量</td>' +
+                '<td>数量</td>' +
+                //'<td><s class="fa fa-asterisk redText"></s>数量</td>' +
                 '<td>备注</td>' +
                 '</tr>' + trStr +
                 '</table>';
@@ -211,7 +223,7 @@ mainStart
             var row = depotOutputTable.row(tr);
             if ($(this).is(':checked')) {
                 if (!row.child.isShown()) {
-                    row.child(format(row.data(), tr.data('stockPositionArr'))).show();
+                    row.child(format(row.data())).show();
                     tr.addClass('shown');
                     $(this).siblings('s').removeClass('fa-plus-square').addClass('fa-minus-square red');
                 }
@@ -232,10 +244,6 @@ mainStart
                 })
                 tr.data('inputCheckedArr', inputCheckedArr);
             }
-
-            //验证
-            $.fn.InitValidator('depotOutputTableDiv');
-            $('#depotOutputTableDiv [valType]').hideValidate();
         })
         //子表格中的选择
         $(document).on('change', 'table.sonTable tbody .checkMaterial', function () {
@@ -266,21 +274,37 @@ mainStart
                 inputCheckedArr.push($(value).find('input.checkMaterial').prop("checked"));
             });
             tr.prev().data('inputCheckedArr', inputCheckedArr);
-
-            //验证
-            $.fn.InitValidator('depotOutputTableDiv');
-            $('#depotOutputTableDiv [valType]').hideValidate();
         })
 
         //完成领料
         $scope.commitDepotOutput = function () {
             var commitDataArr = [];
-            $.each($('.sonTable tr:not(".trHead")'), function (index, value) {
-                if ($(this).find('.checkMaterial').is(':checked')) {
-                    commitDataArr.push({
-                        material_code: $(this).find('.material_code').html(),
-                        number: $(this).find('.number').val()
-                    })
+            $.each($('#depotOutputTable>tbody>tr').find('.material_requisition_id'),function(){
+                var materialListArr = [];
+
+                //订单行（父行）
+                var tr = $(this).closest('tr');
+
+                //子航是否展开
+                if(tr.next().find('.sonTable')){
+
+                    //是否选中物料
+                    if(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked').length){
+
+                        //获取订单号
+                        var material_requisition_id = $(this).html();
+
+                        //该订单下的物料数据
+                        $.each(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked'),function(i,v){
+                            materialListArr.push($(v).closest('tr').find('.material_code').html());
+                        })
+
+                        //组合数据
+                        commitDataArr.push({
+                            material_requisition_id:material_requisition_id,//订单号
+                            materialList:materialListArr//物料编码数组
+                        })
+                    }
                 }
             });
 
@@ -290,22 +314,14 @@ mainStart
                 return;
             }
 
-            //验证
-            var isValidate = beforeSubmit("depotOutputTableDiv");
-            if (!isValidate) {
-                return;
-            }
-
             //提交数据
             $.ajax({
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
                 data: {
                     action: "commitDepotOutput",
-                    params: {
-                        userName: $scope.user.name,
-                        materialList: commitDataArr
-                    }
+                    userName: $scope.user.name,
+                    params: commitDataArr
                 },
                 dataType: 'jsonp',
                 jsonp: "callback",
@@ -313,7 +329,7 @@ mainStart
                     if (data.resData.result == 0) {
                         //重新加载数据表
                         depotOutputTable.ajax.reload();
-                        toastr.success(data.resData.msg);
+                        toastr.success('领料完成');
                     } else {
                         toastr.warning(data.resData.msg);
                     }
