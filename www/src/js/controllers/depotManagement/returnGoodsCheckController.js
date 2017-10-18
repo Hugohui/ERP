@@ -62,7 +62,7 @@ mainStart
                 pagingType: "full_numbers",  //分页样式：simple,simple_numbers,full,full_numbers
                 columnDefs: [
                     {
-                        "targets": [0, 1, 2, 3, 4],
+                        "targets": [0, 1, 2],
                         "orderable": false
                     }
                 ],
@@ -108,15 +108,7 @@ mainStart
                         "width": 50
                     },
                     {
-                        "data": "purchase_applicant_id",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "purchase_order_id",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "contract_num",
+                        "data": "material_requisition_id",
                         "sClass": "text-center"
                     },
                     {
@@ -124,8 +116,15 @@ mainStart
                         "sClass": "text-center"
                     },
                     {
-                        "data": "applicant",
-                        "sClass": "text-center"
+                        "data": "status",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            var statusStr = {
+                                0:"待退料",
+                                1:"已退料"
+                            }
+                            return statusStr[data];
+                        }
                     }
                 ]
             }).api();
@@ -136,7 +135,7 @@ mainStart
             $('.dataTables_wrapper').append($btnStr);
         }
 
-        $('#depotOutputTable tbody').on('click', '.details-control', function () {
+        $('#returnGoodsTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
             var row = returnGoodsTable.row(tr);
             var sonTrs = tr.next().find('.sonTable tr:not(:first-child)');
@@ -185,7 +184,7 @@ mainStart
                     '<td>' + value.sn_num + '</td>' +
                     '<td>' + value.project_num + '</td>' +
                     '<td>' + value.unit + '</td>' +
-                    '<td><input class="number" min="1" max="' + value.number + '" value="' + value.number + '"/></td>' +
+                    '<td>' + value.number + '</td>' +
                     '<td>' + value.remark + '</td>' +
                     '</tr>';
             });
@@ -198,7 +197,7 @@ mainStart
                 '<td>sn号</td>' +
                 '<td>项目号</td>' +
                 '<td>单位</td>' +
-                '<td><s class="fa fa-asterisk redText"></s>数量</td>' +
+                '<td>数量</td>' +
                 '<td>备注</td>' +
                 '</tr>' + trStr +
                 '</table>';
