@@ -935,7 +935,7 @@ body .content #upwd {
 #purchaseModal .modal-dialog .checkBody .reasonDiv textarea {
   width: 100%;
 }
-/*���*/
+/*库管*/
 .depotInputBody {
   margin-top: 10px;
 }
@@ -1004,7 +1004,6 @@ body .content #upwd {
 .depotOutputBody .depotOutputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
-/*库管*/
 /*系统管理*/
 #modal-content-usermanage {
   width: 700px;
@@ -1067,7 +1066,47 @@ body .content #upwd {
     transform: translate(-50%, -50%);
   }
 }
-/*�ҵ�*/
+/*我的*/
+.infoMaintain {
+  width: 100%;
+  height: 100%;
+}
+.infoMaintain h1 {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.infoMaintain ul {
+  margin-left: 60px;
+  font-size: 20px;
+}
+.infoMaintain ul #phoneEditbtn {
+  display: none;
+  cursor: pointer;
+}
+.infoMaintain ul #phoneUpdateBtn {
+  color: green;
+  cursor: pointer;
+}
+.infoMaintain ul #phoneSaveBtn {
+  color: green;
+  display: none;
+  cursor: pointer;
+}
+.infoMaintain ul #phoneDisBtn {
+  color: green;
+  display: none;
+  cursor: pointer;
+}
+.infoMaintain #gitUl {
+  float: left;
+  margin-top: -120px;
+  margin-left: 170px;
+}
+.infoMaintain #gitUl #phoneEditInput {
+  height: 27px;
+  width: 130px;
+}
 .pickGoodsBody .tableContentDiv {
   margin-top: 10px;
   position: relative;
@@ -1288,45 +1327,4 @@ body .content #upwd {
 }
 .checkBody .reasonDiv textarea {
   width: 100%;
-}
-/*我的*/
-.infoMaintain {
-  width: 100%;
-  height: 100%;
-}
-.infoMaintain h1 {
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-.infoMaintain ul {
-  margin-left: 60px;
-  font-size: 20px;
-}
-.infoMaintain ul #phoneEditbtn {
-  display: none;
-  cursor: pointer;
-}
-.infoMaintain ul #phoneUpdateBtn {
-  color: green;
-  cursor: pointer;
-}
-.infoMaintain ul #phoneSaveBtn {
-  color: green;
-  display: none;
-  cursor: pointer;
-}
-.infoMaintain ul #phoneDisBtn {
-  color: green;
-  display: none;
-  cursor: pointer;
-}
-.infoMaintain #gitUl {
-  float: left;
-  margin-top: -120px;
-  margin-left: 170px;
-}
-.infoMaintain #gitUl #phoneEditInput {
-  height: 27px;
-  width: 130px;
 }

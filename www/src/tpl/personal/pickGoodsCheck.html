@@ -10,225 +10,235 @@
                         <option value="0">未审核</option>
                         <option value="1">已审核</option>
                     </select>
+
                     <div class="searchGroup">
                         <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
                         <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
                         <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                     </div>
-        <div class="queryDIv">
-            <div class="queryTitle bg-black">条件查询</div>
-            <div class="queryBody">
-                <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
-                <div class="searchGroup">
-                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
-                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
-                <select class="selectCss">
-                    <option value="all" aria-checked="true">全部</option>
-                    <option value="0">未审核</option>
-                    <option value="1">已审核</option>
-                </select>
-                <div class="searchGroup">
-                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
-                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
-                </div>
-            </div>
-            <div class="tableContentDiv" >
-                <div class="addPickPurchaseDiv">
-                    <button class="btn btn-success btn-sm" ng-click="addPickGooodsPurchase()"><s class="fa fa-plus"></s> 新增领料申请</button>
-                </div>
-                <table id="pickGoodsTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
-                    <thead>
-                    <tr >
-                        <td>领料申请单号</td>
-                        <td>申请人</td>
-                        <td>申请时间</td>
-                        <td>状态</td>
-                        <td>操作</td>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
+                    <div class="queryDIv">
+                        <div class="queryTitle bg-black">条件查询</div>
+                        <div class="queryBody">
+                            <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
 
-    </div>
-    <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
-    <div ng-include="'tpl/blocks/header.html'"class="header"></div>
-    <div ng-include="'tpl/blocks/footer.html'"></div>
+                            <div class="searchGroup">
+                                <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
+                                <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
+                                <select class="selectCss">
+                                    <option value="all" aria-checked="true">全部</option>
+                                    <option value="0">未审核</option>
+                                    <option value="1">已审核</option>
+                                </select>
 
-    <!--S = modal-->
-    <!--新增领料申请-->
-    <div class="modal fade" id="addPickGooodsPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="addPickGooodsPurchaseModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addPickGooodsPurchaseModalLabel">新增领料申请</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h4>领用采购申请物料：</h4>
-                    <div class="tableDiv">
-                        <table class="display table-striped table-bordered table-hover" id="addPickPurchaseTable" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <td></td>
-                                    <td>采购申请单号</td>
-                                    <td>采购订单号</td>
-                                    <!--<td>合同号</td>-->
-                                    <td>状态</td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-<!--                    <div class="splitLine"></div>
-                    <h4>领用非采购申请物料：</h4>
-                    <div class="addNotPurchaseGoodsDiv">
-                        <div class="materialDiv">
-                            <ul>
-                                <li>物料编码</li>
-                                <li>名称</li>
-                                <li>型号</li>
-                                <li>sn号</li>
-                                <li>项目号</li>
-                                <li>单位</li>
-                                <li><s class="fa fa-asterisk redText"></s>数量</li>
-                                <li>备注</li>
-                            </ul>
-                            <div class="materialListDiv clearfix">
-                                <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
-                                <div>
-                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
-                                </div>
-                                <div>
-                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
-                                </div>
-                                <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
-                                <div><input type="text" class="sn_num" name="sn_num"/></div>
-                                <div><input type="text" class="project_num" name="project_num"/></div>
-                                <div><input type="text" class="unit" name="unit"/></div>
-                                <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>
-                                <div><input type="text" class="remark" name="name"/></div>
-                            </div>
-                            <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
-                                <span class="fa fa-plus"></span>
-                            </div>
-                        </div>
-                    </div>-->
-                    <div class="splitLine"></div>
-                    <h4>选择审批人：</h4>
-                    <div class="choseCheckPeopleDiv">
-                        <div class="checkPeopleDiv">
-                            <div class="checkPeopleMain">
-                                <div class="addCheckPeopleDiv">
-                                    <div class="addCircleDiv" ng-click="checkGroupLeader($event)">
-                                        <span class="fa fa-plus"></span>
-                                        <span class="groupLeaderName hideName"></span>
-                                    </div>
-                                    <input type="hidden" class="groupLeaderNameInp"/>
-                                    <div class="checkPeoplePosition">
-                                        <s class="fa fa-asterisk redText"></s>室组经理
-                                    </div>
-                                    <span class="editCheckPeople fa fa-edit"></span>
-                                </div>
-                                <div class="checkArrowDiv">
-                                    <span class="fa fa-arrow-right"></span>
-                                </div>
-                                <div class="addCheckPeopleDiv">
-                                    <div class="addCircleDiv" ng-click="checkMinister($event)">
-                                        <span class="fa fa-plus"></span>
-                                        <span class="departmentName hideName"></span>
-                                    </div>
-                                    <input type="hidden" class="departmentNameInp"/>
-                                    <div class="checkPeoplePosition">
-                                        <s class="fa fa-asterisk redText"></s>部长
-                                    </div>
-                                    <span class="editCheckPeople fa fa-edit"></span>
+                                <div class="searchGroup">
+                                    <input type="text" placeholder="输入订单号查询" class="placeholderOrderNum"/>
+                                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                                 </div>
                             </div>
+                            <div class="tableContentDiv">
+                                <div class="addPickPurchaseDiv">
+                                    <button class="btn btn-success btn-sm" ng-click="addPickGooodsPurchase()"><s class="fa fa-plus"></s> 新增领料申请</button>
+                                </div>
+                                <table id="pickGoodsTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <td>领料申请单号</td>
+                                        <td>申请人</td>
+                                        <td>申请时间</td>
+                                        <td>状态</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" ng-click="addPurchaseOk()">确定</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 选择审批人 -->
-    <div class="modal fade" id="choseCheckPeopleModal" tabindex="-1" role="dialog" aria-labelledby="choseCheckPeopleModalLabel" aria-hidden="true">
-        <div class="modal-dialog choseCheckPeopleDialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="choseCheckPeopleModalLabel">{{choseCheckPeopleTitle}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <ul class="selectCheckUl">
-                        <!--<li class="selectLi" ng-click="selectPurchaseName($event)">-->
-                        <!--【<span class="selectName">张三</span>】 总经理-->
-                        <!--</li>-->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div>
+                    <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
+                    <div ng-include="'tpl/blocks/header.html'" class="header"></div>
+                    <div ng-include="'tpl/blocks/footer.html'"></div>
 
-    <!--查看/打印-->
-    <div class="modal fade" id="viewPickPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="viewPickPurchaseModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="viewPickPurchaseModalLabel">查看/打印领料申请单</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="tableDiv">
-                        <input type="hidden" id="billNum"/>
-                        <table class="table-bordered table-condensed" cellspacing="0" width="100%">
-                            <tr >
-                                <td>名称</td>
-                                <td>型号</td>
-                                <td>项目号</td>
-                                <td>单位</td>
-                                <td>数量</td>
-                                <td>备注</td>
-                            </tr>
-                            <tr ng-repeat="materia in materialList">
-                                <td>{{materia.material_name}}</td>
-                                <td>{{materia.model}}</td>
-                                <td>{{materia.project_num}}</td>
-                                <td>{{materia.unit}}</td>
-                                <td>{{materia.number}}</td>
-                                <td>{{materia.remark}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="checkBody" ng-if="roles.role_id == 6|| roles.role_id == 3">
-                        <div class="radioDiv">
-                            <input type="radio" name="check" id="passCheck" checked checkValue="1"/>
-                            审核通过
-                            <input type="radio" name="check" id="failureCheck" checkValue="-1"/>
-                            拒绝申请
+                    <!--S = modal-->
+                    <!--新增领料申请-->
+                    <div class="modal fade" id="addPickGooodsPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="addPickGooodsPurchaseModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addPickGooodsPurchaseModalLabel">新增领料申请</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>领用采购申请物料：</h4>
+
+                                    <div class="tableDiv">
+                                        <table class="display table-striped table-bordered table-hover" id="addPickPurchaseTable" cellspacing="0" width="100%">
+                                            <thead>
+                                            <tr>
+                                                <td></td>
+                                                <td>采购申请单号</td>
+                                                <td>采购订单号</td>
+                                                <!--<td>合同号</td>-->
+                                                <td>状态</td>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <!--                    <div class="splitLine"></div>
+                                                        <h4>领用非采购申请物料：</h4>
+                                                        <div class="addNotPurchaseGoodsDiv">
+                                                            <div class="materialDiv">
+                                                                <ul>
+                                                                    <li>物料编码</li>
+                                                                    <li>名称</li>
+                                                                    <li>型号</li>
+                                                                    <li>sn号</li>
+                                                                    <li>项目号</li>
+                                                                    <li>单位</li>
+                                                                    <li><s class="fa fa-asterisk redText"></s>数量</li>
+                                                                    <li>备注</li>
+                                                                </ul>
+                                                                <div class="materialListDiv clearfix">
+                                                                    <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
+                                                                    <div>
+                                                                        <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
+                                                                    </div>
+                                                                    <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
+                                                                    <div><input type="text" class="sn_num" name="sn_num"/></div>
+                                                                    <div><input type="text" class="project_num" name="project_num"/></div>
+                                                                    <div><input type="text" class="unit" name="unit"/></div>
+                                                                    <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>
+                                                                    <div><input type="text" class="remark" name="name"/></div>
+                                                                </div>
+                                                                <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
+                                                                    <span class="fa fa-plus"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
+                                    <div class="splitLine"></div>
+                                    <h4>选择审批人：</h4>
+
+                                    <div class="choseCheckPeopleDiv">
+                                        <div class="checkPeopleDiv">
+                                            <div class="checkPeopleMain">
+                                                <div class="addCheckPeopleDiv">
+                                                    <div class="addCircleDiv" ng-click="checkGroupLeader($event)">
+                                                        <span class="fa fa-plus"></span>
+                                                        <span class="groupLeaderName hideName"></span>
+                                                    </div>
+                                                    <input type="hidden" class="groupLeaderNameInp"/>
+
+                                                    <div class="checkPeoplePosition">
+                                                        <s class="fa fa-asterisk redText"></s>室组经理
+                                                    </div>
+                                                    <span class="editCheckPeople fa fa-edit"></span>
+                                                </div>
+                                                <div class="checkArrowDiv">
+                                                    <span class="fa fa-arrow-right"></span>
+                                                </div>
+                                                <div class="addCheckPeopleDiv">
+                                                    <div class="addCircleDiv" ng-click="checkMinister($event)">
+                                                        <span class="fa fa-plus"></span>
+                                                        <span class="departmentName hideName"></span>
+                                                    </div>
+                                                    <input type="hidden" class="departmentNameInp"/>
+
+                                                    <div class="checkPeoplePosition">
+                                                        <s class="fa fa-asterisk redText"></s>部长
+                                                    </div>
+                                                    <span class="editCheckPeople fa fa-edit"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary" ng-click="addPurchaseOk()">确定</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="reasonDiv">
-                            <textarea id="reasonText" placeholder="拒绝理由不能为空哦~"></textarea>
+                    </div>
+
+                    <!-- 选择审批人 -->
+                    <div class="modal fade" id="choseCheckPeopleModal" tabindex="-1" role="dialog" aria-labelledby="choseCheckPeopleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog choseCheckPeopleDialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="choseCheckPeopleModalLabel">{{choseCheckPeopleTitle}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="selectCheckUl">
+                                        <!--<li class="selectLi" ng-click="selectPurchaseName($event)">-->
+                                        <!--【<span class="selectName">张三</span>】 总经理-->
+                                        <!--</li>-->
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary checkPurchaseOk" ng-click="checkPurchaseOk()" ng-if="roles.role_id == 6|| roles.role_id == 3">审核</button>
-                    <button type="button" class="btn btn-warning" ng-click="printPurchase()"><s class="fa fa-print"></s> 打印</button>
+
+                    <!--查看/打印-->
+                    <div class="modal fade" id="viewPickPurchaseModal" tabindex="-1" role="dialog" aria-labelledby="viewPickPurchaseModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="viewPickPurchaseModalLabel">查看/打印领料申请单</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="tableDiv">
+                                        <input type="hidden" id="billNum"/>
+                                        <table class="table-bordered table-condensed" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td>名称</td>
+                                                <td>型号</td>
+                                                <td>项目号</td>
+                                                <td>单位</td>
+                                                <td>数量</td>
+                                                <td>备注</td>
+                                            </tr>
+                                            <tr ng-repeat="materia in materialList">
+                                                <td>{{materia.material_name}}</td>
+                                                <td>{{materia.model}}</td>
+                                                <td>{{materia.project_num}}</td>
+                                                <td>{{materia.unit}}</td>
+                                                <td>{{materia.number}}</td>
+                                                <td>{{materia.remark}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="checkBody" ng-if="roles.role_id == 6|| roles.role_id == 3">
+                                        <div class="radioDiv">
+                                            <input type="radio" name="check" id="passCheck" checked checkValue="1"/>
+                                            审核通过
+                                            <input type="radio" name="check" id="failureCheck" checkValue="-1"/>
+                                            拒绝申请
+                                        </div>
+                                        <div class="reasonDiv">
+                                            <textarea id="reasonText" placeholder="拒绝理由不能为空哦~"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary checkPurchaseOk" ng-click="checkPurchaseOk()" ng-if="roles.role_id == 6|| roles.role_id == 3">审核</button>
+                                    <button type="button" class="btn btn-warning" ng-click="printPurchase()"><s class="fa fa-print"></s> 打印</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
-</div>
 </div>
