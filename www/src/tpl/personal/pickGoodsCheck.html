@@ -5,7 +5,7 @@
                 <div class="queryTitle bg-black">条件查询</div>
                 <div class="queryBody">
                     <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
-                    <select class="selectCss" ng-if="roles.role_id!=7">
+                    <select class="selectCss">
                         <option value="all" aria-checked="true">全部</option>
                         <option value="0">未审核</option>
                         <option value="1">已审核</option>
@@ -167,7 +167,8 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="viewPickPurchaseModalLabel">查看/打印领料申请单</h5>
+                            <h5 class="modal-title" ng-if="roles.role_id==3||roles.role_id==6">查看/打印/审核领料申请单</h5>
+                            <h5 class="modal-title" ng-if="roles.role_id!=3&&roles.role_id!=6">查看/打印领料申请单</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

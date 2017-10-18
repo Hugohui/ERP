@@ -11,14 +11,14 @@ mainStart
         //初始化采购申请列表
         initReturnGoodsTable();
         /**
-         * 采购入库列表
+         * 退料申请列表
          */
-        var pickGoodsTable;
+        var returnGoodsTable;
 
         function initReturnGoodsTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 130;
             //初始化表格
-            pickGoodsTable = $("#pickGoodsTable").dataTable({
+            returnGoodsTable = $("#returnGoodsTable").dataTable({
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
@@ -49,7 +49,7 @@ mainStart
                         type: 'POST',
                         url: 'http://111.204.101.170:11115',
                         data: {
-                            action: "getPickGoodsList",
+                            action: "returnGoodsList",
                             params: param
                         },
                         dataType: 'jsonp',
@@ -535,7 +535,7 @@ mainStart
                         toastr.success(data.resData.msg);
                         $('#viewPickPurchaseModal').modal('hide');
                         //重新加载列表
-                        addPickPurchaseTable.ajax.reload();
+                        returnGoodsTable.ajax.reload();
                         //重新设置当前用户其他未审核信息
                         /*$localStorage.sendMessage = data.resData.sendMessage;
                          $scope.sendMessage = data.resData.sendMessage;*/
