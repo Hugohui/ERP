@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('returnGoodsCheckController',['$scope','$rootScope','$localStorage', 'toastr',function($scope,$rootScope,$localStorage, toastr){
+    .controller('returnGoodsCheckController',['$scope','$rootScope','$localStorage', 'toastr','$compile',function($scope,$rootScope,$localStorage, toastr,$compile){
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -129,6 +129,11 @@ mainStart
                     }
                 ]
             }).api();
+            var btnStr = '<div class="handleDepotDiv">'+
+                '                    <button class="btn btn-primary btn-sm" ng-click="commitReturnGoods()">完成退料</button>'+
+                '                </div>';
+            var $btnStr = $compile(btnStr)($scope);
+            $('.dataTables_wrapper').append($btnStr);
         }
 
         $('#depotOutputTable tbody').on('click', '.details-control', function () {

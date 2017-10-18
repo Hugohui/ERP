@@ -105,6 +105,13 @@ mainStart
                     }
                 ]
             }).api();
+
+            var btnStr = '<div class="addPickPurchaseDiv">'+
+                '                    <button class="btn btn-success btn-sm" ng-click="addReturnGooodsPurchase()"><s class="fa fa-plus"></s> 新增退料申请</button>'+
+                '                </div>';
+            var $btnStr = $compile(btnStr)($scope);
+            $('.dataTables_wrapper').append($btnStr);
+
         }
 
         var addPickPurchaseTable;

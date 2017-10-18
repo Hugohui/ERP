@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('depotInputController', ['$scope', '$rootScope', '$localStorage','toastr', function ($scope, $rootScope, $localStorage,toastr) {
+    .controller('depotInputController', ['$scope', '$rootScope', '$localStorage','toastr','$compile', function ($scope, $rootScope, $localStorage,toastr,$compile) {
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -127,6 +127,14 @@ mainStart
             }
             ]
         }).api();
+
+
+        var btnStr = '<div class="handleDepotDiv">'+
+            '                    <button class="btn btn-warning btn-sm" ng-click="commitDepotInput()">确认收料</button>'+
+            '                    <button class="btn btn-warning btn-sm"><s class="fa fa-print"></s> 打印收料单</button>'+
+            '                </div>';
+        var $btnStr = $compile(btnStr)($scope);
+        $('.dataTables_wrapper').append($btnStr);
     }
 
         $('#depotInputTable tbody').on('click', '.details-control', function () {

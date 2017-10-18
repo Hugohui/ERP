@@ -22,12 +22,9 @@
   color: #cd0a0a;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv {
-  width: 400px;
   padding-left: 100px;
-  margin-top: -5px;
-  margin-bottom: -25px;
-  z-index: 1;
   position: absolute;
+  top: 0;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv button {
   font-weight: 700;
