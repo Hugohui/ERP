@@ -103,7 +103,9 @@ mainStart
             }
 
                 }
-
+        $scope.dispersonUpdate=function(){
+            $("#updataForm")[0].reset();
+        }
 
 
     }]);

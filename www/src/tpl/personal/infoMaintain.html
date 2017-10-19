@@ -10,8 +10,17 @@
                 <li>密码：</li>
                 <li>部门：</li>
             </ul>
-            <ul id="gitUl" ng-repeat="person in personsList">
-                <li><input type="text" id="phoneEditInput"  value="{{person.phone}}" disabled="disabled" style="border: none" >
+            <ul id="gitUl" ng-repeat="person in personsList" name="signUpForm">
+                <li><input type="tel" id="phoneEditInput"  id="tell" name="tell"
+                           ng-minleng="11"
+                           ng-pattern="/^1[3|5][0-9]\d{4,8}$/"
+                           required
+                           value="{{person.phone}}"
+                           disabled="disabled" style="border: none" >
+                    <span ng-messages="signUpForm.tell.$dirty &&signUpForm.tell.$error" style="color:red;">
+                        <span  ng-message="signUpForm.tell.$error.required&&signUpForm.tell.$touched">电话不能为空！</span>
+                         <span ng-message="(signUpForm.tell.$error.minlength||signUpForm.tell.$error.maxlength||signUpForm.tell.$error.pattern)&&signUpForm.tell.$touched">请输入有效手机号!</span>
+                    </span>
                      <span><i class="fa fa-pencil-square-o" id="phoneUpdateBtn" ng-click="phoneUpdateBtn()"></i></span>
                      <span> <i class="fa fa-check" id="phoneSaveBtn" ng-click="phoneSaveBtn()"></i></span>
                     <span> <i class="fa fa-close" id="phoneDisBtn"style="color: red" ng-click="phoneDisBtn()" ></i></span>
@@ -36,17 +45,31 @@
                     </div>
                     <div class="modal-body">
                        <center>
-                           <form  id="updataForm" >
-                               原&nbsp密&nbsp码&nbsp ： <input type="text" id="oldpwd"/><br/>
-                               <span></span><br/>
-                               新&nbsp密&nbsp码&nbsp ： <input type="text"  id="newpwd1"/><br/>
-                               <span></span><br/>
-                               再次输入 ： <input type="text" id="newpwd2"/></form>
-                           <span></span><br/>
+                           <form  id="updataForm" name="updataForm">
+                               原&nbsp密&nbsp码&nbsp ： <input type="text" id="oldpwd" ng-model="user.pwd" name="inpPwd" id="upwd" placeholder="请输入密码" value=""
+                                                           minlength="5" maxlength="16" required/><br/>
+                               <span ng-messages="updataForm.inpPwd.$dirty&&updataForm.inpPwd.$error" style="color: red;">
+                                    <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
+                                    <span ng-message="minlength"  style="padding-left: 10px">密码不能少于6位</span>
+                                    <span ng-message="maxlength"  style="padding-left: 10px">密码不能多于16位</span>
+                                </span><br/>
+                               新&nbsp密&nbsp码&nbsp ：<input type="text"  id="newpwd1" ng-model="user.newpwd1" name="newpwd1"  placeholder="请输入密码" value=""
+                                                          minlength="5" maxlength="16" required/><br/>
+                              <span ng-messages="updataForm.newpwd1.$dirty&&updataForm.newpwd1.$error" style="color: red;">
+                                    <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
+                                    <span ng-message="minlength"  style="padding-left: 10px">密码不能少于6位</span>
+                                    <span ng-message="maxlength"  style="padding-left: 10px">密码不能多于16位</span>
+                                </span><br/>
+                               再次输入 ： <input type="text" id="newpwd2" ng-model="user.newpwd2" name="newpwd2"
+                                              placeholder="请再输一遍密码..." required/><br/>
+                                <span style="color: red" ng-messages="updataForm.newpwd2.$dirty&&updataForm.newpwd2.$error">
+                                    <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
+                                </span><br/></form>
+
                        </center>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="dispersonUpdate()">关闭</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="personUpdate()" id="okdeleteBtn">确定</button>
                     </div>
                 </div>
