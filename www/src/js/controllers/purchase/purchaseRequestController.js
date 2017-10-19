@@ -119,11 +119,10 @@ mainStart
         $scope.selectPurchaseName = function($event){
             if($scope.choseCheckPeopleTitle == "选择室组经理"){
                 $('.groupLeaderName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
-                //$('.')
-                $('.groupLeaderNameInp').val($($event.currentTarget).find('.selectName').html());
+                $('.groupLeaderNameInp').val($($event.currentTarget).find('.selectName').html()).siblings('.editCheckPeople').show();
             }else if($scope.choseCheckPeopleTitle == "选择室部长"){
                 $('.departmentName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
-                $('.departmentNameInp').val($($event.currentTarget).find('.selectName').html());
+                $('.departmentNameInp').val($($event.currentTarget).find('.selectName').html()).siblings('.editCheckPeople').show();
             }else{
                 $('.managerName').html($($event.currentTarget).find('.selectName').html()).siblings().remove();
                 $('.managerNameInp').val($($event.currentTarget).find('.selectName').html());
