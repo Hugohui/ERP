@@ -118,8 +118,8 @@ mainStart
         //选中审批人
         $scope.selectPurchaseName = function($event){
             if($scope.choseCheckPeopleTitle == "选择室组经理"){
-                console.log($($event.currentTarget).find('.selectName').html());
                 $('.groupLeaderName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();
+                //$('.')
                 $('.groupLeaderNameInp').val($($event.currentTarget).find('.selectName').html());
             }else if($scope.choseCheckPeopleTitle == "选择室部长"){
                 $('.departmentName').show().html($($event.currentTarget).find('.selectName').html()).siblings().remove();

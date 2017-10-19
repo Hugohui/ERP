@@ -49,7 +49,7 @@ mainStart
                         type: 'POST',
                         url: 'http://111.204.101.170:11115',
                         data: {
-                            action: "returnGoodsList",
+                            action: "getReturnGoodsList",
                             params: param
                         },
                         dataType: 'jsonp',
@@ -68,8 +68,8 @@ mainStart
                 //列表表头字段
                 columns: [
                     {
-                        "data": "material_requisition_id",
-                        "sClass": "text-center"
+                        "data": "material_return_id",
+                        "sClass": "text-center",
                     },
                     {
                         "data": "applicant",
@@ -77,7 +77,10 @@ mainStart
                     },
                     {
                         "data": "applicant_date",
-                        "sClass": "text-center"
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return data.split(' ')[0];
+                        }
                     },
                     {
                         "data": "status",
@@ -97,9 +100,9 @@ mainStart
                         render:function(data){
                             console.log();
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印/审核</span>';
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
                             }else{
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印</span>';
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>';
                             }
                         }
                     }
@@ -415,7 +418,7 @@ mainStart
             }
 
             //生成申请单号
-            var material_requisition_id = billFormat('TLSQ',new Date());
+            var material_return_id = billFormat('TLSQ',new Date());
             $.ajax({
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
@@ -423,7 +426,7 @@ mainStart
                     action:"createReturnMaterialOrder",
                     params:{
                         userName:$scope.user.name,
-                        material_requisition_id:material_requisition_id,
+                        material_return_id:material_return_id,
                         approver:{
                             group_leader:$('.groupLeaderNameInp').val(),
                             department:$('.departmentNameInp').val()
@@ -463,10 +466,10 @@ mainStart
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
                 data: {
-                    action:"viewReqMaterial",
+                    action:"viewReturnMaterial",
                     params:{
                         userName:$scope.user.name,
-                        material_requisition_id:pickPurchaseOrder
+                        material_return_id:pickPurchaseOrder
                     }
                 },
                 dataType: 'jsonp',
@@ -504,10 +507,10 @@ mainStart
                 type:'POST',
                 url:'http://111.204.101.170:11115',
                 data:{
-                    action:"checkReqMaterial",
+                    action:"checkReturnMaterial",
                     params:{
                         userName:$scope.user.name,
-                        material_requisition_id:$('#billNum').val(),
+                        material_return_id:$('#billNum').val(),
                         result:$('.radioDiv input:checked').attr('checkValue'),
                         reason:reason
                     }
@@ -516,7 +519,7 @@ mainStart
                 jsonp : "callback",
                 success:function(data){
                     if(data.resData.result == 0){
-                        toastr.success(data.resData.msg);
+                        toastr.success('审核通过');
                         $('#viewPickPurchaseModal').modal('hide');
                         //重新加载列表
                         returnGoodsTable.ajax.reload();

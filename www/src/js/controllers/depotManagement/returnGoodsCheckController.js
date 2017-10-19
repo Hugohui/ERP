@@ -78,7 +78,7 @@ mainStart
                         type: 'POST',
                         url: 'http://111.204.101.170:11115',
                         data: {
-                            action: "depotOutputList",
+                            action: "returnGoodsList",
                             params: param
                         },
                         dataType: 'jsonp',
@@ -101,14 +101,14 @@ mainStart
                         "sClass": "text-center",
                         "render": function (data) {
                             //未领料和部分领料的显示选择框
-                            var inputStr = data.orderStatus == 0 || data.orderStatus == 2 ? '<input class="topCheckInput" type="checkbox"/>' : '';
+                            var inputStr = data.status == 0 || data.status == 2 ? '<input class="topCheckInput" type="checkbox"/>' : '';
                             var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s>' + inputStr;
                             return html;
                         },
                         "width": 50
                     },
                     {
-                        "data": "material_requisition_id",
+                        "data": "material_return_id",
                         "sClass": "text-center"
                     },
                     {
@@ -271,7 +271,7 @@ mainStart
             $('#depotOutputTableDiv [valType]').hideValidate();
         })
 
-        //完成领料
+        //完成退料
         $scope.commitDepotOutput = function () {
             var commitDataArr = [];
             $.each($('.sonTable tr:not(".trHead")'), function (index, value) {
@@ -300,7 +300,7 @@ mainStart
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
                 data: {
-                    action: "commitDepotOutput",
+                    action: "commitReturnGoods",
                     params: {
                         userName: $scope.user.name,
                         materialList: commitDataArr
