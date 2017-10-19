@@ -5,6 +5,10 @@ mainStart
         $scope.roles = $localStorage.roles;
         //获取角色信息
         $scope.user = $localStorage.user;
+
+
+
+        //获取操作日志
         $.ajax({
             type:'POST',
             url:'http://111.204.101.170:11115',
@@ -17,6 +21,7 @@ mainStart
             dataType: 'jsonp',
             jsonp : "callback",
             success:function(data){
+
                 $scope.daysList=data.resData.data;
                 console.log(data);
                 $scope.$apply();

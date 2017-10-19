@@ -165,6 +165,8 @@ mainStart
                }
            })
        }
+
+
         var userTable;
         function initUsersTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
