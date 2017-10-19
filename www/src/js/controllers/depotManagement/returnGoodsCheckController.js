@@ -205,9 +205,9 @@ mainStart
 
         //给后台的收料数据数组
         //父表格中的选择
-        $('#depotOutputTable tbody').on('change', '.topCheckInput', function () {
+        $('#returnGoodsTable tbody').on('change', '.topCheckInput', function () {
             var tr = $(this).closest('tr');
-            var row = depotOutputTable.row(tr);
+            var row = returnGoodsTable.row(tr);
             if ($(this).is(':checked')) {
                 if (!row.child.isShown()) {
                     row.child(format(row.data(), tr.data('stockPositionArr'))).show();
