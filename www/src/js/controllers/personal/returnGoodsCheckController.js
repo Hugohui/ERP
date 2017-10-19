@@ -135,7 +135,7 @@ mainStart
                     bInfo:false,
                     columnDefs: [
                         {
-                            "targets": [1, 2, 3],
+                            "targets": [0,1,2],
                             "orderable": false
                         }
                     ],
@@ -149,7 +149,7 @@ mainStart
                             //url:'data/users.txt',
                             url: 'http://111.204.101.170:11115',
                             data: {
-                                action: "loadPurchaseReqList",
+                                action: "loadPickedMaterialList",
                                 params: param
                             },
                             //dataType:'json',
@@ -173,27 +173,14 @@ mainStart
                             "width":50
                         },
                         {
-                            "data": "purchase_applicant_id",
+                            "data": "material_requisition_id",
                             "sClass": "text-center",
                         },
                         {
-                            "data": "purchase_order_id",
-                            "sClass": "text-center"
-                        }/*,
-                        {
-                            "data": "contract_num",
-                            "sClass": "text-center"
-                        }*/,
-                        {
-                            "data": "orderStatus",
+                            "data": "applicant_date",
                             "sClass": "text-center",
                             "render":function(data){
-                                var orderStatusStr = {
-                                    0:"未到货",
-                                    1:"已到货",
-                                    2:"部分到货"
-                                };
-                                return orderStatusStr[data];
+                                return data.split(' ')[0];
                             }
                         }
                     ]
@@ -234,8 +221,7 @@ mainStart
                 1:"已到货",
             }
             $.each(d.materialList, function (index, value) {
-                var inputStr = '';
-                value.materialStatus == 1?(inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>'):inputStr='<input type="checkbox" class="checkMaterial" style="display: none"/>';
+                var inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>';
                 trStr += '<tr>' +
                     '<td>'+inputStr+'</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
@@ -245,13 +231,12 @@ mainStart
                     '<td class="project_num">' + value.project_num + '</td>' +
                     '<td class="unit">' + value.unit + '</td>' +
                     '<td><input class="number" valType="zNum" msg="" type="number" min="1" max="'+value.number+'" value="'+value.number+'"/></td>' +
-                    '<td>' + materialStatusStr[value.materialStatus]+ '</td>' +
                     '<td class="remark">' + value.remark + '</td>' +
                     '</tr>';
             });
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">' +
                 '<tr class="trHead">' +
-                '<td></td>' +
+                '<td width="50"></td>' +
                 '<td>物料编码</td>' +
                 '<td>名称</td>' +
                 '<td>型号</td>' +
@@ -259,7 +244,6 @@ mainStart
                 '<td>项目号</td>' +
                 '<td>单位</td>' +
                 '<td>数量</td>' +
-                '<td>状态</td>' +
                 '<td>备注</td>' +
                 '</tr>' + trStr +
                 '</table>';
@@ -431,12 +415,12 @@ mainStart
             }
 
             //生成申请单号
-            var material_requisition_id = billFormat('LLSQ',new Date());
+            var material_requisition_id = billFormat('TLSQ',new Date());
             $.ajax({
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
                 data: {
-                    action:"createPickReqOrder",
+                    action:"createReturnMaterialOrder",
                     params:{
                         userName:$scope.user.name,
                         material_requisition_id:material_requisition_id,
@@ -451,7 +435,7 @@ mainStart
                 jsonp: "callback",
                 success: function (data) {
                     if(data.resData.result == 0){
-                        toastr.success('领料申请提交成功！');
+                        toastr.success('领料退请提交成功！');
                         addPickPurchaseTable.ajax.reload();
                         $('#addPickGooodsPurchaseModal').modal('hide');
                     }else{
