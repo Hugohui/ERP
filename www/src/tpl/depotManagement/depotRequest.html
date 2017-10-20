@@ -1,6 +1,42 @@
 <div ng-controller="depotRequestController" class="app">
     <div class="mainView">
-        <h1>库存查询</h1>
+        <div class="queryDIv">
+            <div class="queryTitle bg-black">条件查询</div>
+            <div class="queryBody">
+                <input type="text" placeholder="物料编码" class=""/>
+                <input type="text" placeholder="名称" class=""/>
+                <input type="text" placeholder="型号" class=""/>
+                <input type="text" placeholder="项目号" class=""/>
+                <div class="searchGroup">
+                    <input type="text" placeholder="采购订单编号/申请人" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                </div>
+            </div>
+        </div>
+        <div class="depotRequestBody">
+            <div class="depotRequestTableDiv" id="depotRequestTableDiv">
+                <table id="depotRequestTable" class="display table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <td>物料编码</td>
+                        <td>名称</td>
+                        <td>型号</td>
+                        <td>sn号</td>
+                        <td>供应商编号</td>
+                        <td>供应商名称</td>
+                        <td>项目号</td>
+                        <td>单位</td>
+                        <td>库存数量</td>
+                        <td>批次</td>
+                        <td>品牌</td>
+                        <td>厂家</td>
+                        <td>单价</td>
+                        <td>库存位置</td>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
