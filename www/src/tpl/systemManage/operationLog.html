@@ -1,6 +1,6 @@
-<div ng-controller="operationLogController">
-    <div ng-include="'tpl/blocks/header.html'"class="header"></div>
+<div ng-controller="operationLogController" class="app">
     <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>
+    <div ng-include="'tpl/blocks/header.html'"class="header"></div>
     <div  class="mainView">
         <div class="queryDIv">
             <div class="queryTitle bg-black">条件查询</div>
@@ -23,11 +23,13 @@
         </div>
         <div class="tableContent" >
             <table id="operationTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
-                <tr >
-                    <td>姓名</td>
-                    <td>操作类型</td>
-                    <td>日期</td>
-                </tr>
+               <thead>
+               <tr>
+                   <td>姓名</td>
+                   <td>操作类型</td>
+                   <td>日期</td>
+               </tr>
+               </thead>
                 <tr ng-repeat="days in daysList">
                     <td >{{days.operator}}</td>
                     <td >{{days.type}}</td>
@@ -36,7 +38,7 @@
             </table>
         </div>
         </div>
-    </div>
+</div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>
 </div>

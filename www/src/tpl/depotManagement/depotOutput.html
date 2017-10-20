@@ -1,4 +1,6 @@
 <div ng-controller="depotOutputController" class="app">
+    <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
+    <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div class="mainView">
         <div class="queryDIv">
             <div class="queryTitle bg-black">条件查询</div>
@@ -20,7 +22,7 @@
                 <!--<div class="handleDepotDiv">
                     <button class="btn btn-primary btn-sm" ng-click="commitDepotOutput()">完成领料</button>
                 </div>-->
-                <table id="depotOutputTable" class="display table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                <table id="depotOutputTable" class="display table-striped table-bordered table-hover" cellspacing="0" width="100%" >
                     <thead>
                     <tr>
                         <td></td>
@@ -36,7 +38,5 @@
             </div>
         </div>
     </div>
-    <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
-    <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>

@@ -100,7 +100,6 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu()" id="okdeleteBtn">确定</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"  ng-click="deleteStu($index)">确定</button>
                             </div>
                         </div>
                     </div>
@@ -119,24 +118,16 @@
             </div>
             <div class="tableContent" >
                 <table id="userTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
-                    <tr >
-                        <td><input type="checkbox" ng-model="selectAll" id="ck_all" ></td>
-                        <td>序号</td>
-                        <td class="userName">用户名</td>
-                        <td >密码</td>
-                        <td >电话</td>
-                        <td >组</td>
-                    </tr>
-                    <tr ng-repeat="user in usersList">
-                        <td><input type="checkbox" ng-checked="selectAll"  ng-click="isSelected()" access="{{user.access}}" data_permissions="{{user.data_permissions}}"></td>
-                        <td>{{$index+1}}</td>
-                        <td class="userName">{{user.userName}}</td>
-                        <td >{{user.password}}</td>
-                        <td >{{user.phone}}</td>
-                        <td >{{user.department}}</td>
-                    </tr>
+                   <thead>
+                   <tr >
+                       <td></td>
+                       <td class="userName">用户名</td>
+                       <td >密码</td>
+                       <td >电话</td>
+                       <td >组</td>
+                   </tr>
+                   </thead>
                 </table>
-                <div id="purchaseHistoryPager"></div>
             </div>
            </div>
          </div>

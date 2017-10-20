@@ -44,7 +44,8 @@ mainStart
             $("#phoneSaveBtn").css('display','none');
             $("#phoneDisBtn").css('display','none');
             $("#phoneUpdateBtn").css('display','inline-block');
-            $("#phoneEditInput").css("border","none");
+            $("#phoneEditInput").css("border","none")
+                                  .attr("disabled","disabled");
         }
 
         //µã»÷¡°¡Ì¡±£¬±£´æÐÞ¸Ä

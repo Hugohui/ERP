@@ -10,166 +10,11 @@ mainStart
         //
         $scope.modelTitle="";
 
-        //获取用户列表
-        /*
-        *用户列表
-        */
-        $.ajax({
-            type:'POST',
-            url:'http://111.204.101.170:11115',
-            data:{
-                action:"usersList",
-                params:{
-                    limit:"10",
-                    start:"0",
-                    page:"1",
-                    queryData:""
-                }
-            },
-            dataType: 'jsonp',
-            jsonp : "callback",
-            success:function(data){
-              $scope.usersList=data.resData.data;
-            }
-        })
-
-        /*添加用户信息、修改用户信息*/
-        $scope.okAddAndUpdata=function(){
-           //添加用户
-            $scope.data = {
-                action:'addUser',
-                params:{
-                    userName: $scope.userInfo.userName,
-                    password: $scope.userInfo.password,
-                    phone:$scope.userInfo.phone,
-                    access:$scope.userInfo.access,
-                    department:$scope.userInfo.department,
-                    data_permissions:{
-                        contract_number: $scope.userInfo.contract_number || false,
-                        unit_price:$scope.userInfo.unit_price || false,
-                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
-                        money:$scope.userInfo.money || false,
-                        tax_rate:$scope.userInfo.tax_rate|| false,
-                        invoice:$scope.userInfo.invoice|| false,
-                        inventory_position:$scope.userInfo.inventory_position|| false
-                    }
-                }
-            }
-            //修改用户
-            var userName;
-            $("#userTable").find("tr").each(function($index, value){
-                if($(this).find('input').is(':checked')){
-                    var userNames=$(this).find("td.userName").html();
-                        userName.push(userNames)
-                }else{
-
-                }
-            })
-            $scope.data = {
-                action:'updataUser',
-                params:{
-                    userName: userName,
-                    password: $scope.userInfo.password,
-                    phone:$scope.userInfo.phone,
-                    access:$scope.userInfo.access,
-                    department:$scope.userInfo.department,
-                    data_permissions:{
-                        contract_number: $scope.userInfo.contract_number || false,
-                        unit_price:$scope.userInfo.unit_price || false,
-                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
-                        money:$scope.userInfo.money || false,
-                        tax_rate:$scope.userInfo.tax_rate|| false,
-                        invoice:$scope.userInfo.invoice|| false,
-                        inventory_position:$scope.userInfo.inventory_position|| false
-                    }
-                }
-            }
-            $.ajax({
-                type:'POST',
-                url:'http://111.204.101.170:11115',
-                data:$scope.data,
-                dataType: 'jsonp',
-                jsonp : "callback",
-                jsonpCallback:"success_jsonpCallback",
-                success:function(data){
-                    console.log(data)
-                }
-            })
-        }
-
-        /*用户列表复选框*/
-        $scope.selectAll=false;
-        $scope.selectAllClick= function (sa) {
-            for(var i=0;i<$scope.usersList.length;i++){
-                $scope.usersList[i].checked=sa;
-            }
-        };
-
-
-        //删除选择用户
- $scope.deleteStu= function (){
-     //获取勾选行信息
-     var userArr = [];
-     $("#userTable").find("tr").each(function($index, value){
-         if($(this).find('input').is(':checked')){
-             var userName=$(this).find("td.userName").html();
-             userArr.push(userName);
-         }else{
-
-         }
-     })
-
-     console.log(userArr);
-
-     $scope.data = {
-         action:'deleteUser',
-         params:{
-             userNameArr:userArr
-         }
-     };
-     $.ajax({
-         type:'POST',
-         url:'http://111.204.101.170:11115',
-         data:$scope.data,
-         dataType: 'jsonp',
-         jsonp : "callback",
-         jsonpCallback:"success_jsonpCallback",
-         success:function(data){
-
-         }
-     })
-
- };
-        update();
-        //封装刷新页面的方法
-        function update(){
-           $.ajax({
-               type:'POST',
-               url:'http://111.204.101.170:11115',
-
-               data:{
-                   action:"usersList",
-                   params:{
-                       limit:"10",
-                       start:"0",
-                       page:"1",
-                       queryData:""
-                   }
-               },
-               dataType: 'jsonp',
-               jsonp : "callback",
-               success:function(data){
-                   $scope.usersList=data.resData.data;
-                   console.log(data);
-                   $scope.$apply();
-               }
-           })
-       }
-
-
+        //获取表格分页
+        initUsersTable();
         var userTable;
         function initUsersTable() {
-            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
+            var scrollY = $('.mainView').height()-160;
             var lang = {
                 "sProcessing": "处理中...",
                 "sLengthMenu": "每页 _MENU_ 项",
@@ -195,16 +40,6 @@ mainStart
                     "sSortDescending": ": 以降序排列此列"
                 }
             };
-      /*  $scope.selectAll=false;
-         $scope.all= function (m) {
-         for(var i=0;i<$scope.usersList.length;i++){
-         if(m===true){
-         $scope.usersList[i].state=true;
-         }else {
-         $scope.usersList[i].state=false;
-         }
-         }
-         };*/
 
             //初始化表格
             userTable = $("#userTable").dataTable({
@@ -236,25 +71,53 @@ mainStart
                     $.ajax({
                         type: 'POST',
                         url:'http://111.204.101.170:11115',
-                        //url:'http://111.204.101.170:11115',
                         data: {
                             action:"usersList",
                             params:param
                         },
-                        dataType: 'json',
-                        //dataType: 'jsonp',
-                        //jsonp: "callback",
+                        dataType: 'jsonp',
+                        jsonp: "callback",
                         success: function (result) {
                             //封装返回数据
                             var returnData = {};
                             returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
-                            returnData.recordsTotal = result.total;//返回数据全部记录
-                            returnData.recordsFiltered = result.total;//后台不实现过滤功能，每次查询均视作全部结果
-                            returnData.data = result.data;//返回的数据列表
+                            returnData.recordsTotal = result.resData.total;//返回数据全部记录
+                            returnData.recordsFiltered = result.resData.total;//后台不实现过滤功能，每次查询均视作全部结果
+                            returnData.data = result.resData.data;//返回的数据列表
                             callback(returnData);
                         }
                     });
-                }
+                },
+                //列表表头字段
+                columns: [
+                    {
+                        "data": null,
+                        "sClass": "text-center",
+                        "render": function (data) {
+                            var html = '<input type="checkbox" class="checkboxID" ng-click="isSelected()" access="'+data.access+'" data_permissions="'+data.data_permissions+'">';
+                            return html;
+                        },
+                        "width":50
+                    },
+
+                    {
+                        "data": "userName",
+                        "sClass": "text-center"
+
+                    },
+                    {
+                        "data": "password",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "phone",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "department",
+                        "sClass": "text-center"
+                    }
+                ]
             }).api();
         }
 
@@ -280,7 +143,6 @@ mainStart
                     }
                 }
             }
-
             $.ajax({
                 type:'POST',
                 url:'http://111.204.101.170:11115',
@@ -290,22 +152,21 @@ mainStart
                 jsonpCallback:"success_jsonpCallback",
                 success:function(data){
                     console.log(data);
-                    update();
                 }
             })
-
         };
 
         //修改用户
         $("#updateBtn").click(function(){
             $('#userName').attr("disabled",true);
-            var tr = $("#userTable").find("input:checked").parent().parent();
-            $scope.userInfo.userName = tr.find('td').eq(2).text();
-            $scope.userInfo.password = tr.find('td').eq(3).text();
-            $scope.userInfo.phone = tr.find('td').eq(4).text();
-            $scope.userInfo.department = tr.find('td').eq(5).text();
-            $scope.userInfo.access = tr.find('td input').attr("access");
-            $scope.userInfo.data_permissions = $.parseJSON(tr.find('td input').attr("data_permissions"));
+            var tr=$("input:checked").closest('tr');
+            var row = userTable.row(tr);
+            $scope.userInfo.userName = row.data().userName;
+            $scope.userInfo.password = row.data().password;
+            $scope.userInfo.phone = row.data().phone;
+            $scope.userInfo.department = row.data().department;
+            $scope.userInfo.access =row.data().access;
+            $scope.userInfo.data_permissions = row.data().data_permissions;
             $scope.okAddAndUpdata=function(){
                 $scope.data = {
                     action:'updateUser',
@@ -335,29 +196,27 @@ mainStart
                     jsonpCallback:"success_jsonpCallback",
                     success:function(data){
                         console.log(data)
-                        update();
+
                     }
                 })
             }
 
         });
 
-
         //删除选择用户
+        //获取勾选行信息
+        var userArr = [];
+        $('#userTable tbody').on('change', '.checkboxID', function () {
+            var tr = $(this).closest('tr');
+            var row = userTable.row(tr);
+            if($(this).is(':checked')){
+                console.log(row.data().userName);
+                userArr.push(row.data().userName);
+            }else{
+
+            }
+        });
          $scope.deleteStu= function (){
-         //获取勾选行信息
-         var userArr = [];
-         $("#userTable").find("tr").each(function($index, value){
-             if($(this).find('input').is(':checked')){
-                 var userName=$(this).find("td.userName").html();
-                 userArr.push(userName);
-             }else{
-
-             }
-         })
-
-         console.log(userArr);
-
          $scope.data = {
              action:'deleteUser',
              params:{
@@ -372,17 +231,16 @@ mainStart
              jsonp : "callback",
              jsonpCallback:"success_jsonpCallback",
              success:function(data){
-                 update();
+
              }
          })
 
      };
 
-
         //按钮的显示与隐藏
-        $scope.isSelected=function(){
-            var arr = []
-            $('#userTable input[type="checkbox"]').each(function(i, v) {
+        $('#userTable tbody').on('change', '.checkboxID', function () {
+            var arr = [];
+            $('input[type="checkbox"]').each(function(i, v) {
                 if($(v).is(':checked')) {
                     arr.push('')
                 }
@@ -399,16 +257,5 @@ mainStart
                 $('#deleteBtn').css('display','none')
             }
 
-            //$scope.isDeleteShow = arr.length > 0;
-            //$scope.isUpdateShow = arr.length === 1;
-
-        };
-
-        //用户列表复选框
-        $scope.selectAll=false;
-        $scope.selectAllClick= function (sa) {
-            for(var i=0;i<$scope.usersList.length;i++){
-                $scope.usersList[i].checked=sa;
-            }
-        };
+        });
     }]);
