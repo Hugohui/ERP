@@ -16,7 +16,7 @@ angular.module('mainStart')
         }])
     .config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider){
         $urlRouterProvider
-            .otherwise('/app');
+            .otherwise('/login');
         $stateProvider
             //登录页
             .state('login', {
