@@ -29,9 +29,27 @@
                             </div>
                             <div class="modal-body" >
                                 <h5>基本信息</h5><br/>
-                                姓&nbsp名：<input type="text" id="userName" ng-model="userInfo.userName"/>
-                                密&nbsp码：<input type="text"  id="userPassword" ng-model="userInfo.password"/>
-                                联系电话：<input type="text"    id="userPhone" ng-model="userInfo.phone"/><br/><br/>
+
+                                <form novalidate name="loginForm">
+                                    姓&nbsp名：<input type="text" id="userName" name="inpName"ng-model="userInfo.userName"required/>
+                                    密&nbsp码：<input type="text"  id="userPassword" ng-model="userInfo.password" name="inpPwd" minlength="5" maxlength="16" required/>
+                                    联系电话：<input type="text"    id="userPhone" ng-model="userInfo.phone" name="tell"  ng-minleng="11"
+                                                ng-pattern="/^1[3|5][0-9]\d{4,8}$/" required/><br/>
+                                    <span>
+                                    <span ng-messages="loginForm.inpName.$dirty &&loginForm.inpName.$error" id="resultUname" style="color:red;">
+                                        <span ng-message="required">用户名不能为空</span>
+                                    </span>
+                                    <span ng-messages="loginForm.inpPwd.$dirty&&loginForm.inpPwd.$error" id="resultPwd" style="color: red;">
+                                            <span ng-message="required">密码不能为空</span>
+                                            <span ng-message="minlength">密码不能少于6位</span>
+                                            <span ng-message="maxlength">密码不能多于16位</span>
+                                    </span>
+                                    <span ng-messages="loginForm.tell.$dirty &&loginForm.tell.$error" style="color:red;">
+                                             <span  ng-message="loginForm.tell.$error.required&&loginForm.tell.$touched">电话不能为空！</span>
+                                             <span ng-message="(loginForm.tell.$error.minlength||loginForm.tell.$error.maxlength||loginForm.tell.$error.pattern)&&loginForm.tell.$touched">请输入有效手机号!</span>
+                                    </span>
+                                    </span> <br/>
+                                </form>
                                 职&nbsp员：<select ng-model="userInfo.access" ng-init="access='system_permissions'" id="select">
                                     <option value="1">admin
                                     <option value="2">总经理

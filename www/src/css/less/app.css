@@ -1196,6 +1196,7 @@ body .content #labelTip {
 .infoMaintain ul #phoneUpdateBtn {
   color: green;
   cursor: pointer;
+  padding-left: 15px;
 }
 .infoMaintain ul #phoneSaveBtn {
   color: green;
@@ -1207,6 +1208,10 @@ body .content #labelTip {
   display: none;
   cursor: pointer;
 }
+.infoMaintain #pwdUpdateBtn {
+  cursor: pointer;
+  padding-left: 20px;
+}
 .infoMaintain #gitUl {
   float: left;
   margin-top: -120px;
@@ -1214,7 +1219,15 @@ body .content #labelTip {
 }
 .infoMaintain #gitUl #phoneEditInput {
   height: 27px;
-  width: 130px;
+  width: 126px;
+}
+#updataForm #oldpwd,
+#newpwd1,
+#newpwd2 {
+  width: 145px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 .pickGoodsBody .tableContentDiv {
   margin-top: 10px;

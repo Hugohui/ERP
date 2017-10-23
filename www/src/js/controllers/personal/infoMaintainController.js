@@ -76,9 +76,10 @@ mainStart
             })
         }
 
+
         //ÐÞ¸ÄÃÜÂë
         $scope.personUpdate=function(){
-            if("$(#newpwd1).val==$(#newpwd2).val"){
+            if($('#oldpwd').val()&&$('#newpwd1').val==$('#newpwd2').val){
                 $scope.data = {
                     action:'updateUserPassword',
                     params:{
@@ -95,8 +96,13 @@ mainStart
                     jsonp : "callback",
                     jsonpCallback:"success_jsonpCallback",
                     success:function(data){
-                        console.log(data);
-                        personUpdate();
+                        if(data.resData.result == 0){
+                            console.log(data);
+                            $("#updataForm")[0].reset();
+                        }else{
+
+                        }
+
                     }
                 })
             }else{
