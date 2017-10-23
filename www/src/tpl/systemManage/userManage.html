@@ -30,10 +30,9 @@
                             <div class="modal-body" >
                                 <h5>基本信息</h5><br/>
                                 姓&nbsp名：<input type="text" id="userName" ng-model="userInfo.userName"/>
-                                密&nbsp码：<input type="text" ng-model="userInfo.password"/>
-                                联系电话：<input type="text"  ng-model="userInfo.phone"/><br/><br/>
-                                职&nbsp员：
-                                <select ng-model="userInfo.access" ng-init="access='system_permissions'" id="select">
+                                密&nbsp码：<input type="text"  id="userPassword" ng-model="userInfo.password"/>
+                                联系电话：<input type="text"    id="userPhone" ng-model="userInfo.phone"/><br/><br/>
+                                职&nbsp员：<select ng-model="userInfo.access" ng-init="access='system_permissions'" id="select">
                                     <option value="1">admin
                                     <option value="2">总经理
                                     <option value="3">部长
@@ -42,8 +41,7 @@
                                     <option value="6">室组经理
                                     <option value="7">员工
                                 </select>
-                                组&nbsp&nbsp&nbsp&nbsp：
-                                <select ng-model="userInfo.department" ng-init="department='no'">
+                                组&nbsp&nbsp&nbsp&nbsp：<select ng-model="userInfo.department" ng-init="department='no'" id="select1">
                                     <option value="无">无
                                     <option value="软件组">软件组
                                     <option value="硬件组">硬件组
