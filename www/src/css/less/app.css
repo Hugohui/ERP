@@ -1021,6 +1021,9 @@ body .content #labelTip {
   width: 100%;
 }
 /*库管*/
+.mainView .queryDIv .queryBody .searchGroup .searchR {
+  border-radius: 4px;
+}
 .depotInputBody {
   margin-top: 10px;
 }
