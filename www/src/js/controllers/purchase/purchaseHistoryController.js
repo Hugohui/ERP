@@ -109,7 +109,10 @@ mainStart
                     },
                     {
                         "data": "purchase_order_id",
-                        "sClass": "text-center"
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return data?data:'--';
+                        }
                     },
                     {
                         "data": "applicant",
