@@ -49,7 +49,7 @@ mainStart
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
-                lengthMenu: [2, 40, 60], //更改显示记录数选项
+                lengthMenu: [20, 40, 60], //更改显示记录数选项
                 stripeClasses: ["odd", "even"],  //为奇偶行加上样式，兼容不支持CSS伪类的场合
                 processing: true,  //隐藏加载提示,自行处理
                 serverSide: true,  //启用服务器端分页
