@@ -16,6 +16,11 @@ mainStart
 
             $('#billNum').val(billNum);
             status != 0?$('.checkBody').hide():$('.checkBody').show();//当订单为已审核（通过或者拒绝），不再显示审核按钮
+
+            //每次打开模态都将按钮和输入框框恢复为默认状态
+            $('#passCheck').click();
+            $('#reasonText').val('');
+
             $('#purchaseCheckModal').modal('show');
             //获取订单的详细物料数据
             $.ajax({
