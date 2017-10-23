@@ -15,6 +15,7 @@ mainStart
          * 采购历史数据
          */
         var purchaseHistoryTable;
+
         function initPurchaseHistoryTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
             var lang = {
@@ -48,7 +49,7 @@ mainStart
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
-                lengthMenu : [20, 40, 60], //更改显示记录数选项
+                lengthMenu: [2, 40, 60], //更改显示记录数选项
                 stripeClasses: ["odd", "even"],  //为奇偶行加上样式，兼容不支持CSS伪类的场合
                 processing: true,  //隐藏加载提示,自行处理
                 serverSide: true,  //启用服务器端分页
@@ -65,19 +66,25 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
+                    var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('.queryInput').val() == ''||$('.queryInput').val() == undefined) ? null : {
+                        startDate: $('.startDate').val() == '' ? null : $('.startDate').val(),
+                        endDate: $('.endDate').val() == '' ? null : $('.endDate').val(),
+                        queryInput: $('.queryInput').val() == '' ||$('.queryInput').val() == undefined? null : $('.queryInput').val()
+                    };
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
                     param.applicant = $scope.user.name;
+                    param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
                         //url:'data/users.txt',
-                        url:'http://111.204.101.170:11115',
+                        url: 'http://111.204.101.170:11115',
                         data: {
-                            action:"purchaseHistory",
-                            params:param
+                            action: "purchaseHistory",
+                            params: param
                         },
                         dataType: 'jsonp',
                         jsonp: "callback",
@@ -98,10 +105,10 @@ mainStart
                         "data": null,
                         "sClass": "text-center",
                         "render": function (data) {
-                            var html = '<s class="fa fa-plus-square details-control" materialList = "'+data.materialList+'"></s>';
+                            var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s>';
                             return html;
                         },
-                        "width":50
+                        "width": 50
                     },
                     {
                         "data": "purchase_applicant_id",
@@ -110,8 +117,8 @@ mainStart
                     {
                         "data": "purchase_order_id",
                         "sClass": "text-center",
-                        "render":function(data){
-                            return data?data:'--';
+                        "render": function (data) {
+                            return data ? data : '--';
                         }
                     },
                     {
@@ -124,58 +131,63 @@ mainStart
 
         $('#purchaseHistoryTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
-            var row = purchaseHistoryTable.row( tr );
-            if ( row.child.isShown() ) {
+            var row = purchaseHistoryTable.row(tr);
+            if (row.child.isShown()) {
                 row.child.hide();
                 $(this).removeClass('fa-minus-square  red').addClass('fa-plus-square');//按钮变化
                 tr.removeClass('shown');
             } else {
-                row.child( format(row.data()) ).show();
+                row.child(format(row.data())).show();
                 tr.addClass('shown');
                 $(this).removeClass('fa-plus-square').addClass('fa-minus-square red');
             }
         })
 
-        function format ( d ) {
+        function format(d) {
             var trStr = '';
             var statusStr = {
-                "-1":"未通过",
-                "1":"待审批",
-                "2":"待下单",
-                "3":"已下单",
-                "4":"已到货",
-                "5":"已领料"
+                "-1": "未通过",
+                "1": "待审批",
+                "2": "待下单",
+                "3": "已下单",
+                "4": "已到货",
+                "5": "已领料"
             }
-            $.each(d.materialList,function(index,value){
+            $.each(d.materialList, function (index, value) {
 
                 //到货日期
-                var arrived_on = value.arrived_on?value.arrived_on:'';
+                var arrived_on = value.arrived_on ? value.arrived_on : '';
                 //货物状态
-                var status =statusStr[value.status]?statusStr[value.status]:'';
+                var status = statusStr[value.status] ? statusStr[value.status] : '';
 
-                    trStr+='<tr>'+
-                    '<td>'+value.material_name+'</td>'+
-                    '<td>'+value.model+'</td>'+
-                    '<td>'+value.sn_num+'</td>'+
-                    '<td>'+value.project_num+'</td>'+
-                    '<td>'+value.number+'</td>'+
-                    '<td>'+value.expected_date+'</td>'+
-                    '<td>'+arrived_on+'</td>'+
-                    '<td>'+status+'</td>'+
+                trStr += '<tr>' +
+                    '<td>' + value.material_name + '</td>' +
+                    '<td>' + value.model + '</td>' +
+                    '<td>' + value.sn_num + '</td>' +
+                    '<td>' + value.project_num + '</td>' +
+                    '<td>' + value.number + '</td>' +
+                    '<td>' + value.expected_date + '</td>' +
+                    '<td>' + arrived_on + '</td>' +
+                    '<td>' + status + '</td>' +
                     '</tr>';
             });
-            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered">'+
-                '<tr>'+
-                '<td>名称</td>'+
-                '<td>型号</td>'+
-                '<td>sn号</td>'+
-                '<td>项目号</td>'+
-                '<td>数量</td>'+
-                '<td>申请日期</td>'+
-                '<td>到货日期</td>'+
-                '<td>状态</td>'+
-                '</tr>'+trStr+
+            return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered">' +
+                '<tr>' +
+                '<td>名称</td>' +
+                '<td>型号</td>' +
+                '<td>sn号</td>' +
+                '<td>项目号</td>' +
+                '<td>数量</td>' +
+                '<td>申请日期</td>' +
+                '<td>到货日期</td>' +
+                '<td>状态</td>' +
+                '</tr>' + trStr +
                 '</table>';
+        }
+
+        //条件查询
+        $scope.searchHistory = function () {
+            purchaseHistoryTable.ajax.reload();
         }
 
     }]);

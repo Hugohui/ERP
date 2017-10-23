@@ -5,9 +5,9 @@
             <div class="queryBody">
                 <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
                 <div class="searchGroup">
-                    <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
-                    <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
-                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                    <input type="text" ng-if="roles.role_id!=7" placeholder="采购申请编号/申请人" class="queryInput"/>
+                    <input type="text" ng-if="roles.role_id==7" placeholder="采购申请编号" class="queryInput"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="searchHistory()"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
         </div>
