@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('purchaseTrackController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
+    .controller('purchaseTrackController',['$scope','$rootScope','$localStorage','toastr',function($scope,$rootScope,$localStorage,toastr){
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -17,7 +17,7 @@ mainStart
 
         //加载初始数据
         var pageNum = 1,//滚动加载自动更新页码
-            limitNum = 6,//每次加载的数量
+            limitNum = 3,//每次加载的数量
             stopLoadFlag = false;//防止滚动到底部重复加载数据
 
         loadPurchaseTrack();
@@ -39,10 +39,10 @@ mainStart
             var nDivHight=$(this).height();//可见区域的高度
             var nScrollHight= $(this)[0].scrollHeight;//为整个UL的高度（包括屏幕外的高度）
             if(nScrollTop + nDivHight+20 >=nScrollHight){
-                if(stopLoadFlag){
+                if(stopLoadFlag && $('.purchaseTrackBody>div').not('.loadingDiv').length>0){
                     stopLoadFlag = false;
                     //滚动到底部加载数据
-                    //loadPurchaseTrack();
+                    loadPurchaseTrack();
                 }
             }
         });
@@ -51,6 +51,7 @@ mainStart
          * 请求采购跟踪数据
          */
         function loadPurchaseTrack(){
+
             var classObj ={//审核结果类名
                 "-1":"purchaseFailure",//拒绝
                 "1":"purchaseReqSuccess",//通过
@@ -68,6 +69,10 @@ mainStart
                 "4":"已到货",
                 "5":"已领料"
             };
+            var queryData = $('.startDate').val() == ''&&$('.endDate').val() == ''?null:{
+                startDate:$('.startDate').val() == ''?null:$('.startDate').val(),
+                endDate:$('.endDate').val() == ''?null:$('.endDate').val()
+            }
             $.ajax({
                 type:'POST',
                 url:'http://111.204.101.170:11115',
@@ -76,8 +81,9 @@ mainStart
                     params:{
                         applicant:$scope.user.name,
                         limit:limitNum,
+                        start:(pageNum-1)*limitNum,
                         page:pageNum,
-                        queryData:""
+                        queryData:queryData
                     }
                 },
                 dataType: 'jsonp',
@@ -90,7 +96,13 @@ mainStart
                     var html = '';
                     if(data.resData.result == 0){
                         if(data.resData.data.length>0){
-                            pageNum+=1;//页数加加
+                            //页数加加
+                            pageNum+=1;
+
+                            //添加分割线
+                            $('.purchaseTrackBody').append('<div class="splitLine"></div>');
+
+                            //渲染数据
                             $.each(data.resData.data,function(index,value){
                                 html+=
                                     '              <div class="purchaseLine">'+
@@ -145,16 +157,25 @@ mainStart
                             });
                             $('.purchaseTrackBody').append(html);
                             $('.splitLine:last-child').remove();//将最后一条数据的分割线移除
+                            $('.splitLine:nth-child(2)').remove();//将第一条数据的分割线移除
                         }else{
                             //没有更多数据了
+                            toastr.warning('没有更多数据了！');
                         }
                     }
                 }
             })
         }
 
+        //条件筛选
+        $('.queryBody').on('change','input',function(){
+            $('.purchaseTrackBody>div').not('.loadingDiv').remove();
+            pageNum = 1;
+            loadPurchaseTrack();
+        });
+
         /**
-         * 时间绑定
+         * 事件绑定
          */
         function bendEvents(){
             $('.purchaseTrackBody').on('mouseenter','li',function(){
@@ -162,6 +183,7 @@ mainStart
                     $(this).find('.showReasonDiv').show();
                 }
             });
+
             $('.purchaseTrackBody').on('mouseleave','li',function(){
                     $(this).find('.showReasonDiv').hide();
             });

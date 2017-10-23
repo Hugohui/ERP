@@ -13,13 +13,13 @@
   position: relative;
 }
 .purchaseTrackBody .loadingDiv {
-  width: 100%;
-  height: 100%;
+  width: 160px;
+  height: 100px;
   background-color: #fff;
   opacity: .6;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   display: none;
 }
 .purchaseTrackBody .loadingDiv .loading {
