@@ -31,3 +31,10 @@
   padding: 3px 6px;
   margin-left: -10px;
 }
+.alreadyRead {
+  text-decoration: blink;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #0000FF;
+  text-decoration: underline;
+}

@@ -29,9 +29,10 @@
                 <i class="fa fa-bell-o fa-fw"></i>
                 <span class="badge badge-sm up bg-danger pull-right-xs" ng-if="sendMessage.length>0">{{sendMessage.length}}</span>
             </a>
-            <ul class="dropdown-menu" ng-if="sendMessage.length>0">
+            <ul class="dropdown-menu" ng-if="sendMessage.length>0" style="width: 180px;">
                 <li ng-if="sendMessage.length>0">
                     您有{{sendMessage.length}}条未读消息
+                    <span href="javascript:;" class="alreadyRead">已读</span>
                 </li>
                 <li ng-if="sendMessage.length==0">无未读消息</li>
                 <li class="divider" ng-if="sendMessage.length>0"></li>
@@ -39,6 +40,7 @@
                     <ul class="messageUl">
                         <li ng-repeat="msg in sendMessage">
                             <a href="javascript:;" class="viewMessage" applicant="{{msg.applicant}}">【{{msg.applicant}}】 {{msg.message}}</a>
+                            <span href="javascript:;" class="alreadyRead">已读</span>
                             <!--<a href="javascript:;" ng-click="viewMessage(msg.bill)">【{{msg.applicant}}】 {{msg.message}}</a>-->
                         </li>
                     </ul>
