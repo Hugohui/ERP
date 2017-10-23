@@ -57,7 +57,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                            $state.go('app');
 
                        }else if(data.resData.result == -1){
-                           $("#resultPwd").html(data.resData.data)
+                           $("#resultPwd").html(data.resData.msg)
                            $('#labelTip').html('请拖动滑块验证').css({
                                color:'#787878'
                            });
@@ -68,7 +68,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                            slider.reset();
                            slider.init();
                        }else{
-                           $("#resultUname").html(data.resData.data)
+                           $("#resultUname").html(data.resData.msg)
                            $('#labelTip').html('请拖动滑块验证').css({
                                color:'#787878'
                            });
