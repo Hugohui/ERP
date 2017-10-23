@@ -133,13 +133,13 @@ mainStart
                     access:$scope.userInfo.access,
                     department:$scope.userInfo.department,
                     data_permissions:{
-                        contract_number: $scope.userInfo.contract_number || false,
-                        unit_price:$scope.userInfo.unit_price || false,
-                        inventory_quantity:$scope.userInfo.inventory_quantity || false,
-                        money:$scope.userInfo.money || false,
-                        tax_rate:$scope.userInfo.tax_rate|| false,
-                        invoice:$scope.userInfo.invoice|| false,
-                        inventory_position:$scope.userInfo.inventory_position|| false
+                        contract_number: $("#inlineCheckbox1").is(':checked') ,
+                        unit_price: $("#inlineCheckbox2").is(':checked'),
+                        inventory_quantity: $("#inlineCheckbox3").is(':checked'),
+                        money: $("#inlineCheckbox4").is(':checked'),
+                        tax_rate: $("#inlineCheckbox5").is(':checked'),
+                        invoice: $("#inlineCheckbox6").is(':checked'),
+                        inventory_position: $("#inlineCheckbox7").is(':checked')
                     }
                 }
             }
@@ -152,6 +152,10 @@ mainStart
                 jsonpCallback:"success_jsonpCallback",
                 success:function(data){
                     console.log(data);
+                    userTable.ajax.reload();
+                    $(".modal-body input").val("");
+                    $(".modal-body select").val("");
+                    $('input:checkbox').removeAttr('checked');
                 }
             })
         };
@@ -159,6 +163,7 @@ mainStart
         //修改用户
         $("#updateBtn").click(function(){
             $('#userName').attr("disabled",true);
+            $('#userName').css("background","white");
             var tr=$("input:checked").closest('tr');
             var row = userTable.row(tr);
             $scope.userInfo.userName = row.data().userName;
@@ -196,7 +201,7 @@ mainStart
                     jsonpCallback:"success_jsonpCallback",
                     success:function(data){
                         console.log(data)
-
+                        userTable.ajax.reload();
                     }
                 })
             }
@@ -231,11 +236,12 @@ mainStart
              jsonp : "callback",
              jsonpCallback:"success_jsonpCallback",
              success:function(data){
-
+                 userTable.ajax.reload();
              }
          })
 
      };
+        //关闭按钮
 
         //按钮的显示与隐藏
         $('#userTable tbody').on('change', '.checkboxID', function () {
