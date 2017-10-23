@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('purchaseRequestController', ['$scope', '$rootScope', '$localStorage', '$compile', 'toastr', function ($scope, $rootScope, $localStorage, $compile, toastr) {
+    .controller('purchaseRequestController', ['$scope', '$rootScope', '$localStorage', '$compile', 'toastr','$state', function ($scope, $rootScope, $localStorage, $compile, toastr,$state) {
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -183,6 +183,7 @@ mainStart
                     console.log(data)
                     if(data.resData.result == 0){
                         toastr.success('物料申请提交成功！');
+                        window.location.reload();
                     }
                 }
             });
