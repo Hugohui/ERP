@@ -591,6 +591,10 @@ body .content #labelTip {
 .selectLi {
   cursor: pointer;
 }
+.proposal-box {
+  background-color: #fff;
+  z-index: 100;
+}
 /*�ɹ����뵥*/
 .purchaseReqOrder {
   border: 1px solid #ccc;

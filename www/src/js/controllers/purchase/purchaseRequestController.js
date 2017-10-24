@@ -11,6 +11,34 @@ mainStart
         //生成订单编号
         $('.orderNum').html(billFormat("CGSQ",new Date()));
 
+        //获取项目号
+        $.ajax({
+            type: 'POST',
+            url: 'http://111.204.101.170:11115',
+            data: {
+                action:'queryProjectNum'
+            },
+            dataType: 'jsonp',
+            jsonp: "callback",
+            success: function (data) {
+                if(data.resData.result == 0){
+                    $scope.projectNumArr = data.resData.projectNum;
+                    $('.projectNumDiv').autocomplete({
+                        hints: $scope.projectNumArr,
+                        width: 135,
+                        height: 27,
+                        showButton:false,
+                        placeholder:'',
+                        onSubmit: function(text){
+                            console.log($(this));
+                        }
+                    });
+                }
+            }
+        })
+
+
+
         //初始化验证
         //清除已有的验证提示信息
         $('#purchaseReqForm [valType]').hideValidate();
@@ -24,7 +52,7 @@ mainStart
                 '                        <div><input type="text" class="material_name" valType msg="请输入名称"/></div>'+
                 '                        <div><input type="text" class="model" valType msg="型号不能为空"/></div>'+
                 '                        <div><input type="text" class="sn_num"/></div>'+
-                '                        <div><input type="text" class="project_num"/></div>'+
+                '                        <div class="projectNumDiv"></div>'+
                 '                        <div><input type="text" class="unit"/></div>'+
                 '                        <div><input type="number" class="number" valType msg="数量不能为空"/></div>'+
                 '                        <div><input type="date" class="expected_date" ></div>'+
@@ -37,6 +65,19 @@ mainStart
             $('#purchaseReqForm [valType]').hideValidate();
             //初始化验证
             $.fn.InitValidator('purchaseReqForm');
+
+
+
+            $('.projectNumDiv').autocomplete({
+                hints: $scope.projectNumArr,
+                width: 135,
+                height: 27,
+                showButton:false,
+                placeholder:'',
+                onSubmit: function(text){
+                    console.log($(this));
+                }
+            });
         }
 
         //删除物料行
@@ -152,7 +193,8 @@ mainStart
                         material_name:$(data).find('.material_name').val(),
                         model:$(data).find('.model').val(),
                         sn_num:$(data).find('.sn_num').val(),
-                        project_num:$(data).find('.project_num').val(),
+                        project_num:$(data).find('.projectNumDiv input').val(),
+                        //project_num:$(data).find('.project_num').val(),
                         unit:$(data).find('.unit').val(),
                         number:$(data).find('.number').val(),
                         expected_date:$(data).find('.expected_date').val(),
