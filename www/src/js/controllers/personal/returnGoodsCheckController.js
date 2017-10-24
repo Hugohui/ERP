@@ -88,7 +88,8 @@ mainStart
                         "render":function(data){
                             var statusStr = {
                                 0:"待审核",
-                                1:"已审核"
+                                1:"已审核",
+                                "-1":"已审核"
                             }
                             return statusStr[data];
                         }
