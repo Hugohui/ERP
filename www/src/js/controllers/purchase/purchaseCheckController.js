@@ -35,17 +35,21 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
-                    var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('.queryInput').val() == ''||$('.queryInput').val() == undefined) ? null : {
-                        startDate: $('.startDate').val() == '' ? null : $('.startDate').val(),
-                        endDate: $('.endDate').val() == '' ? null : $('.endDate').val(),
-                        queryInput: $('.queryInput').val() == '' ||$('.queryInput').val() == undefined? null : $('.queryInput').val()
-                    };
+                    /*var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('.queryInput').val() == ''||$('.queryInput').val() == undefined) ? null : {
+                     startDate: $('.startDate').val() == '' ? null : $('.startDate').val(),
+                     endDate: $('.endDate').val() == '' ? null : $('.endDate').val(),
+                     queryInput: $('.queryInput').val() == '' ||$('.queryInput').val() == undefined? null : $('.queryInput').val()
+                     };*/
+                    var queryData = $('.placeholderOrderNum').val() == ''&&$('.selectCss').val()==-1?null:{
+                        applicant:$('.placeholderOrderNum').val()==''?null:$('.placeholderOrderNum').val(),
+                        status:$('.selectCss').val()==-1?null:$('.selectCss').val()
+                    }
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
                     param.userName = $scope.user.name;
-                    //param.queryData = queryData;
+                    param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
@@ -87,9 +91,9 @@ mainStart
                         "sClass": "text-center",
                         "render":function(data){
                             if($scope.roles.role_id<4 || $scope.roles.role_id==6){
-                                return data.status == 0?"待审核":data.status == 1?"审核通过":"拒绝申请"
+                                return data == 0?"待审核":data == 1?"审核通过":"拒绝申请"
                             }else if($scope.roles.role_id==4 ||$scope.roles.role_id==5){
-                                return data.status == 0?"待审批":data.status == 2?"待下单":data.status == 3?"已下单":data.status == 4?"待领料":data.status == 5?"已领料":"已完成";
+                                return data == 0?"待审批":data == 2?"待下单":data == 3?"已下单":data == 4?"待领料":data == 5?"已领料":"已完成";
                             }else{
                                 return '--';
                             }
@@ -115,6 +119,11 @@ mainStart
             }).api();
         }
 
+
+        //条件查询
+        $scope.conditionQuery = function(){
+            purchaseCheckTable.ajax.reload();
+        }
 
         /*查看和审核*/
         $(document).on('click','.viewOrCheck',function(){
@@ -205,11 +214,21 @@ mainStart
                     }
                 })
             }
+
+
+            //清除已有的验证提示信息
+            $.fn.InitValidator('purchaseModal');
             $('#purchaseModal').modal('show');
         })
 
         /*确定采购下单*/
         $scope.purchaseOk = function(){
+
+            var isValidate = beforeSubmit("purchaseModal");
+            if(!isValidate){
+                return;
+            }
+
             var materialListArr = [];
             $('#purchaseModal table tr').not('.tableHeadTr').each(function(index,value){
                 materialListArr.push(
