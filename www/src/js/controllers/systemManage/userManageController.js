@@ -63,10 +63,20 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
+                    //var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('.queryInput').val() == ''||$('.queryInput').val() == undefined) ? null : {
+                    //    startDate: $('.startDate').val() == '' ? null : $('.startDate').val(),
+                    //    endDate: $('.endDate').val() == '' ? null : $('.endDate').val(),
+                    //    queryInput: $('.queryInput').val() == '' ||$('.queryInput').val() == undefined? null : $('.queryInput').val()
+                    //};
+                    var queryData = $('.startDate').val() == ''&&$('.endDate').val() == ''?null:{
+                        startDate:$('.startDate').val() == ''?null:$('.startDate').val(),
+                        endDate:$('.endDate').val() == ''?null:$('.endDate').val()
+                    }
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
+                    param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
@@ -245,14 +255,10 @@ mainStart
 
 
         //条件筛选
-        $scope.searchUser=function(){
-            var sstxt=$('#queryUserInp').val();
-            $("table tbody tr")
-                .hide()
-                .filter(":contains('"+sstxt+"')")
-                .show();
+        //条件查询
+        $scope.searchUser = function () {
+            userTable.ajax.reload();
         }
-
 
         //按钮的显示与隐藏
         $('#userTable tbody').on('change', '.checkboxID', function () {

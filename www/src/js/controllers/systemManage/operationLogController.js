@@ -8,7 +8,7 @@ mainStart
         $scope.user = $localStorage.user;
 
         //获取表格分页
-      /*  initoperationTable();
+        initoperationTable();
         var operationTable;
         function initoperationTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 130;
@@ -54,7 +54,7 @@ mainStart
                 pagingType: "full_numbers",  //分页样式：simple,simple_numbers,full,full_numbers
                 columnDefs: [
                     {
-                        "targets": [0, 1, 2, 3],
+                        "targets": [0, 1, 2],
                         "orderable": false
                     }
                 ],
@@ -64,7 +64,7 @@ mainStart
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
-                    param.userName = $scope.user.name;
+                    //param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
@@ -103,34 +103,6 @@ mainStart
                     }
                 ]
             }).api();
-        }*/
-
-        //获取操作日志
-        $.ajax({
-            type:'POST',
-            url:'http://111.204.101.170:11115',
-            data:{
-                action:"operationLog",
-                params:{
-                    queryData:""
-                }
-            },
-            dataType: 'jsonp',
-            jsonp : "callback",
-            success:function(data){
-                $scope.daysList=data.resData.data;
-                console.log(data);
-                $scope.$apply();
-            }
-        })
-
-        //条件查询
-        $scope.search=function(){
-            var sstxt=$('#queryUserInp').val();
-            $("table tbody tr")
-                .hide()
-                .filter(":contains('"+sstxt+"')")
-                .show();
         }
 
     }]);

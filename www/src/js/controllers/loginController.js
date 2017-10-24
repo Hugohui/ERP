@@ -31,7 +31,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
         })
 
       //获取焦点
-        
+
            $scope.oFocus_1=function(){
                $("#resultPwd").html();
                $("#resultUname").html();

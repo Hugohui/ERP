@@ -8,6 +8,7 @@
 .buttonGrop {
   position: absolute;
   left: 350px;
+  z-index: 1;
 }
 .buttonGrop button:not(:first-child) {
   margin-left: 10px;
@@ -21,6 +22,7 @@
 .userTableDiv .btnGroup {
   position: absolute;
   top: 10px;
+  z-index: 1;
   right: 30px;
 }
 .userTableDiv .btnGroup #queryUserInp {
