@@ -79,13 +79,13 @@ mainStart
 
         //ÐÞ¸ÄÃÜÂë
         $scope.personUpdate=function(){
-            if($('#oldpwd').val()&&$('#newpwd1').val==$('#newpwd2').val){
+            if($('#oldpwd').val()&&$('#password').val==$('#passwordAgain').val){
                 $scope.data = {
                     action:'updateUserPassword',
                     params:{
                         userName:$scope.user.name,
                         oldPassword:$("#oldpwd").val(),
-                        newPassword:$("#newpwd1").val()
+                        newPassword:$("#password").val()
                     }
                 };
                 $.ajax({
@@ -96,13 +96,9 @@ mainStart
                     jsonp : "callback",
                     jsonpCallback:"success_jsonpCallback",
                     success:function(data){
-                        if(data.resData.result == 0){
-                            console.log(data);
-                            $("#updataForm")[0].reset();
-                        }else{
-
-                        }
-
+                        $("#updataForm")[0].reset();
+                        console.log(data);
+                        alert(data.resData.data)
                     }
                 })
             }else{

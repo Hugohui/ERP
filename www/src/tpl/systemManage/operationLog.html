@@ -4,18 +4,9 @@
             <div class="queryTitle bg-black">条件查询</div>
             <div class="queryBody">
                 <input type="date" placeholder="开始日期" class="startDate"/>至<input type="date" placeholder="结束日期" class="endDate"/>
-                <!--<select class="selectCss">-->
-                <!--<option value="all" aria-checked="true">所有用户</option>-->
-                <!--<option value="2">总经理-->
-                <!--<option value="3">部长-->
-                <!--<option value="4">库管-->
-                <!--<option value="5">采购-->
-                <!--<option value="6">室组经理-->
-                <!--<option value="7">员工-->
-                <!--</select>-->
                 <div class="searchGroup">
-                    <input type="text" placeholder="用户名" class="placeholderOrderNum"/>
-                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                    <input type="text" placeholder="用户名" class="placeholderOrderNum" id="queryUserInp"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="search()"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
         </div>
@@ -34,6 +25,12 @@
                     <td >{{days.operateDate}}</td>
                 </tr>
             </table>
+            <!--<div class="loadingDiv">-->
+                <!--<div class="loading">-->
+                    <!--<img src="./imgs/loading.gif" alt=""/>-->
+                    <!--<span>加载中~</span>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside" ></div>

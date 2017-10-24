@@ -44,8 +44,8 @@
   width: 126px;
 }
 #updataForm #oldpwd,
-#newpwd1,
-#newpwd2 {
+#password,
+#passwordAgain {
   width: 145px;
   height: 28px;
   border-radius: 4px;

@@ -46,25 +46,23 @@
                     <div class="modal-body">
                        <center>
                            <form  id="updataForm" name="updataForm">
-                               原&nbsp密&nbsp码&nbsp ： <input type="text" id="oldpwd" ng-model="user.pwd" name="inpPwd" id="upwd"
+                               原&nbsp密&nbsp码&nbsp ： <input type="text" id="oldpwd" ng-model="user.pwd" name="inpPwd"
                                                            minlength="5" maxlength="16" required/><br/>
                                <span ng-messages="updataForm.inpPwd.$dirty&&updataForm.inpPwd.$error" style="color: red;">
                                     <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
                                     <span ng-message="minlength"  style="padding-left: 10px">密码不能少于6位</span>
                                     <span ng-message="maxlength"  style="padding-left: 10px">密码不能多于16位</span>
                                 </span><br/>
-                               新&nbsp密&nbsp码&nbsp ：<input type="text"  id="newpwd1" ng-model="user.newpwd1" name="newpwd1"   value=""
+                               新&nbsp密&nbsp码&nbsp ：<input type="text"  id="password" ng-model="password" name="password"   value=""
                                                           minlength="5" maxlength="16" required/><br/>
-                              <span ng-messages="updataForm.newpwd1.$dirty&&updataForm.newpwd1.$error" style="color: red;">
-                                    <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
-                                    <span ng-message="minlength"  style="padding-left: 10px">密码不能少于6位</span>
-                                    <span ng-message="maxlength"  style="padding-left: 10px">密码不能多于16位</span>
+                              <span ng-show="updataForm.password.$invalid" style="color: red;">
+                                    <span ng-show="updataForm.password.$error.minlength"  style="padding-left: 10px">密码不能少于6位</span>
+                                    <span ng-show="updataForm.password.$error.maxlength"  style="padding-left: 10px">密码不能多于16位</span>
                                 </span><br/>
-                               再次输入 ： <input type="text" id="newpwd2" ng-model="user.newpwd2" name="newpwd2"
+                               再次输入 ： <input type="text" id="passwordAgain" ng-model="passwordAgain" name="passwordAgain"
                                                required/><br/>
-                                <span style="color: red" ng-messages="updataForm.newpwd2.$dirty&&updataForm.newpwd2.$error">
-                                    <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
-                                    <span></span>
+                                <span style="color: red" ng-show="updataForm.password.$valid" >
+                                    <span ng-show="passwordAgain!=password"   style="padding-left: 10px">密码不一致</span>
                                 </span><br/></form>
 
                        </center>

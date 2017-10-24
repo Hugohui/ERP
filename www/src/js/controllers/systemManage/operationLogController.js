@@ -1,16 +1,17 @@
 'use strict';
 mainStart
-    .controller('operationLogController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
+    .controller('operationLogController',['$scope','$rootScope','$localStorage','$http',function($scope,$rootScope,$localStorage,$http){
+        $scope.userInfo={};
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //获取角色信息
         $scope.user = $localStorage.user;
 
         //获取表格分页
-      /*  iniToperationLog();
+      /*  initoperationTable();
         var operationTable;
-        function iniToperationLog() {
-            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
+        function initoperationTable() {
+            var scrollY = $('.mainView').height() - $('.queryDIv').height() - 130;
             var lang = {
                 "sProcessing": "处理中...",
                 "sLengthMenu": "每页 _MENU_ 项",
@@ -41,7 +42,7 @@ mainStart
             operationTable = $("#operationTable").dataTable({
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
-                scrollY: 400,
+                scrollY: scrollY,
                 lengthMenu : [20, 40, 60], //更改显示记录数选项
                 stripeClasses: ["odd", "even"],  //为奇偶行加上样式，兼容不支持CSS伪类的场合
                 processing: true,  //隐藏加载提示,自行处理
@@ -63,7 +64,7 @@ mainStart
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
-
+                    param.userName = $scope.user.name;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
@@ -103,6 +104,7 @@ mainStart
                 ]
             }).api();
         }*/
+
         //获取操作日志
         $.ajax({
             type:'POST',
@@ -121,5 +123,14 @@ mainStart
                 $scope.$apply();
             }
         })
+
+        //条件查询
+        $scope.search=function(){
+            var sstxt=$('#queryUserInp').val();
+            $("table tbody tr")
+                .hide()
+                .filter(":contains('"+sstxt+"')")
+                .show();
+        }
 
     }]);
