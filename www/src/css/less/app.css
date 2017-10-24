@@ -612,6 +612,9 @@ body .content #labelTip {
   height: auto;
   margin: 10px;
 }
+.purchaseReqOrder .materialDiv .projectNumDiv {
+  height: 29px;
+}
 .purchaseReqOrder .materialDiv > ul {
   width: 100%;
   overflow: hidden;
