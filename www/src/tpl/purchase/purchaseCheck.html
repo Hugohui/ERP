@@ -125,7 +125,7 @@
                                 <li>订单编号：<span class="orderNum">{{orderInfo.purchase_order_id}}</span></li>
                             </ul>
                         </div>
-                        <table class="table-bordered table-condensed" cellspacing="0" width="100%">
+                        <table class="table-bordered table-condensed" id="purchaseOkTable" cellspacing="0" width="100%">
                             <tr class="tableHeadTr">
                                 <td><s class="fa fa-asterisk redText"></s>物料编码</td>
                                 <td>名称</td>
@@ -137,11 +137,11 @@
                                 <td>单位</td>
                                 <td>单价</td>
                                 <td>数量</td>
-                                <td>品牌</td>
-                                <td>厂家</td>
                                 <td>金额</td>
                                 <td>税率</td>
                                 <td>发票</td>
+                                <td>品牌</td>
+                                <td>厂家</td>
                                 <td>备注</td>
                                 <td>批次</td>
                             </tr>
@@ -164,10 +164,22 @@
                                 <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
                                 <td title="{{material.unit}}" class="unit">{{material.unit}}</td>
                                 <td>
-                                    <input ng-if="material.material_code == undefined" type="text" class="unit_price"/>
+                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="text" class="unit_price"/>
                                     <span ng-if="material.material_code != undefined">{{material.unit_price}}</span>
                                 </td>
                                 <td title="{{material.number}}" class="number">{{material.number}}</td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="text" class="total_price" value="0"/>
+                                    <span ng-if="material.material_code != undefined">{{material.total_price}}</span>
+                                </td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="text" class="rate"/>
+                                    <span ng-if="material.material_code != undefined">{{material.rate}}</span>
+                                </td>
+                                <td>
+                                    <input ng-if="material.material_code == undefined" type="text" class="invoice"/>
+                                    <span ng-if="material.material_code != undefined">{{material.invoice}}</span>
+                                </td>
                                 <td>
                                     <input ng-if="material.material_code == undefined" type="text" class="brand"/>
                                     <span ng-if="material.material_code != undefined">{{material.brand}}</span>
@@ -175,18 +187,6 @@
                                 <td>
                                     <input ng-if="material.material_code == undefined" type="text" class="manufactor"/>
                                     <span ng-if="material.material_code != undefined">{{material.manufactor}}</span>
-                                </td>
-                                <td>
-                                    <input ng-if="material.material_code == undefined" type="text" class="total_price"/>
-                                    <span ng-if="material.material_code != undefined">{{material.total_price}}</span>
-                                </td>
-                                <td>
-                                    <input ng-if="material.material_code == undefined" type="text" class="rate"/>
-                                    <span ng-if="material.material_code != undefined">{{material.rate}}</span>
-                                </td>
-                                <td>
-                                    <input ng-if="material.material_code == undefined" type="text" class="invoice"/>
-                                    <span ng-if="material.material_code != undefined">{{material.invoice}}</span>
                                 </td>
                                 <td title="{{material.remark}}" class="remark">{{material.remark}}</td>
                                 <td>

@@ -185,6 +185,53 @@ mainStart
                         $scope.orderInfo = data.resData.data[0];
                         $scope.materialList=data.resData.data.materialList;
                         $scope.$apply();
+/*                        var trStr = '';
+                        $.each(data.resData.data.materialList,function(index,value){
+                            //value.material_code
+                            trStr+=
+                                '                            <tr>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.material_code+'</span>'+
+                                '                                </td>'+
+                                '                                <td title="" class="material_name">'+value.material_name+'</td>'+
+                                '                                <td title="" class="model">'+value.model+'</td>'+
+                                '                                <td title="" class="sn_num">'+value.sn_num+'</td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.supplier_num+'</span>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.supplier+'</span>'+
+                                '                                </td>'+
+                                '                                <td title="" class="project_num">'+value.project_num+'</td>'+
+                                '                                <td title="" class="unit">'+value.unit+'</td>'+
+                                '                                <td>'+
+                                '                                    <span >'+value.unit_price+'</span>'+
+                                '                                </td>'+
+                                '                                <td title="" class="number">'+value.number+'</td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.total_price+'</span>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.rate+'</span>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.invoice+'</span>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.brand+'</span>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <span">'+value.manufactor+'</span>'+
+                                '                                </td>'+
+                                '                                <td title="" class="remark">'+value.remark+'</td>'+
+                                '                                <td>'+
+                                '                                    <span>'+value.batch+'</span>'+
+                                '                                </td>'+
+                                '                            </tr>';
+                        })
+
+                        $('#purchaseOkTable').append(trStr);*/
+
                     }
                 })
             }else{
@@ -211,13 +258,59 @@ mainStart
                     success:function(data){
                         $scope.materialList=data.resData.data;
                         $scope.$apply();
+
+/*                        var trStr = '';
+                        $.each(data.resData.data,function(index,value){
+                            trStr+=
+                                '                            <tr>'+
+                                '                                <td>'+
+                                '                                    <input type="text" valType="" msg="物料编码不能为空" class="material_code"/>'+
+                                '                                </td>'+
+                                '                                <td title="" class="material_name">'+value.material_name+'</td>'+
+                                '                                <td title="" class="model">'+value.model+'</td>'+
+                                '                                <td title="" class="sn_num">'+value.sn_num+'</td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="supplier_num"/>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="supplier"/>'+
+                                '                                </td>'+
+                                '                                <td title="" class="project_num">'+value.project_num+'</td>'+
+                                '                                <td title="" class="unit">'+value.unit+'</td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="unit_price"/>'+
+                                '                                </td>'+
+                                '                                <td title="" class="number">'+value.number+'</td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="total_price" value="0"/>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="rate"/>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="invoice"/>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="brand"/>'+
+                                '                                </td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="manufactor"/>'+
+                                '                                </td>'+
+                                '                                <td title="" class="remark">'+value.remark+'</td>'+
+                                '                                <td>'+
+                                '                                    <input type="text" class="batch"/>'+
+                                '                                </td>'+
+                                '                            </tr>';
+                        })
+
+                        $('#purchaseOkTable tbody').append(trStr);*/
+                        //清除已有的验证提示信息
+                        $('#purchaseOkTable [valType]').hideValidate();
+                        //初始化验证
+                        $.fn.InitValidator('purchaseOkTable');
                     }
                 })
             }
-
-
-            //清除已有的验证提示信息
-            $.fn.InitValidator('purchaseModal');
             $('#purchaseModal').modal('show');
         })
 
@@ -332,4 +425,11 @@ mainStart
                 }
             })
         }
+
+        //计算金额
+        $('#purchaseModal').on('keyup','.unit_price',function(){
+            var unit_price = Number($(this).val());
+            var number = Number($(this).closest('td').next().html());
+            $(this).closest('td').next().next().find('input').val(unit_price*number);
+        });
     }]);

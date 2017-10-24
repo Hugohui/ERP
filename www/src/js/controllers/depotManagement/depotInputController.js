@@ -43,11 +43,16 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
+                    var queryData = $('.placeholderOrderNum').val() == ''&&$('.selectCss').val()==-1?null:{
+                        queryInput:$('.placeholderOrderNum').val()==''?null:$('.placeholderOrderNum').val(),
+                        status:$('.selectCss').val()==-1?null:$('.selectCss').val()
+                    }
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
                     param.applicant = $scope.user.name;
+                    param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
@@ -104,6 +109,7 @@ mainStart
         }).api();
 
 
+
         var btnStr = '<div class="handleDepotDiv">'+
             '                    <button class="btn btn-warning btn-sm" ng-click="commitDepotInput()">确认收料</button>'+
             '                    <button class="btn btn-warning btn-sm"><s class="fa fa-print"></s> 打印收料单</button>'+
@@ -111,6 +117,11 @@ mainStart
         var $btnStr = $compile(btnStr)($scope);
         $('.dataTables_wrapper').append($btnStr);
     }
+
+        //条件查询
+        $scope.conditionQuery = function(){
+            depotInputTable.ajax.reload();
+        }
 
         $('#depotInputTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
