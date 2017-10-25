@@ -228,7 +228,7 @@ mainStart
                 console.log(row.data().userName);
                 userArr.push(row.data().userName);
             }else{
-              
+                userArr.splice(0,userArr.length);
             }
         });
          $scope.deleteStu= function (){
