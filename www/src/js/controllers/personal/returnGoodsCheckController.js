@@ -453,7 +453,7 @@ mainStart
                 jsonp: "callback",
                 success: function (data) {
                     if(data.resData.result == 0){
-                        toastr.success('领料退请提交成功！');
+                        toastr.success('退料申请提交成功！');
                         addPickPurchaseTable.ajax.reload();
                         $('#addPickGooodsPurchaseModal').modal('hide');
                     }else{

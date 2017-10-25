@@ -84,7 +84,10 @@ mainStart
                     },
                     {
                         "data": "material_return_id",
-                        "sClass": "text-center"
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return '<span class="material_requisition_id">'+data+'</span>'
+                        }
                     },
                     {
                         "data": "applicant",
@@ -104,7 +107,7 @@ mainStart
                 ]
             }).api();
             var btnStr = '<div class="handleDepotDiv">'+
-                '                    <button class="btn btn-primary btn-sm" ng-click="commitReturnGoods()">完成退料</button>'+
+                '                    <button class="btn btn-primary btn-sm" ng-click="commitDepotOutput()">完成退料</button>'+
                 '                </div>';
             var $btnStr = $compile(btnStr)($scope);
             $('.dataTables_wrapper').append($btnStr);
@@ -249,20 +252,34 @@ mainStart
         //完成退料
         $scope.commitDepotOutput = function () {
             var commitDataArr = [];
-            $.each($('.sonTable tr:not(".trHead")'), function (index, value) {
-                if ($(this).find('.checkMaterial').is(':checked')) {
-                    commitDataArr.push({
-                        material_code: $(this).find('.material_code').html(),
-                        number: $(this).find('.number').val()
-                    })
+            $.each($('#returnGoodsTable>tbody>tr').find('.material_requisition_id'),function(){
+                var materialListArr = [];
+
+                //订单行（父行）
+                var tr = $(this).closest('tr');
+
+                //子航是否展开
+                if(tr.next().find('.sonTable')){
+
+                    //是否选中物料
+                    if(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked').length){
+
+                        //获取订单号
+                        var material_requisition_id = $(this).html();
+
+                        //该订单下的物料数据
+                        $.each(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked'),function(i,v){
+                            materialListArr.push($(v).closest('tr').find('.material_code').html());
+                        })
+
+                        //组合数据
+                        commitDataArr.push({
+                            material_return_id:material_requisition_id,//订单号
+                            materialList:materialListArr//物料编码数组
+                        })
+                    }
                 }
             });
-
-            //判断是否选择物料
-            if (commitDataArr.length == 0) {
-                toastr.warning('请选择物料！');
-                return;
-            }
 
             //验证
             var isValidate = beforeSubmit("depotOutputTableDiv");
@@ -286,8 +303,8 @@ mainStart
                 success: function (data) {
                     if (data.resData.result == 0) {
                         //重新加载数据表
-                        depotOutputTable.ajax.reload();
-                        toastr.success(data.resData.msg);
+                        returnGoodsTable.ajax.reload();
+                        toastr.success('退料成功');
                     } else {
                         toastr.warning(data.resData.msg);
                     }
