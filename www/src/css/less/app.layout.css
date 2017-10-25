@@ -76,6 +76,7 @@ body {
 .queryDIv .queryBody {
   padding: 10px;
   position: relative;
+  min-height: 50px;
 }
 .queryDIv .queryBody input {
   height: 30px;
