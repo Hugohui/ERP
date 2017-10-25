@@ -243,6 +243,10 @@ mainStart
      };
         //关闭按钮
 
+
+        //条件筛选
+
+
         //按钮的显示与隐藏
         $('#userTable tbody').on('change', '.checkboxID', function () {
             var arr = [];
