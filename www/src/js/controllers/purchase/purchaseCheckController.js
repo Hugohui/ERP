@@ -378,6 +378,12 @@ mainStart
             })
         }
 
+        //模态框关闭之前清除验证信息提示
+        $('#purchaseModal').on('hide.bs.modal', function () {
+            //清除已有的验证提示信息
+            $('#purchaseOkTable [valType]').hideValidate();
+        })
+
         /*审核结果拒绝理由输入框*/
         $('.radioDiv input').click(function(){
             if($(this).attr('checkValue') == 1){
@@ -430,6 +436,7 @@ mainStart
         $('#purchaseModal').on('keyup','.unit_price',function(){
             var unit_price = Number($(this).val());
             var number = Number($(this).closest('td').next().html());
-            $(this).closest('td').next().next().find('input').val(unit_price*number);
+            var total = unit_price*number;
+            $(this).closest('td').next().next().find('input').val(!isNaN(total)?total:0);
         });
     }]);

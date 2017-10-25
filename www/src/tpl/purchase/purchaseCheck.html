@@ -164,7 +164,7 @@
                                 <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
                                 <td title="{{material.unit}}" class="unit">{{material.unit}}</td>
                                 <td>
-                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="text" class="unit_price"/>
+                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="number" class="unit_price"/>
                                     <span ng-if="material.material_code != undefined">{{material.unit_price}}</span>
                                 </td>
                                 <td title="{{material.number}}" class="number">{{material.number}}</td>
