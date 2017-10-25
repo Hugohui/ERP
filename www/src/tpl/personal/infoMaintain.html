@@ -53,18 +53,28 @@
                                     <span ng-message="minlength"  style="padding-left: 10px">密码不能少于6位</span>
                                     <span ng-message="maxlength"  style="padding-left: 10px">密码不能多于16位</span>
                                 </span><br/>
-                               新&nbsp密&nbsp码&nbsp ：<input type="text"  id="password" ng-model="password" name="password"   value=""
-                                                          minlength="5" maxlength="16" required/><br/>
-                              <span ng-show="updataForm.password.$invalid" style="color: red;">
-                                    <span ng-show="updataForm.password.$error.minlength"  style="padding-left: 10px">密码不能少于6位</span>
-                                    <span ng-show="updataForm.password.$error.maxlength"  style="padding-left: 10px">密码不能多于16位</span>
+                               新&nbsp密&nbsp码&nbsp ：<input type="password"  id="password" name="password"
+                                                        ng-model="manager.password" ng-class="{'has-error-border':updataForm.password.$dirty && updataForm.password.$invalid}"
+                                                        required/><br/>
+                             <span style="color: red">
+                                  <span ng-class="{'has-error-text':updataForm.password.$dirty&&updataForm.password.$invalid}"
+                                        ng-show="updataForm.password.$dirty&&updataForm.password.$invalid">
+                                <span ng-show="updataForm.password.$error.required">请输入密码</span>
+                            </span>
+                             </span><br/>
+                               再次输入 ： <input type="text" id="passwordAgain" name="passwordAgain" pw-check="password" ng-model="manager.passwordAgain"
+                                             ng-class="{'has-error-border':updataForm.passwordAgain.$dirty&&updataForm.passwordAgain.$error.pwmatch
+                                    || updataForm.passwordAgain.$dirty&&updataForm.passwordAgain.$error.required}"  required/><br/>
+                                <span style="color: red">
+                                    <span ng-class="{'has-error-text':updataForm.passwordAgain.$error.pwmatch}" ng-if="updataForm.passwordAgain.$error.pwmatch">
+                                <span ng-if="updataForm.passwordAgain.$error.pwmatch && !updataForm.passwordAgain.$error.required">两次密码不一致</span>
+                            </span>
+                            <span ng-class="{'has-error-text':updataForm.passwordAgain.$dirty&&updataForm.passwordAgain.$error.required}"
+                                  ng-if="updataForm.passwordAgain.$dirty&&updataForm.passwordAgain.$error.required">
+                                <span ng-if="updataForm.passwordAgain.$error.required">请再次输入密码</span>
+                            </span>
                                 </span><br/>
-                               再次输入 ： <input type="text" id="passwordAgain" ng-model="passwordAgain" name="passwordAgain"
-                                               required/><br/>
-                                <span style="color: red" ng-show="updataForm.password.$valid" >
-                                    <span ng-show="passwordAgain!=password"   style="padding-left: 10px">密码不一致</span>
-                                </span><br/></form>
-
+                               </form>
                        </center>
                     </div>
                     <div class="modal-footer">
