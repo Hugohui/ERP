@@ -372,7 +372,7 @@ mainStart
                         $localStorage.sendMessage = data.resData.sendMessage;
                         $scope.sendMessage = data.resData.sendMessage;
                     }else{
-                        toastr.error(data.resData.msg);
+                        toastr.error('物料编码【'+data.resData.material_code+'】重复！',data.resData.msg);
                     }
                 }
             })
