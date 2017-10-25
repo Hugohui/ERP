@@ -89,7 +89,8 @@ mainStart
                         "render":function(data){
                             var statusStr = {
                                 0:"待审核",
-                                1:"已审核"
+                                1:"已审核",
+                                "-1":"已审核"
                             }
                             if(data.checkStatus){
                                 return '订单总状态：'+statusStr[data.orderStatus]+' | 我的审核状态：'+statusStr[data.checkStatus];
@@ -120,6 +121,11 @@ mainStart
                 '                </div>';
             var $btnStr = $compile(btnStr)($scope);
             $('.dataTables_wrapper').append($btnStr);
+        }
+
+        //条件查询
+        $scope.conditionQuery = function(){
+            pickGoodsTable.ajax.reload();
         }
 
         var addPickPurchaseTable;
@@ -473,7 +479,7 @@ mainStart
         $(document).on('click','.viewPickPurchase',function(){
             var pickPurchaseOrder = $(this).attr('pickPurchaseOrder');
             $('#billNum').val(pickPurchaseOrder);
-            var status = $(this).attr('status');
+            var status = $(this).attr('status') == 'undefined'?'':$(this).attr('status');
 
             //审核框的隐现
             if(status == 1 || status == ''){

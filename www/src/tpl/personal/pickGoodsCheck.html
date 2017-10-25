@@ -14,7 +14,7 @@
                     <div class="searchGroup">
                         <input type="text" ng-if="roles.role_id!=7" placeholder="订单编号/申请人" class="placeholderOrderNum"/>
                         <input type="text" ng-if="roles.role_id==7" placeholder="订单编号" class="placeholderOrderNum"/>
-                        <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                        <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="conditionQuery()"><i class="fa fa-search"></i>搜索</a>
                     </div>
                 </div>
             </div>

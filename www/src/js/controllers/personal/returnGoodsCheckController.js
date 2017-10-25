@@ -39,10 +39,9 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
-                    var queryData = $('.placeholderOrderNum').val() == ''&&$('.selectCss').val()==-1?null:{
-                        queryInput:$('.placeholderOrderNum').val()==''?null:$('.placeholderOrderNum').val(),
-                        status:$('.selectCss').val()==-1?null:$('.selectCss').val()
-                    }
+                    var queryData = $('.placeholderOrderNum').val() == ''?null:{
+                        queryInput:$('.placeholderOrderNum').val()
+                    };
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
@@ -88,7 +87,7 @@ mainStart
                         }
                     },
                     {
-                        "data": "status",
+                        "data": null,
                         "sClass": "text-center",
                         "render":function(data){
                             var statusStr = {
@@ -96,8 +95,13 @@ mainStart
                                 1:"已审核",
                                 "-1":"已审核"
                             }
-                            return statusStr[data];
-                        }
+                            if(data.checkStatus){
+                                return '订单总状态：'+statusStr[data.orderStatus]+' | 我的审核状态：'+statusStr[data.checkStatus];
+                            }else{
+                                return statusStr[data.orderStatus];
+                            }
+                        },
+                        "width":270
                     },
                     {
                         "data": null,
@@ -106,9 +110,9 @@ mainStart
                         render:function(data){
                             console.log();
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.orderStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
                             }else{
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.status+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>';
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.orderStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>';
                             }
                         }
                     }
@@ -463,10 +467,10 @@ mainStart
         $(document).on('click','.viewPickPurchase',function(){
             var pickPurchaseOrder = $(this).attr('pickPurchaseOrder');
             $('#billNum').val(pickPurchaseOrder);
-            var status = $(this).attr('status');
+            var status = $(this).attr('status') == 'undefined'?'':$(this).attr('status');
 
             //审核框的隐现
-            if(status == 1){
+            if(status == 1||status == ''){
                 $('.checkBody').hide();
                 $('.checkPurchaseOk').hide();//审核按钮
             }else{
