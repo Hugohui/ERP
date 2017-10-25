@@ -63,15 +63,9 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
-                    //var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('.queryInput').val() == ''||$('.queryInput').val() == undefined) ? null : {
-                    //    startDate: $('.startDate').val() == '' ? null : $('.startDate').val(),
-                    //    endDate: $('.endDate').val() == '' ? null : $('.endDate').val(),
-                    //    queryInput: $('.queryInput').val() == '' ||$('.queryInput').val() == undefined? null : $('.queryInput').val()
-                    //};
-                    var queryData = $('.startDate').val() == ''&&$('.endDate').val() == ''?null:{
-                        startDate:$('.startDate').val() == ''?null:$('.startDate').val(),
-                        endDate:$('.endDate').val() == ''?null:$('.endDate').val()
-                    }
+                    var queryData = $('#queryUserInp').val() == ''?null:{
+                        userName:$('#queryUserInp').val()
+                    };
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
@@ -258,7 +252,6 @@ mainStart
         $('input:checkbox').removeAttr('checked');
     }
 
-        //条件筛选
         //条件查询
         $scope.searchUser = function () {
             userTable.ajax.reload();
