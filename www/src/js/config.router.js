@@ -6,12 +6,18 @@ angular.module('mainStart')
             $rootScope.$state = $state;
             //监听路由变化
             $rootScope.$on('$locationChangeStart',function(event){
-
+                $('.stateChangeLoad').show();
                 if(!$localStorage.user){
                     //动态设置标题
                     event.preventDefault();
                     $state.go('login');
                 }
+            });
+            $rootScope.$on('$locationChangeSuccess',function(event){
+               /* setTimeout(function(){
+                    $('.stateChangeLoad').hide();
+                },1000)*/
+
             });
         }])
     .config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider){
