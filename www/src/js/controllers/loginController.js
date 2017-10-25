@@ -29,6 +29,21 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
             });
             slider.init();
         })
+
+      //获取焦点
+        
+           $scope.oFocus_1=function(){
+               $("#resultPwd").html();
+               $("#resultUname").html();
+
+            }
+
+        $scope.oFocus_2=function(){
+                $("#resultPwd").html("");
+                $("#resultUname").html("");
+            }
+
+
         $scope.loginOk = function(){
            if($('#uname').val()&& $('#upwd').val()&&$('#validation').attr("value") == 1){
                $scope.ajaxData = {
@@ -57,7 +72,9 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                            $state.go('app');
 
                        }else if(data.resData.result == -1){
-                           $("#resultPwd").html(data.resData.msg)
+                           $("#loginForm")[0].reset();
+                           alert(data.resData.msg);
+                           //$("#resultPwd").html(data.resData.msg);
                            $('#labelTip').html('请拖动滑块验证').css({
                                color:'#787878'
                            });
@@ -67,8 +84,12 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                            });
                            slider.reset();
                            slider.init();
+
                        }else{
-                           $("#resultUname").html(data.resData.msg)
+                           $("#loginForm")[0].reset();
+                           alert(data.resData.msg);
+                           //$("#resultUname").html(data.resData.msg);
+                           $("#resultPwd").html();
                            $('#labelTip').html('请拖动滑块验证').css({
                                color:'#787878'
                            });

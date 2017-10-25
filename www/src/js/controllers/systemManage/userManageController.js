@@ -177,8 +177,8 @@ mainStart
                     action:'updateUser',
                     params:{
                         userName: $scope.userInfo.userName,
-                        password: $scope.userInfo.password,
-                        phone:$scope.userInfo.phone,
+                        password: $("#userPassword").val(),
+                        phone:$("#userPhone").val(),
                         access:$scope.userInfo.access,
                         department:$scope.userInfo.department,
                         data_permissions:{
@@ -218,7 +218,7 @@ mainStart
                 console.log(row.data().userName);
                 userArr.push(row.data().userName);
             }else{
-
+              
             }
         });
          $scope.deleteStu= function (){
@@ -245,6 +245,13 @@ mainStart
 
 
         //条件筛选
+        $scope.searchUser=function(){
+            var sstxt=$('#queryUserInp').val();
+            $("table tbody tr")
+                .hide()
+                .filter(":contains('"+sstxt+"')")
+                .show();
+        }
 
 
         //按钮的显示与隐藏
