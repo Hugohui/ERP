@@ -252,7 +252,11 @@ mainStart
 
      };
         //关闭按钮
-
+    $scope.closeBtn=function(){
+        $(".modal-body input").val("");
+        $(".modal-body select").val("");
+        $('input:checkbox').removeAttr('checked');
+    }
 
         //条件筛选
         //条件查询
