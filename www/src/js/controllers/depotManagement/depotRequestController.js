@@ -38,11 +38,15 @@ mainStart
                     }
                 ],
                 ajax: function (data, callback, settings) {
+                    var queryData = $('#material_code').val() == ''?null:{
+                        material_code:$('#material_code').val()
+                    };
                     var param = {};
                     param.limit = data.length;
                     param.start = data.start;
                     param.page = (data.start / data.length) + 1;
                     param.applicant = $scope.user.name;
+                    param.queryData = queryData;
                     $.ajax({
                         type: 'POST',
                         url: 'http://111.204.101.170:11115',
@@ -127,5 +131,10 @@ mainStart
                     }*/
                 ]
             }).api();
+        }
+
+        //条件查询
+        $scope.searchDeport = function (){
+            depotRequestTable.ajax.reload();
         }
     }]);

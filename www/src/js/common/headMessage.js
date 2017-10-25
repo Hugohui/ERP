@@ -68,7 +68,8 @@
                         $('.sendMessageUl').hide();
                     }
 
-                    window.localStorage.setItem('ngStorage-sendMessage',JSON.stringify(data.resData.sendMessage))
+                   // window.localStorage.setItem('ngStorage-sendMessage',JSON.stringify(data.resData.sendMessage));
+                    window.location.reload();
                 }
 
             }

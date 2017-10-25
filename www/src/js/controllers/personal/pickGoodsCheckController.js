@@ -217,6 +217,20 @@ mainStart
             $('#addPickGooodsPurchaseModal').modal('show');
         }
 
+ /*       //添加物料行
+        $scope.addMaterialLine = function () {
+            $('#addGoodsModal').modal('show');
+        }
+
+        //删除物料行
+        $scope.deleteMaterialLine = function ($event) {
+            if ($('.materialListDiv').length > 1) {
+                $($event.target).parent().remove();
+            } else {
+                toastr.warning('至少申请一项物料！');
+            }
+        }*/
+
         $('#addPickPurchaseTable').on('click', 'tbody .details-control', function () {
             var tr = $(this).closest('tr');
             var row = addPickPurchaseTable.row(tr);
