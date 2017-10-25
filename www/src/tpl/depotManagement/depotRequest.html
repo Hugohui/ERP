@@ -3,13 +3,13 @@
         <div class="queryDIv">
             <div class="queryTitle bg-black">条件查询</div>
             <div class="queryBody">
-                <input type="text" placeholder="物料编码" class=""/>
-                <input type="text" placeholder="名称" class=""/>
+                <!--<input type="text" placeholder="物料编码"/>-->
+                <!--<input type="text" placeholder="名称" class=""/>
                 <input type="text" placeholder="型号" class=""/>
-                <input type="text" placeholder="项目号" class=""/>
+                <input type="text" placeholder="项目号" class=""/>-->
                 <div class="searchGroup">
-                    <input type="text" placeholder="采购订单编号/申请人" class="placeholderOrderNum"/>
-                    <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
+                    <input type="text" placeholder="物料编码" id="material_code" class="placeholderOrderNum"/>
+                    <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="searchDeport()"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
         </div>
