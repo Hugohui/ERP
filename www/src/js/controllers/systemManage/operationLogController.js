@@ -60,17 +60,16 @@ mainStart
                 ],
                 ajax: function (data, callback, settings) {
                     //封装请求参数
-                    var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('.queryInput').val() == ''||$('.queryInput').val() == undefined) ? null : {
+                    var queryData = $('.startDate').val() == '' && $('.endDate').val() == '' && ($('#queryUserInp').val() == ''||$('#queryUserInp').val() == undefined) ? null : {
                         startDate: $('.startDate').val() == '' ? null : $('.startDate').val(),
                         endDate: $('.endDate').val() == '' ? null : $('.endDate').val(),
-                        queryInput: $('.queryInput').val() == '' ||$('.queryInput').val() == undefined? null : $('.queryInput').val()
+                        userName: $('#queryUserInp').val() == '' ||$('#queryUserInp').val() == undefined? null : $('#queryUserInp').val()
                     };
                     var param = {};
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
                     param.queryData = queryData;
-                    //param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
                         type: 'POST',
@@ -89,6 +88,7 @@ mainStart
                             returnData.recordsFiltered = result.resData.total;//后台不实现过滤功能，每次查询均视作全部结果
                             returnData.data = result.resData.data;//返回的数据列表
                             callback(returnData);
+                            console.log(data);
                         }
                     });
                 },
@@ -110,7 +110,10 @@ mainStart
                 ]
             }).api();
         }
+
+        //条件查询
         $scope.search = function () {
             operationTable.ajax.reload();
         }
+
     }]);
