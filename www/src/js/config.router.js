@@ -6,7 +6,7 @@ angular.module('mainStart')
             $rootScope.$state = $state;
             //监听路由变化
             $rootScope.$on('$locationChangeStart',function(event){
-                $('.loadingBar').show();
+                $('.loadingBar').addClass('is-active');
                 if(!$localStorage.user){
                     //动态设置标题
                     event.preventDefault();
@@ -14,7 +14,7 @@ angular.module('mainStart')
                 }
             });
             $rootScope.$on('$locationChangeSuccess',function(event){
-                    $('.loadingBar').hide();
+                    $('.loadingBar').removeClass('is-active');
             });
         }])
     .config(['$stateProvider','$urlRouterProvider', function($stateProvider,$urlRouterProvider){
