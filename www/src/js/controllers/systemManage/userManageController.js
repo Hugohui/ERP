@@ -204,8 +204,9 @@ mainStart
                     jsonp : "callback",
                     jsonpCallback:"success_jsonpCallback",
                     success:function(data){
-                        console.log(data)
                         userTable.ajax.reload();
+                        userArr.splice(0, userArr.length);
+                        btnIsShow(userArr)
                     }
                 })
             }
@@ -219,11 +220,18 @@ mainStart
             var tr = $(this).closest('tr');
             var row = userTable.row(tr);
             if($(this).is(':checked')){
-                console.log(row.data().userName);
                 userArr.push(row.data().userName);
             }else{
-                userArr.splice(0,userArr.length);
+                var index = 0;
+                for(var i=0; i<userArr.length; i++) {
+                    if(userArr[i] === row.data().userName ) {
+                        index = i;
+                        break
+                    }
+                }
+                userArr.splice(i, 1)
             }
+            btnIsShow(userArr)
         });
          $scope.deleteStu= function (){
          $scope.data = {
@@ -241,6 +249,8 @@ mainStart
              jsonpCallback:"success_jsonpCallback",
              success:function(data){
                  userTable.ajax.reload();
+                 userArr.splice(0, userArr.length);
+                 btnIsShow(userArr)
              }
          })
 
@@ -255,27 +265,39 @@ mainStart
         //条件查询
         $scope.searchUser = function () {
             userTable.ajax.reload();
-        }
+        };
 
         //按钮的显示与隐藏
-        $('#userTable tbody').on('change', '.checkboxID', function () {
-            var arr = [];
-            $('input[type="checkbox"]').each(function(i, v) {
-                if($(v).is(':checked')) {
-                    arr.push('')
-                }
-            });
-            if(arr.length===1){
+        function btnIsShow(list) {
+            if(list.length===1){
                 $('#updateBtn').css('display','inline-block');
-
             }else{
                 $('#updateBtn').css('display','none')
             }
-            if(arr.length>0){
+            if(list.length>0){
                 $('#deleteBtn').css('display','inline-block')
             }else{
                 $('#deleteBtn').css('display','none')
             }
-
-        });
+        }
+        //$('#userTable tbody').on('change', '.checkboxID', function () {
+        //    var arr = [];
+        //    $('input[type="checkbox"]').each(function(i, v) {
+        //        if($(v).is(':checked')) {
+        //            arr.push('')
+        //        }
+        //    });
+        //    if(arr.length===1){
+        //        $('#updateBtn').css('display','inline-block');
+        //
+        //    }else{
+        //        $('#updateBtn').css('display','none')
+        //    }
+        //    if(arr.length>0){
+        //        $('#deleteBtn').css('display','inline-block')
+        //    }else{
+        //        $('#deleteBtn').css('display','none')
+        //    }
+        //
+        //});
     }]);
