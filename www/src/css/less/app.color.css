@@ -1,0 +1,41 @@
+.bg-black {
+  color: #7793a7;
+  background-color: #1c2b36;
+}
+.bg-black i {
+  color: #fff;
+}
+.bg-info {
+  background-color: #16aad8;
+}
+.bg-info a {
+  color: #fff;
+}
+.bg-info > ul > li > a:hover,
+.bg-info > ul > li > a:focus {
+  background-color: #16ade5 !important;
+}
+.bg-danger {
+  background-color: #F05050;
+}
+.bg-danger a {
+  color: #fff;
+}
+.bg-danger > ul > li > a:hover,
+.bg-danger > ul > li > a:focus {
+  background-color: #e43f3a !important;
+}
+.bg-white-only {
+  background-color: #fff;
+  color: #444;
+}
+.bg-white-only a {
+  color: #000;
+}
+.bg-white-only {
+  background-color: #fff;
+  color: #444;
+}
+.bg-white-only a {
+  color: #000;
+}
