@@ -304,8 +304,13 @@ s {
   right: 0;
   left: 0;
   height: 2px;
+  display: none;
   background: #4197ff;
   -webkit-transform: translateX(-100%);
+}
+.loadingBar.is-active {
+  display: block;
+  -webkit-animation: loading 1s ease-in-out 0.8s infinite;
   animation: loading 1s ease-in-out 0.8s infinite;
 }
 @keyframes loading {
