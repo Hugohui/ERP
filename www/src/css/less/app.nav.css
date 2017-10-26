@@ -52,8 +52,8 @@
 }
 .loadingBar.is-active {
   display: block;
-  -webkit-animation: loading 1s ease-in-out 0.8s infinite;
-  animation: loading 1s ease-in-out 0.8s infinite;
+  -webkit-animation: loading 1s ease-in-out infinite;
+  animation: loading 1s ease-in-out infinite;
 }
 @keyframes loading {
   0% {
