@@ -281,6 +281,16 @@ s {
 .bg-danger > ul > li > a:focus {
   background-color: #e43f3a !important;
 }
+.bg-success {
+  background-color: #27c24c;
+}
+.bg-success a {
+  color: #fff;
+}
+.bg-success > ul > li > a:hover,
+.bg-success > ul > li > a:focus {
+  background-color: #27d85c !important;
+}
 .bg-white-only {
   background-color: #fff;
   color: #444;
