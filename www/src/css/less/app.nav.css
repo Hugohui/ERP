@@ -38,88 +38,33 @@
   color: #0000FF;
   text-decoration: underline;
 }
-/*���ض���*/
-/*
-.butterbar{
+/*加载动画*/
+.loadingBar {
   position: fixed;
   width: 100%;
   top: 50px;
+  right: 0;
+  left: 0;
   height: 2px;
-  .bar{
-    position: absolute;
-    height: 0;
-    width: 100%;
-    text-indent: -9999px;
-    border:2px solid #23b7e5;
-    &:before{
-      content: "";
-      height: 2px;
-      position: absolute;
-      left: 50%;
-      right: 50%;
-      background-color: inherit;
-    }
+  background: #4197ff;
+  -webkit-transform: translateX(-100%);
+  animation: loading 1s ease-in-out 0.8s infinite;
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  40% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  60% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
-.butterbar.active{
-  -webkit-animation: changebar 2*3s infinite 2s;
-  -moz-animation: changebar 2*3s infinite 2s;
-  animation: changebar 2*3s infinite 2s;
-  .bar{
-    -webkit-animation: changebar 2*3s infinite;
-    -moz-animation: changebar 2*3s infinite;
-    animation: changebar 2*3s infinite;
-    &:before{
-      -webkit-animation: movingbar 2s infinite;
-      -moz-animation: movingbar 2s infinite;
-      animation: movingbar 2s infinite;
-    }
-  }
-}
-
-/!* Moving bar *!/
-@-webkit-keyframes movingbar{
-  0%    { left:50%; right:50% ;}
-  99.9% { left:0; right:0 ;}
-  100%  { left:50%; right:50%;}
-}
-
-@-moz-keyframes movingbar{
-  0%    { left:50%; right:50% ;}
-  99.9% { left:0; right:0 ;}
-  100%  { left:50%; right:50%;}
-}
-
-@keyframes movingbar{
-  0%    { left:50%; right:50% ;}
-  99.9% { left:0; right:0 ;}
-  100%  { left:50%; right:50%;}
-}
-
-/!* change bar *!/
-@-webkit-keyframes changebar{
-  0%    { border-color: #23b7e5}
-  33.3%   { border-color: #23b7e5 }
-  33.33%  { border-color: #fad733 }
-  66.6%   { border-color: #fad733 }
-  66.66%  { border-color: #428bca }
-  99.9% { border-color: #428bca }
-}
-
-@-moz-keyframes changebar{
-  0%    { border-color: #23b7e5}
-  33.3%   { border-color: #23b7e5 }
-  33.33%  { border-color: #fad733 }
-  66.6%   { border-color: #fad733 }
-  66.66%  { border-color: #428bca }
-  99.9% { border-color: #428bca }
-}
-
-@keyframes changebar{
-  0%    { border-color: #23b7e5}
-  33.3%   { border-color: #23b7e5 }
-  33.33%  { border-color: #fad733 }
-  66.6%   { border-color: #fad733 }
-  66.66%  { border-color: #428bca }
-  99.9% { border-color: #428bca }
-}*/
