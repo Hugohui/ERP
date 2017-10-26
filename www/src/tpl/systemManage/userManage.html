@@ -125,14 +125,21 @@
             <!-- 用户列表-->
             <div class="userTableDiv pr" ng-model="userTableDiv">
                 <div class="row-fluid searchGroupDiv pa">
-                    <div class="btnGroup">
-                        <div class="input-group">
-                            <input type="text" placeholder="用户名" class="fuzzySearchInp" id="queryUserInp">
-                            <button type="button" id="userSearchButton" class="btn btn-sm btn-primary" ng-click="searchUser()"><i class="fa fa-search"></i>搜索
-                            </button>
-                        </div>
-                    </div>
+                    <!--<div class="btnGroup">-->
+                        <!--<div class="input-group">-->
+                            <!--<input type="text" placeholder="用户名" class="fuzzySearchInp" id="queryUserInp">-->
+                            <!--<button type="button" id="userSearchButton" class="btn btn-sm btn-primary" ng-click="searchUser()"><i class="fa fa-search"></i>搜索-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="tableContent" >
+                        <div class="btnGroup">
+                            <div class="input-group">
+                                <input type="text" placeholder="用户名" class="fuzzySearchInp" id="queryUserInp">
+                                <button type="button" id="userSearchButton" class="btn btn-sm btn-primary" ng-click="searchUser()"><i class="fa fa-search"></i>搜索
+                                </button>
+                            </div>
+                        </div>
                         <table id="userTable" class="display table-striped table-bordered table-hover table-condensed" cellspacing="0" width="100%">
                             <thead>
                             <tr >
