@@ -29,7 +29,7 @@
                 <i class="fa fa-bell-o fa-fw"></i>
                 <span class="badge badge-sm up bg-danger pull-right-xs" ng-if="sendMessage.length>0">{{sendMessage.length}}</span>
             </a>
-            <ul class="dropdown-menu sendMessageUl" ng-if="sendMessage.length>0" style="width: 200px;">
+            <ul class="dropdown-menu animated fadeInRight sendMessageUl" ng-if="sendMessage.length>0" style="width: 200px;">
                 <li ng-if="sendMessage.length>0">
                     您有{{sendMessage.length}}条未读消息
                     <span href="javascript:;" class="alreadyRead readALlMsg">全部已读</span>
@@ -51,7 +51,7 @@
             <a href class="dropdown-toggle" data-toggle="dropdown">
                 <span class="userName">{{user.name}}</span> <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu text-center">
+            <ul class="dropdown-menu animated fadeInRight text-center">
                 <li>
                     <a class="text-center">修改密码</a>
                 </li>
