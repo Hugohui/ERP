@@ -260,6 +260,9 @@ mainStart
         $(".modal-body input").val("");
         $(".modal-body select").val("");
         $('input:checkbox').removeAttr('checked');
+        userTable.ajax.reload();
+        userArr.splice(0, userArr.length);
+        btnIsShow(userArr)
     }
 
         //条件查询
