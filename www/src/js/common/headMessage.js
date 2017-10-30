@@ -17,7 +17,7 @@
                     window.localStorage.setItem('ngStorage-sendMessage','[]');
                     $('.badge').hide();
                     $('.sendMessageUl').hide();
-                    window.location.reload();
+                    //window.location.reload();
                 }
             }
         });
@@ -70,7 +70,7 @@
                     }
 
                     window.localStorage.setItem('ngStorage-sendMessage',JSON.stringify(data.resData.sendMessage));
-                    window.location.reload();
+                    //window.location.reload();
                 }
 
             }
