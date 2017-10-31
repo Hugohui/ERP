@@ -118,7 +118,7 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.personal.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.group_leader.status]+'">'+
-                                    '                        <p class="showReasonDiv">意见：'+value.group_leader.reason+'</p>'+
+                                    '                        <p class="showReasonDiv">'+value.group_leader.reason+'</p>'+
                                     '                        室组经理'+
                                     '                        <span class="preFlowSpan '+classObj[value.group_leader.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.group_leader.status]+'"></span>'+
@@ -126,7 +126,7 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.group_leader.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.department.status]+'">'+
-                                    '                        <p class="showReasonDiv">意见：'+value.department.reason+'</p>'+
+                                    '                        <p class="showReasonDiv">'+value.department.reason+'</p>'+
                                     '                        部长'+
                                     '                        <span class="preFlowSpan '+classObj[value.department.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.department.status]+'"></span>'+
@@ -134,7 +134,7 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.department.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.manager.status]+'">'+
-                                    '                        <p class="showReasonDiv">意见：'+value.manager.reason+'</p>'+
+                                    '                        <p class="showReasonDiv">'+value.manager.reason+'</p>'+
                                     '                        总经理'+
                                     '                        <span class="preFlowSpan '+classObj[value.manager.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.manager.status]+'"></span>'+
@@ -183,7 +183,7 @@ mainStart
         function bendEvents(){
             $('.purchaseTrackBody').on('mouseenter','.reasonMsg',function(){
                 //意见不为空
-                if($(this).closest('li').find('.showReasonDiv').html() != '意见：'){
+                if($(this).closest('li').find('.showReasonDiv').html() != ''){
                     $(this).closest('li').find('.showReasonDiv').show();
                 }
             });
