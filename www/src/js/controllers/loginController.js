@@ -32,20 +32,10 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
 
       //获取焦点
 
-           $scope.oFocus_1=function(){
-               $("#resultPwd").html();
-               $("#resultUname").html();
-
-            }
-
-        $scope.oFocus_2=function(){
-                $("#resultPwd").html("");
-                $("#resultUname").html("");
-            }
 
 
         $scope.loginOk = function(){
-           if($('#uname').val()&& $('#upwd').val()&&$('#validation').attr("value") == 1){
+           if($('#uname').val()&&$('#upwd').val()&&$('#validation').attr("value") == 1){
                $scope.ajaxData = {
                    action: "erpLogin",
                    params: {
@@ -72,9 +62,9 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                            $state.go('app');
 
                        }else if(data.resData.result == -1){
-                           $("#loginForm")[0].reset();
-                           alert(data.resData.msg);
-                           //$("#resultPwd").html(data.resData.msg);
+                           $("#resultPwd").text(data.resData.msg).fadeOut(2000)(function(){
+                               $(this).remove()
+                           });
                            $('#labelTip').html('请拖动滑块验证').css({
                                color:'#787878'
                            });
@@ -84,11 +74,11 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
                            });
                            slider.reset();
                            slider.init();
-
+                           $("#loginForm")[0].reset();
+                           //$("#loginForm").load(location.href+" #loginForm").fadeIn('slow');
                        }else{
                            $("#loginForm")[0].reset();
-                           alert(data.resData.msg);
-                           //$("#resultUname").html(data.resData.msg);
+                           $("#resultUname").html(data.resData.msg).fadeOut(2000);
                            $("#resultPwd").html();
                            $('#labelTip').html('请拖动滑块验证').css({
                                color:'#787878'
