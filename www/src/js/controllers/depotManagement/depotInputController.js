@@ -83,7 +83,8 @@ mainStart
                         "sClass": "text-center",
                         "render": function (data) {
                             //未收料和部分收料的显示选择框
-                            var inputStr = data.orderStatus == 0 ||  data.orderStatus == 2?'<input class="topCheckInput" type="checkbox"/>':'';
+                            var inputStr ='<input class="topCheckInput" type="checkbox"/>';
+                            //var inputStr = data.orderStatus == 0 ||  data.orderStatus == 2?'<input class="topCheckInput" type="checkbox"/>':'';
                             var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s>'+inputStr;
                             return html;
                         },
@@ -167,7 +168,8 @@ mainStart
             $.each(d.materialList, function (index, value) {
                 var positionStr = positionArr.length == 0?"":positionArr[index];
                 var inputStr,stock_position;
-                value.status == 0?(inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>'):inputStr='';
+                //value.status == 0?(inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>'):inputStr='';
+                inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial" status="'+value.status+'" checked/>':'<input type="checkbox" class="checkMaterial" status="'+value.status+'"/>';
                 value.stock_position?stock_position=value.stock_position:stock_position='<input class="stock_position" type="text" msg="库存位置不能为空" value="'+positionStr+'">';
                 trStr += '<tr>' +
                     '<td>'+inputStr+'</td>' +
@@ -304,7 +306,7 @@ mainStart
         $scope.commitDepotInput = function () {
             var commitDataArr = [];
             $.each($('.sonTable tr:not(".trHead")'),function(index,value){
-                if($(this).find('.checkMaterial').is(':checked')){
+                if($(this).find('.checkMaterial').is(':checked') && $(this).find('.checkMaterial').attr('status') == 0){
                     commitDataArr.push({material_code: $(this).find('.material_code').html(), stock_position: $(this).find('.stock_position').val()})
                 }
             });
