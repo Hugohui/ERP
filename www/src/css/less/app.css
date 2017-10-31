@@ -722,6 +722,7 @@ body .content #labelTip {
   width: 100%;
   height: 26px;
   border: none;
+  border-radius: 3px;
 }
 .purchaseReqOrder .materialDiv .materialListDiv .deleteMaterial {
   position: absolute;

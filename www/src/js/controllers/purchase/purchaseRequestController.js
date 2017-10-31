@@ -25,7 +25,7 @@ mainStart
                     $scope.projectNumArr = data.resData.projectNum;
                     $('.projectNumDiv').autocomplete({
                         hints: $scope.projectNumArr,
-                        width: 135,
+                        width: "100%",
                         height: 27,
                         showButton:false,
                         placeholder:'',
@@ -33,11 +33,15 @@ mainStart
                             console.log($(this));
                         }
                     });
+                    $('.projectNumDiv input').attr('valType',' ');
+                    $('.projectNumDiv input').attr('msg','项目号不能为空');
+                    //初始化验证
+                    //清除已有的验证提示信息
+                    $('#purchaseReqForm [valType]').hideValidate();
+                    $.fn.InitValidator('purchaseReqForm');
                 }
             }
         })
-
-
 
         //初始化验证
         //清除已有的验证提示信息
@@ -51,26 +55,20 @@ mainStart
                 '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
                 '                        <div><input type="text" class="material_name" valType msg="请输入名称"/></div>'+
                 '                        <div><input type="text" class="model" valType msg="型号不能为空"/></div>'+
-                '                        <div><input type="text" class="sn_num"/></div>'+
+                //'                        <div><input type="text" class="sn_num"/></div>'+
                 '                        <div class="projectNumDiv"></div>'+
-                '                        <div><input type="text" class="unit"/></div>'+
+                '                        <div><input type="text" class="unit" valType msg="单位不能为空"/></div>'+
                 '                        <div><input type="number" class="number" valType msg="数量不能为空"/></div>'+
+                '                        <div><input type="text" class="brand"/></div>'+
                 '                        <div><input type="date" class="expected_date" ></div>'+
                 '                        <div><input type="text" class="remark"/></div>'+
                 '                    </div>';
             var $lineHtml = $compile(lineHtml)($scope);
             $('.addMaterialListDiv').before($lineHtml);
 
-            //清除已有的验证提示信息
-            $('#purchaseReqForm [valType]').hideValidate();
-            //初始化验证
-            $.fn.InitValidator('purchaseReqForm');
-
-
-
             $('.projectNumDiv').autocomplete({
                 hints: $scope.projectNumArr,
-                width: 135,
+                width: "100%",
                 height: 27,
                 showButton:false,
                 placeholder:'',
@@ -78,6 +76,14 @@ mainStart
                     console.log($(this));
                 }
             });
+
+            $('.projectNumDiv input').attr('valType',' ');
+            $('.projectNumDiv input').attr('msg','项目号不能为空');
+
+            //清除已有的验证提示信息
+            $('#purchaseReqForm [valType]').hideValidate();
+            //初始化验证
+            $.fn.InitValidator('purchaseReqForm');
         }
 
         //删除物料行
@@ -192,7 +198,8 @@ mainStart
                     {
                         material_name:$(data).find('.material_name').val(),
                         model:$(data).find('.model').val(),
-                        sn_num:$(data).find('.sn_num').val(),
+                        //sn_num:$(data).find('.sn_num').val(),
+                        brand:$(data).find('.brand').val(),
                         project_num:$(data).find('.projectNumDiv input').val(),
                         //project_num:$(data).find('.project_num').val(),
                         unit:$(data).find('.unit').val(),

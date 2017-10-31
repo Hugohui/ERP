@@ -11,10 +11,11 @@
                         <ul>
                             <li><s class="fa fa-asterisk redText"></s>名称</li>
                             <li><s class="fa fa-asterisk redText"></s>型号</li>
-                            <li>sn号</li>
-                            <li>项目号</li>
-                            <li>单位</li>
+                            <!--<li>sn号</li>-->
+                            <li><s class="fa fa-asterisk redText"></s>项目号</li>
+                            <li><s class="fa fa-asterisk redText"></s>单位</li>
                             <li><s class="fa fa-asterisk redText"></s>数量</li>
+                            <li>品牌</li>
                             <li>期望交付日期</li>
                             <li>备注</li>
                         </ul>
@@ -24,10 +25,11 @@
                                 <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
                             </div>
                             <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
-                            <div><input type="text" class="sn_num" name="sn_num"/></div>
+                            <!--<div><input type="text" class="sn_num" name="sn_num"/></div>-->
                             <div class="projectNumDiv"></div>
-                            <div><input type="text" class="unit" name="unit"/></div>
+                            <div><input type="text" class="unit" name="unit" valType msg="单位不能为空"/></div>
                             <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>
+                            <div><input type="text" class="brand" name="brand"/></div>
                             <div><input type="date" class="expected_date" name="expected_date"/></div>
                             <div><input type="text" class="remark" name="name"/></div>
                         </div>
