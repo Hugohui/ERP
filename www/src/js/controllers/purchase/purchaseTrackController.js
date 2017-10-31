@@ -104,6 +104,9 @@ mainStart
 
                             //渲染数据
                             $.each(data.resData.data,function(index,value){
+                                var groupLeaderReason = value.group_leader.reason == ''?'':'<i class="fa fa-commenting-o reasonMsg"></i>';
+                                var departmentReason = value.department.reason == ''?'':'<i class="fa fa-commenting-o reasonMsg"></i>';
+                                var managerReason = value.manager.reason == ''?'':'<i class="fa fa-commenting-o reasonMsg"></i>';
                                 html+=
                                     '              <div class="purchaseLine">'+
                                     '                <span class="purchaseLineOrder">订单编号：'+value.purchase_applicant_id+'</span>'+
@@ -115,27 +118,27 @@ mainStart
                                     '                        <span class="purchaseDatetime">'+value.personal.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.group_leader.status]+'">'+
-                                    '                        <p class="showReasonDiv">拒绝理由：'+value.group_leader.reason+'</p>'+
+                                    '                        <p class="showReasonDiv">意见：'+value.group_leader.reason+'</p>'+
                                     '                        室组经理'+
                                     '                        <span class="preFlowSpan '+classObj[value.group_leader.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.group_leader.status]+'"></span>'+
-                                    '                        <span class="purchaseResult">'+resultStr[value.group_leader.status]+'</span>'+
+                                    '                        <span class="purchaseResult">'+resultStr[value.group_leader.status]+groupLeaderReason+'</span>'+
                                     '                        <span class="purchaseDatetime">'+value.group_leader.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.department.status]+'">'+
-                                    '                        <p class="showReasonDiv">拒绝理由：'+value.department.reason+'</p>'+
+                                    '                        <p class="showReasonDiv">意见：'+value.department.reason+'</p>'+
                                     '                        部长'+
                                     '                        <span class="preFlowSpan '+classObj[value.department.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.department.status]+'"></span>'+
-                                    '                        <span class="purchaseResult">'+resultStr[value.department.status]+'</span>'+
+                                    '                        <span class="purchaseResult">'+resultStr[value.department.status]+departmentReason+'</span>'+
                                     '                        <span class="purchaseDatetime">'+value.department.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.manager.status]+'">'+
-                                    '                        <p class="showReasonDiv">拒绝理由：'+value.manager.reason+'</p>'+
+                                    '                        <p class="showReasonDiv">意见：'+value.manager.reason+'</p>'+
                                     '                        总经理'+
                                     '                        <span class="preFlowSpan '+classObj[value.manager.status]+'"></span>'+
                                     '                        <span class="nextFlowSpan '+classObj[value.manager.status]+'"></span>'+
-                                    '                        <span class="purchaseResult">'+resultStr[value.manager.status]+'</span>'+
+                                    '                        <span class="purchaseResult">'+resultStr[value.manager.status]+managerReason+'</span>'+
                                     '                        <span class="purchaseDatetime">'+value.manager.date+'</span>'+
                                     '                    </li>'+
                                     '                    <li class="'+classObj[value.purchase.status]+'">'+
@@ -178,14 +181,15 @@ mainStart
          * 事件绑定
          */
         function bendEvents(){
-            $('.purchaseTrackBody').on('mouseenter','li',function(){
-                if($(this).hasClass('purchaseFailure')){
-                    $(this).find('.showReasonDiv').show();
+            $('.purchaseTrackBody').on('mouseenter','.reasonMsg',function(){
+                //意见不为空
+                if($(this).closest('li').find('.showReasonDiv').html() != '意见：'){
+                    $(this).closest('li').find('.showReasonDiv').show();
                 }
             });
 
-            $('.purchaseTrackBody').on('mouseleave','li',function(){
-                    $(this).find('.showReasonDiv').hide();
+            $('.purchaseTrackBody').on('mouseleave','.reasonMsg',function(){
+                    $(this).closest('li').find('.showReasonDiv').hide();
             });
         }
     }]);
