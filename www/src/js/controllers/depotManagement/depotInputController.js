@@ -105,6 +105,18 @@ mainStart
             {
                 "data": "applicant",
                 "sClass": "text-center"
+            },
+            {
+                "data": "orderStatus",
+                "sClass": "text-center",
+                "render":function(data){
+                    var statusStr = {
+                        0:'待收料',
+                        1:'已收料',
+                        2:'部分收料'
+                    }
+                    return statusStr[data];
+                }
             }
             ]
         }).api();
@@ -168,6 +180,10 @@ mainStart
             $.each(d.materialList, function (index, value) {
                 var positionStr = positionArr.length == 0?"":positionArr[index];
                 var inputStr,stock_position;
+                var statusStr = {
+                    0:'待收料',
+                    1:'已收料'
+                }
                 //value.status == 0?(inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>'):inputStr='';
                 inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial" status="'+value.status+'" checked/>':'<input type="checkbox" class="checkMaterial" status="'+value.status+'"/>';
                 value.stock_position?stock_position=value.stock_position:stock_position='<input class="stock_position" type="text" msg="库存位置不能为空" value="'+positionStr+'">';
@@ -187,6 +203,7 @@ mainStart
                     '<td>' + value.manufactor + '</td>' +
                     '<td>' + value.unit_price + '</td>'+
                     '<td>'+stock_position+'</td>'+
+                    '<td>'+statusStr[value.status]+'</td>'+
                     '<td>' + value.remark + '</td>' +
                     '</tr>';
             });
@@ -207,6 +224,7 @@ mainStart
                 '<td>厂家</td>' +
                 '<td>单价</td>' +
                 '<td><s class="fa fa-asterisk redText"></s>库存位置</td>' +
+                '<td>状态</td>' +
                 '<td>备注</td>' +
                 '</tr>' + trStr +
                 '</table>';
@@ -313,7 +331,7 @@ mainStart
 
             //判断是否选择物料
             if(commitDataArr.length == 0){
-                toastr.warning('请选择物料！');
+                toastr.warning('请选择待收料物料！');
                 return;
             }
 
