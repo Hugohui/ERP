@@ -120,12 +120,9 @@ mainStart
             }
             ]
         }).api();
-
-
-
         var btnStr = '<div class="handleDepotDiv">'+
             '                    <button class="btn btn-warning btn-sm" ng-click="commitDepotInput()">确认收料</button>'+
-            '                    <button class="btn btn-warning btn-sm"><s class="fa fa-print"></s> 打印收料单</button>'+
+            '                    <button class="btn btn-warning btn-sm" ng-click="print()"><s class="fa fa-print"></s> 打印收料单</button>'+
             '                </div>';
         var $btnStr = $compile(btnStr)($scope);
         $('.dataTables_wrapper').append($btnStr);
@@ -190,21 +187,21 @@ mainStart
                 trStr += '<tr>' +
                     '<td>'+inputStr+'</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
-                    '<td>' + value.material_name + '</td>' +
-                    '<td>' + value.model + '</td>' +
-                    '<td>' + value.sn_num + '</td>' +
-                    '<td>' + value.supplier_num + '</td>' +
-                    '<td>' + value.supplier + '</td>' +
-                    '<td>' + value.project_num + '</td>' +
-                    '<td>' + value.unit + '</td>' +
-                    '<td>' + value.number + '</td>' +
-                    '<td>' + value.batch + '</td>' +
-                    '<td>' + value.brand + '</td>' +
-                    '<td>' + value.manufactor + '</td>' +
-                    '<td>' + value.unit_price + '</td>'+
-                    '<td>'+stock_position+'</td>'+
-                    '<td>'+statusStr[value.status]+'</td>'+
-                    '<td>' + value.remark + '</td>' +
+                    '<td class="material_name">' + value.material_name + '</td>' +
+                    '<td class="model">' + value.model + '</td>' +
+                    '<td class="sn_num">' + value.sn_num + '</td>' +
+                    '<td class="supplier_num">' + value.supplier_num + '</td>' +
+                    '<td class="supplier">' + value.supplier + '</td>' +
+                    '<td class="project_num">' + value.project_num + '</td>' +
+                    '<td class="unit">' + value.unit + '</td>' +
+                    '<td class="number">' + value.number + '</td>' +
+                    '<td class="batch">' + value.batch + '</td>' +
+                    '<td class="brand">' + value.brand + '</td>' +
+                    '<td class="manufactor">' + value.manufactor + '</td>' +
+                    '<td class="unit_price">' + value.unit_price + '</td>'+
+                    '<td class="">'+stock_position+'</td>'+
+                    '<td class="">'+statusStr[value.status]+'</td>'+
+                    '<td class="remark">' + value.remark + '</td>' +
                     '</tr>';
             });
             return '<table cellpadding="5" cellspacing="0" border="0" width="100%" class="display table-bordered sonTable">' +
@@ -366,6 +363,44 @@ mainStart
                 }
             })
 
+        }
+
+        /*打印收料单*/
+        $scope.print = function(){
+            var materialList = [];
+            $.each($('.sonTable tr:not(".trHead")'),function(index,value){
+                if($(this).find('.checkMaterial').is(':checked') && $(this).find('.checkMaterial').attr('status') == 1){
+                    materialList.push({
+                        material_code: $(this).find('.material_code').html(),
+                        material_name: $(this).find('.material_name').html(),
+                        model: $(this).find('.model').html(),
+                        sn_num: $(this).find('.sn_num').html(),
+                        supplier_num: $(this).find('.supplier_num').html(),
+                        supplier: $(this).find('.supplier').html(),
+                        project_num: $(this).find('.project_num').html(),
+                        unit: $(this).find('.unit').html(),
+                        number: $(this).find('.number').html(),
+                        batch: $(this).find('.batch').html(),
+                        brand: $(this).find('.brand').html(),
+                        manufactor: $(this).find('.manufactor').html(),
+                        unit_price: $(this).find('.unit_price').html(),
+                        remark: $(this).find('.remark').html()
+                    })
+                }else{
+                    toastr.warning('请选择已入库的物料进行打印');
+                }
+            });
+            $scope.materialList = materialList;
+            $scope.$apply();
+            if(materialList.length == 0){
+                toastr.warning('请选择已收料的物料');
+                return;
+            }
+            $('#printModal').modal('show');
+        }
+
+        $scope.printOk = function(){
+            preview(1)
         }
 
         /**

@@ -1144,6 +1144,12 @@ body .content #labelTip {
 .depotInputBody .depotInputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
+#printModal .modal-dialog {
+  width: 1330px;
+}
+#printModal .modal-dialog table {
+  text-align: center;
+}
 .depotOutputBody {
   margin-top: 10px;
 }

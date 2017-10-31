@@ -39,4 +39,107 @@
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+
+    <!--打印收料单模态框-->
+    <div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="printModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="printModalLabel">打印收料单</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="tableDiv" id="print">
+                        <!--startprint1-->
+                        <table class="table-bordered table-condensed" id="purchaseOkTable" cellspacing="0" width="100%">
+                            <tr class="tableHeadTr">
+                                <td>物料编码</td>
+                                <td>名称</td>
+                                <td>型号</td>
+                                <td>sn号</td>
+                                <td>供应商编号</td>
+                                <td>供应商名称</td>
+                                <td>项目号</td>
+                                <td>单位</td>
+                                <td>数量</td>
+                                <td>批次</td>
+                                <td>品牌</td>
+                                <td>厂家</td>
+                                <td>单价</td>
+                                <td>备注</td>
+                            </tr>
+                            <tr ng-repeat="material in materialList">
+                                <td>{{material.material_code}}</td>
+                                <td>{{material.material_name}}</td>
+                                <td>{{material.model}}</td>
+                                <td>{{material.sn_num}}</td>
+                                <td>{{material.supplier_num}}</td>
+                                <td>{{material.supplier}}</td>
+                                <td>{{material.project_num}}</td>
+                                <td >{{material.unit}}</td>
+                                <td>{{material.number}}</td>
+                                <td>{{material.batch}}</td>
+                                <td>{{material.brand}}</td>
+                                <td>{{material.manufactor}}</td>
+                                <td>{{material.unit_price}}</td>
+                                <td>{{material.remark}}</td>
+                            </tr>
+                        </table>
+                        <!--endprint1-->
+                    </div>
+                </div>
+                <div class="modal-footer" id="purchaseModalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="printOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+    <script>
+        function myPrint(obj){
+            //打开一个新窗口newWindow
+            var newWindow=window.open("打印窗口","_blank");
+            //要打印的div的内容
+            var docStr = obj.html();
+            //打印内容写入newWindow文档
+            newWindow.document.write(docStr);
+            //关闭文档
+            newWindow.document.close();
+            //调用打印机
+            newWindow.print();
+            //关闭newWindow页面
+            newWindow.close();
+        }
+    </script>
+
+
+<script language="javascript">
+    function preview(oper){
+        if(oper < 10) {
+            bdhtml =window.document.body.innerHTML;//获取当前页的html代码
+            sprnstr = "<!--startprint" + oper + "-->";//设置打印开始区域
+            eprnstr = "<!--endprint" + oper + "-->";//设置打印结束区域
+            prnhtml =bdhtml.substring(bdhtml.indexOf(sprnstr) + 18); //从开始代码向后取html
+            prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+            //打开一个新窗口newWindow
+            var newWindow=window.open("打印窗口","_blank");
+            //打印内容写入newWindow文档
+            newWindow.document.write(prnhtml);
+            var tds = newWindow.document.querySelectorAll('td');
+            for(var i = 0;i<tds.length;i++){
+                tds[i].style.border="1px solid #444";
+            }
+            //关闭文档
+            newWindow.document.close();
+            //调用打印机
+            newWindow.print();
+            //关闭newWindow页面
+            newWindow.close();
+        } else{
+            window.print();
+        }
+    }
+</script>
