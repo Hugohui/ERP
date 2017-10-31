@@ -59,11 +59,8 @@
 #purchaseModal .modal-dialog .checkBody input {
   margin: 0;
 }
-#purchaseCheckModal .modal-dialog .checkBody .reasonDiv,
-#purchaseModal .modal-dialog .checkBody .reasonDiv {
-  display: none;
-}
 #purchaseCheckModal .modal-dialog .checkBody .reasonDiv textarea,
 #purchaseModal .modal-dialog .checkBody .reasonDiv textarea {
+  padding: 5px;
   width: 100%;
 }

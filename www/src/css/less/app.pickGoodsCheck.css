@@ -211,9 +211,6 @@
 .checkBody input {
   margin: 0;
 }
-.checkBody .reasonDiv {
-  display: none;
-}
 .checkBody .reasonDiv textarea {
   width: 100%;
 }

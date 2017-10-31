@@ -385,21 +385,21 @@ mainStart
         })
 
         /*审核结果拒绝理由输入框*/
-        $('.radioDiv input').click(function(){
+        /*$('.radioDiv input').click(function(){
             if($(this).attr('checkValue') == 1){
                 $('.reasonDiv').hide();
             }else{
                 $('.reasonDiv').show();
             }
-        });
+        });*/
 
         /*确定审核*/
         $scope.checkOk = function(){
             var billNum,reason;
             billNum = $('#billNum').val();
             //拒绝理由不能为空
-            if($('#reasonText').is(':visible') && $('#reasonText').val().trim() == ''){
-                toastr.warning('请填写拒绝申请理由！');
+            if($('#failureCheck').is(':checked') && $('#reasonText').val().trim() == ''){
+                toastr.warning('请填写审核意见！');
                 return;
             }
             reason = $('#reasonText').val();
