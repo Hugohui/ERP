@@ -154,7 +154,7 @@ angular.module('mainStart')
                 templateUrl:'tpl/personal/returnGoodsCheck.html',
                 resolve:{
                     deps:['$ocLazyLoad',function($ocLazyLoad){
-                        return $ocLazyLoad.load(['js/controllers/personal/returnGoodsCheckController.js']);
+                        return $ocLazyLoad.load(['js/controllers/personal/returnGoodsController.js']);
                     }]
                 }
             })

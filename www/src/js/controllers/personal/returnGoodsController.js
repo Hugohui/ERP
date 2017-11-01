@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('returnGoodsCheckController',['$scope','$rootScope','$localStorage','$compile','toastr',function($scope,$rootScope,$localStorage,$compile,toastr){
+    .controller('returnGoodsController',['$scope','$rootScope','$localStorage','$compile','toastr',function($scope,$rootScope,$localStorage,$compile,toastr){
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送

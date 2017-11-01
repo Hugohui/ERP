@@ -9,20 +9,20 @@ mainStart
         $scope.user = $localStorage.user;
 
         //获取采购入库列表
-        initReturnGoodsTable();
+        initReturnGoodsCheckTable();
 
         $.fn.InitValidator('depotOutputTableDiv');
 
         /**
          * 领料出库列表
          */
-        var returnGoodsTable;
+        var returnGoodsCheckTable;
 
-        function initReturnGoodsTable() {
+        function initReturnGoodsCheckTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
 
             //初始化表格
-            returnGoodsTable = $("#returnGoodsTable").dataTable({
+            returnGoodsCheckTable = $("#returnGoodsCheckTable").dataTable({
                 language: lang,  //提示信息
                 autoWidth: true,  //禁用自动调整列宽
                 scrollY: scrollY,
@@ -113,9 +113,9 @@ mainStart
             $('.dataTables_wrapper').append($btnStr);
         }
 
-        $('#returnGoodsTable tbody').on('click', '.details-control', function () {
+        $('#returnGoodsCheckTable tbody').on('click', '.details-control', function () {
             var tr = $(this).closest('tr');
-            var row = returnGoodsTable.row(tr);
+            var row = returnGoodsCheckTable.row(tr);
             var sonTrs = tr.next().find('.sonTable tr:not(:first-child)');
             if (row.child.isShown()) {
                 //保存数量
@@ -183,9 +183,9 @@ mainStart
 
         //给后台的收料数据数组
         //父表格中的选择
-        $('#returnGoodsTable tbody').on('change', '.topCheckInput', function () {
+        $('#returnGoodsCheckTable tbody').on('change', '.topCheckInput', function () {
             var tr = $(this).closest('tr');
-            var row = returnGoodsTable.row(tr);
+            var row = returnGoodsCheckTable.row(tr);
             if ($(this).is(':checked')) {
                 if (!row.child.isShown()) {
                     row.child(format(row.data(), tr.data('stockPositionArr'))).show();
@@ -252,7 +252,7 @@ mainStart
         //完成退料
         $scope.commitDepotOutput = function () {
             var commitDataArr = [];
-            $.each($('#returnGoodsTable>tbody>tr').find('.material_requisition_id'),function(){
+            $.each($('#returnGoodsCheckTable>tbody>tr').find('.material_requisition_id'),function(){
                 var materialListArr = [];
 
                 //订单行（父行）
@@ -303,7 +303,7 @@ mainStart
                 success: function (data) {
                     if (data.resData.result == 0) {
                         //重新加载数据表
-                        returnGoodsTable.ajax.reload();
+                        returnGoodsCheckTable.ajax.reload();
                         toastr.success('退料成功');
                     } else {
                         toastr.warning(data.resData.msg);
