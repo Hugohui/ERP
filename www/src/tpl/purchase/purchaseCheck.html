@@ -130,7 +130,7 @@
                                 <td><s class="fa fa-asterisk redText"></s>物料编码</td>
                                 <td>名称</td>
                                 <td>型号</td>
-                                <td>sn号</td>
+                                <!--<td>sn号</td>-->
                                 <td>供应商编号</td>
                                 <td>供应商名称</td>
                                 <td>项目号</td>
@@ -152,7 +152,7 @@
                                 </td>
                                 <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
                                 <td title="{{material.model}}" class="model">{{material.model}}</td>
-                                <td title="{{material.sn_num}}" class="sn_num">{{material.sn_num}}</td>
+                                <!--<td title="{{material.sn_num}}" class="sn_num">{{material.sn_num}}</td>-->
                                 <td>
                                     <input ng-if="material.material_code == undefined" type="text" class="supplier_num"/>
                                     <span ng-if="material.material_code != undefined">{{material.supplier_num}}</span>
