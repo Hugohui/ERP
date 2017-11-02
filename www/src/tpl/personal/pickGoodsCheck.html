@@ -176,6 +176,8 @@
                         <div class="modal-body">
                             <div class="tableDiv">
                                 <input type="hidden" id="billNum"/>
+                                <!--startprint1-->
+                                <h3 style="text-align: center;margin-bottom: 10px;">领料申请单</h3>
                                 <table class="table-bordered table-condensed" cellspacing="0" width="100%">
                                     <tr>
                                         <td>名称</td>
@@ -194,6 +196,7 @@
                                         <td>{{materia.remark}}</td>
                                     </tr>
                                 </table>
+                                <!--endprint1-->
                             </div>
                             <div class="checkBody" ng-if="roles.role_id == 6|| roles.role_id == 3">
                                 <div class="radioDiv">
@@ -255,3 +258,30 @@
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
 </div>
+<script language="javascript">
+    function preview(oper){
+        if(oper < 10) {
+            bdhtml =window.document.body.innerHTML;//获取当前页的html代码
+            sprnstr = "<!--startprint" + oper + "-->";//设置打印开始区域
+            eprnstr = "<!--endprint" + oper + "-->";//设置打印结束区域
+            prnhtml =bdhtml.substring(bdhtml.indexOf(sprnstr) + 18); //从开始代码向后取html
+            prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+            //打开一个新窗口newWindow
+            var newWindow=window.open("打印窗口","_blank");
+            //打印内容写入newWindow文档
+            newWindow.document.write(prnhtml);
+            var tds = newWindow.document.querySelectorAll('td');
+            for(var i = 0;i<tds.length;i++){
+                tds[i].style.border="1px solid #444";
+            }
+            //关闭文档
+            newWindow.document.close();
+            //调用打印机
+            newWindow.print();
+            //关闭newWindow页面
+            newWindow.close();
+        } else{
+            window.print();
+        }
+    }
+</script>

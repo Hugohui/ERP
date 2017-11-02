@@ -574,4 +574,9 @@ mainStart
                 }
             })
         }
+
+        //打印
+        $scope.printPurchase = function(){
+            preview(1);
+        }
     }]);
