@@ -1,6 +1,6 @@
 'use strict';
 mainStart
-    .controller('purchaseHistoryController', ['$scope', '$rootScope', '$localStorage', function ($scope, $rootScope, $localStorage) {
+    .controller('purchaseHistoryController', ['$scope', '$rootScope', '$localStorage','toastr', function ($scope, $rootScope, $localStorage,toastr) {
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
@@ -18,31 +18,6 @@ mainStart
 
         function initPurchaseHistoryTable() {
             var scrollY = $('.mainView').height() - $('.queryDIv').height() - 120;
-            var lang = {
-                "sProcessing": "处理中...",
-                "sLengthMenu": "每页 _MENU_ 项",
-                "sZeroRecords": "没有匹配结果",
-                "sInfo": "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。",
-                "sInfoEmpty": "当前显示第 0 至 0 项，共 0 项",
-                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix": "",
-                "sSearch": "搜索:",
-                "sUrl": "",
-                "sEmptyTable": "表中数据为空",
-                "sLoadingRecords": "载入中...",
-                "sInfoThousands": ",",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上页",
-                    "sNext": "下页",
-                    "sLast": "末页",
-                    "sJump": "跳转"
-                },
-                "oAria": {
-                    "sSortAscending": ": 以升序排列此列",
-                    "sSortDescending": ": 以降序排列此列"
-                }
-            };
 
             //初始化表格
             purchaseHistoryTable = $("#purchaseHistoryTable").dataTable({
@@ -124,7 +99,19 @@ mainStart
                     {
                         "data": "applicant",
                         "sClass": "text-center"
-                    }
+                    },
+/*                    {
+                        "data": "applicant",
+                        "sClass": "text-center"
+                    },*/
+                    /*{
+                        "data":null,
+                        "sClass":"text-center",
+                        "render":function(data){
+                            return '<i class="btn btn-default btn-sm cancleCGSQ" CGSQ="'+data.purchase_applicant_id+'">撤销</i>'
+                        },
+                        "width":160
+                    }*/
                 ]
             }).api();
         }
@@ -188,6 +175,36 @@ mainStart
         //条件查询
         $scope.searchHistory = function () {
             purchaseHistoryTable.ajax.reload();
+        }
+
+        //撤销采购申请
+        $('#purchaseHistoryTable tbody').on('click', '.cancleCGSQ', function () {
+            $('#cancleCGSQModal').modal('show');
+        })
+        //确定撤销
+        $scope.cancleOk = function(){
+            //采购申请单号
+            var purchase_applicant_id = $(this).attr('CGSQ');
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: {
+                    action: "cancleCGSQ",
+                    params: {
+                        purchase_applicant_id:purchase_applicant_id,
+                        userName:$scope.user.name
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    if(data.resData.result == 0){
+                        //撤销成功提示
+                        toastr.success('撤销成功！');
+                        $('#cancleCGSQModal').modal('hide');
+                    }
+                }
+            });
         }
 
     }]);
