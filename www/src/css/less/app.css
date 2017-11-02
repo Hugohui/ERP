@@ -1119,7 +1119,7 @@ body .content #labelTip {
 }
 .mainView .depotRequestBody .handleDepotDiv {
   position: absolute;
-  padding-left: 100px;
+  margin-left: 100px;
   top: 0;
 }
 #inputInfoModal .modal-dialog {
@@ -1226,7 +1226,7 @@ body .content #labelTip {
   color: #cd0a0a;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv {
-  padding-left: 100px;
+  margin-left: 100px;
   position: absolute;
   top: 0;
 }
@@ -1263,7 +1263,7 @@ body .content #labelTip {
   color: #cd0a0a;
 }
 .depotOutputBody .depotOutputTableDiv .handleDepotDiv {
-  padding-left: 100px;
+  margin-left: 100px;
   position: absolute;
   top: 0;
 }
@@ -1406,7 +1406,7 @@ body .content #labelTip {
   cursor: pointer;
 }
 .pickGoodsBody .addPickPurchaseDiv {
-  padding-left: 100px;
+  margin-left: 100px;
   position: absolute;
   top: 0;
 }

@@ -22,7 +22,7 @@
   color: #cd0a0a;
 }
 .depotInputBody .depotInputTableDiv .handleDepotDiv {
-  padding-left: 100px;
+  margin-left: 100px;
   position: absolute;
   top: 0;
 }
