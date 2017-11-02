@@ -547,4 +547,8 @@ mainStart
                 }
             })
         }
+
+        $scope.printReturn =function(){
+            preview(1);
+        }
     }]);
