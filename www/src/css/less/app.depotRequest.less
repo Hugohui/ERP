@@ -9,4 +9,96 @@
       }
     }
   }
+  .depotRequestBody{
+    margin-top: 10px;
+    position: relative;
+    .handleDepotDiv{
+      position: absolute;
+      padding-left: 100px;
+      top: 0;
+    }
+  }
+}
+
+#inputInfoModal .modal-dialog{
+  width: 1330px;
+  .inputInfoDiv{
+    min-height: 50px;
+    .materialDiv{
+      height: auto;
+      margin: 10px;
+      &>ul{
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        &>li{
+          flex: 1;
+          height: 30px;
+          line-height: 30px;
+          float: left;
+          text-align: center;
+          border: 1px solid #ccc;
+          border-right: none;
+          &:last-child{
+            border-right: 1px solid #ccc;
+          }
+        }
+      }
+      .materialListDiv{
+        position: relative;
+        margin-top: 5px;
+        display: flex;
+        &>div{
+          flex: 1;
+          padding: 0 2px;
+          float: left;
+          border: 1px solid #ccc;
+          border-right: none;
+          position: relative;
+          &:last-child{
+            border-right: 1px solid #ccc;
+          }
+          input{
+            width: 100%;
+            height: 26px;
+            border: none;
+          }
+        }
+        .deleteMaterial{
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          height: 14px;
+          width: 14px;
+          text-align: center;
+          line-height: 14px;
+          font-size: 12px;
+          color: #fff;
+          background-color: red;
+          border-radius: 50%;
+          cursor: pointer;
+          display: none;
+          z-index: 101;
+        }
+        &:hover{
+          &>.deleteMaterial{
+            display: block;
+          }
+        }
+      }
+      .addMaterialListDiv{
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px dashed #888;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  .modal-body{
+    max-height: 488px;
+    overflow-y: auto;
+    padding: 5px 10px;
+  }
 }

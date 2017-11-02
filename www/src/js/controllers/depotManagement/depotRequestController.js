@@ -1,10 +1,10 @@
 'use strict';
 mainStart
-    .controller('depotRequestController',['$scope','$rootScope','$localStorage',function($scope,$rootScope,$localStorage){
+    .controller('depotRequestController', ['$scope', '$rootScope', '$localStorage', '$compile', function ($scope, $rootScope, $localStorage, $compile) {
         //获取角色权限
         $scope.roles = $localStorage.roles;
         //消息推送
-        $scope.sendMessage =JSON.parse(window.localStorage.getItem('ngStorage-sendMessage'));
+        $scope.sendMessage = JSON.parse(window.localStorage.getItem('ngStorage-sendMessage'));
         //获取角色信息
         $scope.user = $localStorage.user;
 
@@ -38,8 +38,8 @@ mainStart
                     }
                 ],
                 ajax: function (data, callback, settings) {
-                    var queryData = $('#material_code').val() == ''?null:{
-                        material_code:$('#material_code').val()
+                    var queryData = $('#material_code').val() == '' ? null : {
+                        material_code: $('#material_code').val()
                     };
                     var param = {};
                     param.limit = data.length;
@@ -121,20 +121,71 @@ mainStart
                         "data": "stock_position",
                         "sClass": "text-center"
                     }/*,
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    }*/
+                     {
+                     "data": "applicant",
+                     "sClass": "text-center"
+                     },
+                     {
+                     "data": "applicant",
+                     "sClass": "text-center"
+                     }*/
                 ]
             }).api();
         }
 
+        //给采购添加物料录入按钮
+        if($scope.roles.role_id == 5){
+            var btnStr = '<div class="handleDepotDiv">' +
+                '                    <button class="btn btn-success btn-sm" ng-click="inputInfo()"><i class="fa fa-plus"></i> 录入物料信息</button>' +
+                '                </div>';
+            var $btnStr = $compile(btnStr)($scope);
+            $('.dataTables_wrapper').append($btnStr);
+        }
+
         //条件查询
-        $scope.searchDeport = function (){
+        $scope.searchDeport = function () {
             depotRequestTable.ajax.reload();
+        }
+
+        //录入物料信息
+        $scope.inputInfo = function () {
+            $('#inputInfoModal').modal('show');
+        }
+
+        //添加物料行
+        $scope.addMaterialLine = function (e) {
+            var html =
+'                            <div class="materialListDiv clearfix">'+
+'                                <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
+'                                <div>'+
+'                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>'+
+'                                </div>'+
+'                                <div>'+
+'                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>'+
+'                                </div>'+
+'                                <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>'+
+'                                <div><input type="text" class="sn_num" name="sn_num" placeholder="多个sn号用“/”分割开"/></div>'+
+'                                <div><input type="text" class="project_num" name="project_num"/></div>'+
+'                                <div><input type="text" class="unit" name="unit"/></div>'+
+'                                <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>'+
+'                                <div><input type="text" class="" name="name"/></div>'+
+'                                <div><input type="text" class="" name="name"/></div>'+
+'                                <div><input type="text" class="" name="name"/></div>'+
+'                                <div><input type="text" class="" name="name"/></div>'+
+'                                <div><input type="text" class="remark" name="name"/></div>'+
+'                            </div>';
+            var $html = $compile(html)($scope);
+            $('.addMaterialListDiv').before($html);
+        }
+
+        //删除物料行
+        $scope.deleteMaterialLine = function (e) {
+            //移除行
+            $(e.target).closest('.materialListDiv').remove();
+        }
+
+        //确认录入
+        $scope.inputOk = function () {
+
         }
     }]);
