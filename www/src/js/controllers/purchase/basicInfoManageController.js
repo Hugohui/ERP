@@ -168,6 +168,8 @@ mainStart
 
         //修改物料信息
         $(document).on('click','.editMaterialInfo',function(){
+            //清除已有的验证提示信息
+            $('#basicInfoManage [valType]').hideValidate();
             var tr = $(this).closest('tr');
             var row = materialInfoTable.row(tr);
             $('.material_name').val(row.data().material_name);
@@ -316,6 +318,8 @@ mainStart
 
         //修改供应商信息
         $(document).on('click','.editSupplierInfo',function(){
+            //清除已有的验证提示信息
+            $('#basicInfoManage [valType]').hideValidate();
             var tr = $(this).closest('tr');
             var row = supplierInfoTable.row(tr);
             $('.supplier_num').val(row.data().supplier_num).attr('readonly',true);
@@ -464,6 +468,8 @@ mainStart
 
         //修改项目信息
         $(document).on('click','.editProjectInfo',function(){
+            //清除已有的验证提示信息
+            $('#basicInfoManage [valType]').hideValidate();
             var tr = $(this).closest('tr');
             var row = projectInfoTable.row(tr);
             $('.project_num').val(row.data().project_num).attr('readonly',true);
