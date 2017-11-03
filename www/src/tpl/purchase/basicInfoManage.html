@@ -45,19 +45,19 @@
                 </div>
                 <div class="panelMain">
                     <div class="panel-body">
-                        <div class="infoInput">
+                        <div class="infoInput" id="supplierInput">
                             <ul>
-                                <li><s class="fa fa-asterisk redText"></s>供应商编号：<input type="text"/></li>
-                                <li><s class="fa fa-asterisk redText"></s>供应商名称：<input type="text"/></li>
-                                <li>联系人：<input type="text"/></li>
-                                <li>联系电话：<input type="text"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>供应商编号：<input type="text" class="supplier_num" valType msg="供应商编号不能为空"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>供应商名称：<input type="text" class="supplier_name" valType msg="供应商名称不能为空"/></li>
+                                <li>联系人：<input type="text" class="contact"/></li>
+                                <li>联系电话：<input type="text" class="phone"/></li>
                             </ul>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-sm">保存</button>
+                            <button class="btn btn-primary btn-sm ajaxSendBtn" ng-click="addSupplierInfo()">添加</button>
                         </div>
                     </div>
-                    <table class="table display table-striped table-bordered table-hover" id="" cellspacing="0" width="100%">
+                    <table class="table display table-striped table-bordered table-hover" id="supplierInfoTable" cellspacing="0" width="100%">
                         <thead>
                         <tr >
                             <td>供应商编号</td>
@@ -87,7 +87,7 @@
                             </ul>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-sm">保存</button>
+                            <button class="btn btn-primary btn-sm">添加</button>
                         </div>
                     </div>
                     <table class="table display table-striped table-bordered table-hover" id="" cellspacing="0" width="100%">
@@ -125,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" ng-click="deleteMaterialInfo()">确定</button>
+                    <button type="button" class="btn btn-primary" ng-click="deleteInfo()">确定</button>
                 </div>
             </div>
         </div>

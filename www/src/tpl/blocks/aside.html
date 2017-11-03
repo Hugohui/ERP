@@ -26,7 +26,7 @@
                     <li ng-class="{active:$state.includes('purchase.purchaseCheck')}" ng-if="roles.purchase_audit == 'true'">
                         <a ui-sref="purchase.purchaseCheck"> 审核下单</a>
                     </li>
-                    <li ng-class="{active:$state.includes('purchase.basicInfoManage')}" ng-if="roles.purchase_audit == 'true'">
+                    <li ng-class="{active:$state.includes('purchase.basicInfoManage')}" ng-if="roles.basic_info == 'true'">
                         <a ui-sref="purchase.basicInfoManage"> 基础信息</a>
                     </li>
                 </ul>
