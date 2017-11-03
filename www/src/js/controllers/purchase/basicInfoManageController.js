@@ -17,6 +17,8 @@ mainStart
         initMaterialInfoTable();
         //初始化供应商信息列表
         initSupplierInfoTable();
+        //初始化项目信息列表
+        initProjectInfoTable();
 
         /**
          * 物料信息维护
@@ -324,6 +326,153 @@ mainStart
         });
 
 
+        /**
+         * 项目信息维护
+         */
+
+        var projectInfoTable;
+        function initProjectInfoTable(){
+            if(projectInfoTable){
+                projectInfoTable.ajax.reload();
+            }else{
+                //初始化表格
+                projectInfoTable = $("#projectInfoTable").dataTable({
+                    language: lang,  //提示信息
+                    autoWidth: true,  //禁用自动调整列宽
+                    scrollY: 300,
+                    lengthMenu: [20, 40, 60], //更改显示记录数选项
+                    bLengthChange:false,
+                    stripeClasses: ["odd", "even"],  //为奇偶行加上样式，兼容不支持CSS伪类的场合
+                    processing: true,  //隐藏加载提示,自行处理
+                    serverSide: true,  //启用服务器端分页
+                    searching: false,  //禁用原生搜索
+                    orderMulti: false,  //启用多列排序
+                    order: [],  //取消默认排序查询,否则复选框一列会出现小箭头
+                    renderer: "Bootstrap",  //渲染样式：Bootstrap和jquery-ui
+                    pagingType: "full_numbers",  //分页样式：simple,simple_numbers,full,full_numbers
+                    columnDefs: [
+                        {
+                            "targets": [0, 1, 2, 3],
+                            "orderable": false
+                        }
+                    ],
+                    ajax: function (data, callback, settings) {
+                        var param = {};
+                        param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
+                        param.start = data.start;//开始的记录序号
+                        param.page = (data.start / data.length) + 1;//当前页码
+                        //ajax请求数据
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http://111.204.101.170:11115',
+                            data:{
+                                action:"getProjectInfo",
+                                params:param
+                            },
+                            dataType: 'jsonp',
+                            jsonp: "callback",
+                            success: function (result) {
+                                //封装返回数据
+                                var returnData = {};
+                                returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
+                                returnData.recordsTotal = result.resData.total;//返回数据全部记录
+                                returnData.recordsFiltered = result.resData.total;//后台不实现过滤功能，每次查询均视作全部结果
+                                returnData.data = result.resData.data;//返回的数据列表
+                                callback(returnData);
+                            }
+                        });
+                    },
+                    //列表表头字段
+                    columns: [
+                        {
+                            "data": "project_num"
+                        },
+                        {
+                            "data": "project_name"
+                        },
+                        {
+                            "data": "responsibility"
+                        },
+                        {
+                            "data": "description"
+                        },
+                        {
+                            "data": "status",
+                            "render":function(data){
+                                return '<s class="btn btn-default btn-xs editProjectInfo">修改</s> <s class="btn btn-default btn-xs deleteProjectInfo">删除</s>'
+                            }
+                        }
+                    ]
+                }).api();
+            }
+        }
+
+        //添加/修改项目信息
+        $scope.addProjectInfo = function(){
+
+            var action;
+            if($('.ajaxSendBtn').html() == '添加'){
+                action = "addProjectInfo"
+            }else{
+                action = "updateProjectInfo"
+            }
+
+            //提交前验证
+            var isValidate = beforeSubmit("projectInput");
+            if(!isValidate){
+                return;
+            }
+            var projectInfo = {
+                project_num:$('.project_num').val(),
+                project_name:$('.project_name').val(),
+                responsibility:$('.responsibility').val(),
+                description:$('.projectDescription').val()
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data:{
+                    action:action,
+                    params:projectInfo
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function (data) {
+                    if(data.resData.result == 0){
+                        toastr.success('操作成功');
+                        $('.ajaxSendBtn').html('添加');
+                        $('.project_num').removeAttr('readonly');
+                        $('#projectInput input').val('');
+                        projectInfoTable.ajax.reload();
+                    }
+                }
+            });
+        }
+
+        //删除
+        $(document).on('click','.deleteProjectInfo',function(){
+            //清除已有的验证提示信息
+            $('#basicInfoManage [valType]').hideValidate();
+            $('#deleteModal').modal('show');
+            var tr = $(this).closest('tr');
+            var row = projectInfoTable.row(tr);
+            $('#deleteKey').val(row.data().project_num);
+            deleteAction = "deleteProjectInfo";
+            deleteData.project_num = $('#deleteKey').val();
+        });
+
+        //修改项目信息
+        $(document).on('click','.editProjectInfo',function(){
+            var tr = $(this).closest('tr');
+            var row = projectInfoTable.row(tr);
+            $('.project_num').val(row.data().project_num).attr('readonly',true);
+            $('.project_name').val(row.data().project_name);
+            $('.responsibility').val(row.data().responsibility);
+            $('.projectDescription').val(row.data().description);
+            $('.ajaxSendBtn').html('保存');
+        });
+
         //删除公共方法
         $scope.deleteInfo = function(){
             var deleteKey = $('#deleteKey').val();
@@ -346,7 +495,7 @@ mainStart
                         }else if(deleteAction == "deleteSupplierInfo"){
                             supplierInfoTable.ajax.reload();
                         }else if(deleteAction == "deleteProjectInfo"){
-                            supplierInfoTable.ajax.reload();
+                            projectInfoTable.ajax.reload();
                         }
                     }else{
                         toastr.error(data.resData.msg);

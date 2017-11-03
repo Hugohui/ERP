@@ -78,19 +78,19 @@
                 </div>
                 <div class="panelMain">
                     <div class="panel-body">
-                        <div class="infoInput">
+                        <div class="infoInput" id="projectInput">
                             <ul>
-                                <li><s class="fa fa-asterisk redText"></s>项目号：<input type="text" valType msg="项目号不能为空"/></li>
-                                <li><s class="fa fa-asterisk redText"></s>项目名称：<input type="text" valType msg="项目名称不能为空"/></li>
-                                <li></s>负责人：<input type="text"/></li>
-                                <li>描述：<input type="text" class="descript"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>项目号：<input type="text" class="project_num" valType msg="项目号不能为空"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>项目名称：<input type="text" class="project_name" valType msg="项目名称不能为空"/></li>
+                                <li></s>负责人：<input type="text" class="responsibility"/></li>
+                                <li>描述：<input type="text" class="descript projectDescription"/></li>
                             </ul>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-sm">添加</button>
+                            <button class="btn btn-primary btn-sm ajaxSendBtn" ng-click="addProjectInfo()">添加</button>
                         </div>
                     </div>
-                    <table class="table display table-striped table-bordered table-hover" id="" cellspacing="0" width="100%">
+                    <table class="table display table-striped table-bordered table-hover" id="projectInfoTable" cellspacing="0" width="100%">
                         <thead>
                         <tr >
                             <td>项目号</td>
