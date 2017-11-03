@@ -164,11 +164,9 @@ mainStart
 '                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>'+
 '                                </div>'+
 '                                <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>'+
-'                                <div><input type="text" class="sn_num" name="sn_num" placeholder="多个sn号用“/”分割开"/></div>'+
+'                                <div><input type="text" class="sn_num" name="sn_num"/></div>'+
 '                                <div><input type="text" class="project_num" name="project_num"/></div>'+
 '                                <div><input type="text" class="unit" name="unit"/></div>'+
-'                                <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>'+
-'                                <div><input type="text" class="" name="name"/></div>'+
 '                                <div><input type="text" class="" name="name"/></div>'+
 '                                <div><input type="text" class="" name="name"/></div>'+
 '                                <div><input type="text" class="" name="name"/></div>'+
