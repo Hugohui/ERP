@@ -1,7 +1,6 @@
 body {
   background-size: cover;
   background-attachment: fixed;
-  overflow: hidden;
 }
 body .content {
   width: 100%;

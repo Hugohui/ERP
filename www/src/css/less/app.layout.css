@@ -6,6 +6,7 @@ body {
 }
 body {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 .app {
   position: relative;

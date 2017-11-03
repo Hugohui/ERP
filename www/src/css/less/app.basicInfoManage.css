@@ -11,9 +11,6 @@
 .basicInfoManageBody .panelMain .panel-body {
   padding: 10px;
 }
-.basicInfoManageBody .panelMain .panel-body .infoInput ul {
-  overflow: hidden;
-}
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li {
   float: left;
   margin-right: 15px;
@@ -25,7 +22,7 @@
   padding: 0 5px;
 }
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li input.unit {
-  width: 100px;
+  width: 85px;
 }
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li input.descript {
   width: 350px;

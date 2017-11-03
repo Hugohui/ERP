@@ -390,6 +390,7 @@ body {
 }
 body {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 .app {
   position: relative;
@@ -498,7 +499,6 @@ body {
 body {
   background-size: cover;
   background-attachment: fixed;
-  overflow: hidden;
 }
 body .content {
   width: 100%;
@@ -1121,9 +1121,6 @@ body .content #labelTip {
 .basicInfoManageBody .panelMain .panel-body {
   padding: 10px;
 }
-.basicInfoManageBody .panelMain .panel-body .infoInput ul {
-  overflow: hidden;
-}
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li {
   float: left;
   margin-right: 15px;
@@ -1135,7 +1132,7 @@ body .content #labelTip {
   padding: 0 5px;
 }
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li input.unit {
-  width: 100px;
+  width: 85px;
 }
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li input.descript {
   width: 350px;

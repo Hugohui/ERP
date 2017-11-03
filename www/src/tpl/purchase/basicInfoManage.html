@@ -8,21 +8,21 @@
                 </div>
                 <div class="panelMain">
                     <div class="panel-body">
-                        <div class="infoInput">
+                        <div class="infoInput" id="materialInput">
                             <ul>
-                                <li><s class="fa fa-asterisk redText"></s>物品名称：<input type="text"/></li>
-                                <li><s class="fa fa-asterisk redText"></s>物料编码：<input type="text"/></li>
-                                <li><s class="fa fa-asterisk redText"></s>规格型号：<input type="text"/></li>
-                                <li><s class="fa fa-asterisk redText"></s>单位：<input type="text" class="unit"/></li>
-                                <li><s class="fa fa-asterisk redText"></s>厂家：<input type="text"/></li>
-                                <li>描述：<input type="text" class="descript"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>物品名称：<input type="text" valType msg="物品名称不能为空" class="material_name"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>物料编码：<input type="text" valType msg="物料编码不能为空" class="material_code"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>规格型号：<input type="text" valType msg="规格型号不能为空" class="model"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>单位：<input type="text" valType msg="单位不能为空" class="unit"/></li>
+                                <li><s class="fa fa-asterisk redText"></s>厂家：<input type="text" valType msg="厂家不能为空" class="manufactor"/></li>
+                                <li>描述：<input type="text" class="descript description"/></li>
                             </ul>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-sm">保存</button>
+                            <button class="btn btn-primary btn-sm ajaxSendBtn" ng-click="addMaterialInfo()">添加</button>
                         </div>
                     </div>
-                    <table class="table display table-striped table-bordered table-hover" id="" cellspacing="0" width="100%">
+                    <table class="table display table-striped table-bordered table-hover" id="materialInfoTable" cellspacing="0" width="100%">
                         <thead>
                         <tr >
                             <td>物品名称</td>
@@ -108,4 +108,26 @@
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="deleteKey"/>
+                    <h5 class="modal-title" id="deleteModalLabel">信息删除</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>确定删除该条信息？</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="deleteMaterialInfo()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
