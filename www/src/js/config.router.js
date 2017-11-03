@@ -92,7 +92,15 @@ angular.module('mainStart')
                     }]
                 }
             })
-
+            .state('purchase.basicInfoManage',{//基础信息
+                url:'/basicInfoManage',
+                templateUrl:'tpl/purchase/basicInfoManage.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/purchase/basicInfoManageController.js']);
+                    }]
+                }
+            })
             /*库管*/
             .state('depotManagement',{
                 url:'/depotManagement',
