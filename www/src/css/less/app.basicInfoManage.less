@@ -1,0 +1,39 @@
+.basicInfoManageBody{
+  .expand{
+    cursor: pointer;
+  }
+  .panelMain{
+    height: 0;
+    overflow: hidden;
+    &.active{
+      height: auto;
+    }
+    .panel-body{
+      padding: 10px;
+      .infoInput{
+        ul{
+          overflow: hidden;
+          &>li{
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            input{
+              border: 1px solid #ccc;
+              border-radius: 3px;
+              padding: 0 5px;
+            }
+            input.unit{
+              width: 100px;
+            }
+            input.descript{
+              width: 350px;
+            }
+          }
+        }
+      }
+    }
+    table{
+      text-align: center;
+    }
+  }
+}

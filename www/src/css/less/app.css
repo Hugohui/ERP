@@ -1108,6 +1108,41 @@ body .content #labelTip {
   padding: 5px;
   width: 100%;
 }
+.basicInfoManageBody .expand {
+  cursor: pointer;
+}
+.basicInfoManageBody .panelMain {
+  height: 0;
+  overflow: hidden;
+}
+.basicInfoManageBody .panelMain.active {
+  height: auto;
+}
+.basicInfoManageBody .panelMain .panel-body {
+  padding: 10px;
+}
+.basicInfoManageBody .panelMain .panel-body .infoInput ul {
+  overflow: hidden;
+}
+.basicInfoManageBody .panelMain .panel-body .infoInput ul > li {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+.basicInfoManageBody .panelMain .panel-body .infoInput ul > li input {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 0 5px;
+}
+.basicInfoManageBody .panelMain .panel-body .infoInput ul > li input.unit {
+  width: 100px;
+}
+.basicInfoManageBody .panelMain .panel-body .infoInput ul > li input.descript {
+  width: 350px;
+}
+.basicInfoManageBody .panelMain table {
+  text-align: center;
+}
 /*库管*/
 .mainView .queryDIv .queryBody .searchGroup .searchR {
   color: #fff;
