@@ -249,7 +249,6 @@ mainStart
                 showButton:false,
                 placeholder:'',
                 onSubmit: function(text){
-                    console.log($(this));
                 }
             });
 

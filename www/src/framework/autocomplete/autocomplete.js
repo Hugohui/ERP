@@ -103,7 +103,7 @@ Author: hwh
 					currentProposals = [];
 					currentSelection = -1;
 					proposalList.empty();
-					if(input.val() != ''){
+					if(input.val() != '' && params.hints.length>0){
 						var word = "^" + input.val() + ".*";
 						proposalList.empty();
 						for(var test in params.hints){
