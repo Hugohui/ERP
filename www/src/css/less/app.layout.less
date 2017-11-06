@@ -72,23 +72,39 @@ position: fixed;
       border-radius: 4px;
       padding: 5px;
     }
-    .searchGroup{
+  }
+}
+
+.searchGroup{
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  input{
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 200px;
+  }
+  .search{
+    color: #fff;
+    margin-left: -5px;
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.modal{
+  .searchGroup{
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    input{
       height: 30px;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      input{
-        border-radius: 4px 0 0 4px;
-        width: 200px;
-      }
-      .search{
-        color: #fff;
-        margin-left: -5px;
-        border-radius: 0 4px 4px 0;
-      }
+      padding: 0 5px;
+      width: 240px;
     }
   }
 }
+
 .selectCss{
   width: 150px;
   height: 30px;

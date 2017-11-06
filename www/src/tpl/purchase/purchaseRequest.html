@@ -9,30 +9,31 @@
                     </div>
                     <div class="materialDiv">
                         <ul>
-                            <li><s class="fa fa-asterisk redText"></s>名称</li>
-                            <li><s class="fa fa-asterisk redText"></s>型号</li>
+                            <li><!--<s class="fa fa-asterisk redText"></s>-->物料编码</li>
+                            <li><!--<s class="fa fa-asterisk redText"></s>-->名称</li>
+                            <li><!--<s class="fa fa-asterisk redText"></s>-->型号</li>
                             <!--<li>sn号</li>-->
                             <li><s class="fa fa-asterisk redText"></s>项目号</li>
-                            <li><s class="fa fa-asterisk redText"></s>单位</li>
+                            <li><!--<s class="fa fa-asterisk redText"></s>-->单位</li>
                             <li><s class="fa fa-asterisk redText"></s>数量</li>
-                            <li>品牌</li>
+                            <!--<li>品牌</li>-->
                             <li>期望交付日期</li>
                             <li>备注</li>
                         </ul>
-                        <div class="materialListDiv clearfix">
+<!--                        <div class="materialListDiv clearfix">
                             <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
                             <div>
                                 <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
                             </div>
                             <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
-                            <!--<div><input type="text" class="sn_num" name="sn_num"/></div>-->
+                            &lt;!&ndash;<div><input type="text" class="sn_num" name="sn_num"/></div>&ndash;&gt;
                             <div class="projectNumDiv"></div>
                             <div><input type="text" class="unit" name="unit" valType msg="单位不能为空"/></div>
                             <div><input type="number" class="number" name="number" valType msg="数量不能为空"/></div>
                             <div><input type="text" class="brand" name="brand"/></div>
                             <div><input type="date" class="expected_date" name="expected_date"/></div>
                             <div><input type="text" class="remark" name="name"/></div>
-                        </div>
+                        </div>-->
                         <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine()">
                             <span class="fa fa-plus"></span>
                         </div>
@@ -109,6 +110,34 @@
                         <!--<li class="selectLi" ng-click="selectPurchaseName($event)">-->
                             <!--【<span class="selectName">张三</span>】 总经理-->
                         <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--添加物料模态框-->
+    <div class="modal fade" id="chsseAddMaterialModal" tabindex="-1" role="dialog" aria-labelledby="chsseAddMaterialModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chsseAddMaterialModalLabel">选择物料</h5>
+                    <div class="searchGroup">
+                        <input type="text" placeholder="物料名称" id="queryInput"/>
+                        <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="searchMaterial()"><i class="fa fa-search"></i></a>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modalLoading">
+                            <img src="./imgs/loading.gif" alt="" width="40"/>
+                    </div>
+                    <ul class="selectCheckUl">
+                        <li class="selectLi" ng-click="selectMaterial($event)">
+                        【<span class="selectName">DN001</span>】 电脑--thinkPad--智行者制造
+                        </li>
                     </ul>
                 </div>
             </div>

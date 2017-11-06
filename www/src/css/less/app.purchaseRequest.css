@@ -74,7 +74,6 @@
   height: 30px;
   line-height: 30px;
   float: left;
-  text-align: center;
   border: 1px solid #ccc;
   border-right: none;
 }
@@ -128,6 +127,17 @@
   border: 1px dashed #888;
   margin-top: 5px;
   cursor: pointer;
+}
+.modalLoading {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#chsseAddMaterialModal .modal-body {
+  min-height: 50px;
+  max-height: 300px;
 }
 /*������*/
 .checkPeopleDiv {

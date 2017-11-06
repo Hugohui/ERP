@@ -7,7 +7,6 @@ mainStart
         $scope.sendMessage =JSON.parse(window.localStorage.getItem('ngStorage-sendMessage'));
         //获取角色信息
         $scope.user = $localStorage.user;
-
         //生成订单编号
         $('.orderNum').html(billFormat("CGSQ",new Date()));
 
@@ -50,40 +49,13 @@ mainStart
 
         //添加物料行
         $scope.addMaterialLine = function () {
-            var lineHtml =
-                '<div class="materialListDiv clearfix">'+
-                '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
-                '                        <div><input type="text" class="material_name" valType msg="请输入名称"/></div>'+
-                '                        <div><input type="text" class="model" valType msg="型号不能为空"/></div>'+
-                //'                        <div><input type="text" class="sn_num"/></div>'+
-                '                        <div class="projectNumDiv"></div>'+
-                '                        <div><input type="text" class="unit" valType msg="单位不能为空"/></div>'+
-                '                        <div><input type="number" class="number" valType msg="数量不能为空"/></div>'+
-                '                        <div><input type="text" class="brand"/></div>'+
-                '                        <div><input type="date" class="expected_date" ></div>'+
-                '                        <div><input type="text" class="remark"/></div>'+
-                '                    </div>';
-            var $lineHtml = $compile(lineHtml)($scope);
-            $('.addMaterialListDiv').before($lineHtml);
-
-            $('.projectNumDiv').autocomplete({
-                hints: $scope.projectNumArr,
-                width: "100%",
-                height: 27,
-                showButton:false,
-                placeholder:'',
-                onSubmit: function(text){
-                    console.log($(this));
-                }
-            });
-
-            $('.projectNumDiv input').attr('valType',' ');
-            $('.projectNumDiv input').attr('msg','项目号不能为空');
-
             //清除已有的验证提示信息
             $('#purchaseReqForm [valType]').hideValidate();
-            //初始化验证
-            $.fn.InitValidator('purchaseReqForm');
+
+            //加载物料基础信息
+            loadMaterial();
+
+            $('#chsseAddMaterialModal').modal('show');
         }
 
         //删除物料行
@@ -179,6 +151,12 @@ mainStart
 
         //提交采购申请
         $scope.submitPurchaseReq = function () {
+
+            if ($('.materialListDiv').length == 0) {
+                toastr.warning('请添加物料！');
+                return;
+            }
+
             var isValidate = beforeSubmit("purchaseReqForm");
             if(!isValidate){
                 return;
@@ -237,4 +215,118 @@ mainStart
                 }
             });
         }
+
+        //选择物料添加到列表
+        $scope.selectMaterial = function(e){
+            var material_code = $(e.target).attr('material_code'),
+                material_name = $(e.target).attr('material_name'),
+                model = $(e.target).attr('model'),
+                manufactor = $(e.target).attr('manufactor'),
+                unit = $(e.target).attr('unit'),
+                description = $(e.target).attr('description');
+            var lineHtml =
+                '<div class="materialListDiv clearfix">'+
+                '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
+                '                        <div><input type="text" class="material_name" readonly value="'+material_code+'"/></div>'+
+                '                        <div><input type="text" class="material_name" readonly value="'+material_name+'"/></div>'+
+                '                        <div><input type="text" class="model" readonly value="'+model+'"/></div>'+
+                '                        <div class="projectNumDiv"></div>'+
+                '                        <div><input type="text" class="unit" readonly value="'+unit+'"/></div>'+
+                '                        <div><input type="number" class="number" valType msg="数量不能为空"/></div>'+
+                //'                        <div><input type="text" class="brand" readonly value="'+description+'"/></div>'+
+                '                        <div><input type="date" class="expected_date" ></div>'+
+                '                        <div><input type="text" class="remark"/></div>'+
+                '                    </div>';
+            var $lineHtml = $compile(lineHtml)($scope);
+            $('.addMaterialListDiv').before($lineHtml);
+
+            $('#chsseAddMaterialModal').modal('hide');
+
+            $('.projectNumDiv').autocomplete({
+                hints: $scope.projectNumArr,
+                width: "100%",
+                height: 27,
+                showButton:false,
+                placeholder:'',
+                onSubmit: function(text){
+                    console.log($(this));
+                }
+            });
+
+            $('.projectNumDiv input').attr('valType',' ');
+            $('.projectNumDiv input').attr('msg','项目号不能为空');
+
+            //清除已有的验证提示信息
+            $('#purchaseReqForm [valType]').hideValidate();
+            //初始化验证
+            $.fn.InitValidator('purchaseReqForm');
+        }
+
+
+        //物料查询
+        $scope.searchMaterial = function(){
+            var queryData = $('#queryInput').val();
+            loadMaterial(queryData);
+        }
+
+        /**
+         * 加载物料数据
+         * @param queryData 搜索参数
+         */
+        function loadMaterial(query){
+            $('.selectCheckUl').empty();
+            $('.modalLoading').show();
+            var queryData;
+            if(query == undefined || query == ''){
+                queryData = {};
+            }else {
+                queryData = {
+                    material_name:query
+                }
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: {
+                    action:"loadMaterialList",
+                    params:{
+                        queryData:queryData
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: renderMaterialUl
+            });
+        }
+        //渲染物料列表ul
+        function renderMaterialUl(data){
+            if(data.resData.result == 0){
+                $('.modalLoading').hide();
+                if(data.resData.data){
+                    var html = '';
+                    $.each(data.resData.data,function(index,value){
+                        html+=
+                            '<li class="selectLi" ng-click="selectMaterial($event)" material_code="'+value.material_code+'" material_name="'+value.material_name+'" model="'+value.model+'" manufactor="'+value.manufactor+'" unit="'+value.unit+'" description="'+value.description+'">'+
+                            '                        【<span class="selectName">'+value.material_code+'</span>】 '+value.material_name+'--'+value.model+'--'+value.manufactor+
+                            '                        </li>';
+                    });
+                    var $html = $compile(html)($scope);
+                    $('.selectCheckUl').append($html);
+                }else{
+                    $('.selectCheckUl').append('<span class="noData">数据为空</span>');
+                }
+            }
+        }
+
+        //清空查询内容
+        $('#chsseAddMaterialModal').on('hidden.bs.modal',function(){
+            $('#queryInput').val('');
+        })
+
+        //敲击回车查询
+        $('body').bind('keypress', function (event) {
+            if (event.keyCode == "13") {
+                $(".search").click();
+            }
+        })
     }]);
