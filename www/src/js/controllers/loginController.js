@@ -8,6 +8,7 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
             mo3:true
         };
         //重置
+        //重置
         $scope.reset=function(){
             $("#loginForm")[0].reset();
             $('#labelTip').html('请拖动滑块验证').css({
