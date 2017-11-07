@@ -152,7 +152,6 @@
                                 </td>
                                 <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
                                 <td title="{{material.model}}" class="model">{{material.model}}</td>
-                                <!--<td title="{{material.sn_num}}" class="sn_num">{{material.sn_num}}</td>-->
                                 <td>
                                     <input ng-if="material.material_code == undefined" type="text" class="supplier_num"/>
                                     <span ng-if="material.material_code != undefined">{{material.supplier_num}}</span>
@@ -164,10 +163,12 @@
                                 <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
                                 <td title="{{material.unit}}" class="unit">{{material.unit}}</td>
                                 <td>
-                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="number" class="unit_price"/>
+                                    <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="text" class="unit_price"/>
                                     <span ng-if="material.material_code != undefined">{{material.unit_price}}</span>
                                 </td>
-                                <td title="{{material.number}}" class="number">{{material.number}}</td>
+                                <td title="{{material.number}}" class="number">
+                                    <input type="number" class="number" value="{{material.number}}" min="0" max="{{material.number}}"/>
+                                </td>
                                 <td>
                                     <input ng-if="material.material_code == undefined" valType="zFN" msg="" type="text" class="total_price" value="0"/>
                                     <span ng-if="material.material_code != undefined">{{material.total_price}}</span>

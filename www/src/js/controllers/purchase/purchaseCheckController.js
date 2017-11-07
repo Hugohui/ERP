@@ -179,7 +179,7 @@ mainStart
                             html+=
                                 '                    <div class="radio">'+
                                 '                        <label>'+
-                                '                            <input type="radio" name="assign" value="'+value.name+'">'+value.name+
+                                '                            <input type="radio" name="assign" value="'+value.userName+'">'+value.userName+
                                 '                        </label>'+
                                 '                    </div>';
                         })
@@ -207,7 +207,7 @@ mainStart
                 data:{
                     action:"sendAssign",
                     params:{
-                        assignOrder:assignOrder,
+                        purchase_applicant_id:assignOrder,
                         assignPerson:assignPerson
                     }
                 },
@@ -215,6 +215,7 @@ mainStart
                 jsonp : "callback",
                 success:function(data){
                     if(data.resData.result == 0){
+                        $('#choseAssignModal').modal('hide');
                         purchaseCheckTable.ajax.reload();
                         toastr.success('指派成功');
                     }else{
