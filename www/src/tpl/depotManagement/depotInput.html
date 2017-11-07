@@ -98,6 +98,44 @@
             </div>
         </div>
     </div>
+
+    <!--录入sn号模态框-->
+    <div class="modal fade" id="addSnNumModal" tabindex="-1" role="dialog" aria-labelledby="addSnNumModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="material_code"/>
+                    <input type="hidden" id="snMaxNum"/>
+                    <h5 class="modal-title" id="addSnNumModalLabel">录入sn号（默认物料无sn号，若有sn号请添加。）</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <!--<li class="snLi">
+                            <span class="snNum">dn0001</span>
+                            <span class="fa fa-close deleteSnLi"></span>
+                        </li>-->
+                        <li class="snLi addLi">
+                            <span class="fa fa-plus addSpan"></span>添加
+                        </li>
+                        <li class="inputLi">
+                            <input type="text" class="inputNum" valType msg="sn号不能为空"/>
+                            <span class="fa fa-check checkSpan"></span>
+                            <span class="fa fa-close closeSpan"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <span class="pull-left">还可添加<s class="redText remainAddNum"></s>条sn号</span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="addSnNumOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script language="javascript">

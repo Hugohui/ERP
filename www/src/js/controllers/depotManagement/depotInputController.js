@@ -189,7 +189,7 @@ mainStart
                     '<td class="material_code">' + value.material_code + '</td>' +
                     '<td class="material_name">' + value.material_name + '</td>' +
                     '<td class="model">' + value.model + '</td>' +
-                    '<td class="sn_num">' + value.sn_num + '</td>' +
+                    '<td class="sn_num"><a href="javascript:;" class="btn btn-default btn-xs addSnNum">录入</a></td>' +
                     '<td class="supplier_num">' + value.supplier_num + '</td>' +
                     '<td class="supplier">' + value.supplier + '</td>' +
                     '<td class="project_num">' + value.project_num + '</td>' +
@@ -401,6 +401,98 @@ mainStart
 
         $scope.printOk = function(){
             preview(1)
+        }
+
+        /*录入sn号*/
+        var currentAddSnNum;
+        var snArr = [];
+        $(document).on('click','.addSnNum',function(){
+            snArr = [];
+            currentAddSnNum = this;
+            var snMaxNum = $(this).closest('td').siblings('.number').html();
+            $('#snMaxNum').val(snMaxNum);
+            $('.remainAddNum').html(snMaxNum);
+            $('.snLi').not('.addLi').remove();
+            var snNumStr = $(this).closest('td').attr('snNumStr');
+            if(snNumStr){
+                var html= '';
+                $.each(snNumStr.split('/'),function(index,value){
+                    html+=
+                        '<li class="snLi">'+
+                        '                            <span class="snNum">'+value+'</span>'+
+                        '                            <span class="fa fa-close deleteSnLi"></span>'+
+                        '                        </li>';
+                });
+                $('.addLi').before(html);
+            }
+            $('#addSnNumModal').modal('show');
+        });
+
+        //验证
+        $.fn.InitValidator('addSnNumModal');
+        $('#addSnNumModal [valType]').hideValidate();
+
+        /*录入sn号的添加和删除*/
+        //点击添加
+        $(document).on('click','.addLi',function(){
+            var snMaxNum = $('#snMaxNum').val();
+            if(snMaxNum-snArr.length <= 0){
+                toastr.warning('无法添加更多的sn号');
+                return;
+            }
+            $(this).hide();
+            $('.inputLi').show();
+        });
+        //取消添加
+        $(document).on('click','.closeSpan',function(){
+            $('#addSnNumModal [valType]').hideValidate();
+            $(this).closest('li').hide();
+            $('.addLi').show();
+        });
+        //确认添加snLi
+        $(document).on('click','.checkSpan',function(){
+
+            //验证
+            var isValidate = beforeSubmit("addSnNumModal");
+            if(!isValidate){
+                return;
+            }
+
+            var snMaxNum = $('#snMaxNum').val();
+            var snNum = $('.inputNum').val();
+            var html =
+                '<li class="snLi">'+
+                '                            <span class="snNum">'+snNum+'</span>'+
+                '                            <span class="fa fa-close deleteSnLi"></span>'+
+                '                        </li>';
+            //添加并显隐
+            $('.addLi').before(html).show();
+            snArr.push(snNum);
+            $(this).closest('li').hide();
+            //剩余可添加数量
+            $('.remainAddNum').html(snMaxNum-snArr.length);
+        });
+        //删除snLi
+        $(document).on('click','.deleteSnLi',function(){
+            var snMaxNum = $('#snMaxNum').val();
+            $(this).closest('li').remove();
+            snArr.splice(snArr.indexOf($(this).siblings('.snNum').html()),1);
+            //剩余可添加数量
+            $('.remainAddNum').html(snMaxNum-snArr.length);
+        });
+
+        //模态框关闭隐藏验证信息
+        $('#addSnNumModal').on('hide.bs.modal',function(){
+            $('#addSnNumModal [valType]').hideValidate();
+        })
+
+        //确认添加
+        $scope.addSnNumOk = function(){
+            if(snArr.length){
+                $(currentAddSnNum).closest('td').attr('snNumStr',snArr.join('/'));
+                $(currentAddSnNum).html('修改');
+            }
+            $('#addSnNumModal').modal('hide');
         }
 
         /**

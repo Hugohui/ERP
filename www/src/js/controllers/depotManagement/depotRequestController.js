@@ -134,13 +134,13 @@ mainStart
         }
 
         //给采购添加物料录入按钮
-        if($scope.roles.role_id == 5){
+        /*if($scope.roles.role_id == 5){
             var btnStr = '<div class="handleDepotDiv">' +
                 '                    <button class="btn btn-success btn-sm" ng-click="inputInfo()"><i class="fa fa-plus"></i> 录入物料信息</button>' +
                 '                </div>';
             var $btnStr = $compile(btnStr)($scope);
             $('.dataTables_wrapper').append($btnStr);
-        }
+        }*/
 
         //条件查询
         $scope.searchDeport = function () {

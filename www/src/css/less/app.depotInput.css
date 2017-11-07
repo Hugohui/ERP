@@ -35,3 +35,52 @@
 #printModal .modal-dialog table {
   text-align: center;
 }
+#addSnNumModal .modal-dialog ul {
+  overflow: hidden;
+}
+#addSnNumModal .modal-dialog ul .snLi {
+  position: relative;
+  width: 165px;
+  float: left;
+  margin: 0 15px 10px 0;
+  padding: 5px 10px;
+  color: #444;
+  background-color: #dfdddd;
+  border-color: #d6e9c6;
+  border-radius: 3px;
+}
+#addSnNumModal .modal-dialog ul .snLi .deleteSnLi {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+#addSnNumModal .modal-dialog ul .addLi {
+  width: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+#addSnNumModal .modal-dialog ul .inputLi {
+  display: none;
+  float: left;
+  width: 205px;
+}
+#addSnNumModal .modal-dialog ul .inputLi input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+#addSnNumModal .modal-dialog ul .inputLi span {
+  cursor: pointer;
+  font-size: 16px;
+}
+#addSnNumModal .modal-dialog ul .inputLi .checkSpan {
+  color: green;
+}
+#addSnNumModal .modal-dialog ul .inputLi .closeSpan {
+  color: red;
+}
+#addSnNumModal .remainAddNum {
+  font-size: 14px;
+  font-weight: 600;
+}
