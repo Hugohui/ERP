@@ -105,11 +105,13 @@ mainStart
                         "sClass": "text-center",
                         "render":function(data){
                             if($scope.roles.role_id<4||$scope.roles.role_id==6){
-                                return '<a href="javascript:;" class="btn btn-default btn-sm viewOrCheck" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看/审核</a>';
+                                return '<a href="javascript:;" class="btn btn-default btn-xs viewOrCheck" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看/审核</a>';
                             }else if($scope.roles.role_id==5 && data.status == 2){
-                                return '<a href="javascript:;" class="btn btn-default btn-sm purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">采购下单</a>';
+                                var assignBtn;
+                                    assignBtn = $scope.user.name== '张智丰'&&data.isAssign == '0'?'<a href="javascript:;" class="btn btn-default btn-xs assign" purchase_applicant_id="'+data.purchase_applicant_id+'">指派</a>':'';
+                                return '<a href="javascript:;" class="btn btn-default btn-xs purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">采购下单</a> '+assignBtn;
                             }else if($scope.roles.role_id==5 && data.status > 2){
-                                return '<a href="javascript:;" class="btn btn-default btn-sm purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看</a>';
+                                return '<a href="javascript:;" class="btn btn-default btn-xs purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看</a>';
                             }else{
                                 return '';
                             }
@@ -157,6 +159,71 @@ mainStart
             })
         })
 
+        /*采购订单指派*/
+        $(document).on('click','.assign',function(){
+            $('#choseAssignModal .modal-body').empty();
+
+            //获取被指派人列表
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"getAssignList",
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        var html= '';
+                        $.each(data.resData.data,function(index,value){
+                            html+=
+                                '                    <div class="radio">'+
+                                '                        <label>'+
+                                '                            <input type="radio" name="assign" value="'+value.name+'">'+value.name+
+                                '                        </label>'+
+                                '                    </div>';
+                        })
+                    }
+                    $('#choseAssignModal .modal-body').append(html);
+                }
+            })
+
+            $('#choseAssignModal').modal('show');
+            $('#assignOrder').val($(this).attr('purchase_applicant_id'));
+        })
+        $scope.assignOk = function(){
+            var assignOrder = $('#assignOrder').val();
+            var assignPerson = $('.radio input:checked').val();
+
+            if(!assignPerson){
+                toastr.warning('请选择指派对象');
+                return;
+            }
+
+            //发送指派
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"sendAssign",
+                    params:{
+                        assignOrder:assignOrder,
+                        assignPerson:assignPerson
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        purchaseCheckTable.ajax.reload();
+                        toastr.success('指派成功');
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
+
         /*获取采购单数据填写*/
         $(document).on('click','.purchaseOrder',function(){
             var purchaseBillNum = $(this).attr('purchase_applicant_id');
@@ -185,53 +252,6 @@ mainStart
                         $scope.orderInfo = data.resData.data[0];
                         $scope.materialList=data.resData.data.materialList;
                         $scope.$apply();
-/*                        var trStr = '';
-                        $.each(data.resData.data.materialList,function(index,value){
-                            //value.material_code
-                            trStr+=
-                                '                            <tr>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.material_code+'</span>'+
-                                '                                </td>'+
-                                '                                <td title="" class="material_name">'+value.material_name+'</td>'+
-                                '                                <td title="" class="model">'+value.model+'</td>'+
-                                '                                <td title="" class="sn_num">'+value.sn_num+'</td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.supplier_num+'</span>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.supplier+'</span>'+
-                                '                                </td>'+
-                                '                                <td title="" class="project_num">'+value.project_num+'</td>'+
-                                '                                <td title="" class="unit">'+value.unit+'</td>'+
-                                '                                <td>'+
-                                '                                    <span >'+value.unit_price+'</span>'+
-                                '                                </td>'+
-                                '                                <td title="" class="number">'+value.number+'</td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.total_price+'</span>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.rate+'</span>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.invoice+'</span>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.brand+'</span>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <span">'+value.manufactor+'</span>'+
-                                '                                </td>'+
-                                '                                <td title="" class="remark">'+value.remark+'</td>'+
-                                '                                <td>'+
-                                '                                    <span>'+value.batch+'</span>'+
-                                '                                </td>'+
-                                '                            </tr>';
-                        })
-
-                        $('#purchaseOkTable').append(trStr);*/
-
                     }
                 })
             }else{
@@ -258,52 +278,6 @@ mainStart
                     success:function(data){
                         $scope.materialList=data.resData.data;
                         $scope.$apply();
-
-/*                        var trStr = '';
-                        $.each(data.resData.data,function(index,value){
-                            trStr+=
-                                '                            <tr>'+
-                                '                                <td>'+
-                                '                                    <input type="text" valType="" msg="物料编码不能为空" class="material_code"/>'+
-                                '                                </td>'+
-                                '                                <td title="" class="material_name">'+value.material_name+'</td>'+
-                                '                                <td title="" class="model">'+value.model+'</td>'+
-                                '                                <td title="" class="sn_num">'+value.sn_num+'</td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="supplier_num"/>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="supplier"/>'+
-                                '                                </td>'+
-                                '                                <td title="" class="project_num">'+value.project_num+'</td>'+
-                                '                                <td title="" class="unit">'+value.unit+'</td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="unit_price"/>'+
-                                '                                </td>'+
-                                '                                <td title="" class="number">'+value.number+'</td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="total_price" value="0"/>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="rate"/>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="invoice"/>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="brand"/>'+
-                                '                                </td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="manufactor"/>'+
-                                '                                </td>'+
-                                '                                <td title="" class="remark">'+value.remark+'</td>'+
-                                '                                <td>'+
-                                '                                    <input type="text" class="batch"/>'+
-                                '                                </td>'+
-                                '                            </tr>';
-                        })
-
-                        $('#purchaseOkTable tbody').append(trStr);*/
                         //清除已有的验证提示信息
                         $('#purchaseOkTable [valType]').hideValidate();
                         //初始化验证

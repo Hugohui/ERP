@@ -127,7 +127,7 @@
                         </div>
                         <table class="table-bordered table-condensed" id="purchaseOkTable" cellspacing="0" width="100%">
                             <tr class="tableHeadTr">
-                                <td><s class="fa fa-asterisk redText"></s>物料编码</td>
+                                <td>物料编码</td>
                                 <td>名称</td>
                                 <td>型号</td>
                                 <!--<td>sn号</td>-->
@@ -200,6 +200,41 @@
                 <div class="modal-footer" id="purchaseModalFooter">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     <button type="button" class="btn btn-primary" ng-click="purchaseOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--选择指派人模态框-->
+    <div class="modal fade" id="choseAssignModal" tabindex="-1" role="dialog" aria-labelledby="choseAssignModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="assignOrder"/>
+                    <h5 class="modal-title" id="choseAssignModalLabel">选择指派人</h5>
+                    <!--<div class="searchGroup">-->
+                        <!--<input type="text" placeholder="物料名称" id="queryInput"/>-->
+                        <!--<a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="searchMaterial()"><i class="fa fa-search"></i></a>-->
+                    <!--</div>-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="assign" value="张三" checked> 张三
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="assign" value="李四"> 李四
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="assignOk()">确定</button>
                 </div>
             </div>
         </div>
