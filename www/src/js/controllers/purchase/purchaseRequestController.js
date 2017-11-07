@@ -207,7 +207,6 @@ mainStart
                 dataType: 'jsonp',
                 jsonp: "callback",
                 success: function (data) {
-                    console.log(data)
                     if(data.resData.result == 0){
                         toastr.success('物料申请提交成功！');
                         $state.go('purchase.purchaseTrack');
@@ -233,7 +232,7 @@ mainStart
                 '                        <div class="projectNumDiv"></div>'+
                 '                        <div><input type="text" class="unit" readonly value="'+unit+'"/></div>'+
                 '                        <div><input type="number" class="number" valType msg="数量不能为空"/></div>'+
-                //'                        <div><input type="text" class="brand" readonly value="'+description+'"/></div>'+
+                '                        <div><input type="text" class="brand"/></div>'+
                 '                        <div><input type="date" class="expected_date" ></div>'+
                 '                        <div><input type="text" class="remark"/></div>'+
                 '                    </div>';
