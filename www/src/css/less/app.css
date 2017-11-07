@@ -1129,6 +1129,12 @@ body .content #labelTip {
   padding: 5px;
   width: 100%;
 }
+#choseAssignModal .modal-body {
+  padding: 0 15px;
+}
+#choseAssignModal .modal-body label input {
+  margin-top: 8px;
+}
 .basicInfoManageBody .expand {
   cursor: pointer;
 }
