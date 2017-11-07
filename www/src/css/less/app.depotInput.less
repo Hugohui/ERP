@@ -36,3 +36,57 @@
     text-align: center;
   }
 }
+
+#addSnNumModal{
+  .modal-dialog{
+    ul{
+      overflow: hidden;
+      .snLi{
+        position: relative;
+        width: 165px;
+        float: left;
+        margin: 0 15px 10px 0;
+        padding: 5px 10px;
+        color: #444;
+        background-color: #dfdddd;
+        border-color: #d6e9c6;
+        border-radius: 3px;
+        .deleteSnLi{
+          cursor: pointer;
+          position: absolute;
+          right: 10px;
+          top: 12px;
+        }
+      }
+      .addLi{
+        width: 60px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .inputLi{
+        display: none;
+        float: left;
+        width: 205px;
+        input{
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 4px 10px;
+        }
+        span{
+          cursor: pointer;
+          font-size: 16px;
+        }
+        .checkSpan{
+          color: green;
+        }
+        .closeSpan{
+          color: red;
+        }
+      }
+    }
+  }
+  .remainAddNum{
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
