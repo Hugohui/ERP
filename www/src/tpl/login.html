@@ -1,44 +1,40 @@
-<!--<h1>登录</h1>-->
-<!--<div ng-controller="loginController">-->
-<!--<form novalidate name="loginForm">-->
-<!--<input type="text" ng-model="user.name" name="inpName" required/>-->
-<!--<input type="text" ng-model="user.pwd" name="inpPwd"/>-->
-<!--<input type="button" ng-click="loginOk()" value="登录"/>-->
-<!--</form>-->
-<!--</div>-->
-    <div class="content" ng-controller="loginController">
-       <center>
-           <div id="loginstyle">
-               <img class="content-logo" src="imgs/logo.png" alt="logo"/>
+<div class="content" ng-controller="loginController">
+    <center>
+        <div id="loginstyle">
+            <img class="content-logo" src="imgs/logo.png" alt="logo"/>
 
-               <h3 class="content-title">IDRIVER+ERP</h3>
+            <h3 class="content-title">IDRIVER+ERP</h3>
 
-               <form novalidate name="loginForm" id="loginForm">
-                  <input type="text" ng-model="user.name" name="inpName" ng-focus="oFocus_1" id="uname" placeholder="请输入用户名" required/><br/>
+            <form novalidate name="loginForm" id="loginForm">
+                <input type="text" ng-model="user.name" name="inpName"  id="uname" placeholder="请输入用户名" required/><br/>
        <span ng-messages="loginForm.inpName.$dirty &&loginForm.inpName.$error" id="resultUname" style="color:red;">
         <span ng-message="required">用户名不能为空</span>
-        </span><br/>
-                   <input type="text" ng-model="user.pwd" name="inpPwd" id="upwd" ng-focus="oFocus_2" placeholder="请输入密码" value=""
-                                            minlength="5" maxlength="16" required/><br/>
+        </span>
+                <span id="login-uname" style="color: red;"></span>
+                <br/>
+                <input type="text" ng-model="user.pwd" name="inpPwd" id="upwd"  placeholder="请输入密码" value=""
+                       minlength="5" maxlength="16" required/><br/>
         <span ng-messages="loginForm.inpPwd.$dirty&&loginForm.inpPwd.$error" id="resultPwd" style="color: red;">
             <span ng-message="required">密码不能为空</span>
             <span ng-message="minlength">密码不能少于6位</span>
             <span ng-message="maxlength">密码不能多于16位</span>
-        </span><br/>
-                   <center>
-                       <input type="hidden" class="validation" id="validation" value="">
-                       <div id="demoz">
-                           <div id="demo">
-                               <div id="slider">
-                                   <div id="slider_bg"></div>
-                                   <span id="label">>></span> <span id="labelTip">请拖动滑块验证</span> </div>
-                               <!-- input的value为空时弹出提醒 -->
-                           </div>
-                       </div>
-                   </center>
-                   <button type="button" class="btn btn-primary  " ng-click="loginOk()" style="width: 25%">登录</button>
-                   <button type="button" class="btn btn-primary  " ng-click="reset()"  style="width: 25%">重置</button>
-               </form>
-           </div>
-       </center>
-    </div>
+        </span>
+                <span id="login-password" style="color: red;"></span>
+                <br/>
+                <center>
+                    <input type="hidden" class="validation" id="validation" value="">
+                    <div id="demoz">
+                        <div id="demo">
+                            <div id="slider">
+                                <div id="slider_bg"></div>
+                                <span id="label">>></span> <span id="labelTip">请拖动滑块验证</span> </div>
+                            <!-- input的value为空时弹出提醒 -->
+                        </div>
+                    </div>
+                </center>
+                <button type="button" class="btn btn-primary  " ng-click="loginOk()" style="width: 25%">登录</button>
+                <button type="button" class="btn btn-primary  " ng-click="reset()"  style="width: 25%">重置</button>
+            </form>
+        </div>
+    </center>
+</div>
