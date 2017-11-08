@@ -111,7 +111,9 @@ mainStart
                                     assignBtn = $scope.user.name== '张智丰'&&data.isAssign == '0'?'<a href="javascript:;" class="btn btn-default btn-xs assign" purchase_applicant_id="'+data.purchase_applicant_id+'">指派</a>':'';
                                 return '<a href="javascript:;" class="btn btn-default btn-xs purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">采购下单</a> '+assignBtn;
                             }else if($scope.roles.role_id==5 && data.status > 2){
-                                return '<a href="javascript:;" class="btn btn-default btn-xs purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看</a>';
+                                var editBtn;
+                                editBtn=data.status == 3?'<a href="javascript:;" class="btn btn-default btn-xs purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看/修改</a>':'<a href="javascript:;" class="btn btn-default btn-xs purchaseOrder" purchase_applicant_id="'+data.purchase_applicant_id+'" status="'+data.status+'">查看</a> ';
+                                return editBtn;
                             }else{
                                 return '';
                             }
@@ -235,8 +237,11 @@ mainStart
             $('.purchaseOrderNum').html($('#purchaseBillNum').val());
 
             if(status>2){
-                $('#purchaseModalFooter').hide()
-
+                if(status == 4){
+                    $('#purchaseModalFooter').hide();
+                }else{
+                    $('#purchaseModalFooter').show();
+                }
                 //获取订单的详细物料数据
                 $.ajax({
                     type:'POST',
