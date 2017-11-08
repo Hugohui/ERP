@@ -286,6 +286,7 @@ mainStart
                     dataType: 'jsonp',
                     jsonp : "callback",
                     success:function(data){
+                        $scope.orderInfo = '';
                         $scope.materialList=data.resData.data;
                         $scope.$apply();
                         //清除已有的验证提示信息
