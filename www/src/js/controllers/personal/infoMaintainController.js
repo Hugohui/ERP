@@ -10,6 +10,7 @@ mainStart
 
         personUpdate();
         //获取用户信息
+        $("#updataForm")[0].reset();
         function personUpdate(){
             $.ajax({
                 type:'POST',
@@ -47,7 +48,7 @@ mainStart
             $("#phoneDisBtn").css('display','none');
             $("#phoneUpdateBtn").css('display','inline-block');
             $("#phoneEditInput").css("border","none")
-                                  .attr("disabled","disabled");
+                .attr("disabled","disabled");
         }
 
         //点击“√”，保存修改
@@ -81,7 +82,7 @@ mainStart
 
         //修改密码
         $scope.personUpdate=function(){
-            if($('#oldpwd').val()&&$('#password').val==$('#passwordAgain').val){
+            if($('#oldpwd').val&&$('#password').val==$('#passwordAgain').val){
                 $scope.data = {
                     action:'updateUserPassword',
                     params:{
@@ -107,7 +108,10 @@ mainStart
 
             }
 
-                }
+        }
+        $scope.pwdUpdateBtn=function(){
+            $("#updataForm")[0].reset();
+        }
         $scope.dispersonUpdate=function(){
             $("#updataForm")[0].reset();
         }
