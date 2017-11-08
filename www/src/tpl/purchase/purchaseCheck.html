@@ -118,7 +118,7 @@
                             <ul class="tableInfoUl">
                                 <li>下单日期：<span class="orderDatetime">{{orderInfo.created_on.split(' ')[0]}}</span></li>
                                 <li>合同号：
-                                    <input ng-if="orderInfo.status <= 3 || orderInfo == undefined" type="text" class="contract_num" value="{{orderInfo.contract_num == undefined?'':orderInfo.contract_num}}"/>
+                                    <input ng-if="orderInfo.status <= 3 || orderInfo == ''" type="text" class="contract_num" value="{{orderInfo == ''?'':orderInfo.contract_num}}"/>
                                     <span ng-if="orderInfo.status > 3">{{orderInfo.contract_num}}</span>
                                 </li>
                                 <li>采购申请单号：<span class="purchaseOrderNum"></span></li>
