@@ -46,14 +46,14 @@
                     <div class="modal-body">
                        <center>
                            <form  id="updataForm" name="updataForm">
-                               原&nbsp密&nbsp码&nbsp ： <input type="text" id="oldpwd" ng-model="user.pwd" name="inpPwd"
+                               <s class="fa fa-asterisk redText"></s>原&nbsp密&nbsp码&nbsp ： <input type="password" id="oldpwd"  name="inpPwd"
                                                            minlength="5" maxlength="16" required/><br/>
                                <span ng-messages="updataForm.inpPwd.$dirty&&updataForm.inpPwd.$error" style="color: red;">
                                     <span ng-message="required"   style="padding-left: 10px">密码不能为空</span>
                                     <span ng-message="minlength"  style="padding-left: 10px">密码不能少于6位</span>
                                     <span ng-message="maxlength"  style="padding-left: 10px">密码不能多于16位</span>
                                 </span><br/>
-                               新&nbsp密&nbsp码&nbsp ：<input type="password"  id="password" name="password"
+                               <s class="fa fa-asterisk redText"></s>新&nbsp密&nbsp码&nbsp ：<input type="password"  id="password" name="password"
                                                         ng-model="manager.password" ng-class="{'has-error-border':updataForm.password.$dirty && updataForm.password.$invalid}"
                                                         required/><br/>
                              <span style="color: red">
@@ -62,7 +62,7 @@
                                 <span ng-show="updataForm.password.$error.required">请输入密码</span>
                             </span>
                              </span><br/>
-                               再次输入 ： <input type="text" id="passwordAgain" name="passwordAgain" pw-check="password" ng-model="manager.passwordAgain"
+                               <s class="fa fa-asterisk redText"></s>再次输入 ： <input type="password" id="passwordAgain" name="passwordAgain" pw-check="password" ng-model="manager.passwordAgain"
                                              ng-class="{'has-error-border':updataForm.passwordAgain.$dirty&&updataForm.passwordAgain.$error.pwmatch
                                     || updataForm.passwordAgain.$dirty&&updataForm.passwordAgain.$error.required}"  required/><br/>
                                 <span style="color: red">
