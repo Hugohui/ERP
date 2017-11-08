@@ -258,6 +258,19 @@ mainStart
                         $scope.orderInfo = data.resData.data[0];
                         $scope.materialList=data.resData.data.materialList;
                         $scope.$apply();
+                        $('.supplierSelect').autocomplete({
+                            hints: ["【123】 智行者","【456】 智行者科技","【789】 京东"],
+                            width: "100%",
+                            proposalWidth:'160',
+                            height: 27,
+                            showButton:false,
+                            placeholder:'',
+                            onSubmit: function(that,text){
+                                var val = text.split(' ');
+                                $(that).closest('tr').find('.supplier_num input').val(val[0].replace('【','').replace('】',''));
+                                $(that).closest('tr').find('.supplier input').val(val[1]);
+                            }
+                        });
                         //清除已有的验证提示信息
                         $('#purchaseOkTable [valType]').hideValidate();
                         //初始化验证
@@ -289,6 +302,19 @@ mainStart
                         $scope.orderInfo = '';
                         $scope.materialList=data.resData.data;
                         $scope.$apply();
+                        $('.supplierSelect').autocomplete({
+                            hints: ["【123】 智行者","【456】 智行者科技","【789】 京东"],
+                            width: "100%",
+                            proposalWidth:'160',
+                            height: 27,
+                            showButton:false,
+                            placeholder:'',
+                            onSubmit: function(that,text){
+                                var val = text.split(' ');
+                                $(that).closest('tr').find('.supplier_num input').val(val[0].replace('【','').replace('】',''));
+                                $(that).closest('tr').find('.supplier input').val(val[1]);
+                            }
+                        });
                         //清除已有的验证提示信息
                         $('#purchaseOkTable [valType]').hideValidate();
                         //初始化验证
@@ -297,7 +323,18 @@ mainStart
                 })
             }
             $('#purchaseModal').modal('show');
+
         })
+
+        $('.supplierSelect').autocomplete({
+            hints: [123,456,789],
+            width: "100%",
+            height: 27,
+            showButton:false,
+            placeholder:'',
+            onSubmit: function(text){
+            }
+        });
 
         /*确定采购下单*/
         $scope.purchaseOk = function(){

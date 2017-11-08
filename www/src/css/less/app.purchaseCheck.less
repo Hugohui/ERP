@@ -6,8 +6,12 @@
 }
 #purchaseCheckModal .modal-dialog,#purchaseModal .modal-dialog{
   width: 1330px;
+  .modal-body{
+    min-height: 300px;
+  }
   .tableDiv{
     max-height: 400px;
+    min-height: 300px;
     overflow-y: auto;
     table{
       text-align: center;
@@ -16,11 +20,11 @@
         height: 100%;
         border: none;
       }
-      td{
+/*      td{
         white-space:nowrap;
         overflow:hidden;
         text-overflow:ellipsis;
-      }
+      }*/
     }
     .tableInfoDiv{
       margin-bottom: 10px;
