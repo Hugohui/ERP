@@ -147,18 +147,20 @@
                             </tr>
                             <tr ng-repeat="material in materialList">
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" valType msg="物料编码不能为空" class="material_code" value="{{material.material_code == undefined?'':material.material_code}}"/>
-                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.material_code}}</span>
+                                    <!--<input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" valType msg="物料编码不能为空" class="material_code" value="{{material.material_code == undefined?'':material.material_code}}"/>-->
+                                    <span class="material_code">{{material.material_code}}</span>
                                 </td>
                                 <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
                                 <td title="{{material.model}}" class="model">{{material.model}}</td>
-                                <td>
-                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="supplier_num" value="{{material.supplier_num}}"/>
-                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.supplier_num}}</span>
+                                <td class="supplier_num">
+                                    <div class="supplierSelect"></div>
+                                    <!--<input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="supplier_num" value="{{material.supplier_num}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.supplier_num}}</span>-->
                                 </td>
-                                <td>
-                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="supplier" value="{{material.supplier}}"/>
-                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.supplier}}</span>
+                                <td class="supplier">
+                                    <div class="supplierSelect"></div>
+                                    <!--<input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="supplier" value="{{material.supplier}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.supplier}}</span>-->
                                 </td>
                                 <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
                                 <td title="{{material.unit}}" class="unit">{{material.unit}}</td>

@@ -13,12 +13,12 @@ Author: hwh
 		params = $.extend({
 			hints: [],
 			placeholder: '',
-
+			proposalWidth:'100%',
 			width: 200,
 			height: 16,
 			showButton: true,
 			buttonText: 'Search',
-			onSubmit: function(text){},
+			onSubmit: function(that,text){},
 			onBlur: function(){}
 		}, params);
 
@@ -34,8 +34,8 @@ Author: hwh
 			var searchContainer = $('<div></div>')
 				.addClass('autocomplete-container')
 				.css('height', params.height);
-				
-			//Text input		
+
+			//Text input
 			var input = $('<input type="text" autocomplete="off" name="query">')
 				.attr('placeholder', params.placeholder)
 				.addClass('autocomplete-input')
@@ -43,7 +43,7 @@ Author: hwh
 					'width' : params.width,
 					'height' : params.height
 				});
-			
+
 			if(params.showButton){
 				input.css('border-radius', '3px 0 0 3px');
 			}
@@ -51,13 +51,13 @@ Author: hwh
 			//Proposals
 			var proposals = $('<div></div>')
 				.addClass('proposal-box')
-				.css('width', params.width)
+				.css('width', params.proposalWidth)
 				.css('top', input.height()+1);
 			var proposalList = $('<ul></ul>')
 				.addClass('proposal-list');
 
 			proposals.append(proposalList);
-			
+
 			input.keydown(function(e) {
 				switch(e.which) {
 					case 38: // Up arrow
@@ -87,7 +87,7 @@ Author: hwh
 						}
 						currentSelection = -1;
 						proposalList.empty();
-						params.onSubmit(input.val());
+						params.onSubmit(this,input.val());
 						break;
 					case 27: // Esc button
 						currentSelection = -1;
@@ -96,10 +96,10 @@ Author: hwh
 						break;
 				}
 			});
-				
+
 			input.bind("change paste keyup", function(e){
-				if(e.which != 13 && e.which != 27 
-						&& e.which != 38 && e.which != 40){				
+				if(e.which != 13 && e.which != 27
+						&& e.which != 38 && e.which != 40){
 					currentProposals = [];
 					currentSelection = -1;
 					proposalList.empty();
@@ -115,8 +115,8 @@ Author: hwh
 									.addClass('proposal')
 									.click(function(){
 										input.val($(this).html());
+										params.onSubmit(this,input.val());
 										proposalList.empty();
-										params.onSubmit(input.val());
 									})
 									.mouseenter(function() {
 										$(this).addClass('selected');
@@ -130,16 +130,16 @@ Author: hwh
 					}
 				}
 			});
-			
+
 			input.blur(function(e){
 				currentSelection = -1;
 				//proposalList.empty();
 				params.onBlur();
 			});
-			
+
 			searchContainer.append(input);
-			searchContainer.append(proposals);		
-			
+			searchContainer.append(proposals);
+
 			if(params.showButton){
 				//Search button
 				var button = $('<div></div>')
@@ -151,7 +151,7 @@ Author: hwh
 					})
 					.click(function(){
 						proposalList.empty();
-						params.onSubmit(input.val());
+						params.onSubmit(this,input.val());
 					});
 				searchContainer.append(button);	
 			}

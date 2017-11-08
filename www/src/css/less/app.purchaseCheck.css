@@ -8,26 +8,30 @@
 #purchaseModal .modal-dialog {
   width: 1330px;
 }
+#purchaseCheckModal .modal-dialog .modal-body,
+#purchaseModal .modal-dialog .modal-body {
+  min-height: 300px;
+}
 #purchaseCheckModal .modal-dialog .tableDiv,
 #purchaseModal .modal-dialog .tableDiv {
   max-height: 400px;
+  min-height: 300px;
   overflow-y: auto;
 }
 #purchaseCheckModal .modal-dialog .tableDiv table,
 #purchaseModal .modal-dialog .tableDiv table {
   text-align: center;
+  /*      td{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }*/
 }
 #purchaseCheckModal .modal-dialog .tableDiv table input,
 #purchaseModal .modal-dialog .tableDiv table input {
   width: 100%;
   height: 100%;
   border: none;
-}
-#purchaseCheckModal .modal-dialog .tableDiv table td,
-#purchaseModal .modal-dialog .tableDiv table td {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 #purchaseCheckModal .modal-dialog .tableDiv .tableInfoDiv,
 #purchaseModal .modal-dialog .tableDiv .tableInfoDiv {
