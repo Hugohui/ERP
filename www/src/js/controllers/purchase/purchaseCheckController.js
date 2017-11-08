@@ -258,6 +258,10 @@ mainStart
                         $scope.orderInfo = data.resData.data[0];
                         $scope.materialList=data.resData.data.materialList;
                         $scope.$apply();
+                        //清除已有的验证提示信息
+                        $('#purchaseOkTable [valType]').hideValidate();
+                        //初始化验证
+                        $.fn.InitValidator('purchaseOkTable');
                     }
                 })
             }else{

@@ -118,7 +118,7 @@
                             <ul class="tableInfoUl">
                                 <li>下单日期：<span class="orderDatetime">{{orderInfo.created_on.split(' ')[0]}}</span></li>
                                 <li>合同号：
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="contract_num" value="{{orderInfo.contract_num}}"/>
+                                    <input ng-if="orderInfo.status <= 3 || orderInfo == undefined" type="text" class="contract_num" value="{{orderInfo.contract_num == undefined?'':orderInfo.contract_num}}"/>
                                     <span ng-if="orderInfo.status > 3">{{orderInfo.contract_num}}</span>
                                 </li>
                                 <li>采购申请单号：<span class="purchaseOrderNum"></span></li>
@@ -147,52 +147,52 @@
                             </tr>
                             <tr ng-repeat="material in materialList">
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" valType msg="物料编码不能为空" class="material_code" value="{{material.material_code}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.material_code}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" valType msg="物料编码不能为空" class="material_code" value="{{material.material_code == undefined?'':material.material_code}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.material_code}}</span>
                                 </td>
                                 <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
                                 <td title="{{material.model}}" class="model">{{material.model}}</td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="supplier_num" value="{{material.supplier_num}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.supplier_num}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="supplier_num" value="{{material.supplier_num}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.supplier_num}}</span>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="supplier" value="{{material.supplier}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.supplier}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="supplier" value="{{material.supplier}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.supplier}}</span>
                                 </td>
                                 <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
                                 <td title="{{material.unit}}" class="unit">{{material.unit}}</td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" valType="zFN" msg="" type="text" class="unit_price" value="{{material.unit_price}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.unit_price}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="unit_price" value="{{material.unit_price}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.unit_price}}</span>
                                 </td>
                                 <td title="{{material.number}}" class="number">
                                     <input type="number" class="number" value="{{material.number}}" min="0" max="{{material.number}}"/>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" valType="zFN" msg="" type="text" class="total_price" value="{{material.total_price}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.total_price}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="total_price" value="{{material.total_price}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.total_price}}</span>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" valType="zFN" msg="" type="text" class="rate" value="{{material.rate}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.rate}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="rate" value="{{material.rate}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.rate}}</span>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="invoice" value="{{material.invoice}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.invoice}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="invoice" value="{{material.invoice}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.invoice}}</span>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="brand" value="{{material.brand}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.brand}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="brand" value="{{material.brand}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.brand}}</span>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="manufactor" value="{{material.manufactor}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.manufactor}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="manufactor" value="{{material.manufactor}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.manufactor}}</span>
                                 </td>
                                 <td title="{{material.remark}}" class="remark">{{material.remark}}</td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3" type="text" class="batch" value="{{material.batch}}"/>
-                                    <span ng-if="orderInfo.status > 3">{{material.batch}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="batch" value="{{material.batch}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.batch}}</span>
                                 </td>
                             </tr>
                         </table>
