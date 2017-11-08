@@ -137,8 +137,10 @@
                                 <td>单位</td>
                                 <td>单价</td>
                                 <td>数量</td>
-                                <td>金额</td>
+                                <td>金额(含税)</td>
+                                <td>金额(不含税)</td>
                                 <td>税率</td>
+                                <td>税额</td>
                                 <td>发票</td>
                                 <td>品牌</td>
                                 <td>厂家</td>
@@ -168,16 +170,28 @@
                                     <input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="unit_price" value="{{material.unit_price}}"/>
                                     <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.unit_price}}</span>
                                 </td>
-                                <td title="{{material.number}}" class="number">
-                                    <input type="number" class="number" value="{{material.number}}" min="0" max="{{material.number}}"/>
+                                <td title="{{material.number}}">
+                                    <input type="number" class="number" value="{{material.number}}" min="1" max="{{material.number}}"/>
                                 </td>
                                 <td>
                                     <input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="total_price" value="{{material.total_price}}"/>
                                     <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.total_price}}</span>
                                 </td>
                                 <td>
-                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="rate" value="{{material.rate}}"/>
-                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.rate}}</span>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="noRateTotal" value="{{material.noRateTotal}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.noRateTotal}}</span>
+                                </td>
+                                <td>
+                                    <!--<input ng-if="orderInfo.status <= 3||material.material_code == undefined" valType="zFN" msg="" type="text" class="rate" value="{{material.rate}}"/>-->
+                                    <select class="rateSelect">
+                                        <option value="0" selected>0</option>
+                                        <option value="0.03">0.03</option>
+                                        <option value="0.17">0.17</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="ratePrice" value="{{material.ratePrice}}"/>
+                                    <span ng-if="orderInfo.status > 3&&material.material_code != undefined">{{material.ratePrice}}</span>
                                 </td>
                                 <td>
                                     <input ng-if="orderInfo.status <= 3||material.material_code == undefined" type="text" class="invoice" value="{{material.invoice}}"/>

@@ -33,6 +33,11 @@
   height: 100%;
   border: none;
 }
+#purchaseCheckModal .modal-dialog .tableDiv .rateSelect,
+#purchaseModal .modal-dialog .tableDiv .rateSelect {
+  width: 100%;
+  border: none;
+}
 #purchaseCheckModal .modal-dialog .tableDiv .tableInfoDiv,
 #purchaseModal .modal-dialog .tableDiv .tableInfoDiv {
   margin-bottom: 10px;

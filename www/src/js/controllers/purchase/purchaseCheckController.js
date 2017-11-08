@@ -454,11 +454,77 @@ mainStart
             })
         }
 
-        //计算金额
+        //改变单价计算金额（含税）
         $('#purchaseModal').on('keyup','.unit_price',function(){
-            var unit_price = Number($(this).val());
-            var number = Number($(this).closest('td').next().html());
+            var unit_price = $(this).val();
+            var number = $(this).closest('td').next().find('input').val();
             var total = unit_price*number;
-            $(this).closest('td').next().next().find('input').val(!isNaN(total)?total:0);
+            $(this).closest('tr').find('.total_price').val(total.toFixed(3));
+
+            //不含税金额
+            var containRateTotal = unit_price*number*(1-$('.rateSelect').val());
+            $(this).closest('tr').find('.noRateTotal').val(containRateTotal.toFixed(3));
+
+            //税额
+            var ratePrice = unit_price*number*$('.rateSelect').val();
+            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+        });
+
+        //改变数量计算
+        $('#purchaseModal').on('change','.number',function(){
+            var number = $(this).val();
+            var unit_price= $(this).closest('tr').find('.unit_price').val();
+            var total = unit_price*number;
+            $(this).closest('tr').find('.total_price').val(total.toFixed(3));
+
+            //不含税金额
+            var containRateTotal = unit_price*number*(1-$('.rateSelect').val());
+            $(this).closest('tr').find('.noRateTotal').val(containRateTotal.toFixed(3));
+
+            //税额
+            var ratePrice = unit_price*number*$('.rateSelect').val();
+            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+        });
+
+       //输入含税金额计算
+        $('#purchaseModal').on('keyup','.total_price',function(){
+            //含税金额
+            var total_price = $(this).val();
+
+            //不含税金额
+            var noRateTotal = total_price*(1-$('.rateSelect').val());
+            $(this).closest('tr').find('.noRateTotal').val(noRateTotal.toFixed(3));
+
+            //税额
+            var ratePrice = noRateTotal*$('.rateSelect').val();
+            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+
+            //不含税单价
+            var number = $(this).closest('tr').find('.number').val();
+            var unit_price = noRateTotal/number
+            $(this).closest('tr').find('.unit_price').val(unit_price.toFixed(3));
+        });
+
+        //改变税率计算
+        $('#purchaseModal').on('change','.rateSelect',function(){
+
+            //税率
+            var rate = $(this).val();
+
+            //含税金额
+            var total_price =  $(this).closest('tr').find('.total_price').val();
+
+            //不含税金额
+            var noRateTotal = total_price*(1-$('.rateSelect').val());
+            $(this).closest('tr').find('.noRateTotal').val(noRateTotal.toFixed(3));
+
+            //税额
+            var ratePrice = noRateTotal*rate;
+            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+
+            //不含税单价
+            var number = $(this).closest('tr').find('.number').val();
+            var unit_price = noRateTotal/number
+            $(this).closest('tr').find('.unit_price').val(unit_price.toFixed(3));
         });
     }]);
