@@ -96,7 +96,7 @@ mainStart
             },
             {
                 "data": "purchase_order_id",
-                "sClass": "text-center"
+                "sClass": "text-center purchase_order_id"
             },
             {
                 "data": "contract_num",
@@ -184,12 +184,13 @@ mainStart
                 //value.status == 0?(inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial"  checked/>':'<input type="checkbox" class="checkMaterial"/>'):inputStr='';
                 inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index]?'<input type="checkbox" class="checkMaterial" status="'+value.status+'" checked/>':'<input type="checkbox" class="checkMaterial" status="'+value.status+'"/>';
                 value.stock_position?stock_position=value.stock_position:stock_position='<input class="stock_position" type="text" msg="库存位置不能为空" value="'+positionStr+'">';
+                var snStr = value.sn_num?value.sn_num:'无';
+                var addSnTd =value.status == 0?'<td class="sn_num" snNumStr="'+snStr+'"><a href="javascript:;" class="btn btn-default btn-xs addSnNum">录入</a></td>':'<td class="sn_num" title="'+snStr+'" snNumStr="'+snStr+'">'+snStr+'</td>';
                 trStr += '<tr>' +
                     '<td>'+inputStr+'</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
                     '<td class="material_name">' + value.material_name + '</td>' +
-                    '<td class="model">' + value.model + '</td>' +
-                    '<td class="sn_num"><a href="javascript:;" class="btn btn-default btn-xs addSnNum">录入</a></td>' +
+                    '<td class="model">' + value.model + '</td>' +addSnTd+
                     '<td class="supplier_num">' + value.supplier_num + '</td>' +
                     '<td class="supplier">' + value.supplier + '</td>' +
                     '<td class="project_num">' + value.project_num + '</td>' +
@@ -322,7 +323,12 @@ mainStart
             var commitDataArr = [];
             $.each($('.sonTable tr:not(".trHead")'),function(index,value){
                 if($(this).find('.checkMaterial').is(':checked') && $(this).find('.checkMaterial').attr('status') == 0){
-                    commitDataArr.push({material_code: $(this).find('.material_code').html(), stock_position: $(this).find('.stock_position').val()})
+                    commitDataArr.push({
+                        material_code: $(this).find('.material_code').html(),
+                        stock_position: $(this).find('.stock_position').val(),
+                        sn_num: $(this).find('.sn_num').attr('snNumStr'),
+                        purchase_order_id:$(this).closest('tr').pre().find('.purchase_order_id').html()
+                    })
                 }
             });
 
@@ -406,17 +412,19 @@ mainStart
         /*录入sn号*/
         var currentAddSnNum;
         var snArr = [];
-        $(document).on('click','.addSnNum',function(){
+        $(document).on('click','.addSnNum',function(){//添加和修改
             snArr = [];
             currentAddSnNum = this;
             var snMaxNum = $(this).closest('td').siblings('.number').html();
-            $('#snMaxNum').val(snMaxNum);
-            $('.remainAddNum').html(snMaxNum);
+            $('#materialNum').val(snMaxNum);
+            $('#snMaxNum').val(snMaxNum-$('.snLi:not(.addLi)').length);
+            $('.remainAddNum').html(snMaxNum-$('.snLi:not(.addLi)').length);
             $('.snLi').not('.addLi').remove();
             var snNumStr = $(this).closest('td').attr('snNumStr');
-            if(snNumStr){
+            if(snNumStr != '无'){//修改
                 var html= '';
-                $.each(snNumStr.split('/'),function(index,value){
+                $.each(snNumStr.split(','),function(index,value){
+                    snArr.push(value);//获取已经添加的sn号push到数组中
                     html+=
                         '<li class="snLi">'+
                         '                            <span class="snNum">'+value+'</span>'+
@@ -474,11 +482,11 @@ mainStart
         });
         //删除snLi
         $(document).on('click','.deleteSnLi',function(){
-            var snMaxNum = $('#snMaxNum').val();
+            var materialNum = $('#materialNum').val();
             $(this).closest('li').remove();
             snArr.splice(snArr.indexOf($(this).siblings('.snNum').html()),1);
             //剩余可添加数量
-            $('.remainAddNum').html(snMaxNum-snArr.length);
+            $('.remainAddNum').html(materialNum-snArr.length);
         });
 
         //模态框关闭隐藏验证信息
@@ -488,11 +496,15 @@ mainStart
 
         //确认添加
         $scope.addSnNumOk = function(){
-            if(snArr.length){
-                $(currentAddSnNum).closest('td').attr('snNumStr',snArr.join('/'));
+            if(snArr.length == $('#materialNum').val() && snArr.length != 0){//sn号数量与物料数量保持一致
+                $(currentAddSnNum).closest('td').attr('snNumStr',snArr.join(','));
                 $(currentAddSnNum).html('修改');
+                $('#addSnNumModal').modal('hide');
+            }else if(snArr.length == 0){
+                toastr.warning('请添加sn号');
+            }else{
+                toastr.warning('sn号量与物料数量不符');
             }
-            $('#addSnNumModal').modal('hide');
         }
 
         /**

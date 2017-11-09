@@ -1301,6 +1301,11 @@ body .content #labelTip {
 .depotInputBody .depotInputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
+#depotInputTable table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 #printModal .modal-dialog {
   width: 1330px;
 }

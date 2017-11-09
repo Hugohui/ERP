@@ -218,6 +218,7 @@ mainStart
 
         //选择物料添加到列表
         $scope.selectMaterial = function(e){
+            var flag = false;
             var material_code = $(e.target).attr('material_code'),
                 material_name = $(e.target).attr('material_name'),
                 model = $(e.target).attr('model'),
@@ -237,6 +238,17 @@ mainStart
                 '                        <div><input type="date" class="expected_date" ></div>'+
                 '                        <div><input type="text" class="remark"/></div>'+
                 '                    </div>';
+
+            $.each($('.material_code'),function(index,value){
+                if($(value).val() == material_code){
+                    toastr.warning('已选择该物料');
+                    flag = true;
+                    return;
+                }
+            });
+            if(flag){
+                return;
+            }
             var $lineHtml = $compile(lineHtml)($scope);
             $('.addMaterialListDiv').before($lineHtml);
 

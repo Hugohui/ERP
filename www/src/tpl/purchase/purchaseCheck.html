@@ -152,12 +152,12 @@
                                 <td title="{{material.material_name}}" class="material_name">{{material.material_name}}</td>
                                 <td title="{{material.model}}" class="model">{{material.model}}</td>
                                 <td class="supplier_num">
-                                    <span ng-if="orderInfo.status<= 3&&material.material_code != undefined">{{material.supplier_num}}</span>
-                                    <div ng-if="orderInfo.status > 3||material.material_code == undefined" class="supplierSelect"></div>
+                                    <span ng-if="orderInfo != ''">{{material.supplier_num}}</span>
+                                    <div ng-if="orderInfo == ''" class="supplierSelect"></div>
                                 </td>
                                 <td class="supplier">
-                                    <span ng-if="orderInfo.status <= 3&&material.material_code != undefined">{{material.supplier}}</span>
-                                    <div ng-if="orderInfo.status  > 3||material.material_code == undefined" class="supplierSelect"></div>
+                                    <span ng-if="orderInfo != ''">{{material.supplier}}</span>
+                                    <div ng-if="orderInfo == ''" class="supplierSelect"></div>
                                 </td>
                                 <td title="{{material.project_num}}" class="project_num">{{material.project_num}}</td>
                                 <td title="{{material.unit}}" class="unit">{{material.unit}}</td>
@@ -177,7 +177,7 @@
                                     <span ng-if="orderInfo != ''&&orderInfo.status > 3&&material.material_code != undefined">{{material.noRateTotal}}</span>
                                 </td>
                                 <td>
-                                    <select class="rateSelect" ng-if="material.rate == 0">
+                                    <select class="rateSelect" ng-if="material.rate == 0 || orderInfo == ''">
                                         <option value="0" selected>0</option>
                                         <option value="0.03">0.03</option>
                                         <option value="0.17">0.17</option>
@@ -201,8 +201,7 @@
                                     <input ng-if="orderInfo == ''||orderInfo.status <= 3||material.material_code == undefined" type="text" class="invoice" value="{{material.invoice}}"/>
                                     <span ng-if="orderInfo != ''&&orderInfo.status > 3&&material.material_code != undefined">{{material.invoice}}</span>
                                 </td>
-                                <td title="{{material.brand}}" class="brand">{{material.brand}}
-                                </td>
+                                <td title="{{material.brand}}" class="brand">{{material.brand}}</td>
                                 <td>
                                     <input ng-if="orderInfo == ''||orderInfo.status <= 3||material.material_code == undefined" type="text" class="manufactor" value="{{material.manufactor}}"/>
                                     <span ng-if="orderInfo != ''&&orderInfo.status > 3&&material.material_code != undefined">{{material.manufactor}}</span>
