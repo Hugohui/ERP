@@ -1392,6 +1392,13 @@ body .content #labelTip {
 .depotOutputBody .depotOutputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
+#selectSnNumModal .snCheckbox {
+  overflow: hidden;
+}
+#selectSnNumModal .snCheckbox label {
+  float: left;
+  margin: 5px 15px;
+}
 /*系统管理*/
 #modal-content-usermanage {
   width: 700px;

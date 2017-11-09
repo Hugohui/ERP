@@ -161,15 +161,15 @@ mainStart
                 var inputStr, stock_position;
                 value.status == 0 ? (inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index] ? '<input type="checkbox" class="checkMaterial"  checked/>' : '<input type="checkbox" class="checkMaterial"/>') : inputStr = '';
                 value.stock_position ? stock_position = value.stock_position : stock_position = '<input class="stock_position" type="text" msg="库存位置不能为空" value="' + positionStr + '">';
+                var snTdStr = value.snNumStr == '无'?'<td>--</td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" snNumStr="'+value.snNumStr+'">选择sn号</a></td>';
                 trStr += '<tr>' +
                     '<td>' + inputStr + '</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
                     '<td>' + value.material_name + '</td>' +
-                    '<td>' + value.model + '</td>' +
-                    '<td>' + value.sn_num + '</td>' +
+                    '<td>' + value.model + '</td>' +snTdStr+
                     '<td>' + value.project_num + '</td>' +
                     '<td>' + value.unit + '</td>' +
-                    '<td>' + value.number + '</td>' +
+                    '<td class="number">' + value.number + '</td>' +
                     //'<td><input class="number" min="1" max="' + value.number + '" value="' + value.number + '"/></td>' +
                     '<td>' + value.remark + '</td>' +
                     '</tr>';
@@ -249,6 +249,59 @@ mainStart
             });
             tr.prev().data('inputCheckedArr', inputCheckedArr);
         })
+
+        //选择sn号模态框
+        var selectSnArr = [];
+        var currentSelectBtn;
+        $(document).on('click','.selectSnNum',function(){
+            currentSelectBtn = this;
+            var selectMaxNum = $(this).closest('tr').find('.number').html();
+            $('#selectMaxNum').val(selectMaxNum);//可选的最多数量
+            $('.remainSelectNum').html(selectMaxNum);//初始化选择的数量
+
+            //清除label
+            $('#selectSnNumModal .snCheckbox').empty();
+
+            //追加选择框
+            var snNumAttr = $(this).attr('snNumStr').split(',');
+            var labelStr = '';
+            $.each(snNumAttr,function(index,value){
+                labelStr+='<label><input type="checkbox"/> <span>'+value+'</span></label>';
+            });
+
+            //添加到div
+            $('#selectSnNumModal .snCheckbox').append(labelStr);
+            $('#selectSnNumModal').modal('show');
+        });
+
+        //选择sn号事件
+        $(document).on('change','#selectSnNumModal label>input',function(){
+            if($(this).is(':checked')){//选中时
+                if(selectSnArr.length<$('#selectMaxNum').val()){
+                    selectSnArr.push($(this).next().html());//存入选中数组
+                    $('.remainSelectNum').html($('#selectMaxNum').val()-selectSnArr.length);//更新显示数量
+                    if(selectSnArr.length==$('#selectMaxNum').val()){//当选中数量和申请数量相等时，将剩余选择框禁用
+                        $('#selectSnNumModal label>input:not(:checked)').attr('disabled',true);
+                    }
+                }
+            }else{//取消选中时
+                $('#selectSnNumModal label>input:not(:checked)').removeAttr('disabled');//移除禁用的选择框
+                selectSnArr.splice(selectSnArr.indexOf($(this).next().html()),1);//从选中的数组中删除
+                $('.remainSelectNum').html($('#selectMaxNum').val()-selectSnArr.length);//更新显示数量
+            }
+        });
+
+        //确定选择sn号
+        $scope.selectSnNumOk = function(){
+            if(selectSnArr.length == 0){
+                toastr.warning('请选择sn号');
+            }else if(selectSnArr.length<$('#selectMaxNum').val()){
+                toastr.warning('sn号量与申请数量不符');
+            }else{
+                $(currentSelectBtn).attr('selectedSn',selectSnArr.join(','));
+                $('#selectSnNumModal').modal('hide');
+            }
+        }
 
         //完成领料
         $scope.commitDepotOutput = function () {

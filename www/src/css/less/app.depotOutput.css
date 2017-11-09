@@ -29,3 +29,10 @@
 .depotOutputBody .depotOutputTableDiv .handleDepotDiv button {
   font-weight: 700;
 }
+#selectSnNumModal .snCheckbox {
+  overflow: hidden;
+}
+#selectSnNumModal .snCheckbox label {
+  float: left;
+  margin: 5px 15px;
+}

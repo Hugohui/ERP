@@ -180,17 +180,21 @@
                                 <h3 style="text-align: center;margin-bottom: 10px;">领料申请单</h3>
                                 <table class="table-bordered table-condensed" cellspacing="0" width="100%">
                                     <tr>
+                                        <td>物料编码</td>
                                         <td>名称</td>
                                         <td>型号</td>
                                         <td>项目号</td>
+                                        <td>sn号</td>
                                         <td>单位</td>
                                         <td>数量</td>
                                         <td>备注</td>
                                     </tr>
                                     <tr ng-repeat="materia in materialList">
+                                        <td>{{materia.material_code}}</td>
                                         <td>{{materia.material_name}}</td>
                                         <td>{{materia.model}}</td>
                                         <td>{{materia.project_num}}</td>
+                                        <td>{{materia.sn_num?materia.sn_num:'--'}}</td>
                                         <td>{{materia.unit}}</td>
                                         <td>{{materia.number}}</td>
                                         <td>{{materia.remark}}</td>

@@ -269,7 +269,7 @@ mainStart
                     '<td class="material_code">' + value.material_code + '</td>' +
                     '<td class="material_name">' + value.material_name + '</td>' +
                     '<td class="model">' + value.model + '</td>' +
-                    '<td class="sn_num">' + value.sn_num + '</td>' +
+                    //'<td class="sn_num">' + value.sn_num + '</td>' +
                     '<td class="project_num">' + value.project_num + '</td>' +
                     '<td class="unit">' + value.unit + '</td>' +
                     '<td><input class="number" valType="zNum" msg="" type="number" min="1" max="'+value.number+'" value="'+value.number+'"/></td>' +
@@ -283,7 +283,7 @@ mainStart
                 '<td>物料编码</td>' +
                 '<td>名称</td>' +
                 '<td>型号</td>' +
-                '<td>sn号</td>' +
+                //'<td>sn号</td>' +
                 '<td>项目号</td>' +
                 '<td>单位</td>' +
                 '<td>数量</td>' +
@@ -429,7 +429,7 @@ mainStart
                             material_code: $(this).find('.material_code').html(),
                             material_name:$(this).find('.material_name').html(),
                             model:$(this).find('.model').html(),
-                            sn_num:$(this).find('.sn_num').html(),
+                            //sn_num:$(this).find('.sn_num').html(),
                             project_num:$(this).find('.project_num').html(),
                             unit:$(this).find('.unit').html(),
                             number:$(this).find('.number').val(),
