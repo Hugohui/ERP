@@ -227,6 +227,29 @@ mainStart
             })
         }
 
+        /*获取供应商信息*/
+        var supplierArr = [];
+        $.ajax({
+            type:'POST',
+            url:'http://111.204.101.170:11115',
+            data:{
+                action:"loadSupplierList"
+            },
+            dataType: 'jsonp',
+            jsonp : "callback",
+            success:function(data){
+                if(data.resData.result == 0){
+                    console.log(data.resData.data);
+                    $.each(data.resData.data,function(index,value){
+                        var str = '【'+value.supplier_num+'】 '+value.supplier_name;
+                        supplierArr.push(str);
+                    });
+                }else{
+                    toastr.error(data.resData.msg);
+                }
+            }
+        })
+
         /*获取采购单数据填写*/
         $(document).on('click','.purchaseOrder',function(){
             var purchaseBillNum = $(this).attr('purchase_applicant_id');
@@ -259,7 +282,7 @@ mainStart
                         $scope.materialList=data.resData.data.materialList;
                         $scope.$apply();
                         $('.supplierSelect').autocomplete({
-                            hints: ["【123】 智行者","【456】 智行者科技","【789】 京东"],
+                            hints: supplierArr,// ["【123】 智行者","【456】 智行者科技","【789】 京东"],
                             width: "100%",
                             proposalWidth:'160',
                             height: 27,
@@ -303,7 +326,7 @@ mainStart
                         $scope.materialList=data.resData.data;
                         $scope.$apply();
                         $('.supplierSelect').autocomplete({
-                            hints: ["【123】 智行者","【456】 智行者科技","【789】 京东"],
+                            hints: supplierArr,//["【123】 智行者","【456】 智行者科技","【789】 京东"],
                             width: "100%",
                             proposalWidth:'160',
                             height: 27,
@@ -348,20 +371,22 @@ mainStart
             $('#purchaseModal table tr').not('.tableHeadTr').each(function(index,value){
                 materialListArr.push(
                     {
-                        material_code:$(value).find('.material_code').val(),
+                        material_code:$(value).find('.material_code').html(),
                         material_name:$(value).find('.material_name').html(),
                         model:$(value).find('.model').html(),
                         sn_num:$(value).find('.sn_num').html(),
-                        supplier_num:$(value).find('.supplier_num').val(),
-                        supplier:$(value).find('.supplier').val(),
+                        supplier_num:$(value).find('.supplier_num input').val(),
+                        supplier:$(value).find('.supplier input').val(),
                         project_num:$(value).find('.project_num').html(),
                         unit:$(value).find('.unit').html(),
                         unit_price:$(value).find('.unit_price').val(),
-                        number:$(value).find('.number').html(),
-                        brand:$(value).find('.brand').val(),
+                        number:$(value).find('.number').val(),
+                        brand:$(value).find('.brand').html(),
                         manufactor:$(value).find('.manufactor').val(),
-                        total_price:$(value).find('.total_price').val(),
-                        rate:$(value).find('.rate').val(),
+                        total_price:$(value).find('.total_price').val(),//含税金额
+                        noRateTotal:$(value).find('.noRateTotal').val(),//不含税金额
+                        ratePrice:$(value).find('.ratePrice').val(),//税额
+                        rate:$(value).find('.rateSelect').val(),
                         invoice:$(value).find('.invoice').val(),
                         remark:$(value).find('.remark').html(),
                         batch:$(value).find('.batch').val()
@@ -387,7 +412,8 @@ mainStart
                 success:function(data){
                     if(data.resData.result == 0){
                         toastr.success(data.resData.msg);
-                        purchaseCheckTable.ajax.reload();//重新加载数据
+                        //purchaseCheckTable.ajax.reload();//重新加载数据
+                        window.location.reload();
                         $('#purchaseModal').hide();//隐藏模态框
 
                         //重新设置当前用户其他未审核信息
@@ -462,12 +488,12 @@ mainStart
             $(this).closest('tr').find('.total_price').val(total.toFixed(3));
 
             //不含税金额
-            var containRateTotal = unit_price*number*(1-$('.rateSelect').val());
-            $(this).closest('tr').find('.noRateTotal').val(containRateTotal.toFixed(3));
+            var noRateTotal = unit_price*number*(1-$('.rateSelect').val());
+            $(this).closest('tr').find('.noRateTotal').val(noRateTotal.toFixed(3));
 
             //税额
             var ratePrice = unit_price*number*$('.rateSelect').val();
-            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+            $(this).closest('tr').find('.ratePrice').val((total-noRateTotal).toFixed(3));
         });
 
         //改变数量计算
@@ -478,12 +504,12 @@ mainStart
             $(this).closest('tr').find('.total_price').val(total.toFixed(3));
 
             //不含税金额
-            var containRateTotal = unit_price*number*(1-$('.rateSelect').val());
-            $(this).closest('tr').find('.noRateTotal').val(containRateTotal.toFixed(3));
+            var noRateTotal = unit_price*number*(1-$('.rateSelect').val());
+            $(this).closest('tr').find('.noRateTotal').val(noRateTotal.toFixed(3));
 
             //税额
             var ratePrice = unit_price*number*$('.rateSelect').val();
-            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+            $(this).closest('tr').find('.ratePrice').val((total-noRateTotal).toFixed(3));
         });
 
        //输入含税金额计算
@@ -497,7 +523,7 @@ mainStart
 
             //税额
             var ratePrice = noRateTotal*$('.rateSelect').val();
-            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+            $(this).closest('tr').find('.ratePrice').val((total_price-noRateTotal).toFixed(3));
 
             //不含税单价
             var number = $(this).closest('tr').find('.number').val();
@@ -515,12 +541,12 @@ mainStart
             var total_price =  $(this).closest('tr').find('.total_price').val();
 
             //不含税金额
-            var noRateTotal = total_price*(1-$('.rateSelect').val());
+            var noRateTotal = total_price*(1-rate);
             $(this).closest('tr').find('.noRateTotal').val(noRateTotal.toFixed(3));
 
             //税额
             var ratePrice = noRateTotal*rate;
-            $(this).closest('tr').find('.ratePrice').val(ratePrice.toFixed(3));
+            $(this).closest('tr').find('.ratePrice').val((total_price-noRateTotal).toFixed(3));
 
             //不含税单价
             var number = $(this).closest('tr').find('.number').val();

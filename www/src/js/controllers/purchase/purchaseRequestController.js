@@ -174,6 +174,7 @@ mainStart
             angular.forEach($('.materialListDiv'),function(data){
                 $scope.materialListArr.push(
                     {
+                        material_code:$(data).find('.material_code').val(),
                         material_name:$(data).find('.material_name').val(),
                         model:$(data).find('.model').val(),
                         //sn_num:$(data).find('.sn_num').val(),
@@ -226,7 +227,7 @@ mainStart
             var lineHtml =
                 '<div class="materialListDiv clearfix">'+
                 '                        <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>'+
-                '                        <div><input type="text" class="material_name" readonly value="'+material_code+'"/></div>'+
+                '                        <div><input type="text" class="material_code" readonly value="'+material_code+'"/></div>'+
                 '                        <div><input type="text" class="material_name" readonly value="'+material_name+'"/></div>'+
                 '                        <div><input type="text" class="model" readonly value="'+model+'"/></div>'+
                 '                        <div class="projectNumDiv"></div>'+
