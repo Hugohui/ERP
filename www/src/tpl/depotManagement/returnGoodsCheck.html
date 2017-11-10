@@ -36,4 +36,39 @@
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+    <!--选择sn号模态框-->
+    <div class="modal fade" id="selectSnNumModal" tabindex="-1" role="dialog" aria-labelledby="selectSnNumModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="material_code"/>
+                    <input type="hidden" id="selectMaxNum"/>
+                    <input type="hidden" id="materialNum"/>
+                    <h5 class="modal-title" id="selectSnNumModalLabel">选择sn号</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="snCheckbox">
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                        <label><input type="checkbox"/> <span>dn001</span></label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <span class="pull-left">还可选择<s class="redText remainSelectNum">8</s>条sn号</span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="selectSnNumOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

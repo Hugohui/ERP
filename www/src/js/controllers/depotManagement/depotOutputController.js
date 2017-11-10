@@ -161,7 +161,7 @@ mainStart
                 var inputStr, stock_position;
                 value.status == 0 ? (inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index] ? '<input type="checkbox" class="checkMaterial"  checked/>' : '<input type="checkbox" class="checkMaterial"/>') : inputStr = '';
                 value.stock_position ? stock_position = value.stock_position : stock_position = '<input class="stock_position" type="text" msg="库存位置不能为空" value="' + positionStr + '">';
-                var snTdStr = value.sn_num == ''?'<td>无</td>':value.status==1?'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">查看</a></td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">选择sn号</a></td>';
+                var snTdStr = value.sn_num == ''||value.sn_num == '无'?'<td>无</td>':value.status==1?'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">查看</a></td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">选择sn号</a></td>';
                 trStr += '<tr>' +
                     '<td>' + inputStr + '</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +

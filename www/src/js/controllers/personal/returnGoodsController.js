@@ -108,7 +108,6 @@ mainStart
                         //"data": "applicant",
                         "sClass": "text-center",
                         render:function(data){
-                            console.log();
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
                                 return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.orderStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
                             }else{

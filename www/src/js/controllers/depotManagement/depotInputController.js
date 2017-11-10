@@ -327,7 +327,7 @@ mainStart
                         material_code: $(this).find('.material_code').html(),
                         stock_position: $(this).find('.stock_position').val(),
                         sn_num: $(this).find('.sn_num').attr('snNumStr'),
-                        purchase_order_id:$(this).closest('tr').pre().find('.purchase_order_id').html()
+                        purchase_order_id:$(this).closest('table').closest('tr').prev().find('.purchase_order_id').html()
                     })
                 }
             });
