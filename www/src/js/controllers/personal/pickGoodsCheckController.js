@@ -192,7 +192,7 @@ mainStart
                         },
                         {
                             "data": "purchase_order_id",
-                            "sClass": "text-center"
+                            "sClass": "text-center purchase_order_id"
                         }/*,
                         {
                             "data": "contract_num",
@@ -424,6 +424,7 @@ mainStart
             var materialListArr = [];
             $.each($('.sonTable tr:not(".trHead")'),function(){
                 if($(this).find('.checkMaterial').is(':checked')){
+                    console.log($(this).closest('tr').prev().find('.purchase_order_id').html());
                     materialListArr.push(
                         {
                             material_code: $(this).find('.material_code').html(),
@@ -433,7 +434,8 @@ mainStart
                             project_num:$(this).find('.project_num').html(),
                             unit:$(this).find('.unit').html(),
                             number:$(this).find('.number').val(),
-                            remark:$(this).find('.remark').html()
+                            remark:$(this).find('.remark').html(),
+                            purchase_order_id:$(this).closest('table').closest('tr').prev().find('.purchase_order_id').html()
                         }
                     )
                 }
@@ -526,20 +528,20 @@ mainStart
         })
 
         /*审核结果拒绝理由输入框*/
-        $('#viewPickPurchaseModal').on('click','.radioDiv input',function(){
+/*        $('#viewPickPurchaseModal').on('click','.radioDiv input',function(){
             if($(this).attr('checkValue') == 1){
                 $('.reasonDiv').hide();
             }else{
                 $('.reasonDiv').show();
             }
-        })
+        })*/
 
         /*确认审核*/
         $scope.checkPurchaseOk = function(){
             var billNum,reason;
             billNum = $('#billNum').val();
             //拒绝理由不能为空
-            if($('#reasonText').is(':visible') && $('#reasonText').val().trim() == ''){
+            if($('#reasonText').is(':visible') && $('#reasonText').val().trim() == '' &&$('.radioDiv input:checked').attr('checkValue') == -1){
                 toastr.warning('请填写拒绝申请理由！');
                 return;
             }

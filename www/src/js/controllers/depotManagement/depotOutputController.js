@@ -161,7 +161,7 @@ mainStart
                 var inputStr, stock_position;
                 value.status == 0 ? (inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index] ? '<input type="checkbox" class="checkMaterial"  checked/>' : '<input type="checkbox" class="checkMaterial"/>') : inputStr = '';
                 value.stock_position ? stock_position = value.stock_position : stock_position = '<input class="stock_position" type="text" msg="库存位置不能为空" value="' + positionStr + '">';
-                var snTdStr = value.snNumStr == '无'?'<td>--</td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" snNumStr="'+value.snNumStr+'">选择sn号</a></td>';
+                var snTdStr = value.sn_num == ''?'<td>无</td>':value.status==1?'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">查看</a></td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">选择sn号</a></td>';
                 trStr += '<tr>' +
                     '<td>' + inputStr + '</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
@@ -259,6 +259,8 @@ mainStart
             $('#selectMaxNum').val(selectMaxNum);//可选的最多数量
             $('.remainSelectNum').html(selectMaxNum);//初始化选择的数量
 
+            var selectedSnArr = $(this).attr('selectedSn').split(',');
+
             //清除label
             $('#selectSnNumModal .snCheckbox').empty();
 
@@ -271,6 +273,33 @@ mainStart
 
             //添加到div
             $('#selectSnNumModal .snCheckbox').append(labelStr);
+
+            //显示已选中的sn号（修改时）
+            $.each($('.snCheckbox label'),function(index,value){
+                var spanStr = $(value).find('span').html();
+                var _value = value;
+                $.each(selectedSnArr,function(index,value){
+                    if(spanStr == value){
+                        $(_value).find('input').attr('checked',true);
+                    }
+                });
+            });
+
+            if($(this).html() == '修改选择'){
+                $('#selectSnNumModalLabel').html('修改选择');
+                $('.snCheckbox input').not(':checked').attr('disabled',true);
+                $('.remainSelectNum').html('0');
+            }
+
+            if($(this).html() == '查看'){
+                $('#selectSnNumModalLabel').html('查看sn号');
+                $('#selectSnNumModal .modal-footer').hide();
+                $('.snCheckbox input:checked').remove();
+                $('.snCheckbox input').not(':checked').closest('label').remove();
+            }else{
+                $('#selectSnNumModal .modal-footer').show();
+            }
+
             $('#selectSnNumModal').modal('show');
         });
 
@@ -299,12 +328,14 @@ mainStart
                 toastr.warning('sn号量与申请数量不符');
             }else{
                 $(currentSelectBtn).attr('selectedSn',selectSnArr.join(','));
+                $(currentSelectBtn).html('修改选择');
                 $('#selectSnNumModal').modal('hide');
             }
         }
 
         //完成领料
         $scope.commitDepotOutput = function () {
+            var flag = false;
             var commitDataArr = [];
             $.each($('#depotOutputTable>tbody>tr').find('.material_requisition_id'),function(){
                 var materialListArr = [];
@@ -323,7 +354,14 @@ mainStart
 
                         //该订单下的物料数据
                         $.each(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked'),function(i,v){
-                            materialListArr.push($(v).closest('tr').find('.material_code').html());
+                            if($(v).closest('tr').find('.selectSnNum').attr('selectedSn')!=undefined&&$(v).closest('tr').find('.selectSnNum').attr('snNumStr')!=''&&$(v).closest('tr').find('.selectSnNum').attr('selectedSn')==''){
+                                toastr.warning('请选择sn号');
+                                flag=true;
+                            }
+                            materialListArr.push({
+                                material_code:$(v).closest('tr').find('.material_code').html(),
+                                selectedSn:$(v).closest('tr').find('.selectSnNum').attr('selectedSn')?$(v).closest('tr').find('.selectSnNum').attr('selectedSn'):''
+                            });
                         })
 
                         //组合数据
@@ -334,6 +372,10 @@ mainStart
                     }
                 }
             });
+
+            if(flag){
+                return;
+            }
 
             //判断是否选择物料
             if (commitDataArr.length == 0) {
