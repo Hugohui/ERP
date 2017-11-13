@@ -109,9 +109,9 @@ mainStart
                         "sClass": "text-center",
                         render:function(data){
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.orderStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
                             }else{
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.orderStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>';
+                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>';
                             }
                         }
                     }
@@ -191,7 +191,7 @@ mainStart
                         },
                         {
                             "data": "material_requisition_id",
-                            "sClass": "text-center",
+                            "sClass": "text-center material_requisition_id",
                         },
                         {
                             "data": "purchase_order_id",
@@ -411,6 +411,7 @@ mainStart
                             unit:$(this).find('.unit').html(),
                             number:$(this).find('.number').val(),
                             remark:$(this).find('.remark').html(),
+                            material_requisition_id:$(this).closest('table').closest('tr').prev().find('.material_requisition_id').html(),
                             purchase_order_id:$(this).closest('table').closest('tr').prev().find('.purchase_order_id').html()
                         }
                     )
@@ -427,6 +428,7 @@ mainStart
             if(!isValidate){
                 return;
             }
+
 
             if($('.groupLeaderNameInp').val() == ''){
                 toastr.warning('请选择室组经理！');
@@ -458,7 +460,7 @@ mainStart
                 success: function (data) {
                     if(data.resData.result == 0){
                         toastr.success('退料申请提交成功！');
-                        addPickPurchaseTable.ajax.reload();
+                        returnGoodsTable.ajax.reload();
                         $('#addPickGooodsPurchaseModal').modal('hide');
                     }else{
                         toastr.error(data.resData.msg);

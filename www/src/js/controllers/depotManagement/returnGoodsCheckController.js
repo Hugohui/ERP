@@ -83,10 +83,10 @@ mainStart
                         "width": 50
                     },
                     {
-                        "data": "material_return_id",
+                        "data": null,
                         "sClass": "text-center",
                         "render":function(data){
-                            return '<span class="material_requisition_id">'+data+'</span>'
+                            return '<span class="material_requisition_id" material_requisition_id="'+data.material_requisition_id+'">'+data.material_return_id+'</span>'
                         }
                     },
                     {
@@ -154,7 +154,7 @@ mainStart
                 var inputStr, stock_position;
                 value.status == 0 ? (inputStr = inputCheckedArr.length != 0 && inputCheckedArr[index] ? '<input type="checkbox" class="checkMaterial"  checked/>' : '<input type="checkbox" class="checkMaterial"/>') : inputStr = '';
                 value.stock_position ? stock_position = value.stock_position : stock_position = '<input class="stock_position" type="text" msg="库存位置不能为空" value="' + positionStr + '">';
-                var snTdStr = value.sn_num == ''?'<td>无</td>':value.status==1?'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">查看</a></td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">选择sn号</a></td>';
+                var snTdStr = value.status==0?(value.sn_num == ''||value.sn_num == '无'?'<td>无</td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">选择sn号</a></td>'):(value.selectedSn == ''||value.selectedSn=='无'?'<td>无</td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.selectedSn+'">查看</a></td>');
                 trStr += '<tr>' +
                     '<td>' + inputStr + '</td>' +
                     '<td class="material_code">' + value.material_code + '</td>' +
@@ -250,9 +250,10 @@ mainStart
         })
 
         //选择sn号模态框
-        var selectSnArr = [];
+        var selectSnArr;
         var currentSelectBtn;
         $(document).on('click','.selectSnNum',function(){
+            selectSnArr = [];
             currentSelectBtn = this;
             var selectMaxNum = $(this).closest('tr').find('.number').html();
             $('#selectMaxNum').val(selectMaxNum);//可选的最多数量
@@ -279,6 +280,7 @@ mainStart
                 var _value = value;
                 $.each(selectedSnArr,function(index,value){
                     if(spanStr == value){
+                        selectSnArr.push(spanStr);
                         $(_value).find('input').attr('checked',true);
                     }
                 });
@@ -354,7 +356,8 @@ mainStart
                         $.each(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked'),function(i,v){
                             materialListArr.push({
                                 material_code:$(v).closest('tr').find('.material_code').html(),
-                                selectedSn:$(v).closest('tr').find('.selectSnNum').attr('selectedSn')?$(v).closest('tr').find('.selectSnNum').attr('selectedSn'):''
+                                selectedSn:$(v).closest('tr').find('.selectSnNum').attr('selectedSn')?$(v).closest('tr').find('.selectSnNum').attr('selectedSn'):'',
+                                material_requisition_id:$(v).closest('table').closest('tr').prev().find('.material_requisition_id').attr('material_requisition_id')
                             });
                         })
 
