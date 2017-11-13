@@ -100,10 +100,23 @@ mainStart
                         "data": "applicant",
                         "sClass": "text-center"
                     },
-/*                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },*/
+                    {
+                        "data": "status",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            var statusStr = {
+                                "-1":"已撤销",
+                                0:"待审批",
+                                1:"已审批",
+                                2:"待下单",
+                                3:"已下单",
+                                4:"待领料",
+                                5:"已领料",
+                                6:"已完成"
+                            }
+                            return statusStr[data];
+                        }
+                    }
                     /*{
                         "data":null,
                         "sClass":"text-center",
@@ -143,9 +156,9 @@ mainStart
             $.each(d.materialList, function (index, value) {
 
                 //到货日期
-                var arrived_on = value.arrived_on ? value.arrived_on : '';
+                var arrived_on = value.arrived_on ? value.arrived_on : '--';
                 //货物状态
-                var status = statusStr[value.status] ? statusStr[value.status] : '';
+                var status = statusStr[value.status] ? statusStr[value.status] : '--';
 
                 trStr += '<tr>' +
                     '<td>' + value.material_name + '</td>' +

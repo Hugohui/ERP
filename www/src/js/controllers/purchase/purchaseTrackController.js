@@ -50,7 +50,7 @@ mainStart
         /**
          * 请求采购跟踪数据
          */
-        function loadPurchaseTrack(){
+        function loadPurchaseTrack(flag){
 
             var classObj ={//审核结果类名
                 "-1":"purchaseFailure",//拒绝
@@ -99,6 +99,10 @@ mainStart
                             //页数加加
                             pageNum+=1;
 
+                            if(flag){
+                                $('.purchaseTrackBody').empty();
+                            }
+
                             //添加分割线
                             $('.purchaseTrackBody').append('<div class="splitLine"></div>');
 
@@ -107,9 +111,10 @@ mainStart
                                 var groupLeaderReason = value.group_leader.reason == ''?'':'<i class="fa fa-commenting-o reasonMsg"></i>';
                                 var departmentReason = value.department.reason == ''?'':'<i class="fa fa-commenting-o reasonMsg"></i>';
                                 var managerReason = value.manager.reason == ''?'':'<i class="fa fa-commenting-o reasonMsg"></i>';
+                                var canclePurchase = value.status != -1?(value.canCancle == 0?'<span class="btn btn-default btn-xs canclePurchase">撤销</span>':''):'<span class="alreadyCancle">已撤销</span>';
                                 html+=
                                     '              <div class="purchaseLine">'+
-                                    '                <span class="purchaseLineOrder">订单编号：'+value.purchase_applicant_id+'</span>'+
+                                    '                <span class="purchaseLineOrder" purchase_applicant_id="'+value.purchase_applicant_id+'">订单编号：'+value.purchase_applicant_id+'</span>'+canclePurchase+
                                     '                <ul class="purchaseLineUl clearfix">'+
                                     '                    <li class="purchaseReqSuccess">'+
                                     '                        我'+
@@ -177,6 +182,33 @@ mainStart
             loadPurchaseTrack();
         });
 
+        //确定撤销订单
+        $scope.canclePurchaseOk = function(){
+            var purchase_applicant_id = $('#purchase_applicant_id').val();
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"canclePurchase",
+                    params:{
+                        applicant:$scope.user.name,
+                        purchase_applicant_id:purchase_applicant_id
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        $('#canclePurchaseModal').modal('hide');
+                        pageNum=1;
+                        loadPurchaseTrack(true);
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
+
         /**
          * 事件绑定
          */
@@ -190,6 +222,13 @@ mainStart
 
             $('.purchaseTrackBody').on('mouseleave','.reasonMsg',function(){
                     $(this).closest('li').find('.showReasonDiv').hide();
+            });
+
+            //采购申请撤销
+            $('.purchaseTrackBody').on('click','.canclePurchase',function(){
+                var purchase_applicant_id = $(this).prev().attr('purchase_applicant_id');
+                $('#purchase_applicant_id').val(purchase_applicant_id);
+                $('#canclePurchaseModal').modal('show');
             });
         }
     }]);

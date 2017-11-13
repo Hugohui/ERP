@@ -336,6 +336,7 @@ mainStart
 
         //完成退料
         $scope.commitDepotOutput = function () {
+            var flag = false;
             var commitDataArr = [];
             $.each($('#returnGoodsCheckTable>tbody>tr').find('.material_requisition_id'),function(){
                 var materialListArr = [];
@@ -354,6 +355,10 @@ mainStart
 
                         //该订单下的物料数据
                         $.each(tr.next().find('.sonTable tr:not(".trHead")').find('.checkMaterial:checked'),function(i,v){
+                            if($(v).closest('tr').find('.selectSnNum').attr('selectedSn')!=undefined&&$(v).closest('tr').find('.selectSnNum').attr('snNumStr')!=''&&$(v).closest('tr').find('.selectSnNum').attr('selectedSn')==''){
+                                toastr.warning('请选择sn号');
+                                flag=true;
+                            }
                             materialListArr.push({
                                 material_code:$(v).closest('tr').find('.material_code').html(),
                                 selectedSn:$(v).closest('tr').find('.selectSnNum').attr('selectedSn')?$(v).closest('tr').find('.selectSnNum').attr('selectedSn'):'',
@@ -369,6 +374,10 @@ mainStart
                     }
                 }
             });
+
+            if(flag){//判断是否选择sn号
+                return;
+            }
 
             if(commitDataArr.length == 0){
                 toastr.warning('请选择物料');

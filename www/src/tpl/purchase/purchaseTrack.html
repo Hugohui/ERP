@@ -11,8 +11,9 @@
             </div>
         </div>
         <div class="purchaseTrackBody">
-            <!--<div class="purchaseLine">
+<!--            <div class="purchaseLine">
                 <span class="purchaseLineOrder">订单编号：CGSQ201710101213</span>
+                <span class="btn btn-default btn-xs canclePurchase">撤销</span>
                 <ul class="purchaseLineUl clearfix">
                     <li class="purchaseReqSuccess">
                         我
@@ -45,99 +46,6 @@
                         <span class="preFlowSpan"></span>
                     </li>
                 </ul>
-            </div>
-            <div class="splitLine"></div>
-            <div class="purchaseLine">
-                <span class="purchaseLineOrder">订单编号：CGSQ201710101214</span>
-                <ul class="purchaseLineUl clearfix">
-                    <li class="purchaseReqSuccess">
-                        我
-                        <span class="nextFlowSpan purchaseReqSuccess"></span>
-                        <span class="purchaseResult">提交申请</span>
-                        <span class="purchaseDatetime">2017-10-11 15:12:30</span>
-                    </li>
-                    <li class="purchaseReqSuccess">
-                        室组经理
-                        <span class="preFlowSpan purchaseReqSuccess"></span>
-                        <span class="nextFlowSpan purchaseReqSuccess"></span>
-                        <span class="purchaseResult">已同意</span>
-                        <span class="purchaseDatetime">2017-10-11 14:22:01</span>
-                    </li>
-                    <li>
-                        部长
-                        <span class="preFlowSpan"></span>
-                        <span class="nextFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                    <li>
-                        总经理
-                        <span class="preFlowSpan"></span>
-                        <span class="nextFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                    <li>
-                        采购
-                        <span class="preFlowSpan"></span>
-                        <span class="nextFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                    <li>
-                        库管
-                        <span class="preFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                </ul>
-            </div>
-            <div class="splitLine"></div>
-            <div class="purchaseLine">
-                <span class="purchaseLineOrder">订单编号：CGSQ201710101215</span>
-                <ul class="purchaseLineUl clearfix">
-                    <li class="purchaseReqSuccess">
-                        我
-                        <span class="nextFlowSpan purchaseReqSuccess"></span>
-                        <span class="purchaseResult">提交申请</span>
-                        <span class="purchaseDatetime">2017-10-11 15:12:30</span>
-                    </li>
-                    <li class="purchaseReqSuccess">
-                        室组经理
-                        <span class="preFlowSpan purchaseReqSuccess"></span>
-                        <span class="nextFlowSpan purchaseReqSuccess"></span>
-                        <span class="purchaseResult">已同意</span>
-                        <span class="purchaseDatetime">2017-10-11 14:22:01</span>
-                    </li>
-                    <li class="purchaseFailure">
-                        <p class="showReasonDiv"></p>
-                        部长
-                        <span class="preFlowSpan purchaseFailure"></span>
-                        <span class="nextFlowSpan purchaseFailure"></span>
-                        <span class="purchaseResult">拒绝申请</span>
-                        <span class="purchaseDatetime">2017-10-11 14:25:11</span>
-                    </li>
-                    <li>
-                        总经理
-                        <span class="preFlowSpan"></span>
-                        <span class="nextFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                    <li>
-                        采购
-                        <span class="preFlowSpan"></span>
-                        <span class="nextFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                    <li>
-                        库管
-                        <span class="preFlowSpan"></span>
-                        <span class="purchaseResult"></span>
-                        <span class="purchaseDatetime"></span>
-                    </li>
-                </ul>
             </div>-->
             <div class="loadingDiv">
                 <div class="loading">
@@ -150,4 +58,25 @@
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+    <!--撤销订单提示模态框-->
+    <div class="modal fade" id="canclePurchaseModal" tabindex="-1" role="dialog" aria-labelledby="canclePurchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="purchase_applicant_id"/>
+                    <h5 class="modal-title" id="canclePurchaseModalLabel">撤销采购申请</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>订单正在审批，确定撤销此订单？</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="canclePurchaseOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
