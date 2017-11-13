@@ -50,6 +50,9 @@
                     <li ng-class="{active:$state.includes('depotManagement.returnGoodsCheck')}" ng-if="roles.retirement_audit== 'true'">
                         <a ui-sref="depotManagement.returnGoodsCheck"> 退料审核</a>
                     </li>
+                    <li ng-class="{active:$state.includes('depotManagement.borrowManage')}" ng-if="roles.retirement_audit== 'true'">
+                        <a ui-sref="depotManagement.borrowManage"> 借还管理</a>
+                    </li>
                 </ul>
             </li>
             <li class="treeview" ng-class="{active:$state.includes('personal')}" ng-if="roles.material_application== 'true'||roles.retirement_application== 'true'||roles.information_maintenance== 'true'">

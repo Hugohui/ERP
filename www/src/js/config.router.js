@@ -142,6 +142,15 @@ angular.module('mainStart')
                     }]
                 }
             })
+            .state('depotManagement.borrowManage',{//借还管理
+                url:'/borrowManage',
+                templateUrl:'tpl/depotManagement/borrowManage.html',
+                resolve:{
+                    deps:['$ocLazyLoad',function($ocLazyLoad){
+                        return $ocLazyLoad.load(['js/controllers/depotManagement/borrowManageController.js']);
+                    }]
+                }
+            })
 
             /*我的*/
             .state('personal',{
