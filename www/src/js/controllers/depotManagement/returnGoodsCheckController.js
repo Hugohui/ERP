@@ -86,7 +86,7 @@ mainStart
                         "data": null,
                         "sClass": "text-center",
                         "render":function(data){
-                            return '<span class="material_requisition_id" material_requisition_id="'+data.material_requisition_id+'">'+data.material_return_id+'</span>'
+                            return '<span class="material_requisition_id">'+data.material_return_id+'</span>'
                         }
                     },
                     {
@@ -157,7 +157,7 @@ mainStart
                 var snTdStr = value.status==0?(value.sn_num == ''||value.sn_num == '无'?'<td>无</td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.sn_num+'">选择sn号</a></td>'):(value.selectedSn == ''||value.selectedSn=='无'?'<td>无</td>':'<td><a href="javascript:;" class="btn btn-default btn-xs selectSnNum" selectedSn="'+value.selectedSn+'" snNumStr="'+value.selectedSn+'">查看</a></td>');
                 trStr += '<tr>' +
                     '<td>' + inputStr + '</td>' +
-                    '<td class="material_code">' + value.material_code + '</td>' +
+                    '<td class="material_code" material_requisition_id="'+value.material_requisition_id+'">' + value.material_code + '</td>' +
                     '<td>' + value.material_name + '</td>' +
                     '<td>' + value.model + '</td>' +snTdStr+
                     '<td>' + value.project_num + '</td>' +
@@ -357,7 +357,7 @@ mainStart
                             materialListArr.push({
                                 material_code:$(v).closest('tr').find('.material_code').html(),
                                 selectedSn:$(v).closest('tr').find('.selectSnNum').attr('selectedSn')?$(v).closest('tr').find('.selectSnNum').attr('selectedSn'):'',
-                                material_requisition_id:$(v).closest('table').closest('tr').prev().find('.material_requisition_id').attr('material_requisition_id')
+                                material_requisition_id:$(v).closest('tr').find('.material_code').attr('material_requisition_id')
                             });
                         })
 
@@ -370,12 +370,16 @@ mainStart
                 }
             });
 
+            if(commitDataArr.length == 0){
+                toastr.warning('请选择物料');
+                return;
+            }
+
             //验证
             var isValidate = beforeSubmit("depotOutputTableDiv");
             if (!isValidate) {
                 return;
             }
-
             //提交数据
             $.ajax({
                 type: 'POST',
@@ -400,6 +404,5 @@ mainStart
 
                 }
             })
-
         }
     }]);
