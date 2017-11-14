@@ -191,6 +191,27 @@
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
+    <!--撤销订单提示模态框-->
+    <div class="modal fade" id="cancleReturnApplyModal" tabindex="-1" role="dialog" aria-labelledby="cancleReturnApplyModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" id="material_return_id"/>
+                    <h5 class="modal-title" id="cancleReturnApplyModalLabel">撤销领料申请</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>订单正在审批，确定撤销此订单？</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="cancleReturnApplyOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script language="javascript">

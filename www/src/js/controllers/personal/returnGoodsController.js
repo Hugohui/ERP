@@ -109,9 +109,10 @@ mainStart
                         "sClass": "text-center",
                         render:function(data){
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
+                                return '<span class="btn btn-default btn-xs viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印/审核</span>';
                             }else{
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>';
+                                var cancleBtn = data.orderStatus==1?'':' <span class="btn btn-default btn-xs cancleReturnApply" material_return_id="'+data.material_return_id+'">撤销</span>';
+                                return '<span class="btn btn-default btn-xs viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_return_id+'">查看/打印</span>'+cancleBtn;
                             }
                         }
                     }
@@ -547,6 +548,39 @@ mainStart
                         //重新设置当前用户其他未审核信息
                         /*$localStorage.sendMessage = data.resData.sendMessage;
                          $scope.sendMessage = data.resData.sendMessage;*/
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
+
+        /*撤销退料申请*/
+        $(document).on('click','.cancleReturnApply',function(){
+            var material_return_id = $(this).attr('material_return_id');
+            $('#material_return_id').val(material_return_id);
+            $('#cancleReturnApplyModal').modal('show');
+        });
+        //确定撤销
+        $scope.cancleReturnApplyOk = function(){
+            var material_return_id = $('#material_return_id').val();
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"canclePickApply",
+                    params:{
+                        userName:$scope.user.name,
+                        material_return_id:material_return_id
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        toastr.success('订单撤销成功');
+                        $('#cancleReturnApplyModal').modal('hide');
+                        returnGoodsTable.ajax.reload();
                     }else{
                         toastr.error(data.resData.msg);
                     }
