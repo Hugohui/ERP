@@ -575,7 +575,7 @@ mainStart
                 type:'POST',
                 url:'http://111.204.101.170:11115',
                 data:{
-                    action:"canclePickApply",
+                    action:"cancleReturnApply",
                     params:{
                         applicant:$scope.user.name,
                         material_return_id:material_return_id
