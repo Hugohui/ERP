@@ -90,7 +90,7 @@ mainStart
                             var statusStr = {
                                 0:"待审核",
                                 1:"已审核",
-                                "-1":"已审核"
+                                "-1":"已撤销"
                             }
                             if(data.checkStatus){
                                 return '订单总状态：'+statusStr[data.orderStatus]+' | 我的审核状态：'+statusStr[data.checkStatus];
@@ -105,11 +105,11 @@ mainStart
                         //"data": "applicant",
                         "sClass": "text-center",
                         render:function(data){
-                            console.log();
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印/审核</span>';
+                                return '<span class="btn btn-default btn-xs viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印/审核</span>';
                             }else{
-                                return '<span class="btn btn-default btn-sm viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印</span>';
+                                var cancleBtn = data.orderStatus==1?'':' <span class="btn btn-default btn-xs canclePickApply" material_requisition_id="'+data.material_requisition_id+'">撤销</span>';
+                                return '<span class="btn btn-default btn-xs viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印</span>'+cancleBtn;
                             }
                         }
                     }
@@ -577,6 +577,38 @@ mainStart
             })
         }
 
+        /*撤销领料申请*/
+        $(document).on('click','.canclePickApply',function(){
+            var material_requisition_id = $(this).attr('material_requisition_id');
+            $('#material_requisition_id').val(material_requisition_id);
+            $('#canclePickApplyModal').modal('show');
+        });
+        //确定撤销
+        $scope.canclePickApplyOk = function(){
+            var material_requisition_id = $('#material_requisition_id').val();
+            $.ajax({
+                type:'POST',
+                url:'http://111.204.101.170:11115',
+                data:{
+                    action:"canclePickApply",
+                    params:{
+                        userName:$scope.user.name,
+                        material_requisition_id:material_requisition_id
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp : "callback",
+                success:function(data){
+                    if(data.resData.result == 0){
+                        toastr.success('订单撤销成功');
+                        $('#canclePickApplyModal').modal('hide');
+                        pickGoodsTable.ajax.reload();
+                    }else{
+                        toastr.error(data.resData.msg);
+                    }
+                }
+            })
+        }
         //打印
         $scope.printPurchase = function(){
             preview(1);

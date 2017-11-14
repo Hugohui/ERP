@@ -199,6 +199,7 @@ mainStart
                 jsonp : "callback",
                 success:function(data){
                     if(data.resData.result == 0){
+                        toastr.success('订单撤销成功');
                         $('#canclePurchaseModal').modal('hide');
                         pageNum=1;
                         loadPurchaseTrack(true);
