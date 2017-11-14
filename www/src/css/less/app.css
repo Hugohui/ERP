@@ -1434,6 +1434,56 @@ body .content #labelTip {
   float: left;
   margin: 5px 15px;
 }
+.borrowManageBody {
+  margin-top: 5px;
+}
+.borrowManageBody #borrowManageTable {
+  text-align: center;
+}
+.borrowManageBody .handleBorrowDiv {
+  margin-left: 100px;
+  position: absolute;
+  top: 0;
+}
+#borrowModal .modal-body {
+  min-height: 50px;
+}
+#borrowInfoModal .modal-body .borrowInfoUl,
+#returnInfoModal .modal-body .borrowInfoUl {
+  overflow: hidden;
+}
+#borrowInfoModal .modal-body .borrowInfoUl > li,
+#returnInfoModal .modal-body .borrowInfoUl > li {
+  float: left;
+  width: 33.33%;
+  font-size: 14px;
+}
+#borrowInfoModal .modal-body .borrowInfoUl > li .selectSn,
+#returnInfoModal .modal-body .borrowInfoUl > li .selectSn {
+  margin-bottom: 4px;
+}
+#borrowInfoModal .modal-body .borrowInfoUl > .dateLi,
+#returnInfoModal .modal-body .borrowInfoUl > .dateLi {
+  width: 50%;
+}
+#borrowInfoModal .modal-body .borrowInfoUl > .dateLi input,
+#returnInfoModal .modal-body .borrowInfoUl > .dateLi input {
+  height: 24px;
+  width: 165px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 3px;
+  margin-bottom: 4px;
+}
+#borrowInfoModal .modal-body .borrowInfoUl > .inputLi input,
+#returnInfoModal .modal-body .borrowInfoUl > .inputLi input {
+  margin-bottom: 4px;
+  height: 24px;
+  width: 112px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 3px;
+}
 /*系统管理*/
 #modal-content-usermanage {
   width: 700px;

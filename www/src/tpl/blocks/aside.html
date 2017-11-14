@@ -50,7 +50,7 @@
                     <li ng-class="{active:$state.includes('depotManagement.returnGoodsCheck')}" ng-if="roles.retirement_audit== 'true'">
                         <a ui-sref="depotManagement.returnGoodsCheck"> 退料审核</a>
                     </li>
-                    <li ng-class="{active:$state.includes('depotManagement.borrowManage')}" ng-if="roles.retirement_audit== 'true'">
+                    <li ng-class="{active:$state.includes('depotManagement.borrowManage')}" ng-if="roles.borrow== 'true'">
                         <a ui-sref="depotManagement.borrowManage"> 借还管理</a>
                     </li>
                 </ul>

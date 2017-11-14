@@ -1,0 +1,53 @@
+.borrowManageBody{
+  margin-top: 5px;
+  #borrowManageTable{
+    text-align: center;
+  }
+  .handleBorrowDiv{
+    margin-left: 100px;
+    position: absolute;
+    top: 0;
+  }
+}
+
+#borrowModal{
+  .modal-body{
+    min-height: 50px;
+  }
+}
+#borrowInfoModal,#returnInfoModal{
+  .modal-body{
+    .borrowInfoUl{
+      overflow: hidden;
+      &>li{
+        float: left;
+        width: 33.33%;
+        font-size: 14px;
+        .selectSn{
+          margin-bottom: 4px;
+        }
+      }
+      &>.dateLi{
+        width: 50%;
+        input{
+          height: 24px;
+          width: 165px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 0 3px;
+          margin-bottom: 4px;
+        }
+      }
+      &>.inputLi{
+        input{
+          margin-bottom:4px;
+          height: 24px;
+          width: 112px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 0 3px;
+        }
+      }
+    }
+  }
+}

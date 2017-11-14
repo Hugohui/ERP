@@ -10,26 +10,129 @@
                     <option value="1">已还</option>
                 </select>
                 <div class="searchGroup">
-                    <input type="text" placeholder="借用人" class="placeholderOrderNum"/>
+                    <input type="text" placeholder="借用/归还人" class="placeholderOrderNum"/>
                     <a href="javascript:;" class="btn btn-primary btn-sm search"><i class="fa fa-search"></i>搜索</a>
                 </div>
             </div>
         </div>
-        <div class="depotOutputBody">
-            <h3>借还管理</h3>
+        <div class="borrowManageBody">
+            <div class="borrowManageTableDiv" id="borrowManageTableDiv">
+                <table id="borrowManageTable" class="display table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <td></td>
+                        <td>物料编码</td>
+                        <td>名称</td>
+                        <td>型号</td>
+                        <td>sn号</td>
+                        <td>数量</td>
+                        <td>借用时间</td>
+                        <td>预计归还时间</td>
+                        <td>实际归还时间</td>
+                        <td>借用人</td>
+                        <td>归还人</td>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
     <div ng-include="'tpl/blocks/aside.html'" class="aside"></div>
     <div ng-include="'tpl/blocks/header.html'" class="header"></div>
     <div ng-include="'tpl/blocks/footer.html'"></div>
     <!--选择sn号模态框-->
+    <div class="modal fade" id="borrowModal" tabindex="-1" role="dialog" aria-labelledby="borrowModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="borrowModalLabel">新增借用</h5>
+                    <div class="searchGroup">
+                        <input type="text" placeholder="物料名称" id="queryInput"/>
+                        <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="searchMaterial()"><i class="fa fa-search"></i></a>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modalLoading">
+                        <img src="./imgs/loading.gif" alt="" width="40"/>
+                    </div>
+                    <ul class="selectCheckUl">
+                        <li class="selectLi" ng-click="selectMaterial($event)">
+                            【<span class="selectName">DN001</span>】 电脑--thinkPad--智行者制造
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--填写借用信息模态框-->
+    <div class="modal fade" id="borrowInfoModal" tabindex="-1" role="dialog" aria-labelledby="borrowInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="borrowInfoModalLabel">填写借用信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="borrowInfoUl">
+                        <li>物料编码：<span class="material_code">--</span></li>
+                        <li>名称：<span class="material_name">--</span></li>
+                        <li>型号：<span class="model">--</span></li>
+                        <li>数量：<span class="number">--</span></li>
+                        <li>sn号：<span class="btn btn-default btn-xs selectSn">选择</span></li>
+                        <li class="inputLi">借用人：<input type="text" class="borrowPeople"/></li>
+                        <li class="dateLi">借用日期：<input type="date" class="borrowDate"/></li>
+                        <li class="dateLi">预计归还日期：<input type="date" class="planReturnDate"/></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="borrowOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--归还物料信息模态框-->
+    <div class="modal fade" id="returnInfoModal" tabindex="-1" role="dialog" aria-labelledby="returnInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="returnInfoModalLabel">物料归还</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="borrowInfoUl">
+                        <li>物料编码：<span class="material_code">--</span></li>
+                        <li>名称：<span class="material_name">--</span></li>
+                        <li>型号：<span class="model">--</span></li>
+                        <li>数量：<span class="number">--</span></li>
+                        <li>sn号：<span class="btn btn-default btn-xs selectSn">选择</span></li>
+                        <li class="inputLi">借用人：<span class="borrowPeople"/>--</li>
+                        <li class="dateLi">借用日期：<span class="borrowDate">--</span></li>
+                        <li class="dateLi">归还日期：<input type="date" class="planReturnDate"/></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="returnOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--选择sn号模态框-->
     <div class="modal fade" id="selectSnNumModal" tabindex="-1" role="dialog" aria-labelledby="selectSnNumModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <input type="hidden" id="material_code"/>
-                    <input type="hidden" id="selectMaxNum"/>
-                    <input type="hidden" id="materialNum"/>
                     <h5 class="modal-title" id="selectSnNumModalLabel">选择sn号</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -47,12 +150,10 @@
                         <label><input type="checkbox"/> <span>dn001</span></label>
                         <label><input type="checkbox"/> <span>dn001</span></label>
                     </div>
-
                 </div>
                 <div class="modal-footer">
-                    <span class="pull-left">还可选择<s class="redText remainSelectNum">8</s>条sn号</span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" ng-click="selectSnNumOk()">确定</button>
+                    <button type="button" class="btn btn-primary" ng-click="selectOk()">确定</button>
                 </div>
             </div>
         </div>
