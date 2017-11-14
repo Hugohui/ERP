@@ -90,12 +90,19 @@ mainStart
                             var statusStr = {
                                 0:"待审核",
                                 1:"已审核",
-                                "-1":"已撤销"
+                                "-1":"未通过",
+                                "-2":"已撤销"
+                            }
+                            var statusColor = {
+                                0:"order_info",//#5bc0de
+                                1:"order_success",//#5cb85c
+                                "-1":"order_danger",//#d9534f
+                                "-2":"order_warning"//#f0ad4e
                             }
                             if(data.checkStatus){
                                 return '订单总状态：'+statusStr[data.orderStatus]+' | 我的审核状态：'+statusStr[data.checkStatus];
                             }else{
-                                return statusStr[data.orderStatus];
+                                return '<span class="order '+statusColor[data.orderStatus]+'">'+statusStr[data.orderStatus]+'</span>';
                             }
                         },
                         "width":270
@@ -108,7 +115,7 @@ mainStart
                             if($scope.roles.role_id == 6||$scope.roles.role_id==3){
                                 return '<span class="btn btn-default btn-xs viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印/审核</span>';
                             }else{
-                                var cancleBtn = data.orderStatus==1?'':' <span class="btn btn-default btn-xs canclePickApply" material_requisition_id="'+data.material_requisition_id+'">撤销</span>';
+                                var cancleBtn = data.orderStatus==0?' <span class="btn btn-default btn-xs canclePickApply" material_requisition_id="'+data.material_requisition_id+'">撤销</span>':'';
                                 return '<span class="btn btn-default btn-xs viewPickPurchase" status="'+data.checkStatus+'" pickPurchaseOrder="'+data.material_requisition_id+'">查看/打印</span>'+cancleBtn;
                             }
                         }
@@ -592,7 +599,7 @@ mainStart
                 data:{
                     action:"canclePickApply",
                     params:{
-                        userName:$scope.user.name,
+                        applicant:$scope.user.name,
                         material_requisition_id:material_requisition_id
                     }
                 },

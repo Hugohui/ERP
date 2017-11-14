@@ -305,6 +305,24 @@ s {
 .bg-white-only a {
   color: #000;
 }
+/*����״̬*/
+.order {
+  border-radius: 3px;
+  padding: 2px 3px;
+  color: #fff;
+}
+.order_info {
+  background-color: #5bc0de;
+}
+.order_success {
+  background-color: #5cb85c;
+}
+.order_danger {
+  background-color: #d9534f;
+}
+.order_warning {
+  background-color: #f0ad4e;
+}
 /*导航*/
 .navbar-header {
   width: 200px;
