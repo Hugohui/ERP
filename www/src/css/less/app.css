@@ -1199,6 +1199,7 @@ body .content #labelTip {
 }
 .basicInfoManageBody .panelMain .panel-body .infoInput ul > li input {
   border: 1px solid #ccc;
+  height: 28px;
   border-radius: 3px;
   padding: 0 5px;
 }
@@ -1828,3 +1829,4 @@ body .content #labelTip {
 .checkBody .reasonDiv textarea {
   width: 100%;
 }
+[0x7FF9BAD62140] ANOMALY: meaningless REX prefix used
