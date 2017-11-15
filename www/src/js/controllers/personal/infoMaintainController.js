@@ -101,7 +101,6 @@ mainStart
                     success:function(data){
                         $("#updataForm")[0].reset();
                         console.log(data);
-                        alert(data.resData.data)
                     }
                 })
             }else{
