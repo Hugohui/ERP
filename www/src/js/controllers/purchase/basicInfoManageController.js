@@ -146,7 +146,7 @@ mainStart
                         materialInfoTable.ajax.reload();
                         $('#materialInput input').val('');
                     }else{
-                        toastr.error('物料编码【'+data.resData.material_code+'】重复！',data.resData.msg);
+                        toastr.error('【'+data.resData.material_code+'】重复！',data.resData.msg);
                     }
                 }
             });
