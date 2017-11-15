@@ -11,6 +11,12 @@ mainStart
         //获取借还信息列表
         initBorrowManageTable();
 
+        //验证
+        $.fn.InitValidator('borrowInfoModal');
+        $('#borrowInfoModal [valType]').hideValidate();
+        $.fn.InitValidator('returnInfoModal');
+        $('#returnInfoModal [valType]').hideValidate();
+
         /**
          * 采购入库列表
          */
@@ -49,7 +55,6 @@ mainStart
                     param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                     param.start = data.start;//开始的记录序号
                     param.page = (data.start / data.length) + 1;//当前页码
-                    param.applicant = $scope.user.name;
                     param.queryData = queryData;
                     //ajax请求数据
                     $.ajax({
@@ -57,10 +62,9 @@ mainStart
                         //url:'data/users.txt',
                         url: 'http://111.204.101.170:11115',
                         data: {
-                            action: "depotInputList",
+                            action: "getBorrowList",
                             params: param
                         },
-                        //dataType:'json',
                         dataType: 'jsonp',
                         jsonp: "callback",
                         success: function (result) {
@@ -77,70 +81,74 @@ mainStart
                 //列表表头字段
                 columns: [
                     {
-                        "data": null,
+                        "data": "material_code",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "material_name",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "model",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "selectedSn",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "number",
+                        "sClass": "text-center"
+                    },
+                    {
+                        "data": "borrowDate",
                         "sClass": "text-center",
-                        "render": function (data) {
-                            //未收料和部分收料的显示选择框
-                            var inputStr ='<input class="topCheckInput" type="checkbox"/>';
-                            //var inputStr = data.orderStatus == 0 ||  data.orderStatus == 2?'<input class="topCheckInput" type="checkbox"/>':'';
-                            var html = '<s class="fa fa-plus-square details-control" materialList = "' + data.materialList + '"></s>'+inputStr;
-                            return html;
-                        },
-                        "width": 50
+                        "render":function(data){
+                            return data.split(' ')[0];
+                        }
                     },
                     {
-                        "data": "purchase_applicant_id",
+                        "data": "planReturnDate",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return data.split(' ')[0];
+                        }
+                    },
+                    {
+                        "data": "actualReturnDate",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return data!=null?data.split(' ')[0]:'--';
+                        }
+                    },
+                    {
+                        "data": "borrowPeople",
                         "sClass": "text-center"
                     },
                     {
-                        "data": "purchase_order_id",
-                        "sClass": "text-center purchase_order_id"
-                    },
-                    {
-                        "data": "contract_num",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "applicant",
-                        "sClass": "text-center"
-                    },
-                    {
-                        "data": "orderStatus",
+                        "data": "status",
                         "sClass": "text-center",
                         "render":function(data){
                             var statusStr = {
-                                0:'待收料',
-                                1:'已收料',
-                                2:'部分收料'
+                                0:'借出',
+                                1:'已归还'
                             }
                             return statusStr[data];
                         }
+                    },
+                    {
+                        "data": null,
+                        "sClass": "text-center",
+                        "render": function (data) {
+                            var inputStr =data.status == 0?'<span class="returnMaterialBtn btn btn-default btn-xs" borrow_material_id="'+data.borrow_material_id+'">归还</span>':'';
+                            return inputStr;
+                        },
                     }
                 ]
             }).api();
             var btnStr = '<div class="handleBorrowDiv">'+
-                '                    <button class="btn btn-success btn-sm" ng-click="borrow()"><span class="fa fa-plus"></span> 借用</button>'+
-                '                    <button class="btn btn-warning btn-sm" ng-click="return()"><span class="fa fa-history"></span> 归还</button>'+
+                '                    <button class="btn btn-success btn-sm" ng-click="borrow()"><span class="fa fa-plus"></span> 新增</button>'+
+                //'                    <button class="btn btn-warning btn-sm" ng-click="return()"><span class="fa fa-history"></span> 归还</button>'+
                 '                </div>';
             var $btnStr = $compile(btnStr)($scope);
             $('.dataTables_wrapper').append($btnStr);
@@ -178,7 +186,7 @@ mainStart
                 type: 'POST',
                 url: 'http://111.204.101.170:11115',
                 data: {
-                    action:"loadMaterialList",
+                    action:"getDepotMaterialList",
                     params:{
                         queryData:queryData
                     }
@@ -196,7 +204,7 @@ mainStart
                     var html = '';
                     $.each(data.resData.data,function(index,value){
                         html+=
-                            '<li class="selectLi" ng-click="selectMaterial($event)" material_code="'+value.material_code+'" material_name="'+value.material_name+'" model="'+value.model+'" manufactor="'+value.manufactor+'" unit="'+value.unit+'" description="'+value.description+'">'+
+                            '<li class="selectLi" ng-click="selectMaterial($event)" borrow_material_id="'+value.borrow_material_id+'" material_code="'+value.material_code+'" material_name="'+value.material_name+'" model="'+value.model+'" manufactor="'+value.manufactor+'" sn_num="'+value.sn_num+'" stock_number="'+value.stock_number+'">'+
                             '                        【<span class="selectName">'+value.material_code+'</span>】 '+value.material_name+'--'+value.model+'--'+value.manufactor+
                             '                        </li>';
                     });
@@ -211,17 +219,30 @@ mainStart
         //选择物料
         $scope.selectMaterial = function(e) {
             var material_code = $(e.target).attr('material_code'),
+                borrow_material_id = $(e.target).attr('borrow_material_id'),
                 material_name = $(e.target).attr('material_name'),
-                model = $(e.target).attr('model'),
-                manufactor = $(e.target).attr('manufactor'),
-                unit = $(e.target).attr('unit'),
-                description = $(e.target).attr('description');
-            /*$('.material_code').html(material_code);
+                sn_num = $(e.target).attr('sn_num'),
+                stock_number = $(e.target).attr('stock_number'),
+                model = $(e.target).attr('model');
+
+            if(sn_num == '无'||sn_num == ''){
+                $('.selectSn').hide();
+                $('.noSn_num').show();
+            }else{
+                $('.selectSn').show().attr('snNum',sn_num);
+                $('.noSn_num').hide();
+            }
+
+            $('.number').attr('max',Number(stock_number))
+
+            $('.material_code').html(material_code);
+            $('#borrow_material_id').val(borrow_material_id);
             $('.material_name').html(material_name);
             $('.model').html(model);
-            $('.number').html(number);
-            $('.sn_num').html(sn_num);
-            $('.material_code').html(material_code);*/
+
+            $('.borrowInfoUl li input').val('');
+            $('.borrowInfoUl li input.borrow_number').val(1);
+            $('.selectSn').html('选择').attr('selectedstr','');
             $('#borrowInfoModal').modal('show');
         }
 
@@ -237,13 +258,181 @@ mainStart
             }
         })
 
-        /*归还*/
-        $scope.return = function(){
-            $('#returnInfoModal').modal('show');
-        }
-
+        var selectedSnArr;
         /*选择sn号*/
         $('.selectSn').click(function(){
+            selectedSnArr = [];
+
+            if($('.borrow_number').val() == ''){
+                toastr.warning('请先选择填写数量');
+                return;
+            }
+
+            $('#borrowInfoModal [valType]').hideValidate();
+
+            var snNumArr = $(this).attr('snNum').split(',');
+            var borrow_number = $('.borrow_number').val();
+            $('.snCheckbox').empty();
+            var html = '';
+            $.each(snNumArr,function(index,value){
+                html+='<label><input type="checkbox"/> <span>'+value+'</span></label>';
+            });
+            $('.snCheckbox').append(html);
+            if($(this).html() == '修改选择'){
+                var selectedStrArr = $(this).attr('selectedstr').split(',');
+                $.each($('.snCheckbox input'),function(index,value){
+                    if($(value).next().html() == selectedStrArr[index]){
+                        $(value).attr('checked',true);
+                    }
+                });
+                $('.snCheckbox input').not(':checked').attr('disabled',true);
+            }
+
             $('#selectSnNumModal').modal('show');
         });
+
+        $('.snCheckbox').on('change','input',function(){
+            if($(this).is(':checked')){
+                if(selectedSnArr.length<$('.borrow_number').val()){
+                    selectedSnArr.push($(this).next().html());
+                    if(selectedSnArr.length==$('.borrow_number').val()){//当选中数量和申请数量相等时，将剩余选择框禁用
+                        $('.snCheckbox label>input:not(:checked)').attr('disabled',true);
+                    }
+                }
+            }else{
+                $('.snCheckbox label>input:not(:checked)').removeAttr('disabled');//移除禁用的选择框
+                selectedSnArr.splice(selectedSnArr.indexOf($(this).next().html()),1);
+            }
+        });
+
+        //确定选择sn号
+        $scope.selectOk = function(){
+            if(selectedSnArr.length == 0){
+                toastr.warning('请选择sn号');
+            }else{
+                var selectedStr = selectedSnArr.join(',');
+                $('.selectSn').attr('selectedStr',selectedStr).html('修改选择');
+                $('#selectSnNumModal').modal('hide');
+            }
+        }
+
+        //确定提交借用
+        $scope.borrowOk = function(){
+            //判断是否选择sn号
+            if($('.selectSn').is(':visible') && ($('.selectSn').html() == '选择')){
+                toastr.warning('请选择sn号');
+                return;
+            }
+
+            //验证
+            var isValidate = beforeSubmit("borrowInfoModal");
+            if(!isValidate){
+                return;
+            }
+
+            //提交物料数据
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: {
+                    action:"commitBorrowMaterial",
+                    params:{
+                        borrow_material_id:$('#borrow_material_id').val(),
+                        material_code:$('.material_code').html(),
+                        material_name:$('.material_name').html(),
+                        model:$('.model').html(),
+                        number:$('.number').val(),
+                        selectedSn:$('.selectSn').attr('selectedStr'),
+                        borrowPeople:$('#borrowPeople').val(),
+                        borrowDate:$('#borrowDate').val(),
+                        planReturnDate:$('#planReturnDate').val()
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function(data){
+                    if(data.resData.result == 0){
+                        toastr.success(data.resData.msg);
+                        borrowManageTable.ajax.reload();
+                        $('#borrowInfoModal').modal('hide');
+                        $('#borrowModal').modal('hide');
+                    }
+                }
+            });
+        }
+
+        /*归还*/
+        $(document).on('click','.returnMaterialBtn',function(){
+            var tr = $(this).closest('tr');
+            var row = borrowManageTable.row(tr);
+
+            var　borrow_material_id = $(this).attr('borrow_material_id'),
+                material_code = row.data().material_code,
+                material_name = row.data().material_name,
+                model = row.data().model,
+                number = row.data().number,
+                selectedSn = row.data().selectedSn,
+                borrowDate = row.data().borrowDate.split(' ')[0],
+                planReturnDate = row.data().planReturnDate.split(' ')[0],
+                actualReturnDate = row.data().actualReturnDate == null?'':row.data().actualReturnDate.split(' ')[0],
+                borrowPeople = row.data().borrowPeople;
+
+            selectedSn == ''? $('.sn_num').html('--'):$('.sn_num').html(selectedSn);
+
+            $('.material_code').html(material_code);
+            $('#return_material_id').val(borrow_material_id);
+            $('.material_name').html(material_name);
+            $('.model').html(model);
+            $('.number').html(number);
+            $('.borrowDate').html(borrowDate);
+            $('.planReturnDate').html(planReturnDate);
+            $('.borrowPeople').html(borrowPeople);
+
+            $('#returnInfoModal').modal('show');
+        })
+        $scope.returnOk = function(){
+            //验证
+            var isValidate = beforeSubmit("returnInfoModal");
+            if(!isValidate){
+                return;
+            }
+
+            //提交物料数据
+            $.ajax({
+                type: 'POST',
+                url: 'http://111.204.101.170:11115',
+                data: {
+                    action:"returnMaterial",
+                    params:{
+                        borrow_material_id:$('#return_material_id').val(),
+                        material_code:$('#returnInfoModal .material_code').html(),
+                        material_name:$('#returnInfoModal .material_name').html(),
+                        model:$('#returnInfoModal .model').html(),
+                        number:$('#returnInfoModal .number').html(),
+                        selectedSn:$('#returnInfoModal .sn_num').html(),
+                        borrowPeople:$('#returnInfoModal .borrowPeople').html(),
+                        borrowDate:$('#returnInfoModal .borrowDate').html(),
+                        planReturnDate:$('#returnInfoModal .planReturnDate').html(),
+                        actualReturnDate:$('#returnInfoModal .returnDate').val()
+                    }
+                },
+                dataType: 'jsonp',
+                jsonp: "callback",
+                success: function(data){
+                    if(data.resData.result == 0){
+                        toastr.success(data.resData.msg);
+                        borrowManageTable.ajax.reload();
+                        $('#returnInfoModal').modal('hide');
+                    }
+                }
+            });
+        }
+
+        $('#borrowInfoModal').on('hide.bs.modal',function(){
+            $('#borrowInfoModal [valType]').hideValidate();
+        })
+        $('#returnInfoModal').on('hide.bs.modal',function(){
+            $('#returnInfoModal [valType]').hideValidate();
+        })
+
     }]);

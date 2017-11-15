@@ -20,7 +20,6 @@
                 <table id="borrowManageTable" class="display table-striped table-bordered table-hover" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <td></td>
                         <td>物料编码</td>
                         <td>名称</td>
                         <td>型号</td>
@@ -30,7 +29,8 @@
                         <td>预计归还时间</td>
                         <td>实际归还时间</td>
                         <td>借用人</td>
-                        <td>归还人</td>
+                        <td>状态</td>
+                        <td>操作</td>
                     </tr>
                     </thead>
                 </table>
@@ -80,14 +80,15 @@
                 </div>
                 <div class="modal-body">
                     <ul class="borrowInfoUl">
+                        <input type="hidden" id="borrow_material_id"/>
                         <li>物料编码：<span class="material_code">--</span></li>
                         <li>名称：<span class="material_name">--</span></li>
                         <li>型号：<span class="model">--</span></li>
-                        <li>数量：<span class="number">--</span></li>
-                        <li>sn号：<span class="btn btn-default btn-xs selectSn">选择</span></li>
-                        <li class="inputLi">借用人：<input type="text" class="borrowPeople"/></li>
-                        <li class="dateLi">借用日期：<input type="date" class="borrowDate"/></li>
-                        <li class="dateLi">预计归还日期：<input type="date" class="planReturnDate"/></li>
+                        <li class="inputLi">数量：<input type="number" class="number borrow_number" min="1" value="1" valType msg="数量不能为空"/></li>
+                        <li>sn号：<span class="btn btn-default btn-xs selectSn" selectedStr="">选择</span></li>
+                        <li class="inputLi">借用人：<input type="text" class="borrowPeople" id="borrowPeople" valType msg="借用人不能为空"/></li>
+                        <li class="dateLi">借用日期：<input type="date" class="borrowDate" id="borrowDate" valType msg="借用日期不能为空"/></li>
+                        <li class="dateLi">预计归还日期：<input type="date" class="planReturnDate" id="planReturnDate" valType msg="预计归还日期不能为空"/></li>
                     </ul>
                 </div>
                 <div class="modal-footer">
@@ -110,14 +111,16 @@
                 </div>
                 <div class="modal-body">
                     <ul class="borrowInfoUl">
+                        <input type="hidden" id="return_material_id"/>
                         <li>物料编码：<span class="material_code">--</span></li>
                         <li>名称：<span class="material_name">--</span></li>
                         <li>型号：<span class="model">--</span></li>
                         <li>数量：<span class="number">--</span></li>
-                        <li>sn号：<span class="btn btn-default btn-xs selectSn">选择</span></li>
-                        <li class="inputLi">借用人：<span class="borrowPeople"/>--</li>
+                        <li>sn号：<!--<span class="btn btn-default btn-xs selectSn">查看</span>--><span class="sn_num">--</span></li>
+                        <li class="inputLi">借用人：<span class="borrowPeople">--</span></li>
                         <li class="dateLi">借用日期：<span class="borrowDate">--</span></li>
-                        <li class="dateLi">归还日期：<input type="date" class="planReturnDate"/></li>
+                        <li class="dateLi">预计归还日期：<span class="planReturnDate">--</span></li>
+                        <li class="dateLi">归还日期：<input type="date" class="returnDate" valType msg="归还日期不能为空"/></li>
                     </ul>
                 </div>
                 <div class="modal-footer">
