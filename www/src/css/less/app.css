@@ -789,6 +789,7 @@ body .content #labelTip {
 #chsseAddMaterialModal .modal-body {
   min-height: 50px;
   max-height: 300px;
+  overflow: auto;
 }
 /*������*/
 .checkPeopleDiv {
@@ -1829,3 +1830,4 @@ body .content #labelTip {
 .checkBody .reasonDiv textarea {
   width: 100%;
 }
+[0x7FF8BE8E2140] ANOMALY: meaningless REX prefix used
