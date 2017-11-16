@@ -138,6 +138,7 @@
 #chsseAddMaterialModal .modal-body {
   min-height: 50px;
   max-height: 300px;
+  overflow: auto;
 }
 /*������*/
 .checkPeopleDiv {
