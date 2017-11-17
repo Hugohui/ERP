@@ -13,7 +13,7 @@
                 <span id="login-uname" style="color: red;"></span>
                 <br/>
                 <input type="password" ng-model="user.pwd" name="inpPwd" id="upwd"  placeholder="请输入密码" value=""
-                       minlength="5" maxlength="16" required/><br/>
+                       minlength="6" maxlength="16" required/><br/>
         <span ng-messages="loginForm.inpPwd.$dirty&&loginForm.inpPwd.$error" id="resultPwd" style="color: red;">
             <span ng-message="required">密码不能为空</span>
             <span ng-message="minlength">密码不能少于6位</span>

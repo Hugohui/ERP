@@ -39,7 +39,8 @@ mainStart.controller('loginController',['$scope','$rootScope','$localStorage','$
 
 
         $scope.loginOk = function(){
-            if($('#uname').val()&&$('#upwd').val()&&$('#validation').attr("value") == 1){
+            var x=document.getElementById("upwd").value.length;
+            if($('#uname').val()&&$('#upwd').val()&&$('#validation').attr("value") == 1&&x>=6){
                 $scope.ajaxData = {
                     action: "erpLogin",
                     params: {

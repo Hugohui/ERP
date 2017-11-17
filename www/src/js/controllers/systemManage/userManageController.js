@@ -130,40 +130,47 @@ mainStart
         /*添加用户信息、修改用户信息*/
         $scope.okAddAndUpdata=function(){
            //添加用户
-            $scope.data = {
-                action:'addUser',
-                params:{
-                    userName: $scope.userInfo.userName,
-                    password: $scope.userInfo.password,
-                    phone:$scope.userInfo.phone,
-                    access:$scope.userInfo.access,
-                    department:$scope.userInfo.department,
-                    data_permissions:{
-                        contract_number: $("#inlineCheckbox1").is(':checked') ,
-                        unit_price: $("#inlineCheckbox2").is(':checked'),
-                        inventory_quantity: $("#inlineCheckbox3").is(':checked'),
-                        money: $("#inlineCheckbox4").is(':checked'),
-                        tax_rate: $("#inlineCheckbox5").is(':checked'),
-                        invoice: $("#inlineCheckbox6").is(':checked'),
-                        inventory_position: $("#inlineCheckbox7").is(':checked')
+            var pl=document.getElementById("userPassword").value.length;
+            if(pl>=6){
+                $scope.data = {
+                    action:'addUser',
+                    params:{
+                        userName: $scope.userInfo.userName,
+                        password: $scope.userInfo.password,
+                        phone:$scope.userInfo.phone,
+                        access:$scope.userInfo.access,
+                        department:$scope.userInfo.department,
+                        data_permissions:{
+                            contract_number: $("#inlineCheckbox1").is(':checked') ,
+                            unit_price: $("#inlineCheckbox2").is(':checked'),
+                            inventory_quantity: $("#inlineCheckbox3").is(':checked'),
+                            money: $("#inlineCheckbox4").is(':checked'),
+                            tax_rate: $("#inlineCheckbox5").is(':checked'),
+                            invoice: $("#inlineCheckbox6").is(':checked'),
+                            inventory_position: $("#inlineCheckbox7").is(':checked')
+                        }
                     }
                 }
+                $.ajax({
+                    type:'POST',
+                    url:'http://111.204.101.170:11115',
+                    data:$scope.data,
+                    dataType: 'jsonp',
+                    jsonp : "callback",
+                    jsonpCallback:"success_jsonpCallback",
+                    success:function(data){
+                        console.log(data);
+                        userTable.ajax.reload();
+                        $(".modal-body input").val("");
+                        $(".modal-body select").val("");
+                        $('input:checkbox').removeAttr('checked');
+                        $("#myModal").modal('hide');
+                    }
+                })
+            }else{
+
             }
-            $.ajax({
-                type:'POST',
-                url:'http://111.204.101.170:11115',
-                data:$scope.data,
-                dataType: 'jsonp',
-                jsonp : "callback",
-                jsonpCallback:"success_jsonpCallback",
-                success:function(data){
-                    console.log(data);
-                    userTable.ajax.reload();
-                    $(".modal-body input").val("");
-                    $(".modal-body select").val("");
-                    $('input:checkbox').removeAttr('checked');
-                }
-            })
+
         };
 
         //修改用户
