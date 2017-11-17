@@ -230,6 +230,12 @@ mainStart
                             "orderable": false
                         }
                     ],
+                    "fnDrawCallback": function(){
+                        this.api().column(0).nodes().each(function(cell, i) {
+                            console.log(supplierInfoTable.page.info());
+                            cell.innerHTML =  supplierInfoTable.page.info().start+i + 1;
+                        });
+                    },
                     ajax: function (data, callback, settings) {
                         var param = {};
                         param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
@@ -258,6 +264,9 @@ mainStart
                     },
                     //列表表头字段
                     columns: [
+                        {
+                            "data": null
+                        },
                         {
                             "data": "supplier_num"
                         },
@@ -380,6 +389,12 @@ mainStart
                             "orderable": false
                         }
                     ],
+                    "fnDrawCallback": function(){
+                        this.api().column(0).nodes().each(function(cell, i) {
+                            console.log(projectInfoTable.page.info());
+                            cell.innerHTML =  projectInfoTable.page.info().start+i + 1;
+                        });
+                    },
                     ajax: function (data, callback, settings) {
                         var param = {};
                         param.limit = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
@@ -408,6 +423,9 @@ mainStart
                     },
                     //列表表头字段
                     columns: [
+                        {
+                            "data": null
+                        },
                         {
                             "data": "project_num"
                         },
