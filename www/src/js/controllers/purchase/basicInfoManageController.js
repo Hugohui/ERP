@@ -51,7 +51,6 @@ mainStart
                     ],
                     "fnDrawCallback": function(){
                          this.api().column(0).nodes().each(function(cell, i) {
-                             console.log(materialInfoTable.page.info());
                             cell.innerHTML =  materialInfoTable.page.info().start+i + 1;
                          });
                     },
@@ -142,12 +141,12 @@ mainStart
                 return;
             }
             var materialInfo = {
-                material_name:$('.material_name').val(),
-                material_code:$('.material_code').val(),
-                model:$('.model').val(),
-                unit:$('.unit').val(),
-                manufactor:$('.manufactor').val(),
-                description:$('.description').val()
+                material_name: $.trim($('.material_name').val()),
+                material_code: $.trim($('.material_code').val()),
+                model:$.trim($('.model').val()),
+                unit:$.trim($('.unit').val()),
+                manufactor:$.trim($('.manufactor').val()),
+                description:$.trim($('.description').val())
             }
             $.ajax({
                 type: 'POST',
@@ -176,6 +175,12 @@ mainStart
 
         //删除物料信息
         $(document).on('click','.deleteMaterialInfo',function(){
+
+            if($('#deleteMaterialInfo').html() == '保存'){
+                toastr.warning('请先完成修改！');
+                return;
+            }
+
             //清除已有的验证提示信息
             $('#basicInfoManage [valType]').hideValidate();
             $('#deleteModal').modal('show');
@@ -232,7 +237,6 @@ mainStart
                     ],
                     "fnDrawCallback": function(){
                         this.api().column(0).nodes().each(function(cell, i) {
-                            console.log(supplierInfoTable.page.info());
                             cell.innerHTML =  supplierInfoTable.page.info().start+i + 1;
                         });
                     },
@@ -306,10 +310,10 @@ mainStart
                 return;
             }
             var supplierInfo = {
-                supplier_num:$('.supplier_num').val(),
-                supplier_name:$('.supplier_name').val(),
-                contact:$('.contact').val(),
-                phone:$('.phone').val()
+                supplier_num: $.trim($('.supplier_num').val()),
+                supplier_name: $.trim($('.supplier_name').val()),
+                contact:$.trim($('.contact').val()),
+                phone:$.trim($('.phone').val())
             }
 
             $.ajax({
@@ -335,6 +339,10 @@ mainStart
 
         //删除
         $(document).on('click','.deleteSupplierInfo',function(){
+            if($('#deleteSupplierInfo').html() == '保存'){
+                toastr.warning('请先完成修改！');
+                return;
+            }
             //清除已有的验证提示信息
             $('#basicInfoManage [valType]').hideValidate();
             $('#deleteModal').modal('show');
@@ -391,7 +399,6 @@ mainStart
                     ],
                     "fnDrawCallback": function(){
                         this.api().column(0).nodes().each(function(cell, i) {
-                            console.log(projectInfoTable.page.info());
                             cell.innerHTML =  projectInfoTable.page.info().start+i + 1;
                         });
                     },
@@ -465,10 +472,10 @@ mainStart
                 return;
             }
             var projectInfo = {
-                project_num:$('.project_num').val(),
-                project_name:$('.project_name').val(),
-                responsibility:$('.responsibility').val(),
-                description:$('.projectDescription').val()
+                project_num:$.trim($('.project_num').val()),
+                project_name:$.trim($('.project_name').val()),
+                responsibility:$.trim($('.responsibility').val()),
+                description:$.trim($('.projectDescription').val())
             }
 
             $.ajax({
@@ -494,6 +501,10 @@ mainStart
 
         //删除
         $(document).on('click','.deleteProjectInfo',function(){
+            if($('#project').html() == '保存'){
+                toastr.warning('请先完成修改！');
+                return;
+            }
             //清除已有的验证提示信息
             $('#basicInfoManage [valType]').hideValidate();
             $('#deleteModal').modal('show');
