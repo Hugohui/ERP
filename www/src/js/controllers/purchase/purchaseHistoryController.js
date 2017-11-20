@@ -163,7 +163,7 @@ mainStart
                 trStr += '<tr>' +
                     '<td>' + value.material_name + '</td>' +
                     '<td>' + value.model + '</td>' +
-                    '<td>' + value.sn_num + '</td>' +
+                    //'<td>' + value.sn_num + '</td>' +
                     '<td>' + value.project_num + '</td>' +
                     '<td>' + value.number + '</td>' +
                     '<td>' + value.expected_date + '</td>' +
@@ -175,7 +175,7 @@ mainStart
                 '<tr>' +
                 '<td>名称</td>' +
                 '<td>型号</td>' +
-                '<td>sn号</td>' +
+                //'<td>sn号</td>' +
                 '<td>项目号</td>' +
                 '<td>数量</td>' +
                 '<td>申请日期</td>' +

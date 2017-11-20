@@ -922,13 +922,13 @@ body .content #labelTip {
 .purchaseTrackBody .purchaseLine .canclePurchase {
   position: absolute;
   top: 2px;
-  left: 200px;
+  left: 215px;
   color: #333;
 }
 .purchaseTrackBody .purchaseLine .alreadyCancle {
   position: absolute;
   top: 0;
-  left: 200px;
+  left: 215px;
   background-color: #f05050;
   padding: 0 3px;
   border-radius: 3px;
