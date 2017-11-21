@@ -97,6 +97,13 @@ mainStart
                         }
                     },
                     {
+                        "data": "created_on",
+                        "sClass": "text-center",
+                        "render":function(data){
+                            return data.split(' ')[0];
+                        }
+                    },
+                    {
                         "data": "applicant",
                         "sClass": "text-center"
                     },
@@ -166,7 +173,7 @@ mainStart
                     //'<td>' + value.sn_num + '</td>' +
                     '<td>' + value.project_num + '</td>' +
                     '<td>' + value.number + '</td>' +
-                    '<td>' + value.expected_date + '</td>' +
+                    //'<td>' + value.expected_date + '</td>' +
                     '<td>' + arrived_on + '</td>' +
                     '<td>' + status + '</td>' +
                     '</tr>';
@@ -178,7 +185,7 @@ mainStart
                 //'<td>sn号</td>' +
                 '<td>项目号</td>' +
                 '<td>数量</td>' +
-                '<td>申请日期</td>' +
+                //'<td>申请日期</td>' +
                 '<td>到货日期</td>' +
                 '<td>状态</td>' +
                 '</tr>' + trStr +
