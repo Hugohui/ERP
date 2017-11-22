@@ -59,18 +59,21 @@
                                 <li><s class="fa fa-asterisk redText"></s>物料编码</li>
                                 <li><s class="fa fa-asterisk redText"></s>名称</li>
                                 <li><s class="fa fa-asterisk redText"></s>型号</li>
+                                <li>sn号</li>
+                                <li><s class="fa fa-asterisk redText"></s>项目号</li>
                                 <li>供应商编号</li>
                                 <li>供应商名称</li>
                                 <li>单位</li>
+                                <li><s class="fa fa-asterisk redText"></s>数量</li>
                                 <li>单价</li>
                                 <li>品牌</li>
                                 <li>厂家</li>
-                                <li>备注</li>
+                                <li><s class="fa fa-asterisk redText"></s>库存位置</li>
                             </ul>
-                            <div class="materialListDiv clearfix">
+<!--                            <div class="materialListDiv clearfix">
                                 <span class="deleteMaterial" ng-click="deleteMaterialLine($event)">×</span>
                                 <div>
-                                    <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
+                                    <input type="text" class="material_code" name="materialCode" valType msg="请输入物料编码"/>
                                 </div>
                                 <div>
                                     <input type="text" class="material_name" name="materialName" valType msg="请输入名称"/>
@@ -78,12 +81,15 @@
                                 <div><input type="text" class="model" name="model" valType msg="型号不能为空"/></div>
                                 <div><input type="text" class="sn_num" name="sn_num"/></div>
                                 <div><input type="text" class="project_num" name="project_num"/></div>
+                                <div><input type="text" class="supplier_num" name="supplier_num"/></div>
+                                <div><input type="text" class="supplier" name="supplier"/></div>
                                 <div><input type="text" class="unit" name="unit"/></div>
-                                <div><input type="text" class="" name="name"/></div>
-                                <div><input type="text" class="" name="name"/></div>
-                                <div><input type="text" class="" name="name"/></div>
-                                <div><input type="text" class="remark" name="name"/></div>
-                            </div>
+                                <div><input type="text" class="stock_number" name="stock_number"/></div>
+                                <div><input type="text" class="unit_price" name="unit_price"/></div>
+                                <div><input type="text" class="brand" name="brand"/></div>
+                                <div><input type="text" class="manufactor" name="manufactor"/></div>
+                                <div><input type="text" class="stock_position" name="stock_position"/></div>
+                            </div>-->
                             <div class="addMaterialListDiv clearfix" ng-click="addMaterialLine($event)">
                                 <span class="fa fa-plus"></span>
                             </div>
@@ -93,6 +99,34 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     <button type="button" class="btn btn-primary" ng-click="inputOk()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--添加物料模态框-->
+    <div class="modal fade" id="chsseAddMaterialModal" tabindex="-1" role="dialog" aria-labelledby="chsseAddMaterialModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chsseAddMaterialModalLabel">选择物料</h5>
+                    <div class="searchGroup">
+                        <input type="text" placeholder="物料名称" id="queryInput"/>
+                        <a href="javascript:;" class="btn btn-primary btn-sm search" ng-click="searchMaterial()"><i class="fa fa-search"></i></a>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modalLoading">
+                        <img src="./imgs/loading.gif" alt="" width="40"/>
+                    </div>
+                    <ul class="selectCheckUl">
+                        <li class="selectLi" ng-click="selectMaterial($event)">
+                            【<span class="selectName">DN001</span>】 电脑--thinkPad--智行者制造
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1232,6 +1232,7 @@ body .content #labelTip {
 }
 #inputInfoModal .modal-dialog {
   width: 1330px;
+  max-height: 550px;
 }
 #inputInfoModal .modal-dialog .inputInfoDiv {
   min-height: 50px;
