@@ -167,6 +167,9 @@ a select {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
+table td {
+  word-wrap: break-word;
+}
 abbr[title],
 acronym[title] {
   border-bottom: 1px dotted;

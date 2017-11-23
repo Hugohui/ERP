@@ -377,7 +377,7 @@ mainStart
                         model:$.trim($(data).find('.model').val()),
                         sn_num:$.trim($(data).find('.sn_num').val()),
                         project_num:$.trim($(data).find('.projectNumDiv input').val()),
-                        supplier_num:$.trim$(data).find('.supplier_num').val()(),
+                        supplier_num:$.trim($(data).find('.supplier_num').val()),
                         supplier:$.trim($(data).find('.supplier').val()),
                         unit:$.trim($(data).find('.unit').val()),
                         stock_number:$.trim($(data).find('.stock_number').val()),
@@ -411,6 +411,8 @@ mainStart
                         $('#inputInfoModal').modal('hide');
                         $('#inputInfoModal .materialListDiv').remove();
                         depotRequestTable.ajax.reload();
+                    }else{
+                        toastr.error(data.resData.msg);
                     }
                 }
             });
