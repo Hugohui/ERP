@@ -162,7 +162,7 @@ mainStart
         })
 
         /*采购订单指派*/
-        $(document).on('click','.assign',function(){
+        $(".purchaseCheckBody").off("click").on('click','.assign',function(){
             $('#choseAssignModal .modal-body').empty();
 
             //获取被指派人列表
