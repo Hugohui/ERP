@@ -323,6 +323,7 @@ mainStart
 
             $('.projectNumDiv input').attr('valType',' ');
             $('.projectNumDiv input').attr('msg','项目号不能为空');
+            $('.projectNumDiv input').attr('value','public');
 
             //清除已有的验证提示信息
             $('#inputInfoModal [valType]').hideValidate();
@@ -371,19 +372,19 @@ mainStart
                 }
                 $scope.materialListArr.push(
                     {
-                        material_code:$(data).find('.material_code').val(),
-                        material_name:$(data).find('.material_name').val(),
-                        model:$(data).find('.model').val(),
-                        sn_num:$(data).find('.sn_num').val(),
-                        project_num:$(data).find('.projectNumDiv input').val(),
-                        supplier_num:$(data).find('.supplier_num').val(),
-                        supplier:$(data).find('.supplier').val(),
-                        unit:$(data).find('.unit').val(),
-                        stock_number:$(data).find('.stock_number').val(),
-                        unit_price:$(data).find('.unit_price').val(),
-                        brand:$(data).find('.brand').val(),
-                        manufactor:$(data).find('.manufactor').val(),
-                        stock_position:$(data).find('.stock_position').val()
+                        material_code: $.trim($(data).find('.material_code').val()),
+                        material_name:$.trim($(data).find('.material_name').val()),
+                        model:$.trim($(data).find('.model').val()),
+                        sn_num:$.trim($(data).find('.sn_num').val()),
+                        project_num:$.trim($(data).find('.projectNumDiv input').val()),
+                        supplier_num:$.trim$(data).find('.supplier_num').val()(),
+                        supplier:$.trim($(data).find('.supplier').val()),
+                        unit:$.trim($(data).find('.unit').val()),
+                        stock_number:$.trim($(data).find('.stock_number').val()),
+                        unit_price:$.trim($(data).find('.unit_price').val()),
+                        brand:$.trim($(data).find('.brand').val()),
+                        manufactor:$.trim($(data).find('.manufactor').val()),
+                        stock_position:$.trim($(data).find('.stock_position').val())
                     }
                 );
             });
@@ -408,6 +409,7 @@ mainStart
                     if(data.resData.result == 0){
                         toastr.success('录入成功！');
                         $('#inputInfoModal').modal('hide');
+                        $('#inputInfoModal .materialListDiv').remove();
                         depotRequestTable.ajax.reload();
                     }
                 }
