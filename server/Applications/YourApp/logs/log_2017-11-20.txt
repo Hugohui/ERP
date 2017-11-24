@@ -1,0 +1,94 @@
+[2017-11-20 16:47:16.402832] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-20 16:53:15.892826] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-20 17:41:42.839529] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-20 18:12:44.815560] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-20 18:13:20.244724] [info] erpLogin
+    userName: '霍舒豪'
+    password: '123456'
+[2017-11-20 18:14:20.694416] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-20 18:24:50.810128] [info] erpLogin
+    userName: '马江涛'
+    password: '123456'
+[2017-11-20 18:28:55.828283] [info] erpLogin
+    userName: '马江涛'
+    password: '123456'
+[2017-11-20 18:31:59.065965] [info] erpLogin
+    userName: '霍舒豪'
+    password: '123456'
+[2017-11-20 18:33:55.828835] [info] erpLogin
+    userName: '张智丰'
+    password: 'zhangzhifeng'
+[2017-11-21 8:30:21.289132] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-21 9:21:23.625930] [info] erpLogin
+    userName: '张智丰'
+    password: 'zhangzhifeng'
+[2017-11-21 9:31:48.779680] [info] erpLogin
+    userName: '马江涛'
+    password: '123456'
+[2017-11-21 11:14:36.631211] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-21 11:36:48.685364] [info] erpLogin
+    userName: '马江涛'
+    password: '123456'
+[2017-11-21 11:42:53.513880] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-21 15:06:26.084968] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-22 16:43:02.905492] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-22 16:46:56.418107] [info] erpLogin
+    userName: '姚威'
+    password: 'yaowei'
+[2017-11-22 16:47:48.420093] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-22 16:48:43.394124] [error] addUser params
+    userName: '王乐'
+    password: 'wangle'
+    phone: '15210610597'
+    access: '5'
+    department: '无'
+    data_permissions: array(
+        'contract_number' => 'false',
+        'unit_price' => 'false',
+        'inventory_quantity' => 'false',
+        'money' => 'false',
+        'tax_rate' => 'false',
+        'invoice' => 'false',
+        'inventory_position' => 'false',
+    )
+[2017-11-22 16:48:43.394370] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '王乐' for key 'uq_username'
+[2017-11-22 16:49:45.944890] [info] erpLogin
+    userName: '王乐'
+    password: 'wangle'
+[2017-11-22 16:57:10.027460] [info] erpLogin
+    userName: '姚威'
+    password: 'yaowei'
+[2017-11-22 16:58:53.211337] [info] erpLogin
+    userName: '姚威'
+    password: 'yaowei'
+[2017-11-22 17:04:23.706270] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-22 17:13:15.473772] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-22 17:14:59.399393] [info] erpLogin
+    userName: '姚威'
+    password: 'yaowei'

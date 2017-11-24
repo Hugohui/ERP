@@ -1,0 +1,151 @@
+[2017-11-17 10:03:54.659611] [info] erpLogin
+    userName: '马江涛'
+    password: '1'
+[2017-11-17 10:04:04.281723] [info] erpLogin
+    userName: 'admin'
+    password: 'admin'
+[2017-11-17 10:06:32.462915] [info] erpLogin
+    userName: '霍舒豪'
+    password: '1'
+[2017-11-17 10:21:03.778054] [info] erpLogin
+    userName: '霍舒豪'
+    password: '1'
+[2017-11-17 10:28:56.854057] [info] erpLogin
+    userName: '张德兆'
+    password: '1'
+[2017-11-17 10:31:00.868992] [info] erpLogin
+    userName: '霍舒豪'
+    password: '1'
+[2017-11-17 10:31:28.614667] [info] erpLogin
+    userName: '张德兆'
+    password: '1'
+[2017-11-17 10:41:55.608608] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 10:42:53.405733] [info] erpLogin
+    userName: '姚威'
+    password: 'yaowei'
+[2017-11-17 10:45:29.605778] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 10:50:19.325395] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 10:55:22.993124] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 10:58:59.808332] [info] erpLogin
+    userName: '罗茜萍'
+    password: 'luoxiping'
+[2017-11-17 11:05:00.139018] [error] addUser params
+    userName: 'q'q'q'q'
+    password: 'q'q'q'q'a's'da'
+    data_permissions: array(
+        'contract_number' => 'false',
+        'unit_price' => 'false',
+        'inventory_quantity' => 'false',
+        'money' => 'false',
+        'tax_rate' => 'false',
+        'invoice' => 'false',
+        'inventory_position' => 'false',
+    )
+[2017-11-17 11:05:00.139229] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'uq_phone'
+[2017-11-17 11:09:43.559000] [error] addUser params
+    userName: '111111'
+    password: '11111111'
+    data_permissions: array(
+        'contract_number' => 'false',
+        'unit_price' => 'false',
+        'inventory_quantity' => 'false',
+        'money' => 'false',
+        'tax_rate' => 'false',
+        'invoice' => 'false',
+        'inventory_position' => 'false',
+    )
+[2017-11-17 11:09:43.559261] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'uq_phone'
+[2017-11-17 11:10:52.508085] [error] addUser params
+    userName: '1231231'
+    password: '2123123'
+    data_permissions: array(
+        'contract_number' => 'false',
+        'unit_price' => 'false',
+        'inventory_quantity' => 'false',
+        'money' => 'false',
+        'tax_rate' => 'false',
+        'invoice' => 'false',
+        'inventory_position' => 'false',
+    )
+[2017-11-17 11:10:52.508307] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'uq_phone'
+[2017-11-17 11:11:04.051975] [error] addUser params
+    userName: '44444'
+    password: '444444'
+    data_permissions: array(
+        'contract_number' => 'false',
+        'unit_price' => 'false',
+        'inventory_quantity' => 'false',
+        'money' => 'false',
+        'tax_rate' => 'false',
+        'invoice' => 'false',
+        'inventory_position' => 'false',
+    )
+[2017-11-17 11:11:04.052223] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'uq_phone'
+[2017-11-17 11:11:39.546335] [error] addUser params
+    userName: 'admin132132'
+    password: '12312312'
+    data_permissions: array(
+        'contract_number' => 'false',
+        'unit_price' => 'false',
+        'inventory_quantity' => 'false',
+        'money' => 'false',
+        'tax_rate' => 'false',
+        'invoice' => 'false',
+        'inventory_position' => 'false',
+    )
+[2017-11-17 11:11:39.546602] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'uq_phone'
+[2017-11-17 11:13:24.901010] [error] addMaterialInfo params
+    material_name: '300M无线路由器'
+    material_code: '	X02000006'
+    model: '	TL-WR842N'
+    unit: '个'
+    manufactor: '	Tplink'
+    description: ''
+[2017-11-17 11:13:24.901443] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '	X02000006' for key 'uq_material_code'
+[2017-11-17 11:43:21.836639] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 14:02:24.141753] [info] erpLogin
+    userName: '张智丰'
+    password: 'zhangzhifeng'
+[2017-11-17 17:22:33.681909] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 17:28:22.016608] [error] addMaterialInfo params
+    material_name: '内存条'
+    material_code: 'X02000019'
+    model: 'FuryDDR4'
+    unit: 'fda'
+    manufactor: 'da'
+    description: ''
+[2017-11-17 17:28:22.016818] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'FuryDDR4' for key 'uq_model'
+[2017-11-17 17:34:13.412911] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
+[2017-11-17 18:08:44.039227] [error] addMaterialInfo params
+    material_name: 'dd'
+    material_code: 'dd   dd'
+    model: 'dd'
+    unit: 'fa'
+    manufactor: 'da'
+    description: ''
+[2017-11-17 18:08:44.039448] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'dd' for key 'uq_model'
+[2017-11-17 18:08:48.142621] [error] addMaterialInfo params
+    material_name: 'dd'
+    material_code: 'dd   dd'
+    model: 'dd'
+    unit: 'fa'
+    manufactor: 'da'
+    description: ''
+[2017-11-17 18:08:48.142853] [error] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'dd' for key 'uq_model'
+[2017-11-17 18:12:30.458951] [info] erpLogin
+    userName: 'admin'
+    password: 'admin123'
