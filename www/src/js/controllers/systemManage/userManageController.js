@@ -215,7 +215,8 @@ mainStart
                     success:function(data){
                         userTable.ajax.reload();
                         userArr.splice(0, userArr.length);
-                        btnIsShow(userArr)
+                        btnIsShow(userArr);
+                        $("#myModal").modal('hide');
                     }
                 })
             }
